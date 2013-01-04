@@ -23,7 +23,7 @@ url: http://www.danklco.com/
 auto: true
 
 # Makes pretty (descriptive) permalinks. See Jekyll docs for alternatives.
-permalink: pretty
+permalink: /archive/:year/:month/:day/:title/
 
-# Exclude the sarah folder so it doesn't wipe the content there
-exclude: ['sarah']
+# Save the results to the httpd server
+destination: /var/www/html
