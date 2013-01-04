@@ -1,0 +1,19 @@
+---
+layout: default
+title: Archive
+---
+<p>
+	Recently, when using Vault to connect to an Integration server, I started getting an the following error when Vault tried to connect.
+</p>
+<p>
+		[ERROR] import: java.lang.IllegalArgumentException: Workspace missmatch.
+</p>
+<p>
+	The error, besides being misspelled, was not terribly helpful, but eventually I figured out when using Vault to connect to a repository
+	running on port 80, you should not specify the port.&nbsp; Normally, when you you use Vault, you specity the port the server is running on 
+	as part of the url, for example: http://localhost:4502/crx/server, however with port 80 this causes an error.
+</p>
+<p>
+	For those not familiar, Vault is a tool provided by Adobe for connecting
+	to CQ and CRX repositories.&nbsp; You can read more about it <a href="http://dev.day.com/docs/en/cq/current/developing/developmenttools/developing_with_eclipse.html#Installing%20FileVault%20%28VLT%29" target="_blank">here</a>.
+</p>
