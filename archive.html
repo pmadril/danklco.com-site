@@ -4,17 +4,17 @@ title: Archive
 ---
 <div id="post">
 	<h2>Archive</h2>
-
-    <div class="entry">
-        <table border=0>
-            {% for post in site.posts %}
-            <tr>
-                <td>&bull; &nbsp;<span class="date">{{ post.date | date_to_string }}</span></td>  
-                <td><a href="{{site.baseurl}}{{ post.url }}">{{ post.title }}</a></td>
-                <td><span class="category"><small>{{post.categories | category_links}}</small></span></td>
-            </tr>
-    		{% endfor %}
-        </table>
-    </div>
-
+	<p>
+		An archive of posts which are no longer hosted at their original location.
+	</p>
+	<div class="archive">
+		{% for post in site.posts %}
+			<div class="three columns">
+				<em>{{ post.date | date_to_string }}</em>
+			</div>
+			<div class="eight columns">
+				<a href="{{site.baseurl}}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+			</div>
+   		{% endfor %}
+	</div>
 </div>
