@@ -27,3 +27,6 @@ permalink: /:year/:month/:day/:title/
 
 # Save the results to the httpd server
 destination: /var/www/html
+
+# Exclude system files
+exclude: [.gitignore, update.sh]
