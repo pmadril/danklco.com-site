@@ -22,4 +22,4 @@ Header set Cache-Control "max-age=43200"
 Options All -Indexes
 
 # set the error page
-ErrorDocument 404 /404/index.html
+ErrorDocument 404 /404.html
