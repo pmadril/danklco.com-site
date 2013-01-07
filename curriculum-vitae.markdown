@@ -32,11 +32,6 @@ _Real Estate Clerk_
 
 ### Project Experience
 
-#####  Genworth Financial - 07/2012 - Present - WCMS Migration/Implementation
-_Role:  Technical Lead_  
-Managed the migration of Genworth's corporate websites  
-Tools Used: Adobe CQ, Java, RESTful Web Services
-
 #####  Apache Sling - 09/2012 - Present - Open Source Contribution
 _Role:  Contributor_  
 Contributed documentation, testing code, and features.   
