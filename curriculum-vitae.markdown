@@ -136,7 +136,8 @@ __Technology Platforms:__
 * Apache, IIS, Tomcat, Weblogic, JBoss
 
 ### Education
-_2004-2007 - University of Dayton - Dayton, OH_
+
+#####  2004-2007 - University of Dayton - Dayton, OH
 
 * Graduated with Honors.
 * Majored in Political Science with a minor in Computer Information Systems.
