@@ -46,7 +46,7 @@ Created custom implementation of Adobe CQ for AAU to manage their course content
 Tools Used: Adobe CQ, Java, RESTful Web Services
 
 ### CQ Deploy Plugin - 04/2012 - Present - Open Source Project
-_Role:  Developer   
+_Role:  Developer_  
 Created a plugin for deploying Adobe CQ packages and bundles.    
 Tools Used: Maven Plugin, Java
 
