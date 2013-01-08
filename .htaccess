@@ -5,7 +5,7 @@ RewriteRule ^(.*)$ http://www.%{HTTP_HOST}/$1 [R=301,L]
 
 # Redirect /sarah to sarah.danklco.com
 RewriteCond %{REQUEST_URI} ^/sarah\/?
-RewriteRule (.*) http://sarah.danklco.com/$1 [R=301,L]
+RewriteRule (.*) http://sarah.danklco.com/ [R=301,L]
 
 # cache images and flash content for one month
 <FilesMatch ".(flv|gif|jpg|jpeg|png|ico|swf)$">
