@@ -73,6 +73,7 @@ hr.large {
 	background-image:url('/images/icon-sprites.png');
 	width: 48px;
 	height: 48px;
+	display: inline-block;
 }
 
 #Linkedin{
