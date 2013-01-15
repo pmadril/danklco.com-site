@@ -86,6 +86,21 @@ hr.large {
 	height: 142px;
 }
 
+.tweet_list {
+    background-color: #F7F7F7;
+    border: 1px solid #EBEBEB;
+    border-radius: 2px;
+    font-size: x-small;
+    margin-right: 10px;
+    padding: 2px;
+}
+
+.tweet_list li {
+    background-color: white;
+    border: 1px solid silver;
+    padding: 2px;
+}
+
 #Twitter{
 	background-position: -200px 0;
 }
@@ -114,6 +129,10 @@ hr.large {
 		padding-left: 5px;
 		padding-right: 5px;
 	}
+		
+	.tweet_list {
+	    margin-right: 0px;
+	}
 }
 
 /* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
@@ -121,6 +140,10 @@ hr.large {
 	.container .column>*,.container .columns>* {
 		padding-left: 2px;
 		padding-right: 2px;
+	}
+		
+	.tweet_list {
+	    margin-right: 0px;
 	}
 }
 

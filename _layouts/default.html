@@ -17,14 +17,11 @@
 		<script type="text/javascript" src="/js/jquery.tweet.js"></script>
 		<script type="text/javascript">
 			jQuery(function($){
-		        $("#tweets").tweet({
-		            join_text: "auto",
-		            avatar_size: 32,
-		            username: "klcodanr",
-		            count: 5,
-		            loading_text: "loading tweets..."
-		        });
-		    });
+				$(".tweets").tweet({
+					username: "klcodanr",
+					count: 3
+				});
+			});
 			var _gaq = _gaq || [];
 			_gaq.push(['_setAccount', 'UA-37209568-1']);
 			_gaq.push(['_trackPageview']);
@@ -37,7 +34,7 @@
 	</head>
 	<body>
 		<div class="container">
-			<div class="three columns sidebar">
+			<div class="four columns sidebar">
 				<nav>
 					<h3>Projects, etc</h3>
 					<ul>
@@ -51,11 +48,12 @@
 						<li><a href="http://sling.apache.org">Apache Sling <em>(Contributor)</em></a></li>
 					</ul>
 				</nav>
-				<div id="tweets" style="display:none">
+				<div id="tweets">
+					<h3>Recent Tweets</h3>
 				</div>
 				&nbsp;
 			</div>
-			<div class="twelve columns offset-by-one content">
+			<div class="twelve columns content">
 				{{ content }}
 			</div>
 			<div style="clear:both"></div>
