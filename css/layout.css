@@ -153,6 +153,10 @@ hr.large {
 		border-bottom-right-radius: 5px;
 	}
 	
+	hr.large {
+		background-color: silver;
+	}
+	
 	.tweet_list {
 	    background-color: #F7F7F7;
 	    border: 1px solid #EBEBEB;
