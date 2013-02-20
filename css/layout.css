@@ -17,8 +17,11 @@
 /* #Site Styles
 ================================================== */
 body {
-	background-color: #F7F7F7;
-	background-image: url("/images/debut_light.png");
+	background-image:url('/images/typewriter.jpg');
+	background-repeat:no-repeat;
+	background-attachment:fixed;
+	background-position:bottom; 
+	background-color: white;
 }
 
 .content ul {
@@ -31,13 +34,13 @@ body {
 }
 
 div.container {
+	background-image: url("/images/eggshell.jpg");
+	border-radius: 0px;
+	border: none;
+	margin-top: 20px;
+	margin-bottom: 40px;
 	padding-top: 40px;
-	background-color: white;
-	border: 1px solid #EBEBEB;
-	border-top: none;
-	margin-bottom: 20px;
-	border-bottom-left-radius: 10px;
-	border-bottom-right-radius: 10px;
+	box-shadow: 0px -5px 5px grey;
 }
 
 #Facebook{
@@ -45,12 +48,10 @@ div.container {
 }
 
 footer {
-	background-color: #EBEBEB;
+	border-top: 1px solid silver;
 	padding: 10px;
 	text-align: center;
 	margin-top: 10px;
-	border-bottom-left-radius: 10px;
-	border-bottom-right-radius: 10px;
 }
 
 #Github{
@@ -118,10 +119,38 @@ hr.large {
 
 /* Tablet Portrait size to standard 960 (devices and browsers) */
 @media only screen and (min-width: 768px) and (max-width: 959px) {
+	body {
+		background-image:url('/images/typewriter-medium.jpg');
+	}
 }
 
 /* All Mobile Sizes (devices and browser) */
 @media only screen and (max-width: 767px) {
+	body {
+		background-color: #F7F7F7;
+		background-image: url("/images/debut_light.png");
+		background-repeat:repeat;
+		background-attachment:fixed;
+		background-position:center; 
+	}
+	
+	div.container {
+		background-image: none;
+		background-color: white;
+		border-bottom-right-radius: 5px;
+		border-bottom-right-radius: 5px;
+		border: 1px solid #EBEBEB;
+		margin-top: 0px;
+		margin-bottom: 20px;
+		padding-top: 40px;
+		box-shadow: none;
+	}
+	
+	footer {
+		background-color: #EBEBEB;
+		border-bottom-right-radius: 5px;
+		border-bottom-right-radius: 5px;
+	}
 }
 
 /* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
