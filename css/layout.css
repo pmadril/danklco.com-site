@@ -48,7 +48,7 @@ div.container {
 }
 
 footer {
-	border-top: 1px solid silver;
+	border-top: 1px solid #9B6F48;
 	padding: 10px;
 	text-align: center;
 	margin-top: 10px;
@@ -63,7 +63,7 @@ footer {
 }
 
 hr.large {
-	background: none repeat scroll 0 0 #EBEBEB;
+	background: none repeat scroll 0 0 #9B6F48;
 	border: medium none;
 	height: 8px;
 	margin: 50px 0;
@@ -88,8 +88,8 @@ hr.large {
 }
 
 .tweet_list {
-    background-color: #F7F7F7;
-    border: 1px solid #EBEBEB;
+    background-color: #EFE5DC;
+    border: 1px solid #9B6F48;
     border-radius: 2px;
     font-size: x-small;
     margin-right: 10px;
@@ -97,8 +97,8 @@ hr.large {
 }
 
 .tweet_list li {
-    background-color: white;
-    border: 1px solid silver;
+    background-color: #EFE5DC;
+    border: 1px solid #9B6F48;
     padding: 2px;
     overflow: hidden;
 }
@@ -147,9 +147,20 @@ hr.large {
 	}
 	
 	footer {
+		border-top: 1px solid silver;
 		background-color: #EBEBEB;
 		border-bottom-right-radius: 5px;
 		border-bottom-right-radius: 5px;
+	}
+	
+	.tweet_list {
+	    background-color: #F7F7F7;
+	    border: 1px solid #EBEBEB;
+	}
+	
+	.tweet_list li {
+	    background-color: white;
+	    border: 1px solid silver;
 	}
 }
 
