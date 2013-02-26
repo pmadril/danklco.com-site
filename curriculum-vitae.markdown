@@ -32,6 +32,11 @@ _Real Estate Clerk_
 
 ### Project Experience
 
+#####  Insurance Institution - 08/2012 - Present - WCM Implementation
+_Role:  Technical Lead_  
+Customized CQ5 for the client's WCM implementation.  Included DAM customization, component and feature development and technical leadership.
+Tools Used: Adobe CQ, Java, JSP, Apache Maven
+
 #####  Apache Sling - 09/2012 - Present - Open Source Contribution
 _Role:  Contributor_  
 Contributed documentation, testing code, and features.   
@@ -52,7 +57,7 @@ _Role:  Developer_
 Helped migrate Cooper Industries' corporate websites from Adobe CQ 5.3 to Adobe CQ 5.4.  Included technical guidance, component and feature development.   
 Tools Used: Adobe CQ, Java, Apache Maven
 
-#####  6DLabs - 04/2012 - WCMS Implementation
+#####  6DLabs - 04/2012 - Present - WCMS Implementation
 _Role:  Developer_  
 Created a blog and website for distributing technology focused content.  
 Tools Used: PHP, Drupal
@@ -129,7 +134,7 @@ __Programming Languages / Libraries:__
 
 __Technology Platforms:__
 
-* Documentum, Day/Adobe CQ, Drupal
+* Documentum, Day/Adobe CQ, Adobe SiteCatalyst, Drupal, Apache Sling
 * Eclipse, Visual Studio, Subversion, Git, Jenkins, Ivy, Maven
 * Windows, Linux, Solaris
 * SQL Server, Oracle, MySQL
