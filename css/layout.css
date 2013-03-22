@@ -92,6 +92,16 @@ hr.large {
 	height: 142px;
 }
 
+nav {
+	display: block;
+	text-align: center;
+	border-top: 1px solid #EBEBEB;
+	border-bottom: 1px solid #EBEBEB;
+	margin: 10px auto 0;
+	min-height: 35px;
+	padding: 12px 0 0;
+}
+
 .tweet_list {
     background-color: #F7F7F7;
     border: 1px solid #EBEBEB;
