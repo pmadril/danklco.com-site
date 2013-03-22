@@ -17,11 +17,11 @@
 /* #Site Styles
 ================================================== */
 body {
-	background-image:url('/images/typewriter.jpg');
-	background-repeat:no-repeat;
+	background-color: #F7F7F7;
+	background-image: url("/images/debut_light.png");
+	background-repeat:repeat;
 	background-attachment:fixed;
-	background-position:bottom; 
-	background-color: white;
+	background-position:center; 
 }
 
 .content ul {
@@ -34,13 +34,15 @@ body {
 }
 
 div.container {
-	background-image: url("/images/eggshell.jpg");
-	border-radius: 0px;
-	border: none;
-	margin-top: 20px;
-	margin-bottom: 40px;
+	background-image: none;
+	background-color: white;
+	border-bottom-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+	border: 1px solid #EBEBEB;
+	margin-top: 0px;
+	margin-bottom: 20px;
 	padding-top: 40px;
-	box-shadow: 0px -5px 5px #B3AEA9;
+	box-shadow: none;
 }
 
 #Facebook{
@@ -48,10 +50,13 @@ div.container {
 }
 
 footer {
-	border-top: 1px solid #9B6F48;
 	padding: 10px;
 	text-align: center;
 	margin-top: 10px;
+	border-top: 1px solid silver;
+	background-color: #EBEBEB;
+	border-bottom-right-radius: 5px;
+	border-bottom-right-radius: 5px;
 }
 
 #Github{
@@ -63,7 +68,7 @@ footer {
 }
 
 hr.large {
-	background: none repeat scroll 0 0 #9B6F48;
+	background: none repeat scroll 0 0 silver;
 	border: medium none;
 	height: 8px;
 	margin: 50px 0;
@@ -88,8 +93,8 @@ hr.large {
 }
 
 .tweet_list {
-    background-color: #EFE5DC;
-    border: 1px solid #9B6F48;
+    background-color: #F7F7F7;
+    border: 1px solid #EBEBEB;
     border-radius: 2px;
     font-size: x-small;
     margin-right: 10px;
@@ -97,8 +102,9 @@ hr.large {
 }
 
 .tweet_list li {
-    background-color: #EFE5DC;
-    border: 1px solid #9B6F48;
+    background-color: white;
+    border: 1px solid silver;
+    border-radius:2px;
     padding: 2px;
     overflow: hidden;
 }
@@ -119,53 +125,11 @@ hr.large {
 
 /* Tablet Portrait size to standard 960 (devices and browsers) */
 @media only screen and (min-width: 768px) and (max-width: 959px) {
-	body {
-		background-image:url('/images/typewriter-medium.jpg');
-	}
 }
 
 /* All Mobile Sizes (devices and browser) */
 @media only screen and (max-width: 767px) {
-	body {
-		background-color: #F7F7F7;
-		background-image: url("/images/debut_light.png");
-		background-repeat:repeat;
-		background-attachment:fixed;
-		background-position:center; 
-	}
-	
-	div.container {
-		background-image: none;
-		background-color: white;
-		border-bottom-right-radius: 5px;
-		border-bottom-right-radius: 5px;
-		border: 1px solid #EBEBEB;
-		margin-top: 0px;
-		margin-bottom: 20px;
-		padding-top: 40px;
-		box-shadow: none;
-	}
-	
-	footer {
-		border-top: 1px solid silver;
-		background-color: #EBEBEB;
-		border-bottom-right-radius: 5px;
-		border-bottom-right-radius: 5px;
-	}
-	
-	hr.large {
-		background-color: silver;
-	}
-	
-	.tweet_list {
-	    background-color: #F7F7F7;
-	    border: 1px solid #EBEBEB;
-	}
-	
-	.tweet_list li {
-	    background-color: white;
-	    border: 1px solid silver;
-	}
+
 }
 
 /* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
