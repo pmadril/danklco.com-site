@@ -41,7 +41,7 @@ div.container {
 	background-image: none;
 	background-color: white;
 	border-bottom-right-radius: 5px;
-	border-bottom-right-radius: 5px;
+	border-bottom-left-radius: 5px;
 	border: 1px solid #EBEBEB;
 	margin-top: 0px;
 	margin-bottom: 20px;
@@ -59,7 +59,7 @@ footer {
 	margin-top: 10px;
 	border-top: 1px solid silver;
 	background-color: #EBEBEB;
-	border-bottom-right-radius: 5px;
+	border-bottom-left-radius: 5px;
 	border-bottom-right-radius: 5px;
 }
 
