@@ -106,6 +106,19 @@ nav {
 	padding: 12px 0 0;
 }
 
+nav ul {
+	display: block;
+	margin: 0 auto;
+	text-align: center;
+	list-style: none;
+}
+
+nav ul li {
+	display: inline;
+	border-right: 1px solid silver;
+	padding: 0 25px 0;
+}
+
 section {
 	border-top: 1px solid silver;
 	padding-top: 1em;
