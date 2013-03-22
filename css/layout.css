@@ -99,8 +99,7 @@ hr.large {
 nav {
 	display: block;
 	text-align: center;
-	border-top: 1px solid #EBEBEB;
-	border-bottom: 1px solid #EBEBEB;
+	border-top: 1px solid silver;
 	margin: 10px auto 0;
 	min-height: 35px;
 	padding: 12px 0 0;
@@ -117,6 +116,10 @@ nav ul li {
 	display: inline;
 	border-right: 1px solid silver;
 	padding: 0 25px 0;
+}
+
+nav ul li:last-child {
+	border-right: none;
 }
 
 section {
