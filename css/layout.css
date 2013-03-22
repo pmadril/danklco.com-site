@@ -24,6 +24,10 @@ body {
 	background-position:center; 
 }
 
+.clear {
+	clear:both;
+}
+
 .content ul {
 	margin-left: 30px;
 }
@@ -100,6 +104,11 @@ nav {
 	margin: 10px auto 0;
 	min-height: 35px;
 	padding: 12px 0 0;
+}
+
+section {
+	border-top: 1px solid silver;
+	padding-top: 1em;
 }
 
 .tweet_list {
