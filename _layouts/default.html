@@ -65,7 +65,9 @@
 						$('#client-box').colorbox.close();
 						$('#client-box img').attr('src','/images/clients/'+$(elem).attr('id')+'.png');
 						$('#client-box p').load('/curriculum-vitae.html #'+$(elem).attr('id'));
-						$('#client-box').colorbox();
+						$('#client-box').colorbox({
+					        width:"100%"
+					    });
 						return false;
 					});
 				});
