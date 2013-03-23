@@ -62,12 +62,14 @@
 						$(elem).parent('div').addClass('offset-by-two');
 					}
 					$(elem).click(function(){
-						$('#client-box').colorbox.close();
-						$('#client-box img').attr('src','/images/clients/'+$(elem).attr('id')+'.png');
-						$('#client-box p').load('/curriculum-vitae.html #'+$(elem).attr('id'));
-						$('#client-box').colorbox({
+						var id = $(elem).attr('id');
+						$.colorbox.close();
+						$('#client-box img').attr('src','/images/clients/'+id+'.png');
+						$('#client-box p').load('/curriculum-vitae.html #'+id);
+						$.colorbox({
 					        width:"100%",
-					        inline:true
+					        inline:true,
+					        href: '#'+ id
 					    });
 						return false;
 					});
