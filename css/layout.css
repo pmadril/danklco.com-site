@@ -42,7 +42,7 @@ body {
 }
 
 .client:hover h5{
-	background-color: silver;
+	color: silver;
 }
 
 .client h5 {
