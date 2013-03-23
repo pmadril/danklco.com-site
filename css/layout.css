@@ -32,6 +32,21 @@ body {
 	border: 1px solid silver;
 	text-align: center;
 	padding: 10px 0;
+	background-image: url(/images/otis_redding.png);
+	border-radius: 5px;
+}
+
+.client:hover {
+	background-image: none;
+	background-color: #EBEBEB;
+}
+
+.client:hover h5{
+	background-color: silver;
+}
+
+.client h5 {
+	color: #EBEBEB;
 }
 
 .client img {
