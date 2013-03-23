@@ -31,6 +31,7 @@ body {
 .client {
 	border: 1px solid silver;
 	text-align: center;
+	padding: 10px 0;
 }
 
 .client img {
@@ -172,6 +173,9 @@ section {
 
 /* Tablet Portrait size to standard 960 (devices and browsers) */
 @media only screen and (min-width: 768px) and (max-width: 959px) {
+	.client img {
+		width: 120px;
+	}
 }
 
 /* All Mobile Sizes (devices and browser) */
