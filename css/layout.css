@@ -42,7 +42,7 @@ body {
 }
 
 .client:hover h5{
-	color: silver;
+	color: gray;
 }
 
 .client h5 {
@@ -195,7 +195,9 @@ section {
 
 /* All Mobile Sizes (devices and browser) */
 @media only screen and (max-width: 767px) {
-
+	.client {
+		margin: 10px;
+	}
 }
 
 /* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
