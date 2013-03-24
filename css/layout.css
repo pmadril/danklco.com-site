@@ -58,12 +58,15 @@ body {
     border: 1px solid silver;
 }
 
-.client-box img {
+#client-box img {
     display: block;
     margin-left: auto;
     margin-right: auto;
 }
 
+#client-box p {
+    max-width: 800px;
+}
 
 .content ul {
 	margin-left: 30px;
