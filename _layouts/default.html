@@ -69,8 +69,13 @@
 							$('#client-box').show();
 							$.colorbox({
 						        inline:true,
-						        href: '#client-box'
+						        href: '#client-box',
+						        title:$(elem).find('h5').text()
 						    });
+							$('#client-box img').complete(function(){
+								$.colorbox.resize();
+							});
+							$.colorbox.resize();
 						});
 						return false;
 					});
