@@ -41,6 +41,7 @@ body {
 .client:hover {
 	background-image: none;
 	background-color: #EBEBEB;
+	cursor:pointer;
 }
 
 .client:hover h5{
