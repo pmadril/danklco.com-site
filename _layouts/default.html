@@ -65,12 +65,13 @@
 						var id = $(elem).attr('id');
 						$.colorbox.close();
 						$('#client-box img').attr('src','/images/clients/'+id+'.png');
-						$('#client-box p').load('/curriculum-vitae.html #'+id);
-						$.colorbox({
-					        width:"100%",
-					        inline:true,
-					        href: '#client-box'
-					    });
+						$('#client-box p').load('/curriculum-vitae.html #'+id, {}, function(){
+							$('#client-box').show();
+							$.colorbox({
+						        inline:true,
+						        href: '#client-box'
+						    });
+						});
 						return false;
 					});
 				});
