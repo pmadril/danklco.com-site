@@ -219,13 +219,17 @@ section {
 	}
 	
 	nav a, nav a:visited {
+		border-top: 1px solid grey;
 	    background-color: silver;
 	    color: white;
 	    display: block;
 	    padding: 5px;
-	    width: 100%;
 	}
 	
+	nav a:first-child {
+		border-top: none;
+	}
+
 	nav a:hover {
 	    background-color: white;
 	    color: grey;
