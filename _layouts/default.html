@@ -60,7 +60,7 @@
 				$('.client').each(function(index,elem){
 					if((index + 3) % 3 == 0){
 						$(elem).parent('div').addClass('offset-by-two');
-						$(elem).parent('div').css('clear:both');
+						$(elem).parent('div').style('clear','both');
 					}
 					$(elem).click(function(){
 						var id = $(elem).attr('id');
