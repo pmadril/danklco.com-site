@@ -213,6 +213,32 @@ section {
 	.client {
 		margin: 10px;
 	}
+	
+	nav {
+	    padding: 0;
+	}
+	
+	nav a, nav a:visited {
+	    background-color: silver;
+	    color: white;
+	    display: block;
+	    padding: 5px;
+	    width: 100%;
+	}
+	
+	nav a:hover {
+	    background-color: white;
+	    color: grey;
+	}
+	
+	nav ul li {
+	    border-right: none;
+	    padding: 0;
+	}
+	
+	nav .content  ul {
+	    margin-left: 0;
+	}
 }
 
 /* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
