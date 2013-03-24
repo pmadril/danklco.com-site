@@ -226,7 +226,7 @@ section {
 	    padding: 5px;
 	}
 	
-	nav a:first-child {
+	nav li:first-child a {
 		border-top: none;
 	}
 
