@@ -208,6 +208,7 @@ section {
 
 /* All Mobile Sizes (devices and browser) */
 @media only screen and (max-width: 767px) {
+	
 	.client {
 		margin: 10px;
 	}
@@ -215,6 +216,11 @@ section {
 
 /* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
 @media only screen and (min-width: 480px) and (max-width: 767px) {
+	
+	#client-box img, #client-box p {
+	    max-width: 460px;
+	}
+	
 	.container .column>*,.container .columns>* {
 		padding-left: 5px;
 		padding-right: 5px;
@@ -223,10 +229,16 @@ section {
 	.tweet_list {
 	    margin-right: 0px;
 	}
+	
 }
 
 /* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
 @media only screen and (max-width: 479px) {
+	
+	#client-box img, #client-box p {
+	    max-width: 320px;
+	}
+	
 	.container .column > *,.container .columns > * {
 		padding-left: 2px;
 		padding-right: 2px;
