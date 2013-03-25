@@ -112,6 +112,33 @@ footer {
 	background-position: -101px -1px ;
 }
 
+header {
+	display: block;
+	background-image: url(/images/catania-park.jpg);
+	clear: both;
+	width: 100%;
+	height: 300px;
+	background-size: cover;
+	background-position-y: -140px;
+}
+
+header img {
+	float: left;
+	height: 120px;
+	padding: 10px;
+}
+
+.header-text {
+	background-color: white;
+	opacity: .93;
+	border-radius: 10px;
+	top: 50px;
+	position: absolute;
+	margin: 10px;
+	padding: 10px;
+	vertical-align: middle;
+}
+
 hr.large {
 	background: none repeat scroll 0 0 silver;
 	border: medium none;
