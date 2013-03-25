@@ -70,7 +70,13 @@
 						$('#client-box img').load(function(){
 							$.colorbox.resize();
 						});
-						$('#client-box p').load('/curriculum-vitae.html #'+id, {}, function(){
+						var url = '/curriculum-vitae.html ';
+						if($(elem).attr('data-id')){
+							url += $(elem).attr('data-id');
+						} else {
+							url += '#'+id;
+						}
+						$('#client-box p').load(url, {}, function(){
 							$('#client-box').show();
 							$.colorbox({
 						        inline:true,
