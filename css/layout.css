@@ -244,6 +244,11 @@ section {
 		margin: 10px;
 	}
 	
+	
+	.header-text {
+		top: 20px;
+	}
+	
 	nav {
 		padding: 0;
 	}
