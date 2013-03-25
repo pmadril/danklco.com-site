@@ -86,7 +86,6 @@ div.container {
 	border: 1px solid #EBEBEB;
 	margin-top: 0px;
 	margin-bottom: 20px;
-	padding-top: 40px;
 	box-shadow: none;
 }
 
@@ -303,6 +302,11 @@ section {
 	.container .column > *,.container .columns > * {
 		padding-left: 2px;
 		padding-right: 2px;
+	}
+	
+	
+	header img {
+		display:none;
 	}
 		
 	#linkedin-profile {
