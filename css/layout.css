@@ -118,7 +118,7 @@ header {
 	width: 100%;
 	height: 300px;
 	background-size: cover;
-	background-position-y: -140px;
+	background-position: 0 -140px;
 }
 
 header img {
@@ -292,7 +292,7 @@ section {
 	
 	header {
 		background-size: 220%;
-		background-position-x: -200px;
+		background-position: -200px -140px;
 	}
 		
 	.tweet_list {
@@ -315,7 +315,7 @@ section {
 	
 	header{
 		background-size: 300%;
-		background-position-x: -300px;
+		background-position: -300px -140px;
 	}
 	
 	header img {
