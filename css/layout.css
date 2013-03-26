@@ -124,7 +124,8 @@ header {
 header img {
 	float: left;
 	height: 120px;
-	padding: 10px;
+	margin: 10px;
+	border-radius: 10px;
 }
 
 .header-text {
