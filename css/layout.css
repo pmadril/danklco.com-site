@@ -23,6 +23,15 @@ body {
 	background-attachment:fixed;
 	background-position:center; 
 }
+.card {
+	perspective: 1000;
+	-webkit-perspective: 1000;
+}
+
+.card:hover {
+	perspective: 5000;
+	-webkit-perspective: 5000;
+}
 
 .clear {
 	clear:both;
@@ -36,6 +45,8 @@ body {
 	background-color:gray;
 	border-radius: 5px;
 	margin-bottom: 10px;
+	transform: rotateY(30deg);
+	-webkit-transform: rotateY(30deg);
 }
 
 .client:hover {
