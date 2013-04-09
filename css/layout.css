@@ -24,6 +24,8 @@ body {
 	background-position:center; 
 }
 .card {
+	transition-duration: 0.5s;
+	-webkit-transition-duration: 0.5s;
 	perspective: 1000;
 	-webkit-perspective: 1000;
 }
@@ -44,7 +46,7 @@ body {
 	background-image: url(/images/otis_redding.png);
 	background-color:gray;
 	border-radius: 5px;
-	margin-bottom: 10px;
+	margin-bottom: 20px;
 	transform: rotateY(30deg);
 	-webkit-transform: rotateY(30deg);
 }
