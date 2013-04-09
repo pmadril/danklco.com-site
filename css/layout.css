@@ -26,13 +26,16 @@ body {
 .card {
 	transition-duration: 0.5s;
 	-webkit-transition-duration: 0.5s;
+	-moz-transition-duration: 0.5s;
 	perspective: 1000;
 	-webkit-perspective: 1000;
+	-moz-perspective: 1000;
 }
 
 .card:hover {
 	perspective: 5000;
 	-webkit-perspective: 5000;
+	-moz-perspective: 5000;
 }
 
 .clear {
@@ -49,6 +52,7 @@ body {
 	margin-bottom: 20px;
 	transform: rotateY(30deg);
 	-webkit-transform: rotateY(30deg);
+	-moz-transform: rotateY(30deg);
 }
 
 .client:hover {
