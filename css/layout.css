@@ -203,7 +203,7 @@ nav .content a:hover {
 	background-color: gray;
 }
 
-nav ul {
+nav .content ul {
 	display: block;
 	margin: 0 auto;
 	text-align: center;
@@ -212,7 +212,6 @@ nav ul {
 
 nav ul li {
 	display: inline;
-	padding: 0 25px 0;
 }
 
 nav ul li:last-child {
