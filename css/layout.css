@@ -185,8 +185,7 @@ nav {
 	display: block;
 	text-align: center;
 	border-top: 1px solid silver;
-	min-height: 35px;
-	padding: 12px 0 0;
+	min-height: 47px;
 	background-image: url("/images/otis_redding.png");
 	background-color: gray;
 }
@@ -195,10 +194,13 @@ nav .content a {
 	color:white;
 	font-weight: bold;
 	text-decoration: none;
+	height: 35px;
+	padding-top: 12px;
+	padding: 12px 25px 0;
 }
 
 nav .content a:hover {
-	text-decoration: underline;
+	background-color: gray;
 }
 
 nav ul {
@@ -210,7 +212,6 @@ nav ul {
 
 nav ul li {
 	display: inline;
-	border-right: 1px solid silver;
 	padding: 0 25px 0;
 }
 
