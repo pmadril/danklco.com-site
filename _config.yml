@@ -33,5 +33,8 @@ exclude: [.gitignore, update.sh]
 
 # Configure the Asset Bundler
 asset_bundler:
+  compress:
+    js: 'yui'
+    css: 'yui'
   markup_templates:
-    js: "<script type='text/javascript' async='true' src='{{url}}'></script>\n"
+    js: "\t\t<script type=\"text/javascript\" async=\"true\" src=\"{{url}}\"></script>\n"
