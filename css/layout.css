@@ -280,13 +280,15 @@ section {
 	
 	nav {
 		padding: 0;
+		background-image: none;
+		background-color: none;
 	}
 	
-	nav a, nav a:visited {
+	nav .content a, nav .content a:visited {
 		border-top: 1px solid grey;
 		background-color: silver;
 		color: white;
-		display: block;
+		display: block !important;
 		padding: 5px;
 		font-size: large;
 		font-weight: bold;
@@ -297,7 +299,7 @@ section {
 		border-top: none;
 	}
 
-	nav a:hover {
+	nav .content a:hover {
 		background-color: white;
 		color: grey;
 	}
