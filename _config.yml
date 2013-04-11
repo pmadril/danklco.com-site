@@ -33,5 +33,5 @@ exclude: [.gitignore, update.sh]
 
 # Configure the Asset Bundler
 asset_bundler:
-	markup_templates:
-		js: "<script type='text/javascript' async='true' src='{{url}}'></script>\n"
+  markup_templates:
+    js: "<script type='text/javascript' async='true' src='{{url}}'></script>\n"
