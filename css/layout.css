@@ -273,15 +273,13 @@ section {
 		margin: 10px;
 	}
 	
-	
 	.header-text {
 		top: 20px;
 	}
 	
 	nav {
 		padding: 0;
-		background-image: none;
-		background-color: none;
+		background: none;
 	}
 	
 	nav .content a, nav .content a:visited {
@@ -289,10 +287,9 @@ section {
 		background-color: silver;
 		color: white;
 		display: block !important;
-		padding: 5px;
+		padding: 10px;
 		font-size: large;
-		font-weight: bold;
-		text-decoration: none;
+		height: auto;
 	}
 	
 	nav li:first-child a {
