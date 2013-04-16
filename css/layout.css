@@ -199,7 +199,7 @@ nav .content a {
 	padding: 12px 25px 0;
 }
 
-nav .content a:hover {
+nav .content a:hover, nav .content a.active {
 	background-color: gray;
 }
 
@@ -296,7 +296,7 @@ section {
 		border-top: none;
 	}
 
-	nav .content a:hover {
+	nav .content a:hover, nav .content a.active {
 		background-color: white;
 		color: grey;
 	}

@@ -1,4 +1,9 @@
 jQuery(function($){
+	$('nav a').each(function(idx, el){
+		if($(el).attr('href') == window.location.pathname){
+			$(el).addClass('active');
+		}
+	});
 	$("#tweets").tweet({
 		username: "klcodanr",
 		count: 5
