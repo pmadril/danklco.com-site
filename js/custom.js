@@ -6,7 +6,7 @@ jQuery(function($){
 	});
 	$("#tweets").tweet({
 		username: "klcodanr",
-		count: 5
+		count: 10
 	});
 	$('.client').each(function(index,elem){
 		if((index + 3) % 3 == 0){
