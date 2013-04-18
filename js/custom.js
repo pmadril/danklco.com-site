@@ -4,10 +4,6 @@ jQuery(function($){
 			$(el).addClass('active');
 		}
 	});
-	$("#tweets").tweet({
-		username: "klcodanr",
-		count: 5
-	});
 	$('.client').each(function(index,elem){
 		if((index + 3) % 3 == 0){
 			$(elem).parent('div').addClass('offset-by-two');
