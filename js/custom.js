@@ -4,7 +4,7 @@ jQuery(function($){
 			$(el).addClass('active');
 		}
 	});
-	$.getJSON('https://cdn.syndication.twimg.com/widgets/timelines/324965818536427521', {
+	$.getJSON('http://cdn.syndication.twimg.com/widgets/timelines/324965818536427521', {
 			dnt: true,
 			domain: window.location.hostname,
 			lang: 'en',
