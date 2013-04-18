@@ -4,17 +4,6 @@ jQuery(function($){
 			$(el).addClass('active');
 		}
 	});
-	$.getJSON('http://cdn.syndication.twimg.com/widgets/timelines/324965818536427521', {
-			dnt: true,
-			domain: window.location.hostname,
-			lang: 'en',
-			t: 23,
-			suppress_response_codes:true
-		},
-		function(data, textStatus, jqXHR) {
-			alert(data);
-		}
-	);
 	$('.client').each(function(index,elem){
 		if((index + 3) % 3 == 0){
 			$(elem).parent('div').addClass('offset-by-two');
