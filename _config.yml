@@ -19,9 +19,6 @@ category_dir: /
 # The URL of your actual domain. This will be used to make absolute links in the RSS feed.
 url: http://www.danklco.com/
 
-# Continue compiling even if there are errors. Keep it true, unless troubleshooting.
-auto: true
-
 # Makes pretty (descriptive) permalinks. See Jekyll docs for alternatives.
 permalink: /:year/:month/:day/:title/
 

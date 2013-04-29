@@ -17,6 +17,7 @@ layout: default
 		    <em>
 		    	Posted on <span class="date">{{ page.date | date_to_string }}</span> by <span class="author">{{ site.author }}</span>
 		    </em>
+		    {% if page.original %}<div class="original">Original URL: <a href="{{ page.original }}" rel="no-follow">page.original</a></div>{% endif %}
 		    <hr class="large" />
 			<div class="content">
 				{{ content }}
