@@ -45,7 +45,7 @@ The design for the Column Control has only one field.&nbsp; The Allowed Formats 
 
 The format for each fields are as follows:
 
-[Number of Columns]&nbsp; %2B ';' %2B [Column Class] %2B 't' %2B [Format Label]
+\[Number of Columns\]&nbsp; %2B ';' %2B \[Column Class\] %2B 't' %2B \[Format Label\]
 
 ![Editing the Column Control Design][4]  
 *Editing the Column Control Design*
@@ -71,8 +71,6 @@ For more information about using CSS to style columns read the following guides:
 
 * (http://matthewjamestaylor.com/blog/equal-height-columns-cross-browser-css-no-hacks)[http://matthewjamestaylor.com/blog/equal-height-columns-cross-browser-css-no-hacks]
 * (http://www.search-this.com/2007/02/26/how-to-make-equal-columns-in-css/)[http://www.search-this.com/2007/02/26/how-to-make-equal-columns-in-css/]
-
-[adobe cq][6], [cq development][7]
 
  [1]: /images/posts/2012-02-07-creating-a-column-control-in-adobe-cq/selecting-design.png
  [2]: /images/posts/2012-02-07-creating-a-column-control-in-adobe-cq/selecting-column-control.png
