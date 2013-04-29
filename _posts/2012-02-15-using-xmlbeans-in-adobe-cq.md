@@ -69,7 +69,7 @@ If you need xsdconfig file to control how XMLBeans creates the Java classes from
 
 Finally, to integrate the XMLBeans generated code, add your XML API project as a dependency into every project that will be using the XMLBeans generated code.
 
-> **For Eclipse Users  
+> **For Eclipse Users**
 > 
 > Eclipse has trouble resolving dependencies from Java code generated through XMLBeans by Maven.&nbsp; To resolve this issue, you can force Eclipse to resolve the XMLBeans dependencies through Maven.
 > 
@@ -81,7 +81,7 @@ Finally, you will need to update the configuration of the maven-bundle-plugin.&n
 
 *   Export-Package: add the packages of the generated XMLBeans Java code (optional)
 *   Embed-Dependency: xml-api;inline=true
-*   Import-Package: add 'org.apache.xmlbeans.impl.schema;version='2.4?,*'
+*   Import-Package: add 'org.apache.xmlbeans.impl.schema;version='2.4?,\*'
 
 These instructions tell the Maven Bundle plugin to embed your XML API into the bundle, resolve the XMLBeans dependencies correctly and make the XML API available to other bundles.&nbsp; Once you build and install your project, you can start using XMLBeans in your CQ applications.
 
