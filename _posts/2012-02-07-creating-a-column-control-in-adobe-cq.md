@@ -63,17 +63,19 @@ Right click inside each column's drag and drop field and select 'New''&nbsp; to 
 
 ### Step 5: Update Stylesheet
 
-Finally, to make the column display correctly, you will need to update your CSS stylesheet.&nbsp; The column control will have the classes 'parsys\_column' and the Column Class you specified in Step 3.&nbsp; Each column will have the classes 'parsys\_column' and the Column Class you specified in Step 3 with '-c[Column Number]' appended.&nbsp; The column number is a zero based index.
+Finally, to make the column display correctly, you will need to update your CSS stylesheet.&nbsp; The column control will have the classes 'parsys\_column' and the Column Class you specified in Step 3.&nbsp; Each column will have the classes 'parsys\_column' and the Column Class you specified in Step 3 with '-c\[Column Number\]' appended.&nbsp; The column number is a zero based index.
 
 For example if my Column Class was 'cq-colctrl-lt0'&nbsp; the second column would be 'cq-colctrl-lt0-c1'.
 
 For more information about using CSS to style columns read the following guides:
 
-* (http://matthewjamestaylor.com/blog/equal-height-columns-cross-browser-css-no-hacks)[http://matthewjamestaylor.com/blog/equal-height-columns-cross-browser-css-no-hacks]
-* (http://www.search-this.com/2007/02/26/how-to-make-equal-columns-in-css/)[http://www.search-this.com/2007/02/26/how-to-make-equal-columns-in-css/]
+* http://matthewjamestaylor.com/blog/equal-height-columns-cross-browser-css-no-hacks[6]
+* http://www.search-this.com/2007/02/26/how-to-make-equal-columns-in-css/[7]
 
  [1]: /images/posts/2012-02-07-creating-a-column-control-in-adobe-cq/selecting-design.png
  [2]: /images/posts/2012-02-07-creating-a-column-control-in-adobe-cq/selecting-column-control.png
  [3]: /images/posts/2012-02-07-creating-a-column-control-in-adobe-cq/insert-column-control.png
  [4]: /images/posts/2012-02-07-creating-a-column-control-in-adobe-cq/edting-column-control.png
  [5]: /images/posts/2012-02-07-creating-a-column-control-in-adobe-cq/adding-components-e1328584901873.png
+ [6]: http://matthewjamestaylor.com/blog/equal-height-columns-cross-browser-css-no-hacks
+ [7]: http://www.search-this.com/2007/02/26/how-to-make-equal-columns-in-css/
