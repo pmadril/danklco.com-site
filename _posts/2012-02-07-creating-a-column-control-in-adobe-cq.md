@@ -67,8 +67,8 @@ For example if my Column Class was 'cq-colctrl-lt0'&nbsp; the second column woul
 
 For more information about using CSS to style columns read the following guides:
 
-* http://matthewjamestaylor.com/blog/equal-height-columns-cross-browser-css-no-hacks[6]
-* http://www.search-this.com/2007/02/26/how-to-make-equal-columns-in-css/[7]
+* [http://matthewjamestaylor.com/blog/equal-height-columns-cross-browser-css-no-hacks][6]
+* [http://www.search-this.com/2007/02/26/how-to-make-equal-columns-in-css/][7]
 
  [1]: /images/posts/2012-02-07-creating-a-column-control-in-adobe-cq/selecting-design.png
  [2]: /images/posts/2012-02-07-creating-a-column-control-in-adobe-cq/selecting-column-control.png
