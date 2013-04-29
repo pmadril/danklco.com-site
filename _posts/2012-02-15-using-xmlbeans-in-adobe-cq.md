@@ -15,7 +15,7 @@ Download and install [org.apache.servicemix.bundles.xmlbeans-2.4.0_5.jar][2].&nb
 
 ### Step 2: Create XMLBeans Maven Project
 
-You can invoke the XMLBean’s scomp utility to compile the Java code, however there is a [Maven plugin][5] for doing this automatically.&nbsp; Create a new project for all of your XMLBeans schema’s and generated code.&nbsp; The POM below will compile Java code for all of the schema files in the folder src/main/xsd:
+You can invoke the XMLBean's scomp utility to compile the Java code, however there is a [Maven plugin][5] for doing this automatically.&nbsp; Create a new project for all of your XMLBeans schema's and generated code.&nbsp; The POM below will compile Java code for all of the schema files in the folder src/main/xsd:
 
     <?xml version="1.0" encoding="UTF-8"?>
     <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -81,7 +81,7 @@ Finally, you will need to update the configuration of the maven-bundle-plugin.&n
 
 *   Export-Package: add the packages of the generated XMLBeans Java code (optional)
 *   Embed-Dependency: xml-api;inline=true
-*   Import-Package: add ‘org.apache.xmlbeans.impl.schema;version=”2.4?,*’
+*   Import-Package: add 'org.apache.xmlbeans.impl.schema;version='2.4?,*'
 
 These instructions tell the Maven Bundle plugin to embed your XML API into the bundle, resolve the XMLBeans dependencies correctly and make the XML API available to other bundles.&nbsp; Once you build and install your project, you can start using XMLBeans in your CQ applications.
 
