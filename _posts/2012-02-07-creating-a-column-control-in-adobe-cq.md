@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Creating a Column Control in Adobe CQ
+tags: [Adobe CQ, Development]
 original: http://www.sixdimensions.com/creating-a-column-control-in-adobe-cq/
 ---
 
