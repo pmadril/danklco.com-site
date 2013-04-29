@@ -218,6 +218,10 @@ nav ul li:last-child {
 	border-right: none;
 }
 
+pre {
+	white-space: pre-wrap;
+}
+
 section {
 	border-top: 1px solid silver;
 	padding-top: 1em;
