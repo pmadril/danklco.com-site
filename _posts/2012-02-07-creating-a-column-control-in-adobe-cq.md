@@ -1,10 +1,8 @@
 ---
 layout: post
-title: Jekyll Init Script
+title: Creating a Column Control in Adobe CQ
 original: http://www.sixdimensions.com/creating-a-column-control-in-adobe-cq/
 ---
-
-# Creating a Column Control in Adobe CQ
 
 Column Controls in Adobe CQ allow authors to easily create and configure column-based layouts. &nbsp;This guide shows advanced users and developers how to create and configure a column control.
 
