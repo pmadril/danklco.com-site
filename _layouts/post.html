@@ -22,12 +22,14 @@ layout: default
 			<div class="content">
 				{{ content }}
 			</div>
+		</div>
+		<hr class="large"/>
+		    <h4>Tags</h4>
 		    <div class="tags">
 	  			{% for tag in page.tags %}
 	  				<a href="/tag/{{ tag }}">{{ tag }}</a>&nbsp;&nbsp;
 	  			{% endfor %}
   			</div>
-		</div>
 		<hr class="large"/>
 		<div class="comments">
 		    <h4>Comments</h4>
