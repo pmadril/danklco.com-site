@@ -7,7 +7,7 @@ layout: page
   	{% for tag in post.tags %}
   		{% if tag == page.tag %}
   		  <li class="archive_list">
-			<h3><a class="archive_list_article_link" href='{{post.url}}'>{{post.title}}</a></h3>
+			<strong><a class="archive_list_article_link" href='{{post.url}}'>{{post.title}}</a></strong><br/>
     	    <time datetime='{{post.date | date: "%Y-%m-%d"}}'><em>{{post.date | date: "%m/%d/%y"}}</em></time>
     		<p class="summary">{{post.summary}}</p>
   		  </li>
