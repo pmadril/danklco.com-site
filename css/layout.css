@@ -201,6 +201,7 @@ nav .content a {
 
 nav .content a:hover, nav .content a.active {
 	background-color: gray;
+	box-shadow: inset 0px 1px 8px black;
 }
 
 nav .content ul {
