@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<title>{% if page.title %} {{ page.title }} | {% endif %} DanKlco.com</title>
-		{% if page.tags %}<meta content="{{ page.tags }}" name="keywords" />{% endif %}
+		{% if page.tags %}<meta content="{{page.tags | join: ', '}}" name="keywords" />{% endif %}
 		{% if page.summary %}<meta content="{{ page.summary }}" name="description" />{% endif %} 
 		<meta content="{{ site.author }}" name="author" />
 		<meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport" />
