@@ -1,6 +1,6 @@
 ---
 layout: post
-title: New in CQ 5.5\: Dependency Finder
+title: "New in CQ 5.5: Dependency Finder"
 original: http://labs.sixdimensions.com/blog/dklco/2012-05-04/new-cq-55-dependency-finder
 tags: [Adobe CQ, CQ 5.5, Apache Maven]
 ---
