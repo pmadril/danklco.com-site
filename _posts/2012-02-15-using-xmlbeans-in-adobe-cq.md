@@ -2,6 +2,7 @@
 layout: post
 title: Using XMLBeans in Adobe CQ
 original: http://www.sixdimensions.com/creating-a-column-control-in-adobe-cq/
+summary: Learn how to integrate XMLBeans with Adobe CQ5.
 tags: [Adobe CQ, Development, XmlBeans]
 ---
 

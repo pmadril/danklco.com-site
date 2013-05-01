@@ -2,6 +2,7 @@
 layout: post
 title: "Good to Know: The Sling PersistableValueMap"
 original: http://labs.sixdimensions.com/blog/dklco/2012-05-10/good-know-sling-persistablevaluemap
+summary: Learn about the PersistableValueMap which makes it possible to save values to the JCR datastore through the Sling API.
 tags: [Adobe CQ, Apache Sling]
 ---
 

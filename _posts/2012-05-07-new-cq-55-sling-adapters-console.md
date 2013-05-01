@@ -2,6 +2,7 @@
 layout: post
 title: "New in CQ 5.5: Sling Adapters Console"
 original: http://labs.sixdimensions.com/blog/dklco/2012-05-07/new-cq-55-sling-adapters-console
+summary: Introduction to the new Sling Adapters Console, available in Adobe CQ5.
 tags: [Adobe CQ, CQ 5.5, Apache Sling]
 ---
 

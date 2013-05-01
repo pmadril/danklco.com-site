@@ -2,13 +2,13 @@
 layout: post
 title: "New in CQ 5.5: Dependency Finder"
 original: http://labs.sixdimensions.com/blog/dklco/2012-05-04/new-cq-55-dependency-finder
+summary: Introduction to the new Dependency finder, available in Adobe CQ5.
 tags: [Adobe CQ, CQ 5.5, Apache Maven]
 ---
 
 Adobe just released CQ 5.5, the latest version of their flagship enterprise Web Experience Management product.  Along with a new UI, numerous speed and stability fixes and deeper integrations with Adobe's other products, CQ 5.5 comes with some new tools to make using and developing on CQ easier.
 
 One of the new tools is the Dependency Finder, which comes shipped in the Apache Felix console.  This tool can be very useful to developers to find the dependency information they need to add into their Maven POM or figure out which Bundle contains a particular class or package.  To load the Dependency Finder, login to: {HOST}/system/console/depfinder
-
 
 ![Screenshot of the Dependency Finder][1]
 

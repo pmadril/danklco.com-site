@@ -25,6 +25,11 @@ layout: default
 		    <span class="meta">
 		    	<small>By {{ site.author }} &copy; {{page.date | date: "%Y"}}</small>
 		    </span>
+		    <div class="tags">
+	  			{% for tag in page.tags %}
+	  				<a href="/tag/{{ tag }}">{{ tag }}</a>&nbsp;&nbsp;
+	  			{% endfor %}
+  			</div>
 		</div>
 		<hr class="large"/>
 		<div class="comments">
