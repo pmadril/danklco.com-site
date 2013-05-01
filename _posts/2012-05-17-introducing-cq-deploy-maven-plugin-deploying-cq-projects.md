@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Introducing CQ Deploy: A Maven Plugin for Deploying CQ Projects
+title: "Introducing CQ Deploy: A Maven Plugin for Deploying CQ Projects"
 original: http://labs.sixdimensions.com/blog/dklco/2012-05-03/introducing-cq-deploy-maven-plugin-deploying-cq-projects
 summary: Introducing CQ Deploy: A Maven Plugin for Deploying CQ Projects
 tags: [Adobe CQ, Apache Maven]
