@@ -12,6 +12,6 @@ Six Dimensions and 6D-Labs are pleased to distribute the CQ5 webinar: "CQ5 Perso
 
 Thought Leader: Dan Klco (CQ5 Technical Lead)
 
-Fill out [this form] to receive a link to watch this webinar.
+Fill out [this form][1] to receive a link to watch this webinar.
 
 [1]: http://labs.sixdimensions.com/content/watch-cq5-personalization-webinar
