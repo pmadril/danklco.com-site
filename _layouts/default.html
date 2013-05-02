@@ -28,10 +28,10 @@
 			<nav>
 				<div class="sixteen columns content">
 					<ul>
-						<li><a href="/">Home</a></li>
-						<li><a href="/my-work">My Work</a></li>
-						<li><a href="/curriculum-vitae">Curriculum Vitae</a></li>
-						<li><a href="/projects">Projects</a></li>
+						<li><a href="/" {% if page.url == '/index.html' %}class="active"{% endif %}>Home</a></li>
+						<li><a href="/my-work" {% if page.url == '/my-work.html' %}class="active"{% endif %}>My Work</a></li>
+						<li><a href="/curriculum-vitae" {% if page.url == '/curriculum-vitae.html' %}class="active"{% endif %}>Curriculum Vitae</a></li>
+						<li><a href="/projects" {% if page.url == '/projects.html' %}class="active"{% endif %}>Projects</a></li>
 					</ul>
 				</div>
 			</nav>
