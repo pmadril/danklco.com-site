@@ -28,6 +28,9 @@ destination: /var/www/html
 # Exclude system files
 exclude: [.gitignore, update.sh]
 
+# Control the number of post per page
+paginate: 10
+
 # Configure the Asset Bundler
 asset_bundler:
   compress:
