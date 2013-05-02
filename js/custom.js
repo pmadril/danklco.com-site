@@ -1,9 +1,4 @@
 jQuery(function($){
-	$('nav a').each(function(idx, el){
-		if($(el).attr('href') == window.location.pathname){
-			$(el).addClass('active');
-		}
-	});
 	$('.client').each(function(index,elem){
 		if((index + 3) % 3 == 0){
 			$(elem).parent('div').addClass('offset-by-two');
