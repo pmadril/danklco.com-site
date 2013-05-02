@@ -8,9 +8,9 @@ tags: [Servlet, Apache Sling, Gotcha, Apache Maven]
 
 The new version of CQ5,&nbsp;[Adobe Experience Manager 5.6][1], includes a contribution by Six Dimensions to the [Apache Sling][2]&nbsp;project. &nbsp;This contribution adds a new method, [getChildren][3] to the Resource interface. &nbsp;
 
-&gt; Now getChildren() in the Resource-API, available in AEM5.6 thanks to @[klcodanr][4] [#sling][5] [#cq5][6] [#aem][7] [dev.day.com/docs/en/cq/cur…][8]
-&gt; 
-&gt; — Feike Visser (@heervisscher) [March 10, 2013][9]
+> Now getChildren() in the Resource-API, available in AEM5.6 thanks to @[klcodanr][4] [#sling][5] [#cq5][6] [#aem][7] [dev.day.com/docs/en/cq/cur...][8]
+> 
+> &mdash Feike Visser (@heervisscher) [March 10, 2013][9]
 
 This method allows you to use for-each loops to iterate through child resources and allows access the children of a resource using Expression Language and TagLibs. &nbsp;For more information on this API change, please read [New in Apache Sling: getChildren][10].
 
