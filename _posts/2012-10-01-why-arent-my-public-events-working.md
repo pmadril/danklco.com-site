@@ -30,7 +30,7 @@ Adding the listeners node into a dialog is easy, the listeners node can be of an
 
 ### Bad Comments
 
-One thing to keep in mind when writing Public Event and other widget functions is that the JavaScript code will be inlined when it is evaluated.&nbsp; This means that you cannot use single line (// double slash) comments.&nbsp; Instead use multiline comments (`/* slash star */`) as they will not cause subsequent code to not be evaluated.
+One thing to keep in mind when writing Public Event and other widget functions is that the JavaScript code will be inlined when it is evaluated.&nbsp; This means that you cannot use single line (// double slash) comments.&nbsp; Instead use multiline comments (/\* slash star \*/) as they will not cause subsequent code to not be evaluated.
 
 ### Can't find your code?
 
