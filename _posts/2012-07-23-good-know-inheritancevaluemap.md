@@ -17,14 +17,14 @@ Unlike the [PersistableValueMap][4], resources and nodes cannot be directly adap
 Based on the hierarchy:
 
     /mypage
-        &gt; mypage2
-            &gt; mypage3
+        > mypage2
+            > mypage3
 
 If an InheritanceValueMap is used to retrieve the property `jcr:content/footer/image/@width`, the following properties would be checked, in order from bottom to top:
 
     /mypage/jcr:content/footer/image/@width
-        &gt; mypage2/jcr:content/footer/image/@width
-            &gt; mypage3/jcr:content/footer/image/@width
+        > mypage2/jcr:content/footer/image/@width
+            > mypage3/jcr:content/footer/image/@width
 
 Using the [InheritanceValueMap][1], it is much easier for developers to access inherited values and build components which use inherited properties.
 

@@ -25,7 +25,7 @@ First, we get the path to the pages to retrieve.&nbsp; Depending on your need yo
 Next, we pass that path into a [function which will create a non-cacheable URL][2].&nbsp; This ensures CQ will not serve up cached data when the author attempts to use the dialog.
 
     // get the URL to retrieve the pages
-    var url = CQ.HTTP.noCaching(CQ.HTTP.getPath()%2B'.infinity.json');
+    var url = CQ.HTTP.noCaching(CQ.HTTP.getPath() + '.infinity.json');
 
 ### Retrieving the Page JSON Data
 
@@ -42,7 +42,7 @@ Finally, we will loop through the list of child pages and extract the informatio
         if(childPages[name]['jcr:content']){
             var child = {};
 			child['text'] = childPages[name]['jcr:content']['jcr:title'];
-			child['value'] = CQ.HTTP.getPath() %2B '/' %2B name;
+			child['value'] = CQ.HTTP.getPath() + '/' + name;
 			children.push(child);
         }
     }
@@ -55,7 +55,7 @@ Once we have the array of children objects, we can return that array and it will
         //create an array of the child pages
         var children = new Array();
         // get the URL to retrieve the pages
-		var url = CQ.HTTP.noCaching(CQ.HTTP.getPath()%2B'.infinity.json');
+		var url = CQ.HTTP.noCaching(CQ.HTTP.getPath()+'.infinity.json');
 		//retrieve the child pages
 		var childPages = CQ.HTTP.eval(url);
 		// loop through the child pages and create the list of child pages
@@ -63,7 +63,7 @@ Once we have the array of children objects, we can return that array and it will
 		    if(childPages[name]['jcr:content']){
 			    var child = {};
 				child['text'] = childPages[name]['jcr:content']['jcr:title'];
-				child['value'] = CQ.HTTP.getPath() %2B '/' %2B name;
+				child['value'] = CQ.HTTP.getPath() + '/' + name;
 				children.push(child);
 			}
 		}
