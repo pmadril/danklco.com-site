@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Watch CQ5 Personalization Webinar"
-original: ttp://labs.sixdimensions.com/content/watch-cq5-personalization-webinar
+original: http://labs.sixdimensions.com/content/watch-cq5-personalization-webinar
 summary: "Watch a webinar I did on Personalization in Adobe CQ5"
 tags: [Adobe CQ, Webinar, Personalization]
 ---
