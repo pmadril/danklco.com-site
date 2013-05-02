@@ -22,16 +22,7 @@ layout: default
 		<h4>Recent Activity</h4>
 	</div>
 	<div class="ten columns">
-		<div id="recent-activity">
-			{% for post in site.posts %}
-				<div class="three columns">
-					<em>{{post.date | date: "%b %d %Y"}}</em>
-				</div>
-				<div class="six columns">
-					<a href="{% if post.original %}{{ post.original }}{% else %}{{ post.url }}{% endif %}" title="{{ post.title }}">{{ post.title }}</a>
-				</div>
-			{% endfor %}
-		</div>
+		{{ content }}
 	</div>
 	
 	<div class="four columns">
