@@ -3,7 +3,7 @@ layout: post
 title: "Releasing an Adobe CQ5 Project with Apache Maven"
 original: http://labs.sixdimensions.com/blog/dan-klco/2012-09-18/releasing-adobe-cq5-project-apache-maven
 summary: "Learn how easy it is to get a complete copy of your Adobe CQ configuration"
-tags: [Adobe CQ, Apache Maven How To]
+tags: [Adobe CQ, Apache Maven, How To]
 ---
 
 [Apache Maven's release plugin][1] is a powerful tool for automatically incrementing version, tagging code and creating a release. Unfortunately, this plugin is not very forgiving and doesn't do a good job of telling you what you did wrong when it fails.&nbsp;

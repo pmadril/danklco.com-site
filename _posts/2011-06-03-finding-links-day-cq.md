@@ -3,8 +3,6 @@ layout: post
 title: Finding Links in Day CQ
 summary: Learn how to find links to a path in Day CQ
 tags: [Adobe CQ]
-original: http://www.crownpartners.com/blogs/ecm/2011/05/links_dayCQ.html
-useOriginal: false
 ---
 
 Sometimes, when setting up development environments, it is not feasible to copy all of the content from the production environment, all you really need is a specific set of content being used by what you're working on.
