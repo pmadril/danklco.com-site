@@ -1,0 +1,62 @@
+---
+layout: post
+title: "Consistent and Clean Rich Text and Images in CQ5"
+original: http://labs.sixdimensions.com/blog/dan-klco/2013-03-06/consistent-and-clean-rich-text-and-images-cq5
+summary: "Improve the TextImage component by making it cleaner and more consistent"
+tags: [Adobe CQ, Dialog, Best Practices]
+---
+
+How can you improve on the humble [TextImage][1] component; the basis for most Adobe CQ5 website implementations? &nbsp;This component (as one would imagine from the name) allows authors to put both text and an image on the page. &nbsp;There are both [Text][2] and [Image][3] components which are suited for each separate task, however it has always seemed silly to me to have two components when one can do both jobs.
+
+Well, one of the first tasks most projects will do is customize the TextImage component to either enable plugins in the Rich Text Editor or add some custom editing features. &nbsp;Once the developers are finished, they happily move on to the next component, but what if that component also requires a Rich Text editor or to specify an image? &nbsp;
+
+You can copy your customizations or use references to the dialogs, but you may have also customized the JSP code for the TextImage. &nbsp;The solution is to customize the TextImage component and make it easy to extend and reference.
+
+### Extending the TextImage Component
+
+First, copy the TextImage component from /libs/foundation/components into your application folder. &nbsp;Make sure you update the component group and Sling resource super type.
+
+Next, edit the JSP code and separate the image rending code and the text rendering code into separate scripts called image and text. &nbsp;Use [CQ Script Includes][4] to include both scripts. &nbsp;At this point the textimage.jsp should essentially just be a comment, the global include and includes for the two scripts. &nbsp;Doing this allows you to easily use CQ Script Includes from other components to use the same JSP code.
+
+Finally, edit the dialog and rename the tabs as follows:
+
+*   tab1 -> test
+*   tab2 -> image
+*   tab3 -> advancedImage
+
+The new names will make it easier to include these tabs in other dialogs.
+
+### Reusing for Other Components
+
+Once you have everything all separated and organized, rendering text on another component is as easy as doing a script include in the JSP to your text script, ex:
+
+	<cq:include script="/apps/myapp/components/general/textimage/text.jsp" />
+
+and include the text dialog tab in your dialog, ex:
+
+	<text
+		jcr:primaryType="cq:Widget"
+		path="/apps/myapp/components/general/textimage/dialog/items/text.infinity.json"
+		xtype="cqinclude"/>
+
+And when you want to include an image, add the image script in your JSP, ex:
+
+	<cq:include script="/apps/index-institute/components/general/textimage/image.jsp" />
+
+and include both the image and advancedImage tabs into the dialog
+
+	<image
+		jcr:primaryType="cq:Widget"
+		path="/apps/myapp/components/general/textimage/dialog/items/image.infinity.json"
+		xtype="cqinclude"/>
+	<advancedImage
+		jcr:primaryType="cq:Widget"
+		path="/apps/myapp/components/general/textimage/dialog/items/advancedImage.infinity.json"
+		xtype="cqinclude"/>
+
+Of course, if you need to include multiple text or image selections in a component you will either have to create duplicates or include sub-components. &nbsp;By using some creativity and including sub-components, you should be able to use only one instance of the dialog and JSP to render all of the authored text and images on the site using this technique.
+
+ [1]: http://dev.day.com/docs/en/cq/current/wcm/default_components.html#Text%20Image "Adobe Text Image Component Documentation"
+ [2]: http://dev.day.com/docs/en/cq/current/wcm/default_components.html#Text "Adobe CQ Text Component Documentation"
+ [3]: http://dev.day.com/docs/en/cq/current/wcm/default_components.html#Image "Adobe CQ Image Component Documentation"
+ [4]: http://dev.day.com/docs/en/cq/current/howto/taglib.html# "Adobe CQ Include Documentation"  
