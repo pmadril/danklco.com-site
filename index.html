@@ -4,7 +4,7 @@ title: Home
 ---
 
 {% if paginator.page != 1 %}
-	<div class="pagination-top">
+	<div class="nine columns pagination-top">
 		Page: {{paginator.page}} of {{paginator.total_pages}}
 	</div>
 {% endif %}
@@ -20,7 +20,7 @@ title: Home
 </div>
 
 <!-- Pagination links -->
-<div class="pagination">
+<div class="nine columns pagination">
 	{% if paginator.previous_page %}
 		{% if paginator.previous_page == 1 %}
 			<a href="/">Previous</a>
