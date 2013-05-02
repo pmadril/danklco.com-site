@@ -131,4 +131,4 @@ In order to compile and run this application you'll need the following dependenc
 	</ivy-module>
 
 
- [1]: http://web.archive.org/web/20110812032958/http%3A/www.crownpartners.com/content/dam/cp/resources/ContentFinder.java
+ [1]: http://web.archive.org/web/20110812041655/http://www.crownpartners.com/content/dam/cp/resources/ContentFinder.java
