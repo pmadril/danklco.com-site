@@ -3,6 +3,11 @@ layout: home
 title: Home
 ---
 
+{% if paginator.page != 1 %}
+	<div class="pagination-top">
+		Page: {{paginator.page}} of {{paginator.total_pages}}
+	</div>
+{% endif %}
 <div id="recent-activity">
 	{% for post in paginator.posts %}
 		<div class="three columns">
