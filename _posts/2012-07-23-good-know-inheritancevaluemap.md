@@ -1,0 +1,35 @@
+---
+layout: post
+title: "Good to Know: InheritanceValueMap"
+original: http://labs.sixdimensions.com/blog/dklco/2012-07-23/good-know-inheritancevaluemap
+summary: "Learn about the InheritanceValueMap which allows developers to inherit properties from parent resources."
+tags: [Adobe CQ]
+---
+
+The [InheritanceValueMap][1] is a new interface introduced in CQ 5.4.&nbsp; This interface is meant to make it much easier for developers to access properties inherited from parent pages.&nbsp;
+
+To do this, the interface provides two methods, [getInherited(String,Class)][2] and [getInherited(String, Object)][3], each of these methods will check for a value on the current resource and then check up the page hierarchy for another page with a value on the same content attribute.&nbsp; It will only attempt to retrieve values at the same page content path
+
+Unlike the [PersistableValueMap][4], resources and nodes cannot be directly adapted into [InheritanceValueMap][1]s.&nbsp; To create an instance of the [InheritanceValueMap][1], create an instance of the class [HierarchyNodeInheritanceValueMap][5] and pass in the current resource, for example:
+
+    InheritanceValueMap iProperties = new HierarchyNodeInheritanceValueMap(resource);String value = iProperties.getInherited("myProp",String.class);
+
+Based on the hierarchy:
+
+    /mypage
+        &gt; mypage2
+            &gt; mypage3
+
+If an InheritanceValueMap is used to retrieve the property `jcr:content/footer/image/@width`, the following properties would be checked, in order from bottom to top:
+
+    /mypage/jcr:content/footer/image/@width
+        &gt; mypage2/jcr:content/footer/image/@width
+            &gt; mypage3/jcr:content/footer/image/@width
+
+Using the [InheritanceValueMap][1], it is much easier for developers to access inherited values and build components which use inherited properties.
+
+ [1]: http://dev.day.com/docs/en/cq/current/javadoc/com/day/cq/commons/inherit/InheritanceValueMap.html
+ [2]: http://dev.day.com/docs/en/cq/current/javadoc/com/day/cq/commons/inherit/InheritanceValueMap.html#getInherited%28java.lang.String,%20java.lang.Class%29
+ [3]: http://dev.day.com/docs/en/cq/current/javadoc/com/day/cq/commons/inherit/InheritanceValueMap.html#getInherited%28java.lang.String,%20T%29
+ [4]: http://sling.apache.org/apidocs/sling6/org/apache/sling/api/resource/PersistableValueMap.html
+ [5]: http://dev.day.com/docs/en/cq/current/javadoc/com/day/cq/commons/inherit/HierarchyNodeInheritanceValueMap.html  
