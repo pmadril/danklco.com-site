@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Permalink to The Unofficial Guide to the Adobe CQ5 Translator"
+title: "The Unofficial Guide to the Adobe CQ5 Translator"
 original: http://labs.sixdimensions.com/blog/dklco/2012-05-25/adobe-cq5-translator
 summary: A guide to the Adobe CQ5 Translator, a tool for managing translated content in Adobe CQ5.
 tags: [Adobe CQ, i18n]

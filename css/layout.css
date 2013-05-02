@@ -343,6 +343,10 @@ section {
 		background-size: 220%;
 		background-position: -200px -140px;
 	}
+	
+	img {
+		max-width: 410px;
+	}
 		
 	.tweet_list {
 		margin-right: 0px;
@@ -369,6 +373,10 @@ section {
 	
 	header img {
 		display:none;
+	}
+	
+	img {
+		max-width: 295px;
 	}
 		
 	#linkedin-profile {
