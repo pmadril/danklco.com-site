@@ -6,7 +6,7 @@ summary: "Learn how to send emails using the Adobe CQ API"
 tags: [Adobe CQ, How To]
 ---
 
-Sending emails through Adobe CQ can be easy, however there really isn’t an example which brings the entire process together.&nbsp; This blog post will guide you through the process of configuring Adobe CQ to send email, creating a component for sending email, creating an email template and finally creating a servlet which will send the email.
+Sending emails through Adobe CQ can be easy, however there really isn't an example which brings the entire process together.&nbsp; This blog post will guide you through the process of configuring Adobe CQ to send email, creating a component for sending email, creating an email template and finally creating a servlet which will send the email.
 
 First, though, what are the benefits of the Adobe CQ Email API?&nbsp; The Adobe CQ API provides a method for sending emails through a centrally configured service.&nbsp; You can send emails of multiple types and you can even create authorable templates so developers do not need to be involved in creating and updating email templates.
 
@@ -16,13 +16,13 @@ The first step to sending emails through Adobe CQ is to configure the Day CQ Mai
 
 ![Configuring the Day CQ Mail Service][1]
 
-Enter [all of the relevant information][2] for your current SMTP provider.&nbsp; If you don’t have or can’t easily get SMTP set up within your organization, a Gmail account works for testing.
+Enter [all of the relevant information][2] for your current SMTP provider.&nbsp; If you don't have or can't easily get SMTP set up within your organization, a Gmail account works for testing.
 
 Once you have the Day CQ Mail Service configured you should be able to send emails through Adobe CQ.&nbsp; If, later on you run into problems with getting a null Message Gateway, you probably entered something incorrectly here.
 
 ### Creating an Email Component
 
-If you haven’t read up on creating components, [please do so now][3].
+If you haven't read up on creating components, [please do so now][3].
 
 Create a new component called contact and set the following as the JSP code:
 
