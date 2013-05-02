@@ -7,13 +7,13 @@ original: http://www.crownpartners.com/blogs/ecm/2011/05/links_dayCQ.html
 useOriginal: false
 ---
 
-Sometimes, when setting up development environments, it is not feasible to copy all of the content from the production environment, all you really need is a specific set of content being used by what you’re working on.
+Sometimes, when setting up development environments, it is not feasible to copy all of the content from the production environment, all you really need is a specific set of content being used by what you're working on.
 
-This is where being able to follow links and identify content can be very valuable, rather than having to create a bloated environment with extra content you don’t need, you can identify exactly what you need.  
+This is where being able to follow links and identify content can be very valuable, rather than having to create a bloated environment with extra content you don't need, you can identify exactly what you need.  
 
 ### Connecting to the Repository
 
-To identify links inside our current content, we’ll start by connecting to the CQ using DavEx.&nbsp; The reason we’re using DavEx instead of RMI is that DavEx does not require any changes to the CQ Server by default.
+To identify links inside our current content, we'll start by connecting to the CQ using DavEx.&nbsp; The reason we're using DavEx instead of RMI is that DavEx does not require any changes to the CQ Server by default.
 
 First, we get the repository:  
 
@@ -63,14 +63,14 @@ So what does searchNode do?&nbsp; First, it iterates through every property on t
 	
 ### Checking the Node Properties
 
-Once we have the value of the property, we can check it to see if it links to anything we’ll need.&nbsp; In this case we only want nodes under "/content/dam/mysite".&nbsp; First we check to see if the value of the property is a valid path, if so we can write the value out to a report or to the console.&nbsp; Next, we need to see if the property is HTML and contains an anchor tag. If so we’ll need to call parseHTML to parse the value. 
+Once we have the value of the property, we can check it to see if it links to anything we'll need.&nbsp; In this case we only want nodes under "/content/dam/mysite".&nbsp; First we check to see if the value of the property is a valid path, if so we can write the value out to a report or to the console.&nbsp; Next, we need to see if the property is HTML and contains an anchor tag. If so we'll need to call parseHTML to parse the value. 
 
 	protected void checkProperty(Node node, String value) throws RepositoryException {
 		  log.trace("checkProperty");
 
 		  log.trace("Checking value: " + value);
-		  if (value.startsWith(“/content/dam/mysite”))) {
-				log.trace(“Writing “+value+” to report”);
+		  if (value.startsWith('/content/dam/mysite'))) {
+				log.trace('Writing '+value+' to report');
 				report.println(value);
 		  }
 		  if (value.contains("</a>")) {
@@ -80,7 +80,7 @@ Once we have the value of the property, we can check it to see if it links to an
   
 ### Parsing HTML Node Values
 
-Parsing the HTML content of a JCR node is a little more difficult.&nbsp; Since the content is HTML, not XML , it cannot be reliably parsed using the built in XML parses available in Java.&nbsp; We could use regular expressions, however they introduce significant complexity and cannot truly parse HTML.&nbsp; Instead we’ll use a library called HTML Parser.&nbsp; This library will parse the HTML and allow us to process it using Java.&nbsp; 
+Parsing the HTML content of a JCR node is a little more difficult.&nbsp; Since the content is HTML, not XML , it cannot be reliably parsed using the built in XML parses available in Java.&nbsp; We could use regular expressions, however they introduce significant complexity and cannot truly parse HTML.&nbsp; Instead we'll use a library called HTML Parser.&nbsp; This library will parse the HTML and allow us to process it using Java.&nbsp; 
 
 The parseHTML function first creates a NodeVisitor.&nbsp; This HTMLParser class is invoked by the parser every time it encounters a node.&nbsp; In our NodeVisitor we check for anchor tags and if they have a valid link we will write out a report.
 
@@ -97,7 +97,7 @@ Next we invoke the HTML Parser classes to parse the HTML, this will and then use
 							log.trace("Visiting link");
 							String hrefValue = tag.getAttribute("href");
 							log.trace("Found href: " + hrefValue);
-							if (hrefValue.startsWith(“/content/dam/mysite”)){
+							if (hrefValue.startsWith('/content/dam/mysite')){
 								  report.println(hrefValue);
 							}
 					  }
@@ -115,9 +115,9 @@ Next we invoke the HTML Parser classes to parse the HTML, this will and then use
 
 ### Bringing it all Together
 
-That’s really all you need!&nbsp; Once you run the application you’ll have a report with all of the content objects you’ll need to import into your development environment.&nbsp; You can find a complete Java class [here][1], which creates two reports, one CSV with the list of source pages and link targets as well as creating a filter.xml for Day’s Vault tool.
+That's really all you need!&nbsp; Once you run the application you'll have a report with all of the content objects you'll need to import into your development environment.&nbsp; You can find a complete Java class [here][1], which creates two reports, one CSV with the list of source pages and link targets as well as creating a filter.xml for Day's Vault tool.
 
-In order to compile and run this application you’ll need the following dependencies:  
+In order to compile and run this application you'll need the following dependencies:  
 
 	<ivy-module version="2.0">
 		<info organisation="com.cp" module="ContentFinder" />
