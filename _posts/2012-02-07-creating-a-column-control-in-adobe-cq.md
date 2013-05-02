@@ -12,7 +12,7 @@ Column Controls in Adobe CQ allow authors to easily create and configure column-
 
 Include a Paragraph System into the page's component JSP.&nbsp; You can use any node name for the path, the resource type is 'foundation/components/parsys'
 
-`&lt;cq:includepath="par"resourceType="foundation/components/parsys "/&gt;`
+    <cq:includepath="par"resourceType="foundation/components/parsys "/>
 
 ### Step 2: Configure the Paragraph System
 
