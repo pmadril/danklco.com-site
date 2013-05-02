@@ -20,7 +20,7 @@ category_dir: /
 url: http://www.danklco.com/
 
 # Makes pretty (descriptive) permalinks. See Jekyll docs for alternatives.
-permalink: /:year/:month/:day/:title/
+permalink: /posts/:year/:month/:day/:title/
 
 # Save the results to the httpd server
 destination: /var/www/html

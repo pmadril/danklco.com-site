@@ -1,0 +1,29 @@
+---
+layout: page
+title: Blog
+---
+
+<ul>
+	{% for post in paginator.posts %}
+		<li class="archive_list">
+			<strong><a href="{% if post.original %}{{ post.original }}{% else %}{{ post.url }}{% endif %}">{{post.title}}</a></strong><br/>
+	 	    <time datetime='{{post.date | date: "%Y-%m-%d"}}'><em>{{post.date | date: "%b %d %Y"}}</em></time>
+	 		<p class="summary">{{post.summary}}</p>
+		</li>
+	{% endfor %}
+</ul>
+
+<!-- Pagination links -->
+<div class="pagination">
+  {% if paginator.previous_page %}
+    <a href="/posts{{paginator.previous_page}}" class="previous">Previous</a>
+  {% else %}
+    <span class="previous">Previous</span>
+  {% endif %}
+  <span class="page_number ">Page: {{paginator.page}} of {{paginator.total_pages}}</span>
+  {% if paginator.next_page %}
+    <a href="/posts{{paginator.next_page}}" class="next ">Next</a>
+  {% else %}
+    <span class="next ">Next</span>
+  {% endif %}
+</div>
