@@ -29,7 +29,7 @@ destination: /var/www/html
 exclude: [.gitignore, update.sh]
 
 # Control the number of post per page
-paginate: 20
+paginate: 50
 
 # Configure the Asset Bundler
 asset_bundler:
