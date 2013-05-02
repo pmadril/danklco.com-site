@@ -30,6 +30,7 @@ exclude: [.gitignore, update.sh]
 
 # Control the number of post per page
 paginate: 10
+paginate_path: /posts/page/:num
 
 # Configure the Asset Bundler
 asset_bundler:
