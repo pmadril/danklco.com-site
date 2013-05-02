@@ -14,7 +14,7 @@ Often, Public Events won't fire and there will be no indication in the console o
 
 Adobe CQ's [Widget's API][1] is a great resource for finding information on the JavaScript widgets used for creating CQ Dialogs.&nbsp; Unfortunately, one fact that does not seem to be documented is, to use the Public Events, you must add the events into a subnode to the widget called listener.&nbsp; Its easy to forget this and add the Public Event method's into the widget node, this will result in the method being simply interpreted as a string.&nbsp; Only Public Events put in a subnode called listeners will be evaluated as JavaScript functions.&nbsp;
 
-Adding the listeners node into a dialog is easy, the listeners node can be of any type, such as nt:unstructured.&nbsp; For example, lets say I want to automatically set a hidden field called failureURL to the path of the page plus an extension.&nbsp; The resulting widget in the dialog.xml would look like this:`  
+Adding the listeners node into a dialog is easy, the listeners node can be of any type, such as nt:unstructured.&nbsp; For example, lets say I want to automatically set a hidden field called failureURL to the path of the page plus an extension.&nbsp; The resulting widget in the dialog.xml would look like this:
 
 	<failureURL
 		jcr:primaryType="cq:Widget"
@@ -30,7 +30,7 @@ Adding the listeners node into a dialog is easy, the listeners node can be of an
 
 ### Bad Comments
 
-One thing to keep in mind when writing Public Event and other widget functions is that the JavaScript code will be inlined when it is evaluated.&nbsp; This means that you cannot use single line (// double slash) comments.&nbsp; Instead use multiline comments (/* slash star */) as they will not cause subsequent code to not be evaluated.
+One thing to keep in mind when writing Public Event and other widget functions is that the JavaScript code will be inlined when it is evaluated.&nbsp; This means that you cannot use single line (// double slash) comments.&nbsp; Instead use multiline comments (`/* slash star */`) as they will not cause subsequent code to not be evaluated.
 
 ### Can't find your code?
 
