@@ -22,8 +22,18 @@ layout: default
 		<h4>Recent Activity</h4>
 	</div>
 	<div class="ten columns">
-		{{ content }}
+		<div id="recent-activity">
+			{% for post in site.posts %}
+				<div class="three columns">
+					<em>{{post.date | date: "%b %d %Y"}}</em>
+				</div>
+				<div class="six columns">
+					<a href="{% if post.original %}{{ post.original }}{% else %}{{ post.url }}{% endif %}" title="{{ post.title }}">{{ post.title }}</a>
+				</div>
+			{% endfor %}
+		</div>
 	</div>
+	
 	<div class="four columns">
 		<h4>Twitter</h4>
 		<a class="twitter-timeline" data-dnt="true" href="https://twitter.com/KlcoDanR" data-theme="light" data-link-color="#333" data-widget-id="324965818536427521" data-chrome="noheader nofooter noborders transparent">Tweets by @KlcoDanR</a>

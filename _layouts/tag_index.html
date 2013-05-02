@@ -8,7 +8,7 @@ layout: page
   		{% if tag == page.tag %}
   		  <li class="archive_list">
 			<strong><a class="archive_list_article_link" href='{{post.url}}'>{{post.title}}</a></strong><br/>
-    	    <time datetime='{{post.date | date: "%Y-%m-%d"}}'><em>{{post.date | date: "%m/%d/%y"}}</em></time>
+    	    <time datetime='{{post.date | date: "%Y-%m-%d"}}'><em>{{post.date | date: "%b %d %Y"}}</em></time>
     		<p class="summary">{{post.summary}}</p>
   		  </li>
   		{% endif %}
