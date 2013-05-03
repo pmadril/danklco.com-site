@@ -315,6 +315,7 @@ section {
 	nav .content a:hover, nav .content a.active {
 		background-color: white;
 		color: grey;
+		box-shadow: none;
 	}
 	
 	nav ul li {
