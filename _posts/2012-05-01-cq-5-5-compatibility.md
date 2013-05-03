@@ -1,7 +1,7 @@
 ---
 layout: post
-title: New Release Version 0.1.4
-summary: Introducing VaultClipse version 0.1.4
+title: CQ 5.5 Compatibility
+summary: Discussing the compatibility between VaultClipse and Adobe CQ 5.5
 tags: [Adobe CQ, VLT, VaultClipse, CQ5.5]
 ---
 

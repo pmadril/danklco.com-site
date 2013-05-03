@@ -1,7 +1,7 @@
 ---
 layout: post
-title: New Release Version 0.1.4
-summary: Introducing VaultClipse version 0.1.4
+title: VaultClipse Version 0.3.1
+summary: Introducing VaultClipse Version 0.3.1
 tags: [Adobe CQ, VLT, VaultClipse, CQ5.5]
 ---
 
