@@ -219,9 +219,15 @@ nav ul li:last-child {
 	border-right: none;
 }
 
+.pagination {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
 pre {
 	white-space: pre-wrap;
 }
+
 pre code {
 	background: #f6f6f6;
 	border: 1px solid #eee;
