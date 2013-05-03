@@ -287,6 +287,8 @@ section {
 	
 	.client {
 		margin: 10px;
+		-webkit-transform: none;
+		-moz-transform: none;
 	}
 	
 	.header-text {
