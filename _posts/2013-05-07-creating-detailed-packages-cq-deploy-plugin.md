@@ -19,11 +19,11 @@ Once you have completed your updates, select Rewrap to update the package config
 
 #### Updating the Configuration
 
-Once you have the package downloaded, extract the *META-INF* folder from the root of the package. &nbsp;Copy the contents of this folder into your project into the folder being used to hold your package configuration. &nbsp;Generally this will be* {PACKAGE_PROJECT}/src/main/resources*
+Once you have the package downloaded, extract the *META-INF* folder from the root of the package.  Copy the contents of this folder into your project into the folder being used to hold your package configuration. &nbsp;Generally this will be *{PACKAGE_PROJECT}/src/main/resources*
 
 Before you commit anything, go ahead and remove any transient information (e.g. anything with timestamps or users). &nbsp;This information will not be correct when you upload the package next time, so there really is no reason to keep it. &nbsp;You can also delete the *thumbnail* folder under&nbsp;*META-INF/vault/definition* as this will be recreated based on the thumbnail.png file you provide, if any.
 
-Once you have removed all of the transient information, replace all instances of the package version within the files&nbsp;*META-INF/vault/definition/.content.xml* and&nbsp;*META-INF/vault/properties.xml*&nbsp;with a placeholder such as 'PROJECT_VERSION'
+Once you have removed all of the transient information, replace all instances of the package version within the files *META-INF/vault/definition/.content.xml* and *META-INF/vault/properties.xml*&nbsp;with a placeholder such as 'PROJECT_VERSION'
 
 #### Updating the POM
 
