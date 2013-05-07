@@ -236,6 +236,10 @@ pre code {
 	padding: 10px 14px;
 }
 
+#rss {
+	background-position: -251px 0;
+}
+
 section {
 	border-top: 1px solid silver;
 	padding-top: 1em;
