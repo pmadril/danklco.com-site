@@ -1,6 +1,3 @@
----
-layout: none
----
 /*
 * Skeleton V1.2
 * Copyright 2011, Dave Gamache
@@ -21,7 +18,7 @@ layout: none
 ================================================== */
 body {
 	background-color: #F7F7F7;
-	background-image: url("/images/debut_light.png?c={{ site.time | date: '%Y-%j' }}");
+	background-image: url("/images/debut_light.png");
 	background-repeat:repeat;
 	background-attachment:fixed;
 	background-position:center; 
@@ -49,7 +46,7 @@ body {
 	border: 1px solid silver;
 	text-align: center;
 	padding: 10px 0;
-	background-image: url("/images/otis_redding.png?c={{ site.time | date: '%Y-%j' }}");
+	background-image: url("/images/otis_redding.png");
 	background-color:gray;
 	border-radius: 5px;
 	margin-bottom: 20px;
@@ -133,7 +130,7 @@ footer {
 
 header {
 	display: block;
-	background-image: url(/images/catania-park.jpg?c={{ site.time | date: '%Y-%j' }});
+	background-image: url(/images/catania-park.jpg);
 	clear: both;
 	width: 100%;
 	height: 300px;
@@ -168,7 +165,7 @@ hr.large {
 }
 
 .icon {
-	background-image:url('/images/icon-sprites.png?c={{ site.time | date: '%Y-%j' }}');
+	background-image:url('/images/icon-sprites.png');
 	width: 48px;
 	height: 48px;
 	display: inline-block;
@@ -189,7 +186,7 @@ nav {
 	text-align: center;
 	border-top: 1px solid silver;
 	min-height: 47px;
-	background-image: url("/images/otis_redding.png?c={{ site.time | date: '%Y-%j' }}");
+	background-image: url("/images/otis_redding.png");
 	background-color: gray;
 }
 
