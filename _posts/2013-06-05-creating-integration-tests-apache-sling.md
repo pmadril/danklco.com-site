@@ -131,11 +131,11 @@ The Maven Failsafe plugin defines all of the properties and runs the tests. Note
   * **test.server.username** \- The username to use for the server, only needed if using an already running instance
   * **test.server.password** \- The password to use for the server, only needed if using an already running instance
   * **server.ready.timeout.seconds** \- The number of seconds to wait before checking if the server is ready.
-  * **server.ready.path.[num]** \- A list of paths to check if the server is ready, can also contain a string to check for in the format: [path]:[string]
+  * **server.ready.path.\[num\]** \- A list of paths to check if the server is ready, can also contain a string to check for in the format: \[path\]:\[string\]
   * **keepJarRunning** \- A flag of whether or not to shutdown the server when complete, generally used if the server should already be running
   * **test.server.hostname** \- The test server hostname
   * **additional.bundles.path** \- The path to the additional bundles to install once the Sling instance is started
-  * **sling.additional.bundle.[num]** \- The artifact id's of the additional bundles to install
+  * **sling.additional.bundle.\[num\]** \- The artifact id's of the additional bundles to install
   * **start.bundles.timeout.seconds** \- The timeout to wait for a bundle to start, depending on the performance of your system this may need to change
   * **bundle.install.timeout.seconds** \- The timeout to wait for a bundle to install, again this may need to change depending on the performance of your system
 
