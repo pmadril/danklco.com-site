@@ -127,26 +127,26 @@ The Maven Failsafe plugin defines all of the properties and runs the tests. Note
 
 #### SlingTestBase Properties
 
-  * **test.server.url** \- The url for server, only needed if using an already running instance and the _test.server.hostname_ is not set
-  * **test.server.username** \- The username to use for the server, only needed if using an already running instance
-  * **test.server.password** \- The password to use for the server, only needed if using an already running instance
-  * **server.ready.timeout.seconds** \- The number of seconds to wait before checking if the server is ready.
-  * **server.ready.path.\[num\]** \- A list of paths to check if the server is ready, can also contain a string to check for in the format: \[path\]:\[string\]
-  * **keepJarRunning** \- A flag of whether or not to shutdown the server when complete, generally used if the server should already be running
-  * **test.server.hostname** \- The test server hostname
-  * **additional.bundles.path** \- The path to the additional bundles to install once the Sling instance is started
-  * **sling.additional.bundle.\[num\]** \- The artifact id's of the additional bundles to install
-  * **start.bundles.timeout.seconds** \- The timeout to wait for a bundle to start, depending on the performance of your system this may need to change
-  * **bundle.install.timeout.seconds** \- The timeout to wait for a bundle to install, again this may need to change depending on the performance of your system
+* **test.server.url** \- The url for server, only needed if using an already running instance and the _test.server.hostname_ is not set
+* **test.server.username** \- The username to use for the server, only needed if using an already running instance
+* **test.server.password** \- The password to use for the server, only needed if using an already running instance
+* **server.ready.timeout.seconds** \- The number of seconds to wait before checking if the server is ready.
+* **server.ready.path.\[num\]** \- A list of paths to check if the server is ready, can also contain a string to check for in the format: \[path\]:\[string\]
+* **keepJarRunning** \- A flag of whether or not to shutdown the server when complete, generally used if the server should already be running
+* **test.server.hostname** \- The test server hostname
+* **additional.bundles.path** \- The path to the additional bundles to install once the Sling instance is started
+* **sling.additional.bundle.\[num\]** \- The artifact id's of the additional bundles to install
+* **start.bundles.timeout.seconds** \- The timeout to wait for a bundle to start, depending on the performance of your system this may need to change
+* **bundle.install.timeout.seconds** \- The timeout to wait for a bundle to install, again this may need to change depending on the performance of your system
 
 #### JarRunner Properties
 
-  * **jar.executor.server.port** \- The server port on which the jar will be started
-  * **jar.executor.jar.folder** \- The folder containing the jar to run
-  * **jar.executor.jar.name.regexp** \- a regular expression for finding the name of the jar to run, the first jar in the jar folder matching this pattern will be executed
-  * **jar.executor.vm.options** \- Options to pass to the VM when executing the jar
-  * **jar.executor.work.folder** \- The work folder for the jar to be executed within, generally should be a subfolder of your target folder
-  * **jar.executor.jar.options** \- Options to pass to the jar being executed
+* **jar.executor.server.port** \- The server port on which the jar will be started
+* **jar.executor.jar.folder** \- The folder containing the jar to run
+* **jar.executor.jar.name.regexp** \- a regular expression for finding the name of the jar to run, the first jar in the jar folder matching this pattern will be executed
+* **jar.executor.vm.options** \- Options to pass to the VM when executing the jar
+* **jar.executor.work.folder** \- The work folder for the jar to be executed within, generally should be a subfolder of your target folder
+* **jar.executor.jar.options** \- Options to pass to the jar being executed
 
 &nbsp;
 
@@ -275,10 +275,10 @@ In the sample test, I am just executing a single reqest against the sample node 
 
 Once you execute the request, you can verify the execution with the following methods:
 
-  * assertContentContains - Assert that the content contains the specified String(s)
-  * assertContentRegexp - Assert that the content contains the specified Regular Expression String(s)
-  * assertContentType - Assert that the reponse has a certain content type (i.e. application/json)
-  * assertStatus - Assert that the response status is a certain status code
+* assertContentContains - Assert that the content contains the specified String(s)
+* assertContentRegexp - Assert that the content contains the specified Regular Expression String(s)
+* assertContentType - Assert that the reponse has a certain content type (i.e. application/json)
+* assertStatus - Assert that the response status is a certain status code
 
 You can also use the methods _getResponse_ or _getContent_ to examine the results directly.
 
