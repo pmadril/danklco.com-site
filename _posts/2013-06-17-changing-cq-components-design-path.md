@@ -1,0 +1,33 @@
+---
+layout: post
+title: "Changing a CQ Component's Design Path"
+original: http://labs.sixdimensions.com/blog/dan-klco/2013-06-17/changing-cq-components-design-path
+summary: "See how easy it is to change the design path on a CQ Component"
+tags: [Adobe CQ, Design, Components]
+---
+
+Usually, the default location used by the CQ Designs configuration works, however there are cases where you may want to set the designs to exist at a different location.  For example, you may want multiple components to share a configuration or have all of the instances of a component on a site share the same configuration.
+
+CQ provides the [EditConfig](http://dev.day.com/docs/en/cq/current/javadoc/com/day/cq/wcm/api/components/EditConfig.html) object which can be used to configure how the edit dialog is loaded in CQ. 
+
+To configure your design path in Adobe CQ, first set the edit context path in the Edit Config object when in design mode:
+
+	String myComponentDesignPath = currentDesign.getPath() + "/jcr:content/mycomponent";
+	if (WCMMode.fromRequest(request) == WCMMode.DESIGN) {
+		log.debug("Setting content path to {}", myComponentDesignPath);
+		editContext.setContentPath(myComponentDesignPath);
+	}
+
+Next, you will need to retrieve the resource you at the path you configured as a ValueMap, to be able to retrieve the properties you set.
+
+	Resource myComponentDesignRsrc = resource.getResourceResolver().getResource(myComponentDesignPath);
+		if (myComponentDesignRsrc != null) {
+			pageContext.setAttribute("myComponentDesign",
+					myComponentDesignRsrc.adaptTo(ValueMap.class));
+		}
+
+Finally, once you have the design properties set as a page context attribute, you can retrieve the values in your component JSP.
+
+	${myComponentDesign.attribute}
+
+The only unfortunate thing about this approach is that the *currentStyles* variable will no longer point to the correct design path.
