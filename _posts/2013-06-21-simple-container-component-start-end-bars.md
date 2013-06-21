@@ -8,7 +8,9 @@ tags: [Adobe CQ, Components, Best Practices]
 
 When creating a container component for Adobe CQ, you often run into an issue where the resulting page is difficult to author as there are too many [parsys][1]&nbsp;adjacent to each other. &nbsp;As bad as this situation is for the component developer, imagine how confusing it must be to authors who don't have a detailed understanding of how the component works. &nbsp;As you can see from the illustration below of a tab component, when you have multiple parsys in a single component it can get very confusing as to what each parsys does. &nbsp;
 
-![A component with no start or end bars][2]A container component without start or end bars
+![A component with no start or end bars][2]
+
+*A container component without start or end bars*
 
 My first thought in handling this was to dynamically update the empty text for the parsys based on the component name, however this proved to be difficult if not impossible without overwriting the entire parsys component. &nbsp;Instead, I decided to take a look at the [iparsys][3], which displays a bar below it's parsys. &nbsp;The answer turned out to be simple. &nbsp;I just needed to add two nearly empty sub-components to render the start and end bars (as needed).
 
@@ -38,7 +40,9 @@ Once you have created your components you simply surround the parsys's in your c
 
 Once this is complete and installed into CQ, you should now see the start and end bars surrounding your container component's parsys, clearly delimiting where your component starts and ends.
 
-![The same component with start and end bars][5]The same component with start and end bars
+![The same component with start and end bars][5]
+
+*The same component with start and end bars*
 
 As you can see it is much easier to tell what parsys's belong to the compoent and which ones belong to containing components. &nbsp;Taking the simple step of adding start and end components makes it much easier for authors and other maintainers to edit container components.
 
