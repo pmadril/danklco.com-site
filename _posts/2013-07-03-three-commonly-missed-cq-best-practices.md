@@ -12,7 +12,7 @@ This thread demonstrates three common problems I've seen on CQ installations. &n
 
   * ### 1\. QA Not Matching Production
 
-In this case CRXDE shouldn’t work in QA either. &nbsp;If the Production and QA environments don't exactly match, you can't be 100% sure your code will work once you move it to production. &nbsp;The purpose of a QA or Pre-Production environment is to ensure that the deployment will work when it's outside of the developer sandbox. &nbsp;As a note, this includes content. &nbsp;Many CQ components and services require specific content structures to function as expected, in order to ensure your testing is valid, it is essential to sync content back from Production into QA and other environments.
+In this case CRXDE shouldn't work in QA either. &nbsp;If the Production and QA environments don't exactly match, you can't be 100% sure your code will work once you move it to production. &nbsp;The purpose of a QA or Pre-Production environment is to ensure that the deployment will work when it's outside of the developer sandbox. &nbsp;As a note, this includes content. &nbsp;Many CQ components and services require specific content structures to function as expected, in order to ensure your testing is valid, it is essential to sync content back from Production into QA and other environments.
 
   * ### 2\. Developer Access to Production
 
