@@ -285,6 +285,7 @@ section {
 @media only screen and (min-width: 768px) and (max-width: 959px) {
 	.client img {
 		width: 120px;
+		height:120px;
 	}
 	
 	header {
