@@ -6,7 +6,7 @@ summary: "Illustrates why you need to be careful with the Export-Package instruc
 tags: [Adobe CQ, Apache Felix, Apache Sling, Best Practices, SOAP Web Services]
 ---
 
-Quick — without checking the documentation, what does the Export-Package instruction do in the [Maven Bundle Plugin][1]?
+Quick &mdash; without checking the documentation, what does the Export-Package instruction do in the [Maven Bundle Plugin][1]?
 
 Did you say "sets what packages are exported by the bundle"? &nbsp;If so, you're only half right.
 
