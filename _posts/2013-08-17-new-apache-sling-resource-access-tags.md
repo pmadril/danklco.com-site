@@ -8,7 +8,7 @@ tags: [Adobe CQ, Apache Sling, Best Practices]
 
 Recently, I had the chance to release a new version of the Sling JSP Taglib.  This new version includes a large number of features and improvments which I hope will help developers in Sling-based platforms, including Adobe CQ, develop cleaner and more reusable JSP scripts.  
 
-What's new?  Well the JSP Taglib includes a number of new functions and tags which allow for access to the Sling Repository without requring any Java code. Using traditional JSP code if you wanted to the get the property at the path jcr:content/jcr:title for all of the children of a particular resource given a path you could do something like this:
+What’s new? Well, the JSP Taglib allows for access to the Sling Repository without requring any Java code.  With the previous version of the Sling Taglib, if you wanted to the get the property at the path jcr:content/jcr:title for all of the children of a particular resource given a path, you could do something like this:
 
 	<ul>
 	<%
@@ -43,7 +43,7 @@ This method is cleaner and more consise and allows you to retrieve simple inform
 
 The new version of the Sling JSP Taglib will be released with Sling 7 and presumably the next version of Adobe CQ/AEM, however you can download and install it now.  It is compatible at least down to CQ 5.4 and can be downloaded from the [Sling Project Downloads](http://sling.apache.org/downloads.cgi) page.
 
-To leverage the new Sling Resource Access Tags, simply download and install Sling JSP Taglib version 2.2.0 from Sling and update your Sling Taglib URI to:
+To leverage the new Sling Resource Access Tags, simply download and install Sling JSP Taglib version 2.2.0 from the Sling project and update your Sling Taglib URI to:
 
 	<%@taglib prefix="sling" uri="http://sling.apache.org/taglibs/sling" %>
 	
