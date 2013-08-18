@@ -1,0 +1,44 @@
+---
+layout: post
+title: "New from Apache Sling: Resource Access Tags"
+original: http://labs.sixdimensions.com/blog/dan-klco/2013-08-17/new-apache-sling-resource-access-tags
+summary: "Introduces the new Resource Access tags in the Sling JSP Taglib"
+tags: [Adobe CQ, Apache Sling, Best Practices]
+---
+
+Recently, I had the chance to release a new version of the Sling JSP Taglib.  This new version includes a large number of features and improvments which I hope will help developers in Sling-based platforms, including Adobe CQ, develop cleaner and more reusable JSP scripts.  
+
+What's new?  Well the JSP Taglib includes a number of new functions and tags which allow for access to the Sling Repository without requring any Java code. Using traditional JSP code if you wanted to the get the property at the path jcr:content/jcr:title for all of the children of a particular resource given a path you could do something like this:
+
+	<ul>
+	<%
+		List<String> title = new ArrayList<String>();
+		Resource resource = resourceResolver.getPath(path);
+		for(Resource child : resource.getChildren()){
+			if("jcr:content".equals(child.getName())){
+				continue;
+			}
+			Resource content = child.getChild("jcr:content");
+			if(content != null){
+				ValueMap contentProps = content.adaptTo(ValueMap.class);
+				%><li><%= contentProps.get("jcr:title", child.getName()) %></li><%
+			}
+		}
+	%>
+	</ul>
+     
+As you don't have direct access to the Sling Repository, even simple tasks require scriptlet Java code.  This often ends up with a ugly mix of Java code and HTML.  Instead of this, you can use the Sling Taglib to access the Sling Repository using JSP tags, as such:
+
+	<ul>
+		<c:forEach var="child" items="${sling:getResource(resourceResolver,path).children}">
+			<c:if test="${child.name != 'jcr:content'}>
+				<sling:getResource path="jcr:content" base="${child}" var="content" />
+				<sling:adaptTo adaptable="${content}" adaptTo="org.apache.sling.api.resource.ValueMap" var="properties" />
+				<li><c:out value="${properties['jcr:title']" default="${child.name}" /></li>
+			</c:if>
+		</c:forEach>
+	</ul>
+
+This method is cleaner and more consise and allows you to retrieve simple information from the Sling Repository without requiring any scriptlet code.  The new tags are also now [documented](http://sling.apache.org/documentation/bundles/sling-scripting-jsp-taglib.html) including the attributes and example use of every tag and EL function. 
+
+The new version of the Sling JSP Taglib will be released with Sling 7 and presumably the next version of Adobe CQ/AEM, however you can download and install it now.  It is compatible at least down to CQ 5.4 and can be downloaded from the [Sling Project Downloads](http://sling.apache.org/downloads.cgi) page.
