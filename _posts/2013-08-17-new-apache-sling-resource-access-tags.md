@@ -42,3 +42,9 @@ As you don't have direct access to the Sling Repository, even simple tasks requi
 This method is cleaner and more consise and allows you to retrieve simple information from the Sling Repository without requiring any scriptlet code.  The new tags are also now [documented](http://sling.apache.org/documentation/bundles/sling-scripting-jsp-taglib.html) including the attributes and example use of every tag and EL function. 
 
 The new version of the Sling JSP Taglib will be released with Sling 7 and presumably the next version of Adobe CQ/AEM, however you can download and install it now.  It is compatible at least down to CQ 5.4 and can be downloaded from the [Sling Project Downloads](http://sling.apache.org/downloads.cgi) page.
+
+To leverage the new Sling Resource Access Tags, simply download and install Sling JSP Taglib version 2.2.0 from Sling and update your Sling Taglib URI to:
+
+	<%@taglib prefix="sling" uri="http://sling.apache.org/taglibs/sling" %>
+	
+This new Taglib URI will be used for all subsequent releases of the Sling Taglibs, so this will make your code more future-proof as well.
