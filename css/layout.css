@@ -38,6 +38,12 @@ body {
 	-moz-perspective: 5000;
 }
 
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto 
+}
+
 .clear {
 	clear:both;
 }
@@ -173,6 +179,10 @@ hr.large {
 	width: 48px;
 	height: 48px;
 	display: inline-block;
+}
+
+img.certification {
+	width:300px;
 }
 
 #Linkedin{
