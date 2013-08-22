@@ -8,8 +8,8 @@ layout: page
   		{% if tag == page.tag %}
   		  <li class="archive_list">
 			<strong><a href='{% if post.original %}{{ post.original }}{% else %}{{ post.url }}{% endif %}'>{{post.title}}</a></strong><br/>
-    	    <time datetime='{{post.date | date: "%Y-%m-%d"}}'><em>{{post.date | date: "%b %d %Y"}}</em></time>
-    		<p class="summary">{{post.summary}}</p>
+    	    <time datetime='{{post.date | date: "%Y-%m-%d"}}'><em>{{post.date | date: "%B %d, %Y"}}</em></time>
+    		<p class="summary">{{ post.content | truncatewords: 50 | strip_html }}</p>
   		  </li>
   		{% endif %}
   	{% endfor %}

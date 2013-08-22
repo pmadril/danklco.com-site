@@ -7,7 +7,7 @@ layout: default
 		<article class="post">
 			<h3>{{ page.title }}</h3>
 			<em>
-				Posted on <span class="date">{{ page.date | date_to_string }}</span> by <span class="author">{{ site.author }}</span>
+				Posted on <time datetime='{{page.date | date: "%Y-%m-%d"}}'><span>{{page.date | date: "%B %d, %Y"}}</span></time> by <span class="author">{{ site.author }}</span>
 			</em>
 			{% if page.original %}<div class="original">Original URL: <a href="{{ page.original }}">{{ page.original }}</a></div>{% endif %}
 			<hr class="large" />
