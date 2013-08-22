@@ -130,6 +130,10 @@ footer {
 	border-bottom-right-radius: 5px;
 }
 
+footer hr {
+	margin-bottom: 10px;
+}
+
 #Github{
 	background-position: -51px 0;
 }
