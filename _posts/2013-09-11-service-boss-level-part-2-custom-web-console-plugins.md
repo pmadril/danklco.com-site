@@ -10,9 +10,9 @@ You've got your awesome service. &nbsp;It performs all sorts of complex tasks an
 
 Apache Felix provides a really simple class you can extend for creating custom Web Console screens, the [AbstractWebConsolePlugin][2]. &nbsp;This class will automatically leverage the look and feel of the Apache Felix console and makes it easy for you to create your own console screen. &nbsp;There are three main methods to override:
 
-  * [getLabel][3] \- This method should return the URL for the console page, ex: helloworld
-  * [getTitle][4] \- This method should return the text to display to the user in the Felix Console navigation and title bar
-  * [renderContent][5] \- This method will be executed when your Web Console page is accessed, it should write out the Web Console page content
+* [getLabel][3] \- This method should return the URL for the console page, ex: helloworld
+* [getTitle][4] \- This method should return the text to display to the user in the Felix Console navigation and title bar
+* [renderContent][5] \- This method will be executed when your Web Console page is accessed, it should write out the Web Console page content
 
 Your WebConsole plugin class, should extend the AbstractWebConsolePlugin class and should be a standard OSGi Service. &nbsp;You should extend the Servlet interface and should have properties exposing the label and title for your Web Console plugin as properties. Generally, I would recommend using constants to ensure that the method and properties use the same value.
 
