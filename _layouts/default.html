@@ -11,12 +11,17 @@
 		<meta property="og:type" content="blog"/>
 		<meta property="og:title" content="{% if page.title %} {{ page.title }} | {% endif %} DanKlco.com"/>
 		<meta property="og:image" content="https://www.danklco.com/images/me.jpg"/>
-		{% if page.original %}<meta property="og:url" content="{{page.original}}"/>{% endif %}
-		{% if page.original == empty %}<meta property="og:url" content="https://www.danklco.com{{page.url}}"/>{% endif %}		
+		{% if page.original %}
+			<meta property="og:url" content="{{page.original}}"/>
+			<link rel="canonical" href="{{ page.original }}" />
+		{% else %}
+			<meta property="og:url" content="https://www.danklco.com{{page.url}}"/>
+			<link rel="canonical" href="https://www.danklco.com{{page.url}}" />
+		{% endif %}
 {% bundle %}[/css/base.css, /css/skeleton.css, /css/layout.css, /css/colorbox.css ]{% endbundle %}
 		<link rel="shortcut icon" href="/favicon.ico" />
-		{% if page.original %}<link rel="canonical" href="{{ page.original }}" />{% endif %}
-		<link rel="alternate" type="application/rss+xml" href="/feed.xml" title="DanKlco.com RSS Feed" /> 
+		<link rel="alternate" type="application/rss+xml" href="/feed.xml" title="DanKlco.com RSS Feed" />
+		<link rel="author" href="https://plus.google.com/109214091683324297793"/>
 	</head>
 	<body>
 		<div class="container">
