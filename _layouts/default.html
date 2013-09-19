@@ -7,13 +7,13 @@
 		{% if page.summary %}<meta content="{{ page.summary }}" name="description" />{% endif %}
 		<meta content="{{ site.author }}" name="author" />
 		<meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport" />
-		<meta name="fb:app_id" content="313766222068236" />
-		<meta name="og:site_name" content="DanKlco.com"/>
-		<meta name="og:type" content="blog"/>
-		<meta name="og:title" content="{% if page.title %} {{ page.title }} | {% endif %} DanKlco.com"/>
-		<meta name="og:image" content="https://www.danklco.com/images/me.jpg"/>
-		{% if page.original %}<meta name="og:url" content="{{page.original}}"/>{% endif %}
-		{% if page.original == empty %}<meta name="og:url" content="https://www.danklco.com{{page.url}}"/>{% endif %}		
+		<meta property="fb:app_id" content="313766222068236" />
+		<meta property="og:site_name" content="DanKlco.com"/>
+		<meta property="og:type" content="blog"/>
+		<meta property="og:title" content="{% if page.title %} {{ page.title }} | {% endif %} DanKlco.com"/>
+		<meta property="og:image" content="https://www.danklco.com/images/me.jpg"/>
+		{% if page.original %}<meta property="og:url" content="{{page.original}}"/>{% endif %}
+		{% if page.original == empty %}<meta property="og:url" content="https://www.danklco.com{{page.url}}"/>{% endif %}		
 {% bundle %}[/css/base.css, /css/skeleton.css, /css/layout.css, /css/colorbox.css ]{% endbundle %}
 		<link rel="shortcut icon" href="/favicon.ico" />
 		{% if page.original %}<link rel="canonical" href="{{ page.original }}" />{% endif %}
