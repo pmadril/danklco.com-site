@@ -22,63 +22,64 @@ tags:
 <p>Next create a file called index.php in the base of your app to handle all of the url shrinking and redirection. Put in the following code, you will need to specify the database server url, username, password and database name.</p>
 
 <pre><code>
-&lt;?php<br>
-// connect to the database<br>
-$link = mysql_connect($db_url,$db_user,$db_password);<br>
-if(!$link){<br>
-&nbsp;&nbsp;die('Could not connect to database server.');<br>
-}<br>
-$db_selected = mysql_select_db($db_name, $link);<br>
-if(!$db_selected){<br>
-&nbsp;&nbsp;die('Could not connect to database.');<br>
-}<br>
-<br>
-if(isset($_GET['redirect'])){<br>
-&nbsp;&nbsp;//check to see if a redirect url is specified and is in the database, if so redirect the url<br>
-&nbsp;&nbsp;$hash = $_GET['redirect'];<br>
-&nbsp;&nbsp;$result = mysql_query("SELECT redirect_url FROM redirects WHERE hash_code='$hash'",$link);<br>
-&nbsp;&nbsp;if(mysql_num_rows($result) != 1){<br>
-&nbsp;&nbsp;&nbsp;&nbsp;//no or too many rows found, display error<br>
-&nbsp;&nbsp;&nbsp;&nbsp;echo 'No url found matching code: '+$_GET['redirect'];<br>
-&nbsp;&nbsp;}else{<br>
-&nbsp;&nbsp;&nbsp;&nbsp;//url is valid (ie there is one resulting row), so redirect)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;$redirect = mysql_result($result,0,'redirect_url');<br>
-&nbsp;&nbsp;&nbsp;&nbsp;header("Location: $redirect");<br>
-&nbsp;&nbsp;}<br>
-}else{<br>
-&nbsp;&nbsp;//check to see if there specified a url to shrink<br>
-&nbsp;&nbsp;if(isset($_GET['url'])){<br>
-&nbsp;&nbsp;&nbsp;&nbsp;//make sure to nullify magic quotes<br>
-&nbsp;&nbsp;&nbsp;&nbsp;if (get_magic_quotes_gpc()) {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$url = stripslashes($_GET['url']);<br>
-&nbsp;&nbsp;&nbsp;&nbsp;} else {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$url = $_GET['url'];<br>
-&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-&nbsp;&nbsp;&nbsp;&nbsp;//hash the url using the <a href="/web/20091113044045/http://en.wikipedia.org/wiki/Adler-32">adler32</a> algorithm this algorithm returns 8 characters so it's perfect for us<br>
-&nbsp;&nbsp;&nbsp;&nbsp;$hash= hash('adler32',$url);<br>
-&nbsp;&nbsp;&nbsp;&nbsp;//escape the url before putting it using it with the database<br>
-&nbsp;&nbsp;&nbsp;&nbsp;$url = mysql_real_escape_string($url);<br>
-&nbsp;&nbsp;&nbsp;&nbsp;//keep hashing until you find a value that is not already used or matches the url<br>
-&nbsp;&nbsp;&nbsp;&nbsp;while(mysql_num_rows(mysql_query("SELECT hash_code FROM redirects WHERE hash_code='$hash' AND NOT redirect_url='$url'",$link)) &gt; 0){<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$hash=hash('adler32',$hash.time());<br>
-&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-&nbsp;&nbsp;&nbsp;&nbsp;if(mysql_num_rows(mysql_query("SELECT hash_code FROM redirects WHERE hash_code='$hash'",$link)) == 0){<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//insert the new hash and url into the database<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mysql_query("INSERT INTO redirects (hash_code,redirect_url) VALUES ('$hash','$url')",$link);<br>
-&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-&nbsp;&nbsp;}<br>
-&nbsp;&nbsp;//display the value to the user<br>
-&nbsp;&nbsp;echo 'http://r.klco.org/'.$hash;<br>
-}<br>
-?&gt;<br>
+&lt;?php
+// connect to the database
+$link = mysql_connect($db_url,$db_user,$db_password);
+if(!$link){
+&nbsp;&nbsp;die('Could not connect to database server.');
+}
+$db_selected = mysql_select_db($db_name, $link);
+if(!$db_selected){
+&nbsp;&nbsp;die('Could not connect to database.');
+}
+
+if(isset($_GET['redirect'])){
+&nbsp;&nbsp;//check to see if a redirect url is specified and is in the database, if so redirect the url
+&nbsp;&nbsp;$hash = $_GET['redirect'];
+&nbsp;&nbsp;$result = mysql_query("SELECT redirect_url FROM redirects WHERE hash_code='$hash'",$link);
+&nbsp;&nbsp;if(mysql_num_rows($result) != 1){
+&nbsp;&nbsp;&nbsp;&nbsp;//no or too many rows found, display error
+&nbsp;&nbsp;&nbsp;&nbsp;echo 'No url found matching code: '+$_GET['redirect'];
+&nbsp;&nbsp;}else{
+&nbsp;&nbsp;&nbsp;&nbsp;//url is valid (ie there is one resulting row), so redirect)
+&nbsp;&nbsp;&nbsp;&nbsp;$redirect = mysql_result($result,0,'redirect_url');
+&nbsp;&nbsp;&nbsp;&nbsp;header("Location: $redirect");
+&nbsp;&nbsp;}
+}else{
+&nbsp;&nbsp;//check to see if there specified a url to shrink
+&nbsp;&nbsp;if(isset($_GET['url'])){
+&nbsp;&nbsp;&nbsp;&nbsp;//make sure to nullify magic quotes
+&nbsp;&nbsp;&nbsp;&nbsp;if (get_magic_quotes_gpc()) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$url = stripslashes($_GET['url']);
+&nbsp;&nbsp;&nbsp;&nbsp;} else {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$url = $_GET['url'];
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;//hash the url using the <a href="/web/20091113044045/http://en.wikipedia.org/wiki/Adler-32">adler32</a> algorithm this algorithm returns 8 characters so it's perfect for us
+&nbsp;&nbsp;&nbsp;&nbsp;$hash= hash('adler32',$url);
+&nbsp;&nbsp;&nbsp;&nbsp;//escape the url before putting it using it with the database
+&nbsp;&nbsp;&nbsp;&nbsp;$url = mysql_real_escape_string($url);
+&nbsp;&nbsp;&nbsp;&nbsp;//keep hashing until you find a value that is not already used or matches the url
+&nbsp;&nbsp;&nbsp;&nbsp;while(mysql_num_rows(mysql_query("SELECT hash_code FROM redirects WHERE hash_code='$hash' AND NOT redirect_url='$url'",$link)) &gt; 0){
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$hash=hash('adler32',$hash.time());
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;if(mysql_num_rows(mysql_query("SELECT hash_code FROM redirects WHERE hash_code='$hash'",$link)) == 0){
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//insert the new hash and url into the database
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mysql_query("INSERT INTO redirects (hash_code,redirect_url) VALUES ('$hash','$url')",$link);
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;}
+&nbsp;&nbsp;//display the value to the user
+&nbsp;&nbsp;echo 'http://r.klco.org/'.$hash;
+}
+?&gt;
 </code></pre>
 <p>
-Finally .htaccess file to redirect all of the urls like r.klco.org/{HASH_CODE} to r.klco.org/index.php?redirect={HASH_CODE}:<br>
-<code><br>
-Options +FollowSymLinks<br>
-RewriteEngine on<br>
-RewriteRule ^[a-zA-Z0-9]{7,9}$ index.php?redirect=$0<br>
-</code><br>
+Finally .htaccess file to redirect all of the urls like r.klco.org/{HASH_CODE} to r.klco.org/index.php?redirect={HASH_CODE}:
+</p>
+<pre><code>
+Options +FollowSymLinks
+RewriteEngine on
+RewriteRule ^[a-zA-Z0-9]{7,9}$ index.php?redirect=$0
+</code></pre>
 To do this, it looks for any request to my site that contains only seven to nine the alphanumeric characters, which matches the result the adler32 hashing algorithm returns.  I then put that value into the redirect query string attribute, then pass that to the page index.php.</p>
 <p>Once you have all of this put together, test and enjoy!</p>
 <p>This software is licensed under the <a href="/web/20091113044045/http://www.opensource.org/licenses/bsd-license.html">BSD Open Source License</a></p>
