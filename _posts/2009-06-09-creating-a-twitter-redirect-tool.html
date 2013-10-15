@@ -54,7 +54,7 @@ if(isset($_GET['redirect'])){
 &nbsp;&nbsp;&nbsp;&nbsp;} else {
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$url = $_GET['url'];
 &nbsp;&nbsp;&nbsp;&nbsp;}
-&nbsp;&nbsp;&nbsp;&nbsp;//hash the url using the <a href="/web/20091113044045/http://en.wikipedia.org/wiki/Adler-32">adler32</a> algorithm this algorithm returns 8 characters so it's perfect for us
+&nbsp;&nbsp;&nbsp;&nbsp;//hash the url using the <a href="http://en.wikipedia.org/wiki/Adler-32">adler32</a> algorithm this algorithm returns 8 characters so it's perfect for us
 &nbsp;&nbsp;&nbsp;&nbsp;$hash= hash('adler32',$url);
 &nbsp;&nbsp;&nbsp;&nbsp;//escape the url before putting it using it with the database
 &nbsp;&nbsp;&nbsp;&nbsp;$url = mysql_real_escape_string($url);
@@ -82,4 +82,4 @@ RewriteRule ^[a-zA-Z0-9]{7,9}$ index.php?redirect=$0
 </code></pre>
 To do this, it looks for any request to my site that contains only seven to nine the alphanumeric characters, which matches the result the adler32 hashing algorithm returns.  I then put that value into the redirect query string attribute, then pass that to the page index.php.</p>
 <p>Once you have all of this put together, test and enjoy!</p>
-<p>This software is licensed under the <a href="/web/20091113044045/http://www.opensource.org/licenses/bsd-license.html">BSD Open Source License</a></p>
+<p>This software is licensed under the <a href="http://www.opensource.org/licenses/bsd-license.html">BSD Open Source License</a></p>
