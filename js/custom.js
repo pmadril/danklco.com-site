@@ -7,6 +7,7 @@ jQuery(function($){
 			}
 			$(elem).click(function(){
 				var id = $(elem).attr('id');
+				_gaq.push(['_trackEvent', 'Client','Open',id]);
 				$.colorbox.close();
 				$('#client-box img').attr('src','/images/clients/'+id+'.png');
 				$('#client-box img').load(function(){
@@ -25,6 +26,7 @@ jQuery(function($){
 				        href: '#client-box',
 				        title:$(elem).find('h5').text(),
 				        onClosed: function(){
+				        	_gaq.push(['_trackEvent', 'Client','Close',id]);
 				        	$('#client-box').hide();
 				        	$('#client-box img').attr('src','/images/loading.gif');
 				        }
