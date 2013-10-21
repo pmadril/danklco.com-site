@@ -1,5 +1,10 @@
 jQuery(function($){
 	$(document).ready(function(){
+		$('a').click(function(){
+			if ($(this).attr('href') == 0) {
+				_gaq.push(['_trackEvent', 'Outbound Link', 'Click', $(this).attr('href')]);
+			}
+		});
 		$('.client').each(function(index,elem){
 			if((index + 3) % 3 == 0){
 				$(elem).parent('div').addClass('offset-by-two');
