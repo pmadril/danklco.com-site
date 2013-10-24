@@ -19,10 +19,11 @@
 body {
 	background-color: #F7F7F7;
 	background-image: url("/images/debut_light.png");
-	background-repeat:repeat;
-	background-attachment:fixed;
-	background-position:center; 
+	background-repeat: repeat;
+	background-attachment: fixed;
+	background-position: center;
 }
+
 .card {
 	transition-duration: 0.5s;
 	-webkit-transition-duration: 0.5s;
@@ -39,13 +40,13 @@ body {
 }
 
 .center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto 
+	display: block;
+	margin-left: auto;
+	margin-right: auto
 }
 
 .clear {
-	clear:both;
+	clear: both;
 }
 
 .client {
@@ -53,21 +54,45 @@ body {
 	text-align: center;
 	padding: 10px 0;
 	background-image: url("/images/otis_redding.png");
-	background-color:gray;
-	border-radius: 5px;
+	background-color: gray;
 	margin-bottom: 20px;
 	transform: rotateY(30deg);
 	-webkit-transform: rotateY(30deg);
 	-moz-transform: rotateY(30deg);
 }
 
+.client .client-name {
+	position: absolute;
+	top: 60px;
+	left: 0px;
+	display: inline-block;
+	max-width: 75%;
+	border-bottom-right-radius: 5px;
+	border-top-right-radius: 5px;
+	border: 1px solid white;
+	border-left: none;
+	padding: 5px;
+	background-color: #3fa757;
+	color: white;
+	font-weight: bold;
+	font-size: large;
+}
+
 .client:hover {
 	background-image: none;
 	background-color: #EBEBEB;
-	cursor:pointer;
+	cursor: pointer;
 }
 
-.client:hover h5{
+.client:hover .client-name {
+	background-image: none;
+	background-color: #EBEBEB;
+	color: gray;	
+	border: 1px solid silver;
+	border-left: none;
+}
+
+.client:hover h5 {
 	color: gray;
 }
 
@@ -116,7 +141,7 @@ div.container {
 	box-shadow: none;
 }
 
-#Facebook{
+#Facebook {
 	background-position: 0 0;
 }
 
@@ -134,12 +159,12 @@ footer hr {
 	margin-bottom: 10px;
 }
 
-#Github{
+#Github {
 	background-position: -51px 0;
 }
 
-#Google-plus{
-	background-position: -101px -1px ;
+#Google-plus {
+	background-position: -101px -1px;
 }
 
 header {
@@ -179,20 +204,19 @@ hr.large {
 }
 
 .icon {
-	background-image:url('/images/icon-sprites2.png');
+	background-image: url('/images/icon-sprites2.png');
 	width: 48px;
 	height: 48px;
 	display: inline-block;
 }
 
 img.certification {
-	width:300px;
+	width: 300px;
 }
 
-#Linkedin{
+#Linkedin {
 	background-position: -150px 0;
 }
-
 
 #linkedin-profile {
 	width: 364px;
@@ -209,7 +233,7 @@ nav {
 }
 
 nav .content a {
-	color:white;
+	color: white;
 	font-weight: bold;
 	text-decoration: none;
 	height: 35px;
@@ -217,7 +241,7 @@ nav .content a {
 	padding: 12px 25px 0;
 }
 
-nav .content a:hover, nav .content a.active {
+nav .content a:hover,nav .content a.active {
 	background-color: gray;
 	box-shadow: inset 0px 1px 8px #333;
 }
@@ -276,12 +300,12 @@ section {
 .tweet_list li {
 	background-color: white;
 	border: 1px solid silver;
-	border-radius:2px;
+	border-radius: 2px;
 	padding: 2px;
 	overflow: hidden;
 }
 
-#Twitter{
+#Twitter {
 	background-position: -200px 0;
 }
 
@@ -303,9 +327,8 @@ section {
 @media only screen and (min-width: 768px) and (max-width: 959px) {
 	.client img {
 		width: 120px;
-		height:120px;
+		height: 120px;
 	}
-	
 	header {
 		background-size: 125%;
 	}
@@ -313,23 +336,22 @@ section {
 
 /* All Mobile Sizes (devices and browser) */
 @media only screen and (max-width: 767px) {
-	
 	.client {
 		margin: 10px;
 		-webkit-transform: none;
 		-moz-transform: none;
 	}
-	
+	.client .client-name {
+		left:10px;
+	}
 	.header-text {
 		top: 20px;
 	}
-	
 	nav {
 		padding: 0;
 		background: none;
 	}
-	
-	nav .content a, nav .content a:visited {
+	nav .content a,nav .content a:visited {
 		border-top: 1px solid grey;
 		background-color: silver;
 		color: white;
@@ -338,22 +360,18 @@ section {
 		font-size: large;
 		height: auto;
 	}
-	
 	nav li:first-child a {
 		border-top: none;
 	}
-
-	nav .content a:hover, nav .content a.active {
+	nav .content a:hover,nav .content a.active {
 		background-color: white;
 		color: grey;
 		box-shadow: none;
 	}
-	
 	nav ul li {
 		border-right: none;
 		padding: 0;
 	}
-	
 	nav .content  ul {
 		margin-left: 0;
 	}
@@ -361,61 +379,48 @@ section {
 
 /* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
 @media only screen and (min-width: 480px) and (max-width: 767px) {
-	
-	#client-box img, #client-box p {
+	#client-box img,#client-box p {
 		max-width: 460px;
 	}
-	
 	.container .column>*,.container .columns>* {
 		padding-left: 5px;
 		padding-right: 5px;
 	}
-	
 	header {
 		background-size: 220%;
 		background-position: -200px -140px;
 	}
-	
 	img {
 		max-width: 410px;
 	}
-		
 	.tweet_list {
 		margin-right: 0px;
 	}
-	
 }
 
 /* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
 @media only screen and (max-width: 479px) {
-	
-	#client-box img, #client-box p {
+	#client-box img,#client-box p {
 		max-width: 320px;
 	}
-	
-	.container .column > *,.container .columns > * {
+	.container .column>*,.container .columns>* {
 		padding-left: 2px;
 		padding-right: 2px;
 	}
-	
-	header{
+	header {
 		background-size: 300%;
 		background-position: -300px -140px;
 	}
-	
 	header img {
-		display:none;
+		display: none;
 	}
-	
 	img {
 		max-width: 295px;
 	}
-		
 	#linkedin-profile {
 		width: 295px;
-		overflow:hidden;
+		overflow: hidden;
 	}
-		
 	.tweet_list {
 		margin-right: 0px;
 	}
