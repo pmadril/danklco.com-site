@@ -1,3 +1,5 @@
 _site/*
 /.project
 /.settings
+/_asset_bundler_cache
+/.DS_Store
