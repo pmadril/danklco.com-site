@@ -167,7 +167,7 @@ footer hr {
 	background-position: -101px -1px;
 }
 
-header {
+.container > header {
 	display: block;
 	background-image: url(/images/catania-park.jpg);
 	clear: both;
