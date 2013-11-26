@@ -3,7 +3,7 @@ layout: post
 title: "Integration Tests in Adobe CQ"
 summary: ""
 original: 
-tags: [Adobe CQ, Best Practices]
+tags: [Adobe CQ, Best Practices, Integration Testing, jUnit]
 ---
 
 Awhile back I wrote a post on running [integration tests in Apache Sling](http://labs.sixdimensions.com/blog/dan-klco/2013-06-05/creating-integration-tests-apache-sling).  This technique is useful for developers working directly on Apache Sling, but doesn't support downstream platforms like Adobe CQ/AEM.
@@ -95,7 +95,7 @@ Next, add a similar failsafe configuration to the one in the Apache Sling integr
 		</configuration>
 	</plugin>
 	
-The changes here to note, is that this will be looking for a JAR with a name like cq5-{SOMETHING}.jar in the directory specified by the `cq.dir` property.  It will start the CQ with enough memory, suppress the new browser window and prevent CQ from forking the process.  The server.ready.path.1 property is set to the welcome page for CQ 5.6.1, if you are using a different version of CQ, this URL may need to change.
+The changes here to note, is that this will be looking for a JAR with a name like cq5-{SOMETHING}.jar in the directory specified by the `cq.dir` property.  This property should be set as a command line parameter so that different environments can be easily supported.  The test configuration will start the CQ with enough memory, suppress the new browser window and prevent CQ from forking the process.  The server.ready.path.1 property is set to the welcome page for CQ 5.6.1, if you are using a different version of CQ, this URL may need to change.
 
 At this point, when you run the build, a CQ5 instance will be automatically started, any test classes with names like {SOMETHING}IT will be run and the CQ instance will be stopped.
 
@@ -161,3 +161,15 @@ One odd thing I have noticed is that when uploading files, CQ sometimes returns 
 	}
 
 From this point on, the integration test works exactly the same as the [integration tests for Apache Sling](http://labs.sixdimensions.com/blog/dan-klco/2013-06-05/creating-integration-tests-apache-sling#Integration%20Test%20Class).
+
+### Debugging Tests
+
+If you are having issues with the tests and you want to do some debugging within your IDE, you can execute a Maven build like the following:
+
+	mvn clean install -Dmaven.failsafe.debug test -Pcq.dir=/Users/username/cq/5.6.1 -PforkMode=never
+
+This will prevent maven from forking and allow you to debug through your integration test class execution.
+
+### Example
+
+You can find an example of a working Adobe CQ / AEM integration test in the [Component Bindings Provider project](https://github.com/SixDimensions/Component-Bindings-Provider) simply clone the project and call `mvn clean install -Pcq.dir={SOME_CQ_DIRECTORY}` inside the project directory to see the integration tests execute.
