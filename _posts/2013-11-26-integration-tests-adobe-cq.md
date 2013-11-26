@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Integration Tests in Adobe CQ"
-summary: ""
-original: 
+summary: "Learn about how to execute automated integration tests in the Adobe CQ platform"
+original: http://labs.sixdimensions.com/blog/dan-klco/2013-11-26/integration-tests-adobe-cq
 tags: [Adobe CQ, Best Practices, Integration Testing, jUnit]
 ---
 
