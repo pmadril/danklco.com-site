@@ -1,8 +1,8 @@
 RewriteEngine On
 
 # Redirect to https
-RewriteCond %{HTTPS} !^on$
-RewriteRule (.*) https://www.danklco.com/$1 [R,L]
+#RewriteCond %{HTTPS} !^on$
+#RewriteRule (.*) https://www.danklco.com/$1 [R,L]
 
 # Redirect non-www to www
 RewriteCond %{HTTP_HOST} !^www\.
