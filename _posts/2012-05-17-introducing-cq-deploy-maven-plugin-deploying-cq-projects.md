@@ -13,7 +13,7 @@ The CQ Deploy plugin provides two goals, to help developers deploy Maven project
 *   install-package   
     *This goal is used to install CQ Packages into CQ Repositories.*
 *   install-bundle   
-    *This gloal is used to install bundles into CQ Repositories.&nbsp; This goal is different from the [Maven Sling Plugin][2]**'s deploy method.&nbsp; Whereas the Maven Sling Plugin installs the bundle directly into the Felix application, the CQ Deploy plugin is used to upload the JAR into the CQ Application install folder and the path thereof can be configured.*
+    *This gloal is used to install bundles into CQ Repositories.&nbsp; This goal is different from the [Maven Sling Plugin][2]'s deploy method.&nbsp; Whereas the Maven Sling Plugin installs the bundle directly into the Felix application, the CQ Deploy plugin is used to upload the JAR into the CQ Application install folder and the path thereof can be configured.*
 
 As the plugin deploys both Packages and Bundles in a consistant method, developers can use the CQ Deploy plugin to create a single, unified package for deploying a CQ Application, including JSP and Bundle code.&nbsp;
 
