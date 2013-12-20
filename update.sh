@@ -1,5 +1,5 @@
 echo "Updating DanKlco.com Website Code"
 date
 /usr/bin/git pull
-jekyll /var/www/html
+jekyll  build -d /var/www/html
 echo "Update Complete"
