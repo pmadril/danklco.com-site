@@ -12,7 +12,6 @@ layout: none
     </url>
     {% endunless %}
     {% endfor %}
-
     {% for page in site.pages %}
     {% if page.layout != nil %}
     {% if page.layout != 'none' %}
