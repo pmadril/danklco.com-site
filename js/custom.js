@@ -1,9 +1,12 @@
 jQuery(function($){
 	$(document).ready(function(){
 		$('a').click(function(){
-			if ($(this).attr('href') == 0) {
+			if ($(this).attr('href').indexOf('http') != -1) {
 				_gaq.push(['_trackEvent', 'Outbound Link', 'Click', $(this).attr('href')]);
 			}
+		});
+		$('#contact-form').submit(function(){
+			_gaq.push(['_trackEvent', 'Contact Form', 'Submit']);
 		});
 		$('.client').each(function(index,elem){
 			if((index + 3) % 3 == 0){

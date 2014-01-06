@@ -208,6 +208,10 @@ footer hr {
 	vertical-align: middle;
 }
 
+.hide {
+	display:none;
+}
+
 hr.large {
 	background: none repeat scroll 0 0 silver;
 	border: medium none;
