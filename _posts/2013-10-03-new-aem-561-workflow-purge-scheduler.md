@@ -6,7 +6,7 @@ summary: "Introduction and basic documentation for the new Workflow Purge Schedu
 tags: [AEM 5.6.1, Adobe CQ, Workflow Troubleshooting, Apache Sling, OSGi]
 ---
 
-In previous versions of Adobe CQ5/AEM in order to purge old completed workflows, you needed to either write a custom job or install an [additional package][1] provided by DayCare. &nbsp;Now in AEM 5.6.1, this functionality comes out of the box with the product.
+In previous versions of Adobe CQ5/AEM in order to purge old completed workflows, you needed to either write a custom job or install an [additional package](http://helpx.adobe.com/cq/kb/howtopurgewf.html) provided by DayCare. &nbsp;Now in AEM 5.6.1, this functionality comes out of the box with the product.
 
 ### Why Purge Completed Workflows?
 
@@ -46,8 +46,7 @@ and put in the following contents, replacing with the values for your configurat
       scheduledpurge.daysold="30" />
 
 Once you deploy this file as part of your content package, you should see the configuration show up under the&nbsp;Workflow Purge Scheduler in the OSGi Configuration console.
-
-   [1]: http://helpx.adobe.com/cq/kb/howtopurgewf.html
+ 
    [2]: /posts/2013/08/27/service-boss-level-service-factories
    [3]: /images/posts/2013-10-03-new-aem-561-workflow-purge-scheduler/Workflow-Purge-Scheduler.png (Workflow Purge Scheduler)
    [4]: http://quartz-scheduler.org/documentation/quartz-1.x/tutorials/crontrigger

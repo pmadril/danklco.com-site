@@ -6,7 +6,7 @@ summary: "My summary of three best practices many CQ projects miss"
 tags: [Adobe CQ, Development, Best Practices, CRXDE]
 ---
 
-Recently, I saw [this thread on the Day Communique Google Group][1]. &nbsp;In the thread, a developer asks why he cannot use CRXDE in their production environment. &nbsp;As it turns out, his employer followed the [best practices for hardening CQ instances][2]&nbsp;as recommended by Adobe which disables the WebDav servlet CRXDE uses. &nbsp;
+Recently, I saw [this thread on the Day Communique Google Group](https://groups.google.com/d/topic/day-communique/gIa_yyOmC7o/discussion). &nbsp;In the thread, a developer asks why he cannot use CRXDE in their production environment. &nbsp;As it turns out, his employer followed the [best practices for hardening CQ instances](http://dev.day.com/docs/en/cq/current/deploying/security_checklist.html#Disable%20WebDAV) as recommended by Adobe which disables the WebDav servlet CRXDE uses. &nbsp;
 
 This thread demonstrates three common problems I've seen on CQ installations. &nbsp;Especially, when the implementers of the CQ installation are not familiar with CQ and Java Development best practices.
 
@@ -20,18 +20,12 @@ Developers should not need access to production, except read-only views of the l
 
   * ### 3\. Using CRXDE
 
-Just don't use CRXDE for development. It encourages these sorts of bad practices as it doesn't have sufficient tooling to allow for real, tagged releases. CRXDE makes a decent training tool, however for real-world development use a real IDE such as IntelliJ or Eclipse. Your release process will be much easier if you can leverage more advanced SCM tools, such as [GIT][3] and more advanced build tools, such as [Maven][4].
+Just don't use CRXDE for development. It encourages these sorts of bad practices as it doesn't have sufficient tooling to allow for real, tagged releases. CRXDE makes a decent training tool, however for real-world development use a real IDE such as IntelliJ or Eclipse. Your release process will be much easier if you can leverage more advanced SCM tools, such as [GIT](http://git-scm.com/) and more advanced build tools, such as [Maven](http://maven.apache.org/).
 
-If your organization's CQ deployment suffers from these or any other problems, please consider getting a free [CQ Assessment from Six Dimensions][5]. Together, we can review your installation and current development process and make recommendations on what you can do and how we can help you make your CQ installation rock solid and reduce the cost and time for maintaining your CQ installation.
-
-&nbsp;
-
-[Sign Up for a Free CQ Assessment][5]
+If your organization's CQ deployment suffers from these or any other problems, please consider getting a free [CQ Assessment from Six Dimensions](http://www.sixdimensions.com/cq5sla/). Together, we can review your installation and current development process and make recommendations on what you can do and how we can help you make your CQ installation rock solid and reduce the cost and time for maintaining your CQ installation.
 
 &nbsp;
 
-   [1]: https://groups.google.com/d/topic/day-communique/gIa_yyOmC7o/discussion (Thread on the Day Communique Google Group)
-   [2]: http://dev.day.com/docs/en/cq/current/deploying/security_checklist.html#Disable%20WebDAV
-   [3]: http://git-scm.com/ (Homepage for GIT SCM)
-   [4]: http://maven.apache.org/ (Homepage for Apache Maven)
-   [5]: http://www.sixdimensions.com/cq5sla/ (Free CQ Assessment from Six Dimensions)
+[Sign Up for a Free CQ Assessment](http://www.sixdimensions.com/cq5sla/)
+
+&nbsp;

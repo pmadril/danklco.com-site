@@ -6,7 +6,7 @@ summary: "Illustrates why you need to be careful with the Export-Package instruc
 tags: [Adobe CQ, Apache Felix, Apache Sling, Best Practices, SOAP Web Services]
 ---
 
-Quick &mdash; without checking the documentation, what does the Export-Package instruction do in the [Maven Bundle Plugin][1]?
+Quick &mdash; without checking the documentation, what does the Export-Package instruction do in the [Maven Bundle Plugin](http://felix.apache.org/site/apache-felix-maven-bundle-plugin-bnd.html)?
 
 Did you say "sets what packages are exported by the bundle"? &nbsp;If so, you're only half right.
 
@@ -25,6 +25,3 @@ In addition to setting the packages exported by the bundle, the Export-Package i
 Which brings me back to my original point, the Export-Package instruction can be very dangerous and can cause unexpected side-effects. Like any other tool, it can be useful, but you need to be careful and fully understand the effects when using the Export-Package instruction. &nbsp;
 
 Quite likely, this project's POM was copied from another project without the author really understanding what the POM is doing. &nbsp;It's important, especially when creating a new project, to ensure you're not just blindly copying, but instead truly comprehending every configuration in the project's POM.
-
-   [1]: http://felix.apache.org/site/apache-felix-maven-bundle-plugin-bnd.html (Maven Bundle Plugin Docs)
-  

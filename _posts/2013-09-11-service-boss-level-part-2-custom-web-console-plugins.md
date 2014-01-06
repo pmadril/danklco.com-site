@@ -6,7 +6,7 @@ summary: "Discusses the process for creating a custom Apache Felix Web Console P
 tags: [Adobe CQ, Apache Felix, Apache Sling, OSGi]
 ---
 
-You've got your awesome service. &nbsp;It performs all sorts of complex tasks and maybe even uses a [Sling Service Factory][1] to provide multiple configurations. &nbsp;But how do you know what it's doing? &nbsp;Well, of course you need to have appropriate logging, but another tool you can leverage is the Apache Felix Web Console, by creating a custom Web Console Plugin. &nbsp;Your plugin can be accessed through Adobe CQ and Apache Sling's&nbsp;Web Console and can display any information you can render in HTML.
+You've got your awesome service. &nbsp;It performs all sorts of complex tasks and maybe even uses a [Sling Service Factory](/blog/dan-klco/2013-08-27/service-boss-level-service-factories) to provide multiple configurations. &nbsp;But how do you know what it's doing? &nbsp;Well, of course you need to have appropriate logging, but another tool you can leverage is the Apache Felix Web Console, by creating a custom Web Console Plugin. &nbsp;Your plugin can be accessed through Adobe CQ and Apache Sling's&nbsp;Web Console and can display any information you can render in HTML.
 
 Apache Felix provides a really simple class you can extend for creating custom Web Console screens, the [AbstractWebConsolePlugin][2]. &nbsp;This class will automatically leverage the look and feel of the Apache Felix console and makes it easy for you to create your own console screen. &nbsp;There are three main methods to override:
 
@@ -36,7 +36,6 @@ Once your Web Console Plugin is complete, you should be able to access it from t
 
 As you can see Custom Web Console Plugins are easy to create and can allow administrators valuable views into the functioning of OSGi Services and the health of your application.
 
-   [1]: http://labs.sixdimensions.com/blog/dan-klco/2013-08-27/service-boss-level-service-factories (Sling Service Factories)
    [2]: http://felix.apache.org/apidocs/webconsole/3.0.0/org/apache/felix/webconsole/AbstractWebConsolePlugin.html (Felix AbstractWebConsolePlugin)
    [3]: http://felix.apache.org/apidocs/webconsole/3.0.0/org/apache/felix/webconsole/AbstractWebConsolePlugin.html#getLabel() (JavaDocs for the getLabel method)
    [4]: http://felix.apache.org/apidocs/webconsole/3.0.0/org/apache/felix/webconsole/AbstractWebConsolePlugin.html#getTitle() (JavaDocs for the getTitle method)

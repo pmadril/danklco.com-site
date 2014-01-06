@@ -6,7 +6,7 @@ summary: "See how easy it is to change the design path on a CQ Component"
 tags: [Adobe CQ, Components, Best Practices]
 ---
 
-When creating a container component for Adobe CQ, you often run into an issue where the resulting page is difficult to author as there are too many [parsys][1]&nbsp;adjacent to each other. &nbsp;As bad as this situation is for the component developer, imagine how confusing it must be to authors who don't have a detailed understanding of how the component works. &nbsp;As you can see from the illustration below of a tab component, when you have multiple parsys in a single component it can get very confusing as to what each parsys does. &nbsp;
+When creating a container component for Adobe CQ, you often run into an issue where the resulting page is difficult to author as there are too many [parsys](http://wem.help.adobe.com/enterprise/en_US/10-0/wem/wcm/default_components.html#Paragraph%20System%20(parsys)) adjacent to each other. &nbsp;As bad as this situation is for the component developer, imagine how confusing it must be to authors who don't have a detailed understanding of how the component works. &nbsp;As you can see from the illustration below of a tab component, when you have multiple parsys in a single component it can get very confusing as to what each parsys does. &nbsp;
 
 ![A component with no start or end bars][2]
 
@@ -46,7 +46,6 @@ Once this is complete and installed into CQ, you should now see the start and en
 
 As you can see it is much easier to tell what parsys's belong to the compoent and which ones belong to containing components. &nbsp;Taking the simple step of adding start and end components makes it much easier for authors and other maintainers to edit container components.
 
-   [1]: http://wem.help.adobe.com/enterprise/en_US/10-0/wem/wcm/default_components.html#Paragraph%20System%20(parsys) (Documentation on Adobe CQ's Paragraph System component)
    [2]: /images/posts/2013-06-21-simple-container-component-start-end-bars/no-start-end-bars.png
    [3]: http://wem.help.adobe.com/enterprise/en_US/10-0/wem/wcm/default_components.html#Inheritance%20Paragraph%20System%20(iparsys) (Documentation on Adobe CQ's Inheritance Parsys Component)
    [4]: http://dev.day.com/docs/en/cq/current/developing/components/edit_config.html (The Adobe CQ Edit Configuration Documentation)

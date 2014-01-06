@@ -6,7 +6,7 @@ summary: "Learn how to create packages with complete metadata and deploy them wi
 tags: [Adobe CQ, Development, CQ Deploy, Apache Maven]
 ---
 
-Sometimes you may want to create a package with more descriptive information than the [CQ Deploy Plugin][1] provides out of the box. &nbsp;You may want to customize the group or add a description or even add dependencies. &nbsp; This article shows you how to include Package Metadata into your package and how to deploy the package with the CQ deploy plugin.
+Sometimes you may want to create a package with more descriptive information than the [CQ Deploy Plugin](http://sixdimensions.github.io/cq-deploy-plugin/) provides out of the box. &nbsp;You may want to customize the group or add a description or even add dependencies. &nbsp; This article shows you how to include Package Metadata into your package and how to deploy the package with the CQ deploy plugin.
 
 #### Updating the Package
 
@@ -78,5 +78,4 @@ In the example above I used variables from the project configuration, since they
 
 Once you have updated the path in your configuration, you will be able to install your package automatically using the CQ Deploy Plugin and see the updated metadata.
 
- [1]: http://sixdimensions.github.io/cq-deploy-plugin/ "CQ Deploy Plugin Documentation"
  [2]: /images/posts/2013-05-07-creating-detailed-packages-cq-deploy-plugin/update-package.png "Updating a Package in CQ 5.4"  
