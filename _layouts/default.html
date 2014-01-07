@@ -15,7 +15,7 @@
 			<meta property="og:url" content="{{page.original}}"/>
 			<link rel="canonical" href="{{ page.original }}" />
 		{% else %}
-			<meta property="og:url" content="{{ site.url }}{{page.url}}"/>
+			<meta property="og:url" content="{{ site.url }}{{page.url | remove: 'index.html' | replace: '.html', '/' | replace: ' ', '%20' }}"/>
 			<link rel="canonical" href="{{ site.url }}{{page.url | remove: 'index.html' | replace: '.html', '/' | replace: ' ', '%20' }}" />
 		{% endif %}
 {% bundle %}[/css/base.css, /css/skeleton.css, /css/layout.css, /css/colorbox.css ]{% endbundle %}
