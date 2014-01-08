@@ -124,14 +124,14 @@ code {
 #contact-form {
 	margin-left: auto;
 	margin-right: auto;
-	width: 500px;
+	width: 90%;
 	box-shadow: silver 1px 1px 1px;
 	padding: 10px;
 	border: 1px solid silver;
 }
 
 #contact-form input, #contact-form textarea {
-	width: 450px;
+	width: 75%;
 }
 
 .content ul {
