@@ -109,9 +109,9 @@ certainly possible to only have the script tag appear when authoring the page.  
 also note components which require JavaScript to be run on page load are problematic
 with the built in AEM Campaigns and Teasers for the same reason.
 
-So there you have it, the cq:EditConfig.  Now there is no more excuses for components with
-dialogs with empty dialogs or components who's dialogs open up awkwardly in a tiny space.
-And, if I see it again, I will set my flying monkeys on you!
+So there you have it, the cq:EditConfig.  Now there is no more excuses for components with 
+empty dialogs or components who's dialogs open up awkwardly in a tiny space. And, if I see 
+it again, I will set my flying monkeys on you!
 
 ## Reference
 
