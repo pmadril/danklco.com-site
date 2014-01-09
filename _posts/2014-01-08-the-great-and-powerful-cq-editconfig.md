@@ -72,6 +72,13 @@ actions are: `edit,delete,insert,copymove`
 As a note on edit bars, a useful technique for components which contain other components 
 is to add [start and end bars]({% post_url 2013-06-21-simple-container-component-start-end-bars %}).
 
+## Dialog Replacement
+
+One of the nice features about the cq:EditConfig is you can use it to get components to show up in
+the sidekick which do not have a dialog.  This is something that I see every so often, usually with 
+the developer instead creating an empty dialog.  To get around this, simply create a cq:EditConfig
+where the cq:actions has every action except edit.
+
 ## Listeners
 
 Another common thing to do with an edit config is add a listener to refresh the page when 
@@ -101,6 +108,10 @@ body of the component.  Given that you can
 certainly possible to only have the script tag appear when authoring the page.  I would 
 also note components which require JavaScript to be run on page load are problematic
 with the built in AEM Campaigns and Teasers for the same reason.
+
+So there you have it, the cq:EditConfig.  Now there is no more excuses for components with
+dialogs with empty dialogs or components who's dialogs open up awkwardly in a tiny space.
+And, if I see it again, I will set my flying monkeys on you!
 
 ## Reference
 
