@@ -14,6 +14,7 @@ RewriteRule (.*) http://sarah.danklco.com/ [R=301,L]
 
 # Redirect, removing trailing slashes
 RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /.*\/\ HTTP/
+RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)/$ /$1 [R=301,L]
 
 # Rewrite requests to pull the .html page if no extension is specified
