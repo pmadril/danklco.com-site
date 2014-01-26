@@ -6,11 +6,11 @@ summary: "Learn about the InheritanceValueMap which allows developers to inherit
 tags: [Adobe CQ]
 ---
 
-The [InheritanceValueMap][1] is a new interface introduced in CQ 5.4.&nbsp; This interface is meant to make it much easier for developers to access properties inherited from parent pages.&nbsp;
+The [InheritanceValueMap](http://dev.day.com/docs/en/cq/current/javadoc/com/day/cq/commons/inherit/InheritanceValueMap.html) is a new interface introduced in CQ 5.4.&nbsp; This interface is meant to make it much easier for developers to access properties inherited from parent pages.&nbsp;
 
-To do this, the interface provides two methods, [getInherited(String,Class)][2] and [getInherited(String, Object)][3], each of these methods will check for a value on the current resource and then check up the page hierarchy for another page with a value on the same content attribute.&nbsp; It will only attempt to retrieve values at the same page content path
+To do this, the interface provides two methods, [getInherited(String,Class)](http://dev.day.com/docs/en/cq/current/javadoc/com/day/cq/commons/inherit/InheritanceValueMap.html#getInherited%28java.lang.String,%20java.lang.Class%29) and [getInherited(String, Object)](http://dev.day.com/docs/en/cq/current/javadoc/com/day/cq/commons/inherit/InheritanceValueMap.html#getInherited%28java.lang.String,%20T%29), each of these methods will check for a value on the current resource and then check up the page hierarchy for another page with a value on the same content attribute.&nbsp; It will only attempt to retrieve values at the same page content path
 
-Unlike the [PersistableValueMap][4], resources and nodes cannot be directly adapted into [InheritanceValueMap][1]s.&nbsp; To create an instance of the [InheritanceValueMap][1], create an instance of the class [HierarchyNodeInheritanceValueMap][5] and pass in the current resource, for example:
+Unlike the [PersistableValueMap](http://sling.apache.org/apidocs/sling6/org/apache/sling/api/resource/PersistableValueMap.html), resources and nodes cannot be directly adapted into [InheritanceValueMap](http://dev.day.com/docs/en/cq/current/javadoc/com/day/cq/commons/inherit/InheritanceValueMap.html)s.&nbsp; To create an instance of the [InheritanceValueMap](http://dev.day.com/docs/en/cq/current/javadoc/com/day/cq/commons/inherit/InheritanceValueMap.html), create an instance of the class [HierarchyNodeInheritanceValueMap](http://dev.day.com/docs/en/cq/current/javadoc/com/day/cq/commons/inherit/HierarchyNodeInheritanceValueMap.html) and pass in the current resource, for example:
 
     InheritanceValueMap iProperties = new HierarchyNodeInheritanceValueMap(resource);String value = iProperties.getInherited("myProp",String.class);
 
@@ -26,10 +26,4 @@ If an InheritanceValueMap is used to retrieve the property `jcr:content/footer/i
         > mypage2/jcr:content/footer/image/@width
             > mypage3/jcr:content/footer/image/@width
 
-Using the [InheritanceValueMap][1], it is much easier for developers to access inherited values and build components which use inherited properties.
-
- [1]: http://dev.day.com/docs/en/cq/current/javadoc/com/day/cq/commons/inherit/InheritanceValueMap.html
- [2]: http://dev.day.com/docs/en/cq/current/javadoc/com/day/cq/commons/inherit/InheritanceValueMap.html#getInherited%28java.lang.String,%20java.lang.Class%29
- [3]: http://dev.day.com/docs/en/cq/current/javadoc/com/day/cq/commons/inherit/InheritanceValueMap.html#getInherited%28java.lang.String,%20T%29
- [4]: http://sling.apache.org/apidocs/sling6/org/apache/sling/api/resource/PersistableValueMap.html
- [5]: http://dev.day.com/docs/en/cq/current/javadoc/com/day/cq/commons/inherit/HierarchyNodeInheritanceValueMap.html  
+Using the [InheritanceValueMap](http://dev.day.com/docs/en/cq/current/javadoc/com/day/cq/commons/inherit/InheritanceValueMap.html), it is much easier for developers to access inherited values and build components which use inherited properties.

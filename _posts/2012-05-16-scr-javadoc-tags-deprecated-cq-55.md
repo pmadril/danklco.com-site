@@ -6,7 +6,7 @@ summary: In CQ 5.5, by default you cannot compile code with CRXDE, learn about h
 tags: [Adobe CQ, CQ 5.5, Apache Felix, CRXDE]
 ---
 
-Teams migrating to Adobe CQ 5.5 have one more thing to check during the upgrade.&nbsp; In CQ 5.5, the [SCR JavaDoc tags][1] are deprecated, because of this, you can no longer create bundles in CRXDE or CRXDE Lite when the code in the bundles contains SCR JavaDoc tags.&nbsp;&nbsp;
+Teams migrating to Adobe CQ 5.5 have one more thing to check during the upgrade.&nbsp; In CQ 5.5, the [SCR JavaDoc tags](http://felix.apache.org/site/scr-javadoc-tags.html) are deprecated, because of this, you can no longer create bundles in CRXDE or CRXDE Lite when the code in the bundles contains SCR JavaDoc tags.&nbsp;&nbsp;
 
 When Adobe ported CRX over to run inside of the OSGi Container, they created a bundle for the CRXDE functionality.&nbsp; This includes the remote compiling and bundle builder used by CRXDE and CRXDELite.&nbsp; In the bundle they set the bundle builder to create bundles using 'strict mode', this mode triggers an error when it encounters the deprecated SCR JavaDoc tags and prevents the building of the SCR Descriptor XML.&nbsp; A JAR will be created, however it will not have the OSGi metadata needed to register services in OSGi.&nbsp;
 
@@ -16,11 +16,11 @@ Neither CRXDE nor CRXDE Lite tell you that the SCR JavaDoc tags are causing the 
 
 In CRXDE Lite you will see a message "SCR Descriptor parsing had failures (see log)".&nbsp; It does tell you which classes had the deprecated javadoc tags however, which will be useful.
 
-![CRXDE Lite Deprecated Message][2]
+![CRXDE Lite Deprecated Message](/images/posts/2012-05-16-scr-javadoc-tags-deprecated-cq-55/crxdelite-deprecated-message.png)
 
 CRXDE will report that the build failed and tell you to check the Remote Build view for details on the errors.&nbsp; Unfortunately, it will not actually have any error information availabe in the Remote Build view.
 
-![CRXDE Build Failure Popup][3]
+![CRXDE Build Failure Popup](/images/posts/2012-05-16-scr-javadoc-tags-deprecated-cq-55/crxde-error-message.png)
 
 Finally, if you look in the logs you will see messages like the below:
 
@@ -31,12 +31,6 @@ Finally, if you look in the logs you will see messages like the below:
 
 ### How Can I Fix My Project?
 
-The only way to fix your project is to replace all of the SCR JavaDoc Tags with the new [SCR Annotations][4].&nbsp; The fields and values will be the same or similar, only the syntax changes.&nbsp;
+The only way to fix your project is to replace all of the SCR JavaDoc Tags with the new [SCR Annotations](http://felix.apache.org/site/scr-annotations.html).&nbsp; The fields and values will be the same or similar, only the syntax changes.&nbsp;
 
-Once you do this, download and install the [Felix SCR Annotations Bundle][5] into your OSGi console.&nbsp; Without this bundle, you will not be able to compile your project code within CRXDE or CRXDE Lite as the Felix SCR Annotations packages are not currently exported by any bundle in the Generally Available release of CQ 5.5.
-
- [1]: http://felix.apache.org/site/scr-javadoc-tags.html "Apache Felix Documentation on SCR JavaDoc Tags"
- [2]: /images/posts/2012-05-16-scr-javadoc-tags-deprecated-cq-55/crxdelite-deprecated-message.png "CRXDE Lite Deprecated Message"
- [3]: /images/posts/2012-05-16-scr-javadoc-tags-deprecated-cq-55/crxde-error-message.png "CRXDE Build Failure Popup"
- [4]: http://felix.apache.org/site/scr-annotations.html "Apache Felix SCR Annotations Documentation"
- [5]: http://www.6dlabs.com/content/felix-scr-annotations-bundle "Felix SCR Annotations Bundle"  
+Once you do this, download and install the [Felix SCR Annotations Bundle](http://www.6dlabs.com/content/felix-scr-annotations-bundle) into your OSGi console.&nbsp; Without this bundle, you will not be able to compile your project code within CRXDE or CRXDE Lite as the Felix SCR Annotations packages are not currently exported by any bundle in the Generally Available release of CQ 5.5.

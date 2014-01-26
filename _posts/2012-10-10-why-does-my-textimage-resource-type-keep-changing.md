@@ -6,7 +6,7 @@ summary: "Learn about what could be changing the Resource Type on your custom Te
 tags: [CQ 5.5, Adobe CQ, Gotcha, How To]
 ---
 
-On my current project, we ran into a very weird issue where the dialog kept changing when user's dragged images into the TextImage component we overrode from the [foundation TextImage component][1].&nbsp; Specifically, this only seemed to happen when user's dragged images into the component inline.&nbsp;
+On my current project, we ran into a very weird issue where the dialog kept changing when user's dragged images into the TextImage component we overrode from the [foundation TextImage component](http://dev.day.com/docs/en/cq/current/wcm/default_components.html#Text%20Image).&nbsp; Specifically, this only seemed to happen when user's dragged images into the component inline.&nbsp;
 
 After doing some investigation, I found that the sling:resourceType on the nodes was changing when the image was dragged into the component.&nbsp; The culprit is the CQ Edit Configuration in the foundation TextImage component.
 
@@ -41,5 +41,3 @@ To fix this issue, simply add the CQ Edit Configuration into your component and 
 			configPath="../../dialog/items/tab1/items/text"
 			editorType="text"/>
 	</jcr:root>
-
- [1]: http://dev.day.com/docs/en/cq/current/wcm/default_components.html#Text%20Image  

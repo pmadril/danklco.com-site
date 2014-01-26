@@ -6,7 +6,7 @@ summary: "Learn how easy it is to get a complete copy of your Adobe CQ configura
 tags: [Adobe CQ, Apache Maven, How To]
 ---
 
-[Apache Maven's release plugin][1] is a powerful tool for automatically incrementing version, tagging code and creating a release. Unfortunately, this plugin is not very forgiving and doesn't do a good job of telling you what you did wrong when it fails.&nbsp;
+[Apache Maven's release plugin](http://maven.apache.org/plugins/maven-release-plugin/) is a powerful tool for automatically incrementing version, tagging code and creating a release. Unfortunately, this plugin is not very forgiving and doesn't do a good job of telling you what you did wrong when it fails.&nbsp;
 
 Setting up Maven to release your CQ5 project can seem daunting, but if you follow a few simple rules it can be easy to set up and save you a ton of time in the long run.&nbsp; The following steps should help you to get your project set up to be released through Apache Maven.
 
@@ -59,7 +59,7 @@ Whereas in systems where tags are not stored as folders, your path would not lik
 
 When using a distributed SCM like GIT or Mercurial you should use the remote repository as the SCM Url, not your local repository.
 
-If you haven't taken the [SCM Usage poll][2], please do, I'd like to tailor these articles to what people actually use.
+If you haven't taken the [SCM Usage poll](http://labs.sixdimensions.com/poll/what-primary-scm-system-you-use-your-cq5-projects), please do, I'd like to tailor these articles to what people actually use.
 
 #### 2.2 Add Distribution Management
 
@@ -97,7 +97,7 @@ Older versions of the Maven release plugin do not work well with Windows.&nbsp; 
 
 ### 5. Don't Install Your Packages/Bundles Automatically
 
-When Maven runs your release it will check out the tagged code and attempt to compile it to ensure that the release was successful.&nbsp; When it does this, it does not pass in the profiles or properities from the initial release call.&nbsp; This means that, if you use a [Maven plugin to deploy your CQ code][3],&nbsp; you may install your packages/bundles multiple times, may try to install them on a server which doesn't exist, or may not have the correct credentials.
+When Maven runs your release it will check out the tagged code and attempt to compile it to ensure that the release was successful.&nbsp; When it does this, it does not pass in the profiles or properities from the initial release call.&nbsp; This means that, if you use a [Maven plugin to deploy your CQ code](http://sixdimensions.github.io/cq-deploy-plugin/),&nbsp; you may install your packages/bundles multiple times, may try to install them on a server which doesn't exist, or may not have the correct credentials.
 
 Therefore I would encourage you to put all of the plugins which install code into profiles so they have to be explicitly called.&nbsp; That way, it's still easy to install them locally, but they do not install automatically during your release process.
 
@@ -124,7 +124,3 @@ I usually create a script for my releases.&nbsp; Rather than using the same code
 ### In Conclusion
 
 Using the Maven release plugin is a real must have for any good sized Adobe CQ project.&nbsp; I hope this article helps you get your project set up to use the Apache Maven Release plugin.&nbsp; If you have any tips or things you ran into, please leave some comments below.
-
- [1]: http://maven.apache.org/plugins/maven-release-plugin/ "Apache Maven Release Plugin"
- [2]: http://labs.sixdimensions.com/poll/what-primary-scm-system-you-use-your-cq5-projects "SCM Usage Poll"
- [3]: http://sixdimensions.github.io/cq-deploy-plugin/ "CQ Deploy - Deploys CQ Packages and OSGi Bundles"  

@@ -6,7 +6,7 @@ summary: "The advantages and strategy for creating flexible Adobe CQ5 Page Templ
 tags: [Adobe CQ, Templates, Web Content Managment, Best Practices]
 ---
 
-One of [Adobe's CQ5 Best Practices][1] is to limit the number of Templates, I would suggest it is a best practice to limit the number of page components and create as many templates as necessary.
+One of [Adobe's CQ5 Best Practices](http://dev.day.com/docs/en/cq/current/developing/developing_guidelines_bestpractices.html#Guidelines%20for%20Using%20Templates%20and%20Components) is to limit the number of Templates, I would suggest it is a best practice to limit the number of page components and create as many templates as necessary.
 
 Templates in Adobe CQ5 function differently than they do in many other CMS systems.&nbsp; CQ Templates are placeholders for sample content and references to the component to render the sample content.&nbsp; Often, projects create a 1:1 mapping between CQ Templates and the page components used to render the resulting page, but this does not need to be the case.
 
@@ -29,5 +29,3 @@ To create flexible pages, first create a single page component, this component s
 Once the page component is created, create one or more templates.&nbsp; In each template, put placeholders for the content which will be inserted into new pages created with the template.&nbsp; A good way to do this is to create a blank page, add the desired components for the template, then export the content of that page using the VLT tool.&nbsp; Copy the jcr:content node into your template and update the template metadata and you're finished.
 
 I hope this article has been useful, you have a better appreciation of the flexibility of CQ5's templating and component system.&nbsp; On your next project you consider how you can use templates and page components to make the most of your CQ5 system.
-
- [1]: http://dev.day.com/docs/en/cq/current/developing/developing_guidelines_bestpractices.html#Guidelines%20for%20Using%20Templates%20and%20Components  

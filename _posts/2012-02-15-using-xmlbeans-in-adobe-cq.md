@@ -6,17 +6,17 @@ summary: Learn how to integrate XMLBeans with Adobe CQ5.
 tags: [Adobe CQ, Development, XmlBeans]
 ---
 
-[Apache XMLBeans][1] is a powerful tool for reading, writing and updating XML files.&nbsp; XMLBeans dynamically creates Java classes based on an XSD Schema.&nbsp; This makes it powerful and easy to use, however can make it more complicated to integrate into OSGi based applications, such as Adobe CQ, as the XML Element to Java Class mapping uses the Java Classloader.
+[Apache XMLBeans](http://xmlbeans.apache.org/) is a powerful tool for reading, writing and updating XML files.&nbsp; XMLBeans dynamically creates Java classes based on an XSD Schema.&nbsp; This makes it powerful and easy to use, however can make it more complicated to integrate into OSGi based applications, such as Adobe CQ, as the XML Element to Java Class mapping uses the Java Classloader.
 
 This guide shows you how to integrate XMLBeans in your Adobe CQ application.
 
 ### Step 1: Install XMLBeans Bundle
 
-Download and install [org.apache.servicemix.bundles.xmlbeans-2.4.0_5.jar][2].&nbsp; This JAR was created by the [Apache ServiceMix][3] project to wrap XMLBeans in a OSGi Bundle.&nbsp; The easiest way to automatically deploy the jar into Adobe CQ is to include it in the install folder of your application.&nbsp; You can also use the [Felix console][4] to deploy it, however this will require deploying it separately on all CQ instances.
+Download and install [org.apache.servicemix.bundles.xmlbeans-2.4.0_5.jar](http://repo1.maven.org/maven2/org/apache/servicemix/bundles/org.apache.servicemix.bundles.xmlbeans/2.4.0_5/org.apache.servicemix.bundles.xmlbeans-2.4.0_5.jar).&nbsp; This JAR was created by the [Apache ServiceMix](http://servicemix.apache.org/) project to wrap XMLBeans in a OSGi Bundle.&nbsp; The easiest way to automatically deploy the jar into Adobe CQ is to include it in the install folder of your application.&nbsp; You can also use the [Felix console](http://dev.day.com/docs/en/cq/current/deploying/configuring_osgi.html#Bundles) to deploy it, however this will require deploying it separately on all CQ instances.
 
 ### Step 2: Create XMLBeans Maven Project
 
-You can invoke the XMLBean's scomp utility to compile the Java code, however there is a [Maven plugin][5] for doing this automatically.&nbsp; Create a new project for all of your XMLBeans schema's and generated code.&nbsp; The POM below will compile Java code for all of the schema files in the folder src/main/xsd:
+You can invoke the XMLBean's scomp utility to compile the Java code, however there is a [Maven plugin](http://mojo.codehaus.org/xmlbeans-maven-plugin/) for doing this automatically.&nbsp; Create a new project for all of your XMLBeans schema's and generated code.&nbsp; The POM below will compile Java code for all of the schema files in the folder src/main/xsd:
 
     <?xml version="1.0" encoding="UTF-8"?>
     <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -85,9 +85,3 @@ Finally, you will need to update the configuration of the maven-bundle-plugin.&n
 *   Import-Package: add 'org.apache.xmlbeans.impl.schema;version='2.4?,\*'
 
 These instructions tell the Maven Bundle plugin to embed your XML API into the bundle, resolve the XMLBeans dependencies correctly and make the XML API available to other bundles.&nbsp; Once you build and install your project, you can start using XMLBeans in your CQ applications.
-
- [1]: http://xmlbeans.apache.org/
- [2]: http://repo1.maven.org/maven2/org/apache/servicemix/bundles/org.apache.servicemix.bundles.xmlbeans/2.4.0_5/org.apache.servicemix.bundles.xmlbeans-2.4.0_5.jar "org.apache.servicemix.bundles.xmlbeans-2.4.0_5.jar in Maven Centrl"
- [3]: http://servicemix.apache.org/
- [4]: http://dev.day.com/docs/en/cq/current/deploying/configuring_osgi.html#Bundles
- [5]: http://mojo.codehaus.org/xmlbeans-maven-plugin/

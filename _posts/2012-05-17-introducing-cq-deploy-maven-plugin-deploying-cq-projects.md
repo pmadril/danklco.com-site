@@ -6,14 +6,14 @@ summary: "Introducing CQ Deploy: A Maven Plugin for Deploying CQ Projects"
 tags: [Adobe CQ, Apache Maven]
 ---
 
-The Six Dimensions Labs team is proud to introduce CQ Deploy, an [Apache Maven][1] plugin for deploying Maven projects into Adobe CQ repositories.
+The Six Dimensions Labs team is proud to introduce CQ Deploy, an [Apache Maven](http://maven.apache.org/) plugin for deploying Maven projects into Adobe CQ repositories.
 
 The CQ Deploy plugin provides two goals, to help developers deploy Maven projects:
 
 *   install-package   
     *This goal is used to install CQ Packages into CQ Repositories.*
 *   install-bundle   
-    *This gloal is used to install bundles into CQ Repositories.&nbsp; This goal is different from the [Maven Sling Plugin][2]'s deploy method.&nbsp; Whereas the Maven Sling Plugin installs the bundle directly into the Felix application, the CQ Deploy plugin is used to upload the JAR into the CQ Application install folder and the path thereof can be configured.*
+    *This gloal is used to install bundles into CQ Repositories.&nbsp; This goal is different from the [Maven Sling Plugin's](http://sling.apache.org/site/sling.html) deploy method.&nbsp; Whereas the Maven Sling Plugin installs the bundle directly into the Felix application, the CQ Deploy plugin is used to upload the JAR into the CQ Application install folder and the path thereof can be configured.*
 
 As the plugin deploys both Packages and Bundles in a consistant method, developers can use the CQ Deploy plugin to create a single, unified package for deploying a CQ Application, including JSP and Bundle code.&nbsp;
 
@@ -59,11 +59,7 @@ To use the CQ Deploy Plugin in a package project add the following into your POM
                 </configuration>
             </plugin>
 
-The CQ Deploy plugin offers a number of configuration values to change where the files are deployed and by what user.&nbsp; To read more about the CQ Deploy plugin, consult the [CQ Deploy Plugin Documentation Site][3].
+The CQ Deploy plugin offers a number of configuration values to change where the files are deployed and by what user.&nbsp; To read more about the CQ Deploy plugin, consult the [CQ Deploy Plugin Documentation Site](http://sixdimensions.github.com/cq-deploy-plugin/).
 
-To report any issues, or ask any questions, please [create an issue][4].
-
- [1]: http://maven.apache.org/
- [2]: http://sling.apache.org/site/sling.html
- [3]: http://sixdimensions.github.com/cq-deploy-plugin/
- [4]: https://github.com/SixDimensions/cq-deploy-plugin/issues  
+To report any issues, or ask any questions, please [create an issue](https://github.com/SixDimensions/cq-deploy-plugin/issues).
+ 

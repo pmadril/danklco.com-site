@@ -6,9 +6,9 @@ summary: "In order to create a sling servlet you must set a name for it - learn 
 tags: [Adobe CQ, Apache Sling, Gotcha]
 ---
 
-I recently had the opportunity to delve into the code for the Sling Resources to document the @SlingServlet annotation.&nbsp; One of the more interesting things I discovered was that in addition to everything stated on the Sling documentation about [what is required to register a servlet][1], there is one additional requirement.
+I recently had the opportunity to delve into the code for the Sling Resources to document the @SlingServlet annotation.&nbsp; One of the more interesting things I discovered was that in addition to everything stated on the Sling documentation about [what is required to register a servlet](http://sling.apache.org/site/servlets.html), there is one additional requirement.
 
-Each Servlet which is to be created and registered, must have an unique name.&nbsp; The [SlingServletResolver][2], which handles the resolution of Servlets, generates the name based on one of the following properties (in order):
+Each Servlet which is to be created and registered, must have an unique name.&nbsp; The [SlingServletResolver](http://svn.apache.org/repos/asf/sling/trunk/bundles/servlets/resolver/src/main/java/org/apache/sling/servlets/resolver/internal/SlingServletResolver.java), which handles the resolution of Servlets, generates the name based on one of the following properties (in order):
 
 *   sling.core.servletName
 *   component.name
@@ -27,6 +27,3 @@ Setting the property is as easy as setting the name attribute in the @Component 
 	public class TestServlet extends SlingAllMethodsServlet {
 
 So, if you have created a servlet which seems to be configured properly, but is not appearing, make sure you have one of the name properties set so the Sling Servlet Resolver will pick it up
-
- [1]: http://sling.apache.org/site/servlets.html "Sling Servlet Documentation"
- [2]: http://svn.apache.org/repos/asf/sling/trunk/bundles/servlets/resolver/src/main/java/org/apache/sling/servlets/resolver/internal/SlingServletResolver.java "Sling Servlet Resolver code"  

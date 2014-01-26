@@ -6,7 +6,7 @@ summary: "Learn how to handle file uploads in Adobe CQ"
 tags: [Adobe CQ, Apache Sling, Apache Sling Servlet]
 ---
 
-You need to handle a file upload in Adobe CQ.&nbsp; So, you notice CQ already has [Apache Commons FileUpload][1] installed, so you decide to use it to handle the file upload.
+You need to handle a file upload in Adobe CQ.&nbsp; So, you notice CQ already has [Apache Commons FileUpload](http://commons.apache.org/fileupload/) installed, so you decide to use it to handle the file upload.
 
 You write your servlet code and end up with something like this:
 
@@ -38,7 +38,7 @@ After you build your code and deploy it to CQ, you try to upload a file to test 
 
 What happened?&nbsp; Your code is correct, and you aren't already reading the request data, so why are you getting an error?&nbsp; Well, Sling reads the file content automatically, so the your code attempts to read in the request data twice.
 
-Instead of reading the contents through FileUpload, you can retrieve the file contents from the Sling API.&nbsp; Sling makes the uploaded files and all parameters available from the [SlingHttpServletRequest.getRequestParameterMap][2] method, which returns a [RequestParamterMap][3].&nbsp; Simply iterate over the parameters to retrieve the file and any parameters passed into the request.
+Instead of reading the contents through FileUpload, you can retrieve the file contents from the Sling API.&nbsp; Sling makes the uploaded files and all parameters available from the [SlingHttpServletRequest.getRequestParameterMap](http://sling.apache.org/apidocs/sling5/org/apache/sling/api/SlingHttpServletRequest.html#getRequestParameterMap%28%29) method, which returns a [RequestParamterMap](http://sling.apache.org/apidocs/sling5/org/apache/sling/api/request/RequestParameterMap.html).&nbsp; Simply iterate over the parameters to retrieve the file and any parameters passed into the request.
 
 	// Check that we have a file upload request
 	final boolean isMultipart = ServletFileUpload.isMultipartContent(request);
@@ -59,7 +59,3 @@ Instead of reading the contents through FileUpload, you can retrieve the file co
 		  }
 		}
 	  }
-
- [1]: http://commons.apache.org/fileupload/ "Apache Commons File Upload"
- [2]: http://sling.apache.org/apidocs/sling5/org/apache/sling/api/SlingHttpServletRequest.html#getRequestParameterMap%28%29 "Get Request Parameter Map"
- [3]: http://sling.apache.org/apidocs/sling5/org/apache/sling/api/request/RequestParameterMap.html  
