@@ -1,7 +1,7 @@
 ---
 author: 'Dan Klco'
 layout: post
-original: 'http://labs.sixdimensions.com/blog/2014-02-05/expression-languages-tags-and-you'
+original: 'http://labs.sixdimensions.com/blog/2014-02-25/expression-languages-tags-and-you'
 summary: 'Talks about levering Tags and Expression Language to improve your CQ Development techniques'
 tags:
   - 'Adobe CQ'
