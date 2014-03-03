@@ -35,6 +35,11 @@
          "name":"tasks",
          "type":"repeating",
          "label":"Tasks"
+      },
+      {
+         "name":"tools",
+         "type":"repeating",
+         "label":"Tools"
       }
    ]
 }
