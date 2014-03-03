@@ -15,7 +15,7 @@
          "required":true
       },
       {
-         "name":"title",
+         "name":"project",
          "label":"Project",
          "type":"text",
          "required":true
