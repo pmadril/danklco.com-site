@@ -1,22 +1,40 @@
 {
-   "title":"Default Page",
-   "description":"The following fields will be used to update the page metadata",
+   "title":"Update Engagement",
+   "description":"Engagements are listed on the my work and CV pages",
    "fields":[
       {
-         "name":"title",
-         "label":"Title",
+         "name":"client",
+         "label":"Client",
          "type":"text",
          "required":true
       },
       {
-         "name":"tags",
-         "type":"repeating",
-         "label":"Keywords"
+         "name":"role",
+         "label":"Role",
+         "type":"text",
+         "required":true
       },
       {
-         "name":"summary",
-         "type":"textarea",
-         "label":"Description"
+         "name":"title",
+         "label":"Project",
+         "type":"text",
+         "required":true
+      },
+      {
+         "name":"start-date",
+         "label":"Start Date",
+         "type":"date",
+         "required":true
+      },
+      {
+         "name":"end-date",
+         "label":"End Date",
+         "type":"date"
+      },
+      {
+         "name":"tasks",
+         "type":"repeating",
+         "label":"Tasks"
       }
    ]
 }
