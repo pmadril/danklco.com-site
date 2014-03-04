@@ -9,16 +9,21 @@
          "required":true
       },
       {
+         "name":"project",
+         "label":"Project",
+         "type":"text",
+         "required":true
+      },
+      {
          "name":"role",
          "label":"Role",
          "type":"text",
          "required":true
       },
       {
-         "name":"project",
-         "label":"Project",
-         "type":"text",
-         "required":true
+         "name":"hide",
+         "label":"Hide From My Work",
+         "type":"checkbox"
       },
       {
          "name":"start-date",
