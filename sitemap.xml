@@ -15,11 +15,13 @@ layout: none
     {% for page in site.pages %}
     {% if page.layout != nil %}
     {% if page.layout != 'none' %}
+    {% if page.layout != 'engagement' %}
     {% if page.exclude_sitemap != true %}
     <url>
         <loc>{{ site.url }}{{ page.url | remove: 'index.html' | replace: '.html', '/' | replace: ' ', '%20' }}</loc>
     	<changefreq>monthly</changefreq>
     </url>
+    {% endif %}
     {% endif %}
     {% endif %}
     {% endif %}
