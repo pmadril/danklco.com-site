@@ -21,7 +21,7 @@ jQuery(function($){
 				$('#client-box img').load(function(){
 					$.colorbox.resize();
 				});
-				var url = '/curriculum-vitae.html [data-client='+id+']';
+				var url = '/curriculum-vitae.html article[data-client='+id+']';
 				$('#client-box p').load(url, {}, function(){
 					$('#client-box').show();
 					$.colorbox({

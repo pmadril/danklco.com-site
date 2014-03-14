@@ -37,4 +37,4 @@ asset_bundler:
     js: 'yui'
     css: 'yui'
   markup_templates:
-    js: "\t\t<script type=\"text/javascript\" async=\"async\" src=\"{{url}}\"></script>\n"
+    js: "\t\t<script type=\"text/javascript\" src=\"{{url}}\"></script>\n"
