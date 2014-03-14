@@ -80,7 +80,7 @@ title: Curriculum Vitae
 	</section>
 	<section>
 		<h3 id="Project-Experience">Project Experience</h3>
-		{% for engagement in site.pages sort_by "start-date" %}
+		{% for engagement in site.pages reverse %}
 			{% if engagement.layout == 'engagement' %}
 				<article class="project" data-client="{{ engagement.client | replace: ' ', '-' }}" data-project="{{ engagement.project | replace: ' ', '-' }}">
 					<header>
