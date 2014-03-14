@@ -80,11 +80,15 @@ title: Curriculum Vitae
 	</section>
 	<section>
 		<h3 id="Project-Experience">Project Experience</h3>
-		{% for engagement in site.pages sort_by start-date reverse %}
+		{% for engagement in site.pages reverse %}
 			{% if engagement.layout == 'engagement' %}
 				<article class="project" data-client="{{ engagement.client | replace: ' ', '-' }}" data-project="{{ engagement.project | replace: ' ', '-' }}">
+					{% capture endDate %}{{ engagement.end-date | date: "%m / %Y" }}{% endcapture %}
+					{% if endDate == '12 / 3000' %}
+						{% assign endDate = 'Present' %}
+					{% endif %}
 					<header>
-						<h5>{{ engagement.client }} &mdash; {{ engagement.start-date | date: "%m / %Y" }} - {{ engagement.end-date | date: "%m / %Y" }} &mdash; {{ engagement.project }}</h5>
+						<h5>{{ engagement.client }} &mdash; {{ engagement.start-date | date: "%m / %Y" }} - {{ endDate }} &mdash; {{ engagement.project }}</h5>
 					</header>
 					<p>
 						<em>{{ engagement.role }}</em>
@@ -102,7 +106,7 @@ title: Curriculum Vitae
 							{% endfor %}
 						</ul>
 					{% endif %}
-		</article>
+				</article>
 			{% endif %}
 		{% endfor %}
 	</section>
