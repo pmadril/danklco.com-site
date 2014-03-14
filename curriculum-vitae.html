@@ -80,7 +80,7 @@ title: Curriculum Vitae
 	</section>
 	<section>
 		<h3 id="Project-Experience">Project Experience</h3>
-		{% for engagement in site.pages reverse %}
+		{% sorted_for engagement in site.pages reversed sort_by:url %}
 			{% if engagement.layout == 'engagement' %}
 				<article class="project" data-client="{{ engagement.client | replace: ' ', '-' }}" data-project="{{ engagement.project | replace: ' ', '-' }}">
 					{% capture endDate %}{{ engagement.end-date | date: "%m / %Y" }}{% endcapture %}
@@ -108,7 +108,7 @@ title: Curriculum Vitae
 					{% endif %}
 				</article>
 			{% endif %}
-		{% endfor %}
+		{% endsorted_for %}
 	</section>
 	<section>
 		<h3 id="Skills-and-Capabilities">Skills and Capabilities</h3>
