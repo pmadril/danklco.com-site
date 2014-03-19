@@ -21,11 +21,6 @@
          "required":true
       },
       {
-         "name":"hide",
-         "label":"Hide From My Work",
-         "type":"checkbox"
-      },
-      {
          "name":"start-date",
          "label":"Start Date",
          "type":"date",
@@ -45,6 +40,36 @@
          "name":"tools",
          "type":"repeating",
          "label":"Tools"
+      },
+      {
+         "name":"hide",
+         "label":"Show In My Work",
+         "type":"checkbox",
+         "default": false
+      },
+      {
+         "name":"thumbnail",
+         "label":"Thumbnail",
+         "type":"path",
+         "required":true
+      },
+      {
+         "name":"image",
+         "label":"Image",
+         "type":"path",
+         "required":true
+      },
+      {
+         "name":"image-height",
+         "label":"Image Height",
+         "type":"number",
+         "required":true
+      },
+      {
+         "name":"image-width",
+         "label":"Image Width",
+         "type":"number",
+         "required":true
       }
    ]
 }
