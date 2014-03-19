@@ -17,7 +17,9 @@ jQuery(function($){
 				var id = $(elem).attr('id');
 				_gaq.push(['_trackEvent', 'Client','Open',id]);
 				$.colorbox.close();
-				$('#client-box img').attr('src','/images/clients/'+id+'.png');
+				$('#client-box img').attr('src',$(elem).attr('data-image'));
+				$('#client-box img').attr('width',$(elem).attr('data-image-width'));
+				$.colorbox.resize();
 				$('#client-box img').load(function(){
 					$.colorbox.resize();
 				});
