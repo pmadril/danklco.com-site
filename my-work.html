@@ -13,7 +13,7 @@ title: My Work
 	{% sorted_for engagement in site.pages reversed sort_by:url %}
 		{% if engagement.layout == 'engagement' and engagement.hide == true %}
 			<div class="four columns card">
-				<div class="client" id="{{engagement.client}}" data-image="{{engagement.image}}" data-image-width="{{engagement.image-width}}">
+				<div class="client" id="{{engagement.client | replace: ' ', '-'}}" data-image="{{engagement.image}}" data-image-width="{{engagement.image-width}}">
 					<div class="client-name">
 						{{engagement.client}} &mdash; {{engagement.project}}
 					</div>
