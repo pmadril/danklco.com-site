@@ -1,0 +1,27 @@
+{
+   "title":"Default Page",
+   "description":"The following fields will be used to update the page metadata",
+   "fields":[
+      {
+         "name":"title",
+         "label":"Title",
+         "type":"text",
+         "required":true
+      },
+      {
+        "name":"original",
+        "label":"Original URL",
+        "type": "text"
+      },
+      {
+         "name":"tags",
+         "type":"repeating",
+         "label":"Keywords"
+      },
+      {
+         "name":"summary",
+         "type":"textarea",
+         "label":"Description"
+      }
+   ]
+}
