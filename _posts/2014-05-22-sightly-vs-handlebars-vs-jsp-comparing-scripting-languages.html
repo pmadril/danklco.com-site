@@ -1,0 +1,83 @@
+---
+layout: post
+title: 'Sightly vs Handlebars vs JSP: Comparing Scripting Languages'
+tags:
+  - AEM6
+  - 'Best Practices'
+  - HelloAEM6
+  - JSP
+author: 'Dan Klco'
+summary: 'Compare and contrast Sightly and Handlebars, the new scripting languages available in AEM6.'
+original: http://labs.sixdimensions.com/blog/2014-05-22/sightly-vs-handlebars-vs-jsp-comparing-scripting-languages/
+---
+
+<p>The latest release of Adobe Experience Manager, version 6.0, introduces&nbsp;two new languages for front end scripting in CQ. &nbsp; The two languages are both attempting to address the problems found in the existing foundation and Geometrixx reference code, namely the lack of separation of concerns between business and presentation logic and the sloppy use of scriplet. &nbsp;</p>
+<p>The two new templating languages are:</p>
+<h4>Sightly</h4>
+<p>Sightly has come from Adobe user groups and seems to be trumpeted by the Adobe Professional Services team. &nbsp;There is&nbsp;<a href="http://dev.day.com/docs/en/cq/pre-release/overview/sightly.html">official documentation</a> for Sightly and Adobe has produced a number of blog posts and webinars about it:</p>
+<ul>
+<li><a href="http://cq-ops.tumblr.com/post/83123568521/aem-6-new-markup-language-called-sightly">http://cq-ops.tumblr.com/post/83123568521/aem-6-new-markup-language-called-sightly</a></li>
+<li><a href="https://www.youtube.com/watch?v=ugqcqr6uZrg">https://www.youtube.com/watch?v=ugqcqr6uZrg</a></li>
+</ul>
+<p>Essentially, Sightly extends HTML5 adding a number of data attributes for server side processing. &nbsp;These attributes support basic logic and writing content to the page.</p>
+<h4>Handlebars</h4>
+<p>Handlebars is based mostly from the Adobe Social Communities project. &nbsp;Essentially, the Social Communities ported the&nbsp;<a href="http://handlebarsjs.com/">Handlebars JS Library</a>&nbsp;to Java and added some hooks into AEM. &nbsp;Unfortunately, as of yet, there is no documentation available or any major posts about it, but there is a <a href="http://dev.day.com/content/docs/en/cq/pre-release/overview/api/javadoc/com/adobe/cq/social/handlebars/api/package-summary.html">published API</a>.</p>
+<h3>What do they look like?</h3>
+<p>We'll lets go ahead and take a simple task in JSP and see what it looks like in each scripting language. &nbsp;</p>
+<h4>JSP</h4>
+<p>This code block below would be found in a JSP script called mycomponent.jsp in a component at the path /apps/myapp/components/mycomponent. &nbsp;This component outputs the title property, then if the layout is set to left it will include the component at the subpath left and otherwise the omponent at the subpath right.</p>
+<pre>&nbsp;&lt;div&gt;<br />   &lt;h2&gt;${properties.title}&lt;/h2&gt;<br />   &lt;c:choose&gt;<br />     &lt;c:when test="${properties.layout = 'left'}"&gt;<br />       &lt;cq:include path="left" resourceType="myapp/components/mycomponent/layouts/left" /&gt;<br />     &lt;/c:when&gt;<br />     &lt;c:otherwise&gt;<br />       &lt;cq:include path="right" resourceType="myapp/components/mycomponent/layouts/right" /&gt;<br />     &lt;/c:otherwise&gt;<br />   &lt;/c:choose&gt;<br /> &lt;/div&gt;</pre>
+<h4>Sightly</h4>
+<p>In Sightly the code would exist in a file at the same path with the name mycomponent.html. &nbsp;The code would look like:</p>
+<pre>&nbsp;&lt;div&gt;<br />   &lt;h2&gt;${properties.title}&lt;/h2&gt;<br />   &lt;div data-sly-test="${properties.layout == 'left'}"&gt;<br />     &lt;div data-sly-resource="${'left' @ resourceType='myapp/components/mycomponent/layouts/left'}"&gt;&lt;/div&gt;<br />   &lt;/div&gt;<br />   &lt;div data-sly-test="${properties.layout != 'left'}"&gt;<br />     &lt;div data-sly-resource="${'right' @ resourceType='myapp/components/mycomponent/layouts/right'}"&gt;&lt;/div&gt;<br />   &lt;/div&gt;<br /> &lt;/div&gt;</pre>
+<h4>Handlebars</h4>
+<p>In Handlebars&nbsp;the code would exist in a file at the same path with the name mycomponent.hbs. &nbsp;Unlike the other templating languages, handlebars is billed as being 'logicless'; practically what this means is you can't do some typical things like comparisons in the if statement. &nbsp;The code would look like:</p>
+<pre>{% raw  %}&lt;div&gt;<br />  &lt;h2&gt;{{ title }}&lt;/h2&gt;<br />  {{#if layoutLeft}}<br />    {{include 'left' resourceType='myapp/components/mycomponent/layouts/left'}}<br />  {{else}}<br />    {{include 'right' resourceType='myapp/components/mycomponent/layouts/right'}}<br />  {{/if}}<br />&lt;/div&gt;
+{% endraw %}</pre>
+<h3>Comparing Language Features</h3>
+<p>Each language has it's own advantages and disadvantages, below is a feature comparison for the different languages:</p>
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td>&nbsp;</td>
+<th>JSP</th><th>Sightly</th><th>Handlebars</th></tr>
+<tr><th>Based on Published Standards / Open Source?</th>
+<td>Y (*)</td>
+<td>N</td>
+<td>Y</td>
+</tr>
+<tr><th>IDE Support?</th>
+<td>Y</td>
+<td>N</td>
+<td>N</td>
+</tr>
+<tr><th>Officially Documented / Supported?</th>
+<td>Y</td>
+<td>Y</td>
+<td>N</td>
+</tr>
+<tr><th>Documented Extension Model?</th>
+<td>Y</td>
+<td>N</td>
+<td>N</td>
+</tr>
+<tr><th>Includes XSS&nbsp;escaping?</th>
+<td>Y (**)</td>
+<td>Y</td>
+<td>N</td>
+</tr>
+<tr><th>Allows Basic Logic?</th>
+<td>Y</td>
+<td>Y</td>
+<td>Y (***)</td>
+</tr>
+<tr><th>Enables Bad Coding Practices?</th>
+<td>Y</td>
+<td>N</td>
+<td>N</td>
+</tr>
+</tbody>
+</table>
+<p>* - Some custom TagLibs used for interacting with CQ<br /> ** - Provided by additional tag libraries<br /> *** - Yes-ish, but very limited</p>
+<h3>So what should I use?</h3>
+<p>In the end, each scripting language has it's strengths and weaknesses, but JSP is the clear winner. &nbsp;Yes, you can develop (and Adobe/Day has developed) really bad code with scriptlet, but given the extensibility, universal support, longevity and number of pre-existing examples, JSP is heads above the other scripting languages. &nbsp;Sightly is very young and likely immature, lacks a published&nbsp;standard and offers disadvantages when trying to figure out what is plain markup and what is logic code. &nbsp;Handlbars starts with a well documented Open Source project, but the CQ-specific extensions are not documented and it does not seem to be supported by the entire Adobe team.</p>

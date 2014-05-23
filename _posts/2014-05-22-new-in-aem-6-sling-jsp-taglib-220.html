@@ -1,0 +1,31 @@
+---
+layout: post
+title: 'New in AEM 6: JSP TagLib 2.2.0'
+tags:
+  - AEM6
+  - JSP
+  - HelloAEM6
+author: 'Dan Klco'
+original: http://labs.sixdimensions.com/blog/2014-05-22/new-in-aem-6-sling-jsp-taglib-220/
+---
+
+<p>The latest release of Adobe Experience Manager, version 6.0, introduces a number of features which make developing on the platform easier and cleaner. &nbsp;These include some different open source bundles and proprietary solutions from Adobe. &nbsp;One of these new bundles is the&nbsp;Apache Sling JSP TagLib 2.2.0.</p>
+<p>This bundle&nbsp;is available&nbsp;in AEM6 by default, however it is not included in the global.jsp. &nbsp;The Sling JSP Taglib 2.2.0&nbsp;provides a number of new tags to make it easier to develop on AEM and other Sling-based applications without requiring the use of scriptlet. &nbsp;Thse new taglib includes the following Expression Language functions:</p>
+<ul>
+<li><a href="http://sling.apache.org/documentation/bundles/sling-scripting-jsp-taglib.html#adaptto" target="_blank">adaptTo</a></li>
+<li><a href="http://sling.apache.org/documentation/bundles/sling-scripting-jsp-taglib.html#findresources" target="_blank">findResources</a></li>
+<li><a href="http://sling.apache.org/documentation/bundles/sling-scripting-jsp-taglib.html#getrelativeresource" target="_blank">getRelativeResource</a></li>
+<li><a href="http://sling.apache.org/documentation/bundles/sling-scripting-jsp-taglib.html#getresource" target="_blank">getResource</a></li>
+<li><a href="http://sling.apache.org/documentation/bundles/sling-scripting-jsp-taglib.html#getvalue" target="_blank">getValue</a></li>
+<li><a href="http://sling.apache.org/documentation/bundles/sling-scripting-jsp-taglib.html#listchildren" target="_blank">listChildren</a></li>
+</ul>
+<p>And the following new JSP Tags:</p>
+<ul>
+<li><a href="http://sling.apache.org/documentation/bundles/sling-scripting-jsp-taglib.html#adaptto_1" target="_blank">adaptTo</a></li>
+<li><a href="http://sling.apache.org/documentation/bundles/sling-scripting-jsp-taglib.html#findresources_1" target="_blank">findResources</a></li>
+<li><a href="http://sling.apache.org/documentation/bundles/sling-scripting-jsp-taglib.html#getproperty" target="_blank">getProperty</a></li>
+<li><a href="http://sling.apache.org/documentation/bundles/sling-scripting-jsp-taglib.html#getresource_1" target="_blank">getResource</a></li>
+<li><a href="http://sling.apache.org/documentation/bundles/sling-scripting-jsp-taglib.html#listchildren_1" target="_blank">listChildren</a></li>
+</ul>
+<p>To make these available in your AEM 6.0 application, simply update your project's global.jsp and replace the URI for the sling prefix to&nbsp;http://sling.apache.org/taglibs/sling.</p>
+<p>You can read more about&nbsp;the&nbsp;<a href="/blog/2013-08-17/six-dimensions-supports-apache-sling-project-resourcehaschildren/" target="_blank">Sling JSP TagLib 2.2.0 on our blog</a>&nbsp;or read the complete documentation on the <a href="http://sling.apache.org/documentation/bundles/sling-scripting-jsp-taglib.html" target="_blank">Apache Sling website</a>.</p>
