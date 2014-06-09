@@ -63,7 +63,7 @@ body {
 
 .client .client-name {
 	position: absolute;
-	top: 60px;
+	top: 10%;
 	left: 0px;
 	display: inline-block;
 	max-width: 75%;
@@ -75,7 +75,7 @@ body {
 	background-color: #3fa757;
 	color: white;
 	font-weight: bold;
-	font-size: large;
+	font-size: medium;
 }
 
 .client:hover {
