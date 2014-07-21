@@ -1,156 +1,109 @@
 ---
 layout: page
-title: Curriculum Vitae
+title: 'Curriculum Vitae'
+tags: []
 ---
 
 <div class="sixteen columns content">
-	<h2>Curriculum Vitae</h2>
-	<p>
-		I am an experienced CQ Technical Lead, Solutions Architect and Senior Web Content Management Consultant and developer and have been consistently recognized for going above and beyond the basic project parameters.  
-		
-		Through my career, I have become viewed as a valued thought leader in the industry, with solid skills in leading teams to implement successful Web Content Management systems on the EMC WebPublisher and Adobe CQ5 platforms.
-		
-		Recently, I was elected to become a committer to the Apache Sling project, which is the basis for Adobe's CQ/AEM product, this allows me unique insight into the Adobe CQ platform.
-	</p>
-	<section>
-		<div class="sixteen columns">
-			<img class="center certification" src="/images/Certified_Expert_CQ_Component_Developer_badge.png" alt="ACE CQ Component Developer Badge" />
-		</div>
-		<div class="clear"></div>
-	</section>
-	<section>
-		<h3 id="Work-Experience">Work Experience</h3>
-		<article class="job" id="Six-Dimensions-AD" data-client="6DLabs">
-			<header>
-				<h5>2013-Present - Six Dimensions - Cincinnati, OH</h5>
-			</header>
-			<p>
-				<em>Associate Director</em>
-			</p>
-			<ul>
-				<li>Responsible for managing and mentoring a team of consultants.</li>
-				<li>Providing technical, consulting and general guidance and leadership.</li>
-			</ul>
-		</article>
-		<article  id="Six-Dimensions-TL" data-client="6DLabs">
-			<header>
-				<h5>2011-2013 - Six Dimensions - Cincinnati, OH</h5>
-			</header>
-			<p>
-				<em>Technical Lead</em>
-			</p>
-			<ul>
-				<li>Recognized specialist in Adobe CQ CMS. Implemented multiple
-					projects, presented webinars and produced blog posts.</li>
-				<li>Lead teams in creating Adobe CQ WCMS solutions.</li>
-				<li>Provided project and internal team leadership.</li>
-			</ul>
-		</article>
-		<article class="job" id="Crown-Partners" data-client="Crown-Partners">
-			<header>
-				<h5>2007-2011 - Crown Partners LLC - Dayton, OH</h5>
-			</header>
-			<p>
-				<em>Senior Consultant</em>
-			</p>
-			<ul>
-				<li>Recognized specialist in Web Content Management, have
-					implemented, managed and supported multiple Enterprise Web Content
-					Management and Content Management Systems.</li>
-		
-				<li>Lead teams in creating custom Web Content Management
-					solutions.</li>
-		
-				<li>Gained valuable Java, XSL/XML, SQL, Web Content Management,
-					Day CQ and Documentum experience.</li>
-			</ul>
-		</article>
-		<article class="job" id="Montgomery-Co-Auditor">
-			<header>
-				<h5>2005-2007 - Montgomery Co. Auditor - Dayton, OH</h5>
-			</header>
-			<p>
-				<em>Real Estate Clerk</em>
-			</p>
-			<ul>
-				<li>Began as an intern and due to exceptional merit was offered part-time year round position.</li>
-				<li>Gained valuable experience in the operation and organization of local government.</li>
-			</ul>
-		</article>
-	</section>
-	<section>
-		<h3 id="Project-Experience">Project Experience</h3>
-		{% sorted_for engagement in site.pages reversed sort_by:url %}
-			{% if engagement.layout == 'engagement' %}
-				<article class="project" data-client="{{ engagement.client | replace: ' ', '-' }}" data-project="{{ engagement.project | replace: ' ', '-' }}">
-					{% capture endDate %}{{ engagement.end-date | date: "%m / %Y" }}{% endcapture %}
-					{% if endDate == '12 / 3000' %}
-						{% assign endDate = 'Present' %}
-					{% endif %}
-					<header>
-						<h5>{{ engagement.client }} &mdash; {{ engagement.start-date | date: "%m / %Y" }} - {{ endDate }} &mdash; {{ engagement.project }}</h5>
-					</header>
-					<p>
-						<em>{{ engagement.role }}</em>
-					</p>
-					<ul class="tasks">
-						{% for task in engagement.tasks %}
-							<li>{{ task }}</li>
-						{% endfor %}
-					</ul>
-					{% if engagement.tools %}
-						Tools Used:
-						<ul class="tools">
-							{% for tool in engagement.tools %}
-								<li>{{ tool }}{% unless forloop.last %},{% endunless %}</li>
-							{% endfor %}
-						</ul>
-					{% endif %}
-				</article>
-			{% endif %}
-		{% endsorted_for %}
-	</section>
-	<section>
-		<h3 id="Skills-and-Capabilities">Skills and Capabilities</h3>
-		<h5>Programming Languages / Libraries:</h5>
-		<ul>
-			<li>Java/J2EE, JSP, C#.NET, PHP, Python</li>
-			<li>GWT, AJAX, JavaScript, HTML, CSS</li>
-			<li>XSLT / XML, Velocity</li>
-			<li>SQL, JCR-SQL2</li>
-			<li>Swing, AWT</li>
-		</ul>
-		<h5>Technology Platforms:</h5>
-		<ul>
-			<li>Documentum, Day/Adobe CQ, Adobe SiteCatalyst, Drupal, Apache Sling</li>
-			<li>Eclipse, Visual Studio, Subversion, Git, Jenkins, Ivy, Maven</li>
-			<li>Windows, Linux, Solaris</li>
-			<li>SQL Server, Oracle, MySQL</li>
-			<li>Apache, IIS, Tomcat, Weblogic, JBoss</li>
-		</ul>
-	</section>
-	<section>
-		<h3 id="Education">Education</h3>
-		<h5 id="University-of-Dayton">2004-2007 - University of Dayton - Dayton, OH</h5>
-		<ul>
-			<li>Graduated with Honors.</li>
-			<li>Majored in Political Science with a minor in Computer Information Systems.</li>
-			<li>Study of Russian and Spanish.</li>
-			<li>Programming experience and study with C++, Java and SQL and Systems Analysis.</li>
-		</ul>
-	</section>
-	<section>
-		<h3 id="Volunteer-Experience">Volunteer Experience</h3>
-		<p>
-			<em>Boy Scouts of America Eagle Projects</em>
-		</p>
-		<ul>
-			<li>Boys and Girls Club of America - built two handicap access ramps Fall 2002.</li>
-			<li>St. Vincent de Paul Society - organized clothing drive for St. Vincent Thrift Store, Spring 2002.</li>
-		</ul>
-		<p>
-			<em>Habitat for Humanity - Fall 2001</em><br/>
-			<em>Grand Rapids Children's Museum - 1999-2001</em>
-		</p>
-	</section>
+<h2>Curriculum Vitae</h2>
+<p>I am an experienced CQ Technical Lead, Solutions Architect and Senior Web Content Management Consultant and developer and have been consistently recognized for going above and beyond the basic project parameters. Through my career, I have become viewed as a valued thought leader in the industry, with solid skills in leading teams to implement successful Web Content Management systems on the EMC WebPublisher and Adobe CQ5 platforms. Recently, I was elected to become a committer to the Apache Sling project, which is the basis for Adobe's CQ/AEM product, this allows me unique insight into the Adobe CQ platform.</p>
+<section>
+<div class="sixteen columns"><img class="center certification" src="/images/Certified_Expert_CQ_Component_Developer_badge.png" alt="ACE CQ Component Developer Badge" /></div>
+<div class="clear">&nbsp;</div>
+</section>
+<section>
+<h3 id="Work-Experience">Work Experience</h3>
+<article id="Six-Dimensions-AD" class="job" data-client="6DLabs"><header>
+<h5>2013-Present - Six Dimensions - Cincinnati, OH</h5>
+</header>
+<p><em>Associate Director</em></p>
+<ul>
+<li>Responsible for managing and mentoring a team of consultants.</li>
+<li>Providing technical, consulting and general guidance and leadership.</li>
+</ul>
+</article>
+<article id="Six-Dimensions-TL" data-client="6DLabs"><header>
+<h5>2011-2013 - Six Dimensions - Cincinnati, OH</h5>
+</header>
+<p><em>Technical Lead</em></p>
+<ul>
+<li>Recognized specialist in Adobe CQ CMS. Implemented multiple projects, presented webinars and produced blog posts.</li>
+<li>Lead teams in creating Adobe CQ WCMS solutions.</li>
+<li>Provided project and internal team leadership.</li>
+</ul>
+</article>
+<article id="Crown-Partners" class="job" data-client="Crown-Partners"><header>
+<h5>2007-2011 - Crown Partners LLC - Dayton, OH</h5>
+</header>
+<p><em>Senior Consultant</em></p>
+<ul>
+<li>Recognized specialist in Web Content Management, have implemented, managed and supported multiple Enterprise Web Content Management and Content Management Systems.</li>
+<li>Lead teams in creating custom Web Content Management solutions.</li>
+<li>Gained valuable Java, XSL/XML, SQL, Web Content Management, Day CQ and Documentum experience.</li>
+</ul>
+</article>
+<article id="Montgomery-Co-Auditor" class="job"><header>
+<h5>2005-2007 - Montgomery Co. Auditor - Dayton, OH</h5>
+</header>
+<p><em>Real Estate Clerk</em></p>
+<ul>
+<li>Began as an intern and due to exceptional merit was offered part-time year round position.</li>
+<li>Gained valuable experience in the operation and organization of local government.</li>
+</ul>
+</article>
+</section>
+<section>
+<h3 id="Project-Experience">Project Experience</h3>
+{% sorted_for engagement in site.pages reversed sort_by:url %} {% if engagement.layout == 'engagement' %}
+<article class="project" data-client="{{ engagement.client | replace: ' ', '-' }}" data-project="{{ engagement.project | replace: ' ', '-' }}">{% capture endDate %}{{ engagement.end-date | date: "%m / %Y" }}{% endcapture %} {% if endDate == '12 / 3000' %} {% assign endDate = 'Present' %} {% endif %}<header>
+<h5>{{ engagement.client }} &mdash; {{ engagement.start-date | date: "%m / %Y" }} - {{ endDate }} &mdash; {{ engagement.project }}</h5>
+</header>
+<p><em>{{ engagement.role }}</em></p>
+<ul class="tasks">{% for task in engagement.tasks %}
+<li>{{ task }}</li>
+{% endfor %}</ul>
+{% if engagement.tools %} Tools Used:
+<ul class="tools">{% for tool in engagement.tools %}
+<li>{{ tool }}{% unless forloop.last %},{% endunless %}</li>
+{% endfor %}</ul>
+{% endif %}</article>
+{% endif %} {% endsorted_for %}</section>
+<section>
+<h3 id="Skills-and-Capabilities">Skills and Capabilities</h3>
+<h5>Programming Languages / Libraries:</h5>
+<ul>
+<li>Java/J2EE, JSP, C#.NET, PHP, Python</li>
+<li>GWT, AJAX, JavaScript, HTML, CSS</li>
+<li>XSLT / XML, Velocity</li>
+<li>SQL, JCR-SQL2</li>
+<li>Swing, AWT</li>
+</ul>
+<h5>Technology Platforms:</h5>
+<ul>
+<li>EMC Documentum, Day/Adobe CQ/AEM, SiteCatalyst/Adobe Analytics, Drupal, Apache Sling</li>
+<li>Eclipse, Visual Studio, Subversion, Git, Jenkins, Ivy, Maven</li>
+<li>Windows, Linux, Solaris</li>
+<li>SQL Server, Oracle, MySQL, MongoDB</li>
+<li>Apache, IIS, Tomcat, Weblogic, JBoss</li>
+</ul>
+</section>
+<section>
+<h3 id="Education">Education</h3>
+<h5 id="University-of-Dayton">2004-2007 - University of Dayton - Dayton, OH</h5>
+<ul>
+<li>Graduated with Honors.</li>
+<li>Majored in Political Science with a minor in Computer Information Systems.</li>
+<li>Study of Russian and Spanish.</li>
+<li>Programming experience and study with C++, Java and SQL and Systems Analysis.</li>
+</ul>
+</section>
+<section>
+<h3 id="Volunteer-Experience">Volunteer Experience</h3>
+<p><em>Boy Scouts of America Eagle Projects</em></p>
+<ul>
+<li>Boys and Girls Club of America - built two handicap access ramps Fall 2002.</li>
+<li>St. Vincent de Paul Society - organized clothing drive for St. Vincent Thrift Store, Spring 2002.</li>
+</ul>
+<p><em>Habitat for Humanity - Fall 2001</em><br /> <em>Grand Rapids Children's Museum - 1999-2001</em></p>
+</section>
 </div>
