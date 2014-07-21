@@ -9,10 +9,6 @@ jQuery(function($){
 			_gaq.push(['_trackEvent', 'Contact Form', 'Submit']);
 		});
 		$('.client').each(function(index,elem){
-			if((index + 3) % 3 == 0){
-				$(elem).parent('div').addClass('offset-by-two');
-				$(elem).parent('div').css('clear','both');
-			}
 			$(elem).click(function(){
 				var id = $(elem).attr('id');
 				_gaq.push(['_trackEvent', 'Client','Open',id]);

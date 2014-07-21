@@ -12,7 +12,8 @@ title: My Work
 	</div>
 	{% sorted_for engagement in site.pages reversed sort_by:url %}
 		{% if engagement.layout == 'engagement' and engagement.hide == true %}
-			<div class="four columns card">
+			{% capture index %}.{{index}}{% endcapture %}{% capture modulo %}{{ index | size | modulo: 3 }}{% endcapture %}
+			<div class="four columns card {% if modulo == '1' %}offset-by-two" style="clear:both{% endif %}">
 				<div class="client" id="{{engagement.client | replace: ' ', '-'}}" data-image="{{engagement.image}}" data-image-width="{{engagement.image-width}}">
 					<div class="client-name">
 						{{engagement.client}} &mdash; {{engagement.project}}
