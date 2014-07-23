@@ -1,0 +1,22 @@
+---
+layout: post
+title: 'New from Apache Sling: Testing Tools 1.0.8'
+tags:
+  - 'Apache Sling'
+  - jUnit
+  - 'Integration Testing'
+author: 'Dan Klco'
+published: true
+original: http://labs.sixdimensions.com/blog/2014-07-22/new-apache-sling-testing-tools/
+summary: 'Highlights some of the features available in the new 1.0.8 release of the Apache Sling Testing Tools library.'
+---
+
+<p>The Apache Sling Project just announced the release of Testing Tools 1.0.8. &nbsp;This new release brings some great new features and fixes to anyone using Apache Sling Testing Tools for integration tests. &nbsp;There are two fixes which are certainly worth highlighting.</p>
+<h3><a href="https://issues.apache.org/jira/browse/SLING-3328" target="_blank">SLING-3328</a>:&nbsp; Simplify SlingTestBase usage with an already running instance</h3>
+<p>This issue makes it easier to connect the Sling Testing Tools to a running Sling / AEM instance without requiring to set the <code>jar.executor.jar.folder<code>, <code>jar.executor.jar.options</code>, <code>jar.executor.vm.options</code>&nbsp;and&nbsp;<code>jar.executor.jar.name.regexp&nbsp;</code></code></code>properties which currently must be set and must contain reasonable values which resolve to a JAR file. &nbsp;Now, with this fix, if the server specified in the <code>test.server.url</code> property as the server to connect to is running, these properties will not be required.</p>
+<p>For example, in my previous post on <a href="/blog/2014-06-25/follow-up-to-integration-tests-adobe-cq/">Integration Tests in AEM</a>, I had a fairly large number of parameters specified and the cq.dir property needed to be sent with every build. &nbsp;This is no longer required and the parameters now look like below:</p>
+<pre><code class="prettyprint"><span class="tag">&lt;http.port&gt;</span><span class="pln">${crx.port}</span><span class="tag">&lt;/http.port&gt;<br /></span><span class="tag">&lt;test.server.url&gt;</span><span class="pln">http://${crx.host}:${crx.port}</span><span class="tag">&lt;/test.server.url&gt;<br /></span><span class="tag">&lt;keepJarRunning&gt;</span><span class="pln">false</span><span class="tag">&lt;/keepJarRunning&gt;<br /></span><span class="tag">&lt;server.ready.timeout.seconds&gt;</span><span class="pln">240</span><span class="tag">&lt;/server.ready.timeout.seconds&gt;<br /></span><span class="tag">&lt;sling.testing.timeout.multiplier&gt;</span><span class="pln">1.0</span><span class="tag">&lt;/sling.testing.timeout.multiplier&gt;<br /></span><span class="tag">&lt;server.ready.path.1&gt;</span><span class="pln">/libs/granite/core/content/login.html:QUICKSTART_HOMEPAGE</span><span class="tag">&lt;/server.ready.path.1&gt;<br /></span><span class="tag">&lt;start.bundles.timeout.seconds&gt;</span><span class="pln">30</span><span class="tag">&lt;/start.bundles.timeout.seconds&gt;<br /></span><span class="tag">&lt;bundle.install.timeout.seconds&gt;</span><span class="pln">20</span><span class="tag">&lt;/bundle.install.timeout.seconds&gt;</span></code></pre>
+<h3><a href="https://issues.apache.org/jira/browse/SLING-3561" target="_blank">SLING-3561</a>: SlingClient.mkdirs Broken</h3>
+<p>This issue fixed a pretty big problem in the SlingClient used to execute remote Integration Tests. &nbsp;This bug caused an error if you attempted to create folders at a path where any portion of the path already exists, for example: if you tried to create <code>/apps/test/mytest</code> and <code>/apps</code> already existed in your Sling instance, this would cause an error.</p>
+<p>This simplifies the AbstractIntegrationTest I provided in the&nbsp;<a href="/blog/2014-06-25/follow-up-to-integration-tests-adobe-cq/">Integration Tests in AEM</a>&nbsp;post, as the <code>createFolders</code> method is no longer needed.</p>
+<p>These two fixes as well as the <a href="https://issues.apache.org/jira/browse/SLING/fixforversion/12324063/" target="_blank">other fixes available in the release</a>, make it very much worth the time to upgrade if you are using the Sling Testing Tools for Integration Tests.</p>
