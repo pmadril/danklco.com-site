@@ -1,0 +1,91 @@
+---
+layout: post
+title: 'Running Apache Axis 1.4 in AEM'
+author: 'Dan Klco'
+published: true
+original: http://labs.sixdimensions.com/blog/2014-08-11/running-axis-1-4-in-aem/
+tags:
+  - 'SOAP Web Services'
+  - OSGi
+  - AEM
+  - 'Adobe CQ'
+summary: 'Explains the process for setting up and running Apache Axis 1.4 in AEM.'
+---
+
+<p>Despite doing several Web Service implementations over the last couple years, I have successfully avoided using <a href="http://axis.apache.org/axis/" target="_blank">Apache Axis</a>&nbsp;until now. &nbsp;A client's Web Service implementation was incompatible with the code generation tools available in more modern Web Service clients, such as <a href="http://cxf.apache.org/" target="_blank">Apache CXF</a>. &nbsp;While there is documentation around <a href="http://www.wemblog.com/2012/03/how-to-integrate-soap-web-service.html" target="_blank">using Axis 2 with AEM</a>, there isn't really anything available for Axis 1 in AEM which is what I needed to use. &nbsp;So, I rolled up my sleeves and dug in.</p>
+<h3>Challenge 1: Axis 1.4 as a Bundle</h3>
+<p>The first challenge I ran into is that Apache Axis 1.4 is not created as a bundle. &nbsp;Thanks to some googling (now simplified with 6D's&nbsp;<a href="/resources/bundle-finder">Bundle Finder</a>), I found that the Apache Geronimo project produced a bundled version of Apache Axis. &nbsp;Awesome! &nbsp;I added the bundle as a dependency in my content project and embedded it into the package I'm building, based on the following dependency:</p>
+<pre><code>&lt;dependency&gt;
+&nbsp;&nbsp;&lt;groupId&gt;org.apache.geronimo.bundles&lt;/groupId&gt;
+&nbsp;&nbsp;&lt;artifactId&gt;axis&lt;/artifactId&gt;
+&nbsp;&nbsp;&lt;version&gt;1.4_2&lt;/version&gt;
+&lt;/dependency&gt;<br /></code></pre>
+<p>After installing the bundle, the OSGi console lit up like a Christmas tree with unresolved dependencies. Back to the drawing board!</p>
+<h3>Challenge 2: Dependency Hell</h3>
+<p>To get Axis to actually work in AEM, I had to track down all of the dependencies, find the bundle version, install the dependency bundle into AEM and check it's dependencies. &nbsp;This took a while and I needed to re-wrap a couple of the dependencies as OSGi bundles to get them installed in AEM. &nbsp;I created a couple projects to rewrap the two dependencies not available as OSGi bundles, commons-discovery and jaxrpc-api:</p>
+<ul>
+<li><a href="https://github.com/SixDimensions/commons-discovery" target="_blank">commons-discovery</a></li>
+<li><a href="https://github.com/SixDimensions/jaxrpc-api" target="_blank">jaxrpc-api</a></li>
+</ul>
+<p>After everything is said and done,&nbsp;to get Axis 1.4 working you'll need to embed all of the following dependencies into an AEM package or install them into the Felix console:</p>
+<pre><code>&lt;dependency&gt;
+&nbsp;&nbsp;&lt;groupId&gt;com.sixdimensions.commons.osgi.wrapper&lt;/groupId&gt;
+&nbsp;&nbsp;&lt;artifactId&gt;commons-discovery&lt;/artifactId&gt;
+&nbsp;&nbsp;&lt;version&gt;0.5&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+&nbsp;&nbsp;&lt;groupId&gt;com.sixdimensions.commons.osgi.wrapper&lt;/groupId&gt;
+&nbsp;&nbsp;&lt;artifactId&gt;jaxrpc-api&lt;/artifactId&gt;
+&nbsp;&nbsp;&lt;version&gt;1.1&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+&nbsp;&nbsp;&lt;groupId&gt;org.apache.servicemix.bundles&lt;/groupId&gt;
+&nbsp;&nbsp;&lt;artifactId&gt;org.apache.servicemix.bundles.ant&lt;/artifactId&gt;
+&nbsp;&nbsp;&lt;version&gt;1.7.0_5&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+&nbsp;&nbsp;&lt;groupId&gt;org.apache.servicemix.bundles&lt;/groupId&gt;
+&nbsp;&nbsp;&lt;artifactId&gt;org.apache.servicemix.bundles.castor&lt;/artifactId&gt;
+&nbsp;&nbsp;&lt;version&gt;0.9.6_3&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+&nbsp;&nbsp;&lt;groupId&gt;org.apache.servicemix.bundles&lt;/groupId&gt;
+&nbsp;&nbsp;&lt;artifactId&gt;org.apache.servicemix.bundles.cglib&lt;/artifactId&gt;
+&nbsp;&nbsp;&lt;version&gt;2.1_3_7&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+&nbsp;&nbsp;&lt;groupId&gt;org.apache.servicemix.bundles&lt;/groupId&gt;
+&nbsp;&nbsp;&lt;artifactId&gt;org.apache.servicemix.bundles.oro&lt;/artifactId&gt;
+&nbsp;&nbsp;&lt;version&gt;2.0.8_5&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+&nbsp;&nbsp;&lt;groupId&gt;org.apache.servicemix.bundles&lt;/groupId&gt;
+&nbsp;&nbsp;&lt;artifactId&gt;org.apache.servicemix.bundles.regexp&lt;/artifactId&gt;
+&nbsp;&nbsp;&lt;version&gt;1.3_3&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+&nbsp;&nbsp;&lt;groupId&gt;org.apache.servicemix.bundles&lt;/groupId&gt;
+&nbsp;&nbsp;&lt;artifactId&gt;org.apache.servicemix.bundles.wsdl4j&lt;/artifactId&gt;
+&nbsp;&nbsp;&lt;version&gt;1.6.2_5&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+&nbsp;&nbsp;&lt;groupId&gt;org.apache.servicemix.bundles&lt;/groupId&gt;
+&nbsp;&nbsp;&lt;artifactId&gt;org.apache.servicemix.bundles.xerces&lt;/artifactId&gt;
+&nbsp;&nbsp;&lt;version&gt;2.10.0_1&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+&nbsp;&nbsp;&lt;groupId&gt;org.apache.servicemix.bundles&lt;/groupId&gt;
+&nbsp;&nbsp;&lt;artifactId&gt;org.apache.servicemix.bundles.xmlresolver&lt;/artifactId&gt;
+&nbsp;&nbsp;&lt;version&gt;1.2_5&lt;/version&gt;
+&lt;/dependency&gt;</code></pre>
+<h3>Challenge 3: SSL Configuration</h3>
+<p>At this point, I had Axis 1.4 working in AEM, but I also needed it to connect to the endpoint using 2-Way SSL authentication. &nbsp;There are a&nbsp;couple of difficulties&nbsp;which come up specifically when working with SSL, Axis 1.4 and AEM:</p>
+<ul>
+<li><strong>SSL Configuration&nbsp;</strong>- unfortunately, due to how Axis 1.4 handles SSL configuration, you can only specify the keystore, truststore and ssl logging information via command line arguments at startup. &nbsp;For whatever reason, if you attempt to set this later (for example in a Service activator) via <code>System.setProperty</code>, the SSL client will already be initialized and does not re-read the properties. &nbsp;To get this to work, you will need to update your start script to add parameters like the following:<br />
+<pre class="p1"><code>-Djavax.net.debug=all -Djavax.net.ssl.keyStore=/opt/some/dir/keystore.jks -Djavax.net.ssl.keyStorePassword=apassword</code></pre>
+</li>
+<li><strong>Logging SSL Information</strong> - the only way to debug them is to set the system property <code>javax.net.debug</code> to all and check the stdout.log. &nbsp;Unfortunately, this log file does not rotate and the only can be changed by restarting AEM. &nbsp;Thus, I would recommend adding the <code>java.net.debug</code> parameter only on development instances and ensuring&nbsp;you are clearing this log on startup.</li>
+</ul>
+<h3>Success!</h3>
+<p>Once I updated the crx-quickstart/bin/start script to properly set the SSL configuration values, I was able to interact with the Web Service endpoint without any further issues.</p>
+<p>Hopefully this post helps you get Axis 1.4 working in AEM! &nbsp;Please leave a comment if you find anything else useful or have any questions.</p>
