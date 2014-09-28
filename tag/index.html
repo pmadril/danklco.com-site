@@ -1,0 +1,12 @@
+---
+layout: default
+title: Tags
+tags: []
+summary: 'A list of all of the tags used on this site.'
+published: true
+---
+
+<h2>Tags</h2>
+<ul>{% for tag in site.tags %}
+<li><a href="/tag/{{ tag | first | slugize | replace: ' ', '%20' }}/"> {{ tag | first }} </a></li>
+{% endfor %}</ul>
