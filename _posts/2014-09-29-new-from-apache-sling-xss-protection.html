@@ -3,11 +3,12 @@ layout: post
 title: 'New from Apache Sling: JSP XSS Protection'
 author: 'Dan Klco'
 summary: 'The Apache Sling Project introduces new XSS Protection tags into the Sling JSP Taglib'
-original: http://labs.sixdimensions.com/blog/2014-09-30/new-from-apache-sling-xss-protection/
+original: 'http://labs.sixdimensions.com/blog/2014-09-29/new-from-apache-sling-xss-protection/'
 published: true
+tags: []
 ---
 
-<p><a href="https://www.owasp.org/index.php/Cross-site_Scripting_(XSS)" target="_blank">Cross Site Scripting or XSS</a> represents a serious threat to site owners and users and can be very difficult to properly prevent, especially given the weak tooling available in the JSP specification.  Many times, developers depend on the <code>&lt;c:out /&gt;</code> tag from JSTL, however this tag does not provide robust XSS protection. On Friday, the Apache Sling Project released a new version of the Sling JSP Taglib, version 2.2.4 which contains new functionality help to developers thwart XSS attacks. &nbsp;</p>
+<p><a href="https://www.owasp.org/index.php/Cross-site_Scripting_(XSS)" target="_blank">Cross Site Scripting or XSS</a> represents a serious threat to site owners and users and can be very difficult to properly prevent, especially given the weak tooling available in the JSP specification. Many times, developers depend on the <code>&lt;c:out /&gt;</code> tag from JSTL, however this tag does not provide robust XSS protection. On Friday, the Apache Sling Project released a new version of the Sling JSP Taglib, version 2.2.4 which contains new functionality help to developers thwart XSS attacks. &nbsp;</p>
 <p>The new release contains one new <a href="http://docs.oracle.com/javaee/6/tutorial/doc/gjddd.html" target="_blank">Expression Language (EL) function</a>&nbsp;and one new tag, both for encoding text to prevent XSS attacks. &nbsp;The new features use the&nbsp;<a href="https://www.owasp.org/index.php/Category:OWASP_Enterprise_Security_API" target="_blank">OWASP Enterprise Security API</a>&nbsp;to ensure that the text is properly encoded in a number of different contexts. &nbsp;</p>
 <p>The supported contexts&nbsp;are:</p>
 <ul>
