@@ -1,0 +1,70 @@
+---
+layout: post
+title: '9 JCR-SQL2 Queries Every AEM Developer Should Know'
+author: 'Dan Klco'
+published: true
+tags:
+  - AEM
+  - 'Adobe CQ'
+  - JCR-SQL2
+  - JCR
+  - 'Apache Sling'
+original: http://labs.sixdimensions.com/blog/2014-10-07/9-jcr-sql-2-queries-every-aem-dev-should-know/
+summary: 'A list of 9 JCR-SQL2 queries every AEM developer should know.'
+---
+
+<p>JCR-SQL2 queries are useful items in every AEM Developer's toolbag. &nbsp;They are relatively quick, <a href="http://www.day.com/specs/jsr170/javadocs/jcr-2.0/javax/jcr/query/Query.html" target="_blank">aren't deprecated</a>&nbsp;and have a familiar SQL like grammer. JCR-SQL2 queries can be invoked from the JCR API:</p>
+<pre><code>Session session = ...<br />QueryManager queryManager = session.getWorkspace.getQueryManager();<br />Query query = queryManager.createQuery("{QUERY}", Query.JCR_SQL2);<br />QueryResult result = query.execute();</code></pre>
+<p>or through the Sling API:</p>
+<pre><code>ResourceResolver resolver = ...<br />Iterator&lt;Resource&gt; result = resolver.findResources("{QUERY}", Query.JCR_SQL2);</code></pre>
+<p>Although there is an official specification for JCR-SQL2, there aren't a ton of really good resources out there nor good references for finding examples of JCR-SQL2 queries. &nbsp;Below are some queries I've found useful and I think every developer should have as a reference. &nbsp;Each item&nbsp;lists&nbsp;a concept, provides an sample query and explains the sample.</p>
+<h4><strong>1. Find nodes by type</strong></h4>
+<pre><code>SELECT * FROM [nt:file] AS s</code></pre>
+<p>This query will find all of the nt:file nodes in the repository. &nbsp;Users often start by querying against <em>nt:base</em> which is the base type for all JCR&nbsp;nodes, however if you can limit down to a more specific node type, this can have dramatic performance differences. &nbsp;Just remember that the node containing the properties you're querying against needs to either be the specified type or a decendent of the type.</p>
+<h4><strong>2. Find nodes with properties containing a value</strong></h4>
+<pre><code>SELECT * FROM [nt:base] AS s WHERE CONTAINS(s.title, 'client')</code></pre>
+<p>This query will find any node with a title property which contains the text client. This can also be accomplished using the&nbsp;LIKE&nbsp;constraint, but is significantly faster as it invokes the Lucene indexes instead of scanning property values. &nbsp;In a very basic test, I found using CONTAINS to be approximately 100x faster.</p>
+<h4><strong>3. Finding pages under a path:</strong></h4>
+<pre><code>SELECT * FROM [cq:Page] AS s WHERE ISDECENDANTNODE(s,'/content')</code></pre>
+<p>This query will select all nodes of the type <em>cq:Page</em> under the path <em>/content. </em>You could change the node type in the square brackets to query in other node types such as <em>dam:</em><em>Asset</em> or <em>rep:user</em>.</p>
+<h4><strong>4. Finding nodes by name:</strong></h4>
+<pre><code>SELECT * FROM [cq:Page] WHERE NAME() = 'content'</code></pre>
+<p>This query will retrieve any <em>cq:Page&nbsp;</em>node with the name "content"; if you used the LOCALNAME function instead of NAME it would ignore the node type prefix, matching names such as jcr:content.</p>
+<h4><strong>5. Finding non-empty properties</strong></h4>
+<pre>SELECT * FROM [cq:PageContent] WHERE [jcr:title] IS NOT NULL</pre>
+<p>This query will retrieve cq:PageContent nodes where the <em>jcr:title</em> attribute is set.&nbsp;</p>
+<p><strong>Note:&nbsp;</strong>Pages are not required to have a child of type <em>cq:PageContent</em> so if your templates don't set the child node type this may not always return all of the eligible nodes.</p>
+<h4><strong>6. Finding pages based on jcr:content properties</strong></h4>
+<pre><code>SELECT parent.* FROM [cq:Page] AS parent&nbsp;INNER JOIN [nt:base] AS child ON ISCHILDNODE(child,parent)&nbsp;WHERE&nbsp;ISDESCENDANTNODE(parent, '/content')&nbsp;AND child.[cq:template] = '/libs/cq/personalization/templates/campaign'</code></pre>
+<p>This query returns <em>cq:Page</em> nodes with a child node where the <em>cq:template</em> is set to&nbsp;<em>/libs/cq/personalization/templates/campaign. </em>The really nice thing is that it returns the actual page node instead of the child node which contains the value.</p>
+<h4><strong>7. Finding files with extension</strong></h4>
+<pre><code>SELECT * FROM [nt:file] WHERE&nbsp;NAME() LIKE '%.png'</code></pre>
+<p>This query will find files with the .png extension. This can be very useful when looking for bundles, assets or other files which have been uploaded. &nbsp;To search the DAM, change the node type to <em>dam:Asset</em>.</p>
+<h4><strong>8. Cast Property Values</strong></h4>
+<pre><code>SELECT * FROM [nt:base] WHERE hideInNav = CAST('true' AS BOOLEAN)</code></pre>
+<p>Casting allows you to query accurately based on non-String properties. &nbsp;You can cast into any of the following types:</p>
+<ul>
+<li>STRING</li>
+<li>BINARY</li>
+<li>DATE</li>
+<li>LONG</li>
+<li>DOUBLE</li>
+<li>DECIMAL</li>
+<li>BOOLEAN</li>
+<li>NAME</li>
+<li>PATH</li>
+<li>REFERENCE</li>
+<li>WEAKREFERENCE</li>
+<li>URI</li>
+</ul>
+<h4><strong>9. Querying on dates</strong></h4>
+<pre><code>SELECT p.* FROM [nt:base] AS p WHERE p.[cq:lastModified] &gt;= CAST('2008-01-01T00:00:00.000Z' AS DATE) AND p.[cq</code>:lastModified] &lt;= CAST('2008-12-31T23:59:59.999Z' AS DATE)</pre>
+<p>This query will find any node which has been modified in 2008. Date conversion for JCR-SQL2 can be somewhat interesting as it expects the&nbsp;date parameter to be in the format&nbsp;2008-01-01T00:00:00.000Z which is not possible to easily produce with a&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html" target="_blank">SimpleDateFormat</a>. One method for getting the date&nbsp;in the correct format is:</p>
+<pre><code>Calendar cal;<br />ValueFactoryImpl.getInstance().createValue(cal).getString();</code></pre>
+<h4>Wrapup</h4>
+<p>Hopefully, you find these query examples useful, if you see any mistakes or anything I missed, please leave a comment!</p>
+<p><strong>References:</strong></p>
+<ul>
+<li><a href="http://docs.jboss.org/jbossdna/0.7/manuals/reference/html/jcr-query-and-search.html#d0e7872" target="_blank">http://docs.jboss.org/jbossdna/0.7/manuals/reference/html/jcr-query-and-search.html#d0e7872</a></li>
+<li><a href="http://stackoverflow.com/questions/5231411/jackrabbit-dateformat-for-comparison" target="_blank">http://stackoverflow.com/questions/5231411/jackrabbit-dateformat-for-comparison</a></li>
+</ul>
