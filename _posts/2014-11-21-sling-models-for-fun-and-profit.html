@@ -1,0 +1,47 @@
+---
+layout: post
+title: 'Sling Models for Fun and Profit'
+author: 'Dan Klco'
+published: true
+tags:
+  - 'Apache Sling'
+  - 'Sling Models'
+  - 'Best Practices'
+  - AEM
+summary: 'Learn how Sling Models can make AEM development easier and more fun by replacing spaghetti and boilerplate code with dynamic models.'
+original: http://labs.sixdimensions.com/blog/2014-11-21/sling-models-for-fun-and-profit/
+---
+
+<p>Recently, I finally had a chance to leverage&nbsp;<a href="http://sling.apache.org/documentation/bundles/models.html" target="_blank">Sling Models</a>&nbsp;for a new project. &nbsp;If you are not familiar with Sling Models, they allow developers to inject methods and fields based on resource properties, other resources and OSGi services. &nbsp;For those developing in <a href="http://docs.adobe.com/docs/en/aem/6-0/release-notes.html" target="_blank">AEM 6</a>, Sling Models are available as part of the default installation, for those on older versions of AEM / CQ5, Sling Models are available <a href="http://sling.apache.org/downloads.cgi" target="_blank">as downloadable bundles on the Sling website</a>. &nbsp;Sling Models are a great way to do more with less code, thus you can "profit" by avoiding the costly technical debt from the large amount of boilerplate code required to access Sling content&nbsp;through POJOs or the spaghetti code when intermingling business logic for retrieving the same data directly from the underlying Resource or Node through a large codebase.</p>
+<h2>Basic Examples</h2>
+<p>The format of a Sling Model injection is pretty simple, Sling Models can either inject fields on a Class or method return values in an Interface. To create a Sling Model first, add an <code>@Model</code> class level annotation with the adaptable type specified. For example:</p>
+<pre><code>@Model(adaptables=Resource.class)<br />public interface MyModel {</code></pre>
+<p>Each method or field being injected then will have an <code>@Inject</code> annotation which is used to indicate the method or field is to be dynamically injected by Sling Models. &nbsp;A number of <a href="http://sling.apache.org/documentation/bundles/models.html#annotation-reference" target="_blank">additional annotations</a>&nbsp;can be used to modify the injector behavior. In the case of a Class the annotation would be added on the appropriate field:</p>
+<pre><code>@Inject @Named("jcr:title")<br />private String title;</code></pre>
+<p>In the case of an Interface the inject annotation would be be added to the method instead:</p>
+<pre><code>@Inject @Named("jcr:title")<br />String getTitle();</code></pre>
+<h2>Class or Interface?</h2>
+<p>Since you can use either a Class or Interface for Sling Models, one question you may ask is, which should I use? &nbsp;</p>
+<p>In most cases, using a Sling Models Interface fill require less code to accomplish the same task. &nbsp;The most common case where you would want to use a Class is if you need to do any filtering or manipulation of the values being returned. &nbsp;Using a Class for your model, you can then inject the values into the field and generate the needed return value. &nbsp;For example:</p>
+<pre><code>@Model(adaptables = Resource.class)<br />public class TranslationConfig {
+<br />&nbsp;&nbsp;@Inject<br />&nbsp;&nbsp;private ResourceResolver resourceResolver;
+<br />&nbsp;&nbsp;/**<br />&nbsp;&nbsp; * The configurations used to configure how the JSON representing a resource<br />&nbsp;&nbsp; * is to be serialized to Lingotek<br />&nbsp;&nbsp; * <br />&nbsp;&nbsp; * @return the resource configurations<br />&nbsp;&nbsp; */<br />&nbsp;&nbsp;public final Map&lt;String, ResourceMapping&gt; getResourceConfigs() {<br />&nbsp;&nbsp;&nbsp;&nbsp;Map&lt;String, ResourceMapping&gt; configurations = new HashMap&lt;String, ResourceMapping&gt;();<br />&nbsp;&nbsp;&nbsp;&nbsp;Resource mappingsContainer = this.resourceResolver<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.getResource(ResourceMapping.MAPPINGS_PATH);<br />&nbsp;&nbsp;&nbsp;&nbsp;Iterator mappings = mappingsContainer.listChildren();<br />&nbsp;&nbsp;&nbsp;&nbsp;while (mappings.hasNext()) {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Resource mappingResource = mappings.next();<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ResourceMapping mapping = mappingResource<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.adaptTo(ResourceMapping.class);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for(String resourceType : mapping.getResourceTypes()){<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;configurations.put(resourceType, mapping);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;return configurations;<br />&nbsp;&nbsp;}<br />}</code></pre>
+<h3>Keeping Your Options Open</h3>
+<p>One of the interesting things about Sling Models is that, by default, it requires something to be injected for every field or method for the Model to be adapted correctly. If a value cannot be injected for one of the fields, the Sling Models adapter will return null when attempting to adapt the adaptable into the Model.</p>
+<p>Therefore, when designing your&nbsp;models it is very important to consider cases where a field or value may not be available but the overall Model should still be available. &nbsp;Given the unstructured nature of the JCR repository, you should plan around not having values available unless required to for the Model to function or enforced by the node type definition.</p>
+<p>Where this is the case, you can either add the&nbsp;<a href="http://sling.apache.org/documentation/bundles/models.html#optional-and-required" target="_blank"><code>@Optional</code> annotation</a> to specify that the value is not required. &nbsp;For example:</p>
+<pre><code>@Inject @Optional
+private String otherName;</code></pre>
+<p>Or if it's a String or primitive, use the&nbsp;<a href="http://sling.apache.org/documentation/bundles/models.html#defaults" target="_blank"><code>@Default</code>&nbsp;annotation</a> to specify a default value instead:</p>
+<pre><code>@Inject @Default(values="defaultValue")
+private String otherName;<br /></code></pre>
+<p>Finally, if most of the fields / methods are not required you can change the default Injection Strategy for the model by setting the <code>defaultInjectionStrategy</code> parameter on the <code>@Model</code> annotation for the class, for example:</p>
+<pre><code>@Model(adaptables=Resource.class, defaultInjectionStrategy=DefaultInjectionStrategy.OPTIONAL)</code></pre>
+<p><strong>Note:&nbsp;</strong>This option is only available when using Sling Models API v1.0.2 or greater.</p>
+<h2>Debugging Issues</h2>
+<p>There is limited support for debugging Sling Models. &nbsp;If you want to see the injectors available, there is a screen in the Felix console:</p>
+<p><a href="http://localhost:4502/system/console/status-slingmodels">http://localhost:4502/system/console/status-slingmodels</a></p>
+<p>In order to see logging specific to Sling Models, add a logger for the package&nbsp;org.apache.sling.models, TRACE level and to the appropriate log file. &nbsp;</p>
+<p><img src="/images/posts/2014-11-21-sling-models-for-fun-and-profit/configure-models-logger.png" alt="Configuring the SLF4J Logger for Sling Models" /></p>
+<h2>Questions?</h2>
+<p>Hopefully this gives you a good introduction to Sling Models and shows how they can help you. &nbsp;Please leave a comment below if you have any questions or run into any issues yourself.</p>
