@@ -26,7 +26,7 @@ permalink: /posts/:year/:month/:day/:title/
 destination: /var/www/html
 
 # Exclude system files
-exclude: [.gitignore, update.sh]
+exclude: [.gitignore, update.sh, vagrant]
 
 # Control the number of post per page
 paginate: 30
