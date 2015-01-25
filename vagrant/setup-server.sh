@@ -56,9 +56,10 @@ useradd klcodanr
 chpasswd < /tmp/conf/ssh/password
 useradd -G wheel klcodanr
 mkdir -p /home/klcodanr/.ssh
-cp /tmp/conf/ssh/authorized_keys /home/klcodanr/.ssh
+cp /tmp/conf/ssh/authorized_keys /home/klcodanr/.ssh/
 chmod 700 /home/klcodanr/.ssh
 chmod 600 /home/klcodanr/.ssh/authorized_keys
+chown -R klcodanr:klcodanr /home/klcodanr/.ssh
 cp /tmp/conf/ssh/sudoers /etc
 chmod 440 /etc/sudoers
 echo "User added"
@@ -210,13 +211,24 @@ else
     git clone https://github.com/klcodanr/slingvotecheck.git /opt/dev/slingvotecheck
     cd /opt/dev/slingvotecheck
     mvn clean install
-    git clone https://github.com/klcodanr/kid-pictures.git /opt/dev/slingvotechecksite
+    git clone https://github.com/klcodanr/slingvotechecksite.git /opt/dev/slingvotechecksite
     cd /opt/dev/slingvotechecksite
     cp /tmp/conf/httpd/slingvotecheck.conf /etc/httpd/conf.d
+    c
     mkdir -p /var/www/vhosts/slingvotecheck
     cp /tmp/conf/cron/slingvotechecksite.sh /etc/cron.daily
     systemctl restart httpd.service
     echo "sling vote check vhost installed"
+fi
+
+if test -e /etc/yum/yum-cron.conf; then
+    echo "Update Emails already installed..."
+else
+    echo "Installing Update Emails configuration..."
+    yum -y install yum-cron
+    cp /tmp/conf/cron/yum-cron.conf /etc/yum/yum-cron.conf
+    systemctl start yum-cron.service
+    echo "Update Emails configured!"
 fi
 
 echo "Installing upgrades..."
