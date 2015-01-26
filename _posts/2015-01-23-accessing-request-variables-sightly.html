@@ -1,0 +1,30 @@
+---
+layout: post
+title: 'Accessing Request Variables in Sightly'
+tags:
+  - Sightly
+  - 'Apache Sling'
+  - AEM6
+author: 'Dan Klco'
+summary: 'Shares a few approaches to accessing request variables in Sightly.'
+original: http://labs.sixdimensions.com/blog/2015-01-23/accessing-request-variables-sightly/
+published: true
+---
+
+<p>You can implement some interesting stuff in <a href="http://docs.adobe.com/docs/en/aem/6-0/develop/sightly.html" target="_blank">Sightly</a>, the newest templating language for Adobe Experience Manager, including&nbsp;<a href="http://stackoverflow.com/questions/27544676/how-to-implement-tower-of-hanoi-in-aem-sightly" target="_blank">Tower of Hanoi</a>. &nbsp;At the same time, there are a few practical applications which are not available in Sightly, including <a href="http://stackoverflow.com/questions/25430981/are-there-requestscope-variables-in-sightly" target="_blank">accessing request scoped variables</a>&nbsp;in Sightly. &nbsp;While <a href="http://stackoverflow.com/users/735899/gabriel-walt" target="_blank">Gabriel's</a>&nbsp;suggested approaches in the <a href="http://stackoverflow.com/questions/25430981/are-there-requestscope-variables-in-sightly" target="_blank">Stack Overflow post</a>&nbsp;are absolutely correct in this situation, there are still certain situations where request variables can be very useful. &nbsp;</p>
+<p>A good example is for sharing a variable across multiple components which is expensive to retrieve. &nbsp;This could be&nbsp;the results of a database query or web service call, pretty much anything you'd need on multiple components, but don't want to keep fetching. &nbsp;Using the naive approach of re-retrieving the value for each component using the same data on a page, can drastically increase the amount of time required to serve a request.</p>
+<p>Currently, your options for accessing request variables in Sightly are:</p>
+<h3>Pass Data Through Selectors / Suffix</h3>
+<p>This is one the appraches described by Gabriel and is a good approach for small string properties, however it assumes that you will not be using selectors for rendering purposes and is not useful for any more complicated data structure. &nbsp;Generally, the use of selectors should be defined at a project level. &nbsp;In fact, it is a common requirement to only allow specific&nbsp;selectors, as selectors could potentially be used as a form of DDOS attack for generating server load or causing a server to fill up due to a large number of requests with unique selectors.</p>
+<h3>Store Data in the JCR</h3>
+<p>Another approach again suggested by Gabriel is to just access variables from other JCR nodes. &nbsp;This is a very good approach for data which can be persisted into the JCR, but isn't practical for complex data structures or transactional results. &nbsp;Additionally, there are some limitations around resource traversal in Sightly which can make this option difficult.</p>
+<h3>Build a Use-API Class</h3>
+<p>Sightly provides the <a href="http://docs.adobe.com/docs/en/aem/6-0/develop/sightly/use-api-in-java.html" target="_blank">Use-API</a>&nbsp;for injecting custom beans into the Sightly template. &nbsp;This is a valid option, but requires custom development for any variable access.</p>
+<h2>A Better Solution</h2>
+<p>Instead of the options above, it would be better to create a general purpose&nbsp;solution. &nbsp;The solution below uses a <a href="http://sling.apache.org/documentation/the-sling-engine/adapters.html" target="_blank">Sling Adapter</a>&nbsp;to adapt <a href="https://sling.apache.org/apidocs/sling7/org/apache/sling/api/SlingHttpServletRequest.html" target="_blank">SlingHttpServletRequests</a>&nbsp;into an instance of a map with the keys and values being request attributes. &nbsp;This implementation should work in nearly any environment, but if you are using&nbsp;<a href="http://sling.apache.org/documentation/bundles/models.html" target="_blank">Sling Models</a>&nbsp;in your project, you can make it a model instead to not require a separate&nbsp;AdapterFactory class.</p>
+<div>
+<script src="https://gist.github.com/klcodanr/98d54be5088bb8dd082b.js"></script>
+</div>
+<p>Once you have this in place, you can use the the RequestAttr map to retrieve the request attribute values as such:</p>
+<pre><code>&lt;div data-sly-use.requestAttr="com.sixd.sly.RequestAttr"&gt;&lt;/div&gt;<br />&lt;h1&gt;Inner Sightly ${requestAttr.key}&lt;/h1&gt;</code></pre>
+<p>Hopefully, this post helps show you the different options for sharing data between components&nbsp;in Sightly and how with some clever use of Adapters or Models you can really unlock the potential of Sightly. &nbsp;If you have any questions or corrections, please leave a comment below!</p>
