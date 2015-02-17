@@ -1,0 +1,28 @@
+---
+layout: post
+title: '404 ModifiableValueMap Not Found: Considerations in Using ModifiableValueMaps in an API'
+tags:
+  - 'Apache Sling'
+  - 'Sling CRUD API'
+  - ModifiableValueMap
+author: 'Dan Klco'
+original: 'http://labs.sixdimensions.com/blog/2015-02-17/modifiablevaluemap-not-found/'
+---
+
+<div>So let's just say you are designing an API which allows both reading and writing of attributes for a <a href="https://sling.apache.org/apidocs/sling7/org/apache/sling/api/resource/Resource.html" target="_blank">Resource</a>.&nbsp; Of course, you want to use consistent code to persist the values, so you use the (relatively) new <a href="http://sling.apache.org/documentation/the-sling-engine/sling-api-crud-support.html" target="_blank">CRUD features in the Sling API</a>&nbsp;to both get and set the property values.&nbsp; To save code, you might use a <a href="http://sling.apache.org/apidocs/sling7/org/apache/sling/api/resource/ModifiableValueMap.html" target="_blank">ModifiableValueMap</a>&nbsp;for both operations, which works great in author as an administrative user.
+<div>&nbsp;</div>
+</div>
+<h2>The Problem</h2>
+<div>At some point, you'll put your code in publish&nbsp;or test with a user with limited permissions and then: the dreaded null pointer.&nbsp;Of course, at this point, you need to track down the line throwing the exception and unexpectedly the NPE&nbsp;is coming from accessing the ModifiableValueMap. How can that be? The Resource exists and you can get a ValueMap, why is the ModifiableValueMap not working? &nbsp;The key lies in the&nbsp;<a href="https://svn.apache.org/repos/asf/sling/tags/org.apache.sling.jcr.resource-2.0.10/src/main/java/org/apache/sling/jcr/resource/internal/helper/jcr/JcrNodeResource.java" target="_blank">JcrNodeResource's adaptTo</a>&nbsp;method:</div>
+<div>
+<pre class="p1"><code>} else if (type == ModifiableValueMap.class ) {</code><br /><code>    // check write</code><br /><code>    try {</code><br /><code>        getNode().getSession().checkPermission(getPath(),</code><code> "set_property");<br /></code><code>        return (Type) new JcrModifiableValueMap(getNode(), this.dynamicClassLoader);</code><br /><code>    } catch (AccessControlException ace) {</code><br /><code>        // the user has no write permission, cannot adapt</code><br /><code>        LOGGER.debug(</code><code>"adaptTo(ModifiableValueMap): Cannot set properties on {}", </code><code>this);</code><br /><code>    } catch (RepositoryException e) {</code><br /><code>        // some other problem, cannot adapt</code><br /><code>        LOGGER.debug(</code><code>"adaptTo(ModifiableValueMap): Unexpected problem for {}", </code><code>this);</code><br /><code>    }</code><br /><code>}</code></pre>
+</div>
+<p>Here, it's checking to see&nbsp;<em>if</em> the user can write before attempting to return the ModifiableValueMap and if not, just returning null.&nbsp;</p>
+<h2>The Solution</h2>
+<p>So how do we get around this? There are two options:</p>
+<ul>
+<li>Create two variables, a ValueMap for reading and a ModifiableValueMap for writing</li>
+<li>Create one variable and set it to a ValueMap if the adaptation to a ModifiableValueMap fails</li>
+</ul>
+<p>Personally, I would recommend using the latter and setting the variable to a ValueMap if the attempt to adapt the Resource to a&nbsp;ModifiableValueMap returns null. &nbsp;Attempts to call put methods will throw an&nbsp;UnsupportedOperationException which is at least somewhat frendlier than a NullPointerException. An alternative, would be to check if the ModifiableValueMap is not null in every set method and return an appropriate exception.</p>
+<p>Thanks to <a href="http://www.matthieutremblay.com/" target="_blank">Matthieu Tremblay</a>&nbsp;for pointing out this issue.</p>
