@@ -1,0 +1,42 @@
+---
+layout: post
+title: 'Embedding Oak Index Configurations into a Package'
+tags:
+  - 'Apache Oak'
+  - AEM
+  - 'Best Practices'
+author: 'Dan Klco'
+original: http://labs.sixdimensions.com/blog/2015-03-09/oak-index-packages/
+---
+
+<p>AEM 6 ships with a new repository, CRX3 which is based on <a href="http://jackrabbit.apache.org/oak/" target="_blank">Apache Oak</a>, a subproject of the <a href="http://jackrabbit.apache.org/" target="_blank">Apache Jackrabbit</a>&nbsp;project. &nbsp;This repository promises significant performance increases over CRX2, however it does require a bit more work to setup.&nbsp;</p>
+<p>Unlike CRX2, CRX3 requires you to explicitly declare which fields will be indexed. &nbsp;If a field is not indexed, you will see an error like the one below in the error.log and significant performance degredation:</p>
+<pre><code>24.02.2015 14:03:15.997 WARN [0:0:0:0:0:0:0:1 [1424804529693] GET /bin/servlet HTTP/1.1] org.apache.jackrabbit.oak.plugins.index.property.strategy.ContentMirrorStoreStrategy Traversed 333000 nodes using index cq:tags with filter Filter(query=select [jcr:path], [jcr:score], &nbsp;from [nt:base] as a where [jcr:content/cq:tags] like 'some/tag%' and [jcr:primaryType] = 'cq:Page' / xpath: //*[(jcr:like(jcr:content/@cq:tags, 'some/tag%') and (@jcr:primaryType = 'cq:Page'))] /, path=, property=[jcr:content/cq:tags=[some/tag..some/tag], jcr:primaryType=cq:Page])</code></pre>
+<p>To to correct this issue and restore acceptable performance, you should <a href="http://docs.adobe.com/docs/en/aem/6-0/deploy/upgrade/queries-and-indexing.html#Configuring%20the%20indexes" target="_blank">configure your Oak Index</a>&nbsp;to add the required properties. &nbsp;Adobe has already produced good information on this, as well as a <a href="http://adobe-consulting-services.github.io/acs-aem-commons/features/oak-index-manager.html" target="_blank">nifty tool for seeing the indexes</a>.&nbsp;But&nbsp;how do you go ahead and package this up as part of your project? &nbsp;It's pretty simple, just do the following:</p>
+<ol>
+<li>Create a folder _oak_index inside the content package for your project. &nbsp;The reason for the name is that oak:index is not a valid folder name on Windows.</li>
+<li>Create a file .content.xml and add in something like this:<br />
+<pre><code>&lt;?xml="1.0"encoding="UTF-8"?&gt;
+&lt;jcr:rootxmlns:oak="http://jackrabbit.apache.org/oak/ns/1.0"xmlns:jcr="http://www.jcp.org/jcr/1.0"xmlns:nt="http://www.jcp.org/jcr/nt/1.0"xmlns:st="http://www.st.com/nt/st"
+        jcr:primaryType="nt:unstructured"&gt;
+        &lt;myNodeType
+                jcr:primaryType="oak:QueryIndexDefinition"
+                declaringNodeTypes="{Name}[my:NodeType]"
+                propertyNames="{Name}[my:idProperty,my:titleProperty]"
+                type="property"/&gt;
+        &lt;myNodeType2
+                jcr:primaryType="oak:QueryIndexDefinition"
+                declaringNodeTypes="{Name}[my:NodeType2]"
+                propertyNames="{Name}[my:idProperty2,my:titleProperty2]"
+                type="property"/&gt;
+&lt;/jcr:root&gt;</code></pre>
+One thing to note which caught me the first time, is that the <code>declaringNodeTypes</code> and <code>propertyNames</code> must be of type <a href="http://www.day.com/maven/jsr170/javadocs/jcr-2.0/javax/jcr/PropertyType.html#NAME" target="_blank">Name</a>, not just String.</li>
+<li>Add in something like this into your package's filter.xml:<br />
+<pre><code>&lt;workspaceFilter version="1.0"&gt;
+    [...]
+    &lt;filter root="/oak:index/myNodeType"/&gt;
+    &lt;filter root="/oak:index/myNodeType2"/&gt;
+&lt;/workspaceFilter&gt;</code></pre>
+</li>
+</ol>
+<p>Once you install your packages, your new oak indexes will appear and be ready for use. I'd recommend reindexing manually as you don't want this to occur with every package deployment.</p>
