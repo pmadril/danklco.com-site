@@ -51,3 +51,6 @@ Options All -Indexes
 
 # set the error page
 ErrorDocument 404 /404.html
+
+# Compress text files
+AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript
