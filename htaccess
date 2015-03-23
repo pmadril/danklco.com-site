@@ -1,3 +1,7 @@
+---
+permalink: .htaccess
+---
+
 RewriteEngine On
 
 # Redirect to https
