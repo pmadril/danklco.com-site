@@ -203,24 +203,6 @@ cd /opt/dev/sling
 mvn clean install -f /opt/dev/sling/pom.xml -DskipTests=true
 echo "Sling setup and configured"
 
-
-if test -e /etc/httpd/conf.d/slingvotecheck.conf; then
-    echo "sling vote check configuration already installed..."
-else
-    echo "Installing sling vote check configuration..."
-    git clone https://github.com/klcodanr/slingvotecheck.git /opt/dev/slingvotecheck
-    cd /opt/dev/slingvotecheck
-    mvn clean install
-    git clone https://github.com/klcodanr/slingvotechecksite.git /opt/dev/slingvotechecksite
-    cd /opt/dev/slingvotechecksite
-    cp /tmp/conf/httpd/slingvotecheck.conf /etc/httpd/conf.d
-    c
-    mkdir -p /var/www/vhosts/slingvotecheck
-    cp /tmp/conf/cron/slingvotechecksite.sh /etc/cron.daily
-    systemctl restart httpd.service
-    echo "sling vote check vhost installed"
-fi
-
 if test -e /etc/yum/yum-cron.conf; then
     echo "Update Emails already installed..."
 else
