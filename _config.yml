@@ -28,6 +28,9 @@ destination: /var/www/html
 # Exclude system files
 exclude: [.gitignore, update.sh, vagrant]
 
+# Include .htaccess
+exclude: [.htaccess]
+
 # Control the number of post per page
 paginate: 30
 
