@@ -3,3 +3,4 @@ _site/*
 .settings
 _asset_bundler_cache
 .DS_Store
+.jekyll-metadata
