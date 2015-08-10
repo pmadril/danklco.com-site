@@ -4,6 +4,7 @@ title: "Gotcha: Sling Servlet Requires a Name"
 original: http://labs.sixdimensions.com/blog/dan-klco/2012-12-01/gotcha-sling-servlet-requires-name
 summary: "In order to create a sling servlet you must set a name for it - learn why"
 tags: [Adobe CQ, Apache Sling, Gotcha]
+thumbnail: /images/posts/shared/sling.jpeg
 ---
 
 I recently had the opportunity to delve into the code for the Sling Resources to document the @SlingServlet annotation.&nbsp; One of the more interesting things I discovered was that in addition to everything stated on the Sling documentation about [what is required to register a servlet](http://sling.apache.org/site/servlets.html), there is one additional requirement.

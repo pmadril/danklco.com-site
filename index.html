@@ -20,11 +20,12 @@ summary: "Dan Klco's home page on the web. Technical and other thoughts largely 
 						{% else %}
 							<img src="http://placehold.it/250x120?text={{post.title}}" />
 						{% endif %}
-						<p>
+						<h5>
 							{{post.title}}
-							<br/>
-							<em>{{post.date | date: "%b %d %Y"}}</em>
-						</p>
+						</h5>
+						<div>
+							<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> <em>{{post.date | date: "%b %d %Y"}}</em>
+						</div>
 					</a>
 				</div>
 			{% endfor %}

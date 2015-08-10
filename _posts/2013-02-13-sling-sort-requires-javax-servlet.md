@@ -4,6 +4,7 @@ title: "Sling (sort of) Requires Javax Servlet"
 original: http://labs.sixdimensions.com/blog/dan-klco/2013-02-13/sling-sort-requires-javax-servlet
 summary: "Find out how to resolve a missing javax.servlet dependency when using the Apache Sling API."
 tags: [Servlet, Apache Sling, Gotcha, Apache Maven]
+thumbnail: /images/posts/shared/sling.jpeg
 ---
 
 Recently I was refactoring some Maven POM's to reduce the number of dependencies and manage the dependency version from the reactor POM.&nbsp;&nbsp; After I removed the duplicate dependencies&nbsp;I ran the build and almost immediately ran into this error:

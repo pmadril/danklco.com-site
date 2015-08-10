@@ -1,9 +1,10 @@
 ---
-layout: post
+lawyout: post
 title: "Six Dimensions Supports the Apache Sling Project: Resource.hasChildren"
 summary: "Learn about Six Dimensions' recent contribution to the Sling API of a new hasChildren method"
 original: http://labs.sixdimensions.com/blog/dan-klco/2013-11-18/six-dimensions-supports-apache-sling-project-resourcehaschildren
 tags: [Adobe CQ, Apache Sling, Best Practices, Open Source Contribution]
+thumbnail: /images/posts/shared/sling.jpeg
 ---
 
 Recently, I had the chance to shepherd a [new feature](https://issues.apache.org/jira/browse/SLING-3213) into the Apache Sling API.  This feature adds the method `hasChildren` to the [`Resource`](http://sling.apache.org/apidocs/sling6/org/apache/sling/api/resource/Resource.html) and [`ResourceResolver`](http://sling.apache.org/apidocs/sling6/org/apache/sling/api/resource/ResourceResolver.html).  My colleague, [Brian Warner](https://twitter.com/Brian_A_Warner) suggested adding this method after struggling to do this in a clean, correct way.

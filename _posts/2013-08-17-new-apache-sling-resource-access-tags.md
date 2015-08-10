@@ -4,6 +4,7 @@ title: "New from Apache Sling: Resource Access Tags"
 original: http://labs.sixdimensions.com/blog/dan-klco/2013-08-12/new-apache-sling-resource-access-tags
 summary: "Introduces the new Resource Access tags in the Sling JSP Taglib"
 tags: [Adobe CQ, Apache Sling, Best Practices]
+thumbnail: /images/posts/shared/sling.jpeg
 ---
 
 Recently, I had the chance to release a new version of the Sling JSP Taglib.  This new version includes a large number of features and improvments which I hope will help developers in Sling-based platforms, including Adobe CQ, develop cleaner and more reusable JSP scripts.  

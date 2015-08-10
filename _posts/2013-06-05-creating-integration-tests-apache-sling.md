@@ -4,6 +4,7 @@ title: "Creating Integration Tests in Apache Sling"
 original: http://labs.sixdimensions.com/blog/dan-klco/2013-06-05/creating-integration-tests-apache-sling
 summary: "Learn about how to create Integration Tests in Apache SLing with the SlingTestBase"
 tags: [Apache Sling, Integration Testing, jUnit, Adobe CQ]
+thumbnail: /images/posts/shared/sling.jpeg
 ---
 
 One of the lesser known features in [Apache Sling Testing Tools](http://sling.apache.org/documentation/development/sling-testing-tools.html) framework is the [SlingTestBase](https://svn.apache.org/repos/asf/sling/trunk/testing/tools/src/main/java/org/apache/sling/testing/tools/sling/SlingTestBase.java), this class can be extended to allow you to create tests against a Sling instance which will be automatically created, started and then shut down when the tests are complete.

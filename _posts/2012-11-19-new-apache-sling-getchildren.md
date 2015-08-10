@@ -4,6 +4,7 @@ title: "New in Apache Sling: getChildren"
 original: http://labs.sixdimensions.com/blog/dan-klco/2012-11-19/new-apache-sling-getchildren
 summary: "Introducing a new method in the Sling Resource class: getChildren"
 tags: [Adobe CQ, Apache Sling, Open Source]
+thumbnail: /images/posts/shared/sling.jpeg
 ---
 
 

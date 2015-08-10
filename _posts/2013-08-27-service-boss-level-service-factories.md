@@ -4,6 +4,7 @@ title: "Service Boss Level: Service Factories"
 original: http://labs.sixdimensions.com/blog/dan-klco/2013-08-27/service-boss-level-service-factories
 summary: "Discusses the process for creating a Sling Service Factory"
 tags: [Adobe CQ, Apache Felix, Apache Sling, OSGi]
+thumbnail: /images/posts/2013-08-27-service-boss-level-service-factories/sling-logging-service-factory.png
 ---
 
 

@@ -4,6 +4,7 @@ title: "New in CQ 5.5: Sling Adapters Console"
 original: http://labs.sixdimensions.com/blog/dklco/2012-05-07/new-cq-55-sling-adapters-console
 summary: Introduction to the new Sling Adapters Console, available in Adobe CQ5.
 tags: [Adobe CQ, CQ 5.5, Apache Sling]
+thumbnail: /images/posts/2012-05-07-new-cq-55-sling-adapters-console/SlingAdaptersConsole.jpg
 ---
 
 Adobe CQ 5.5 has a new, long overdue feature in the Felix Console.  The Sling Adapters Console lists all of the available Sling Adapter Factories as well as their Adapter Classes, Adaptable Classes, condition information and Providing bundle.  This information can be invaluable for developers to determine what classes can be adapted and what they can be adapted into as well as checking the functioning of custom adapters.  Developers can access this information by logging on to {CQ_SERVER}/system/console/bundles or selecting the Sling Adapters tab on the Felix Console.

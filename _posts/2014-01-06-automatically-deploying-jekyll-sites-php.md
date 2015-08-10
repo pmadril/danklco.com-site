@@ -3,6 +3,7 @@ layout: post
 title: "Automatically deploying Jekyll sites with PHP"
 summary: "Provides a PHP script for automatically deploying Jekyll sites via a GitHub Post Receive Hook"
 tags: [PHP, Jekyll, GitHub]
+thumbnails: /images/posts/shared/jekyll.png
 ---
 
 I've been hosting a couple sites using GitHub as a repository and Jekyll to create the 

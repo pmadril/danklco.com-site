@@ -4,6 +4,7 @@ title: "Sending Email with the Adobe CQ API"
 original: http://labs.sixdimensions.com/blog/dklco/2012-08-20/sending-email-adobe-cq-api
 summary: "Learn how to send emails using the Adobe CQ API"
 tags: [Adobe CQ, How To]
+thumbnail: /images/posts/2012-08-20-sending-email-adobe-cq-api/configure-day-cq-mail-service.png
 ---
 
 Sending emails through Adobe CQ can be easy, however there really isn't an example which brings the entire process together.&nbsp; This blog post will guide you through the process of configuring Adobe CQ to send email, creating a component for sending email, creating an email template and finally creating a servlet which will send the email.

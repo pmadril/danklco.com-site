@@ -4,6 +4,7 @@ title: "Good to Know: The Sling PersistableValueMap"
 original: http://labs.sixdimensions.com/blog/dklco/2012-05-10/good-know-sling-persistablevaluemap
 summary: Learn about the PersistableValueMap which makes it possible to save values to the JCR datastore through the Sling API.
 tags: [Adobe CQ, Apache Sling]
+thumbnail: /images/posts/shared/sling.jpeg
 ---
 
 The Sling [ValueMap](http://sling.apache.org/apidocs/sling6/org/apache/sling/api/resource/ValueMap.html) makes retrieving properties from CQ easy and removes a lot of the error-prone code you have to use when using the JCR APIs, however it does not allow setting of properties.  This unfortunately results in developers using the Sling ValueMap to retrieve properties and JCR Nodes and Properties to set properties. 

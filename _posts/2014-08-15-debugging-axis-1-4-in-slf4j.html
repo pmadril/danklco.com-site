@@ -11,6 +11,7 @@ tags:
   - SLF4J
 original: http://labs.sixdimensions.com/blog/2014-08-15/debugging-axis-1-4-in-slf4j/
 summary: 'Explains the process for debugging Axis 1.4 requests and responses with SLF4J'
+thumbnail: '/images/posts/shared/axis3.jpg'
 ---
 
 <p>In my previous blog post, I discussed <a href="/blog/2014-08-11/running-axis-1-4-in-aem/">getting Apache Axis 1.4 working in AEM</a>. One of the more interesting things about Axis 1.4 is that it's not easy to log the actual request from the client and response from the server. &nbsp;You can configure the <a href="https://axis.apache.org/axis/java/apiDocs/org/apache/axis/handlers/LogHandler.html" target="_blank">LogHandler</a>, however it is somewhat problematic in AEM to configure due to the classpath complexity in OSGi and it will only log to the system outputstream. &nbsp;This is problematic in AEM as the stdout.log isn't setup by default when runnning in server mode and when running locally will not roll. &nbsp;Intead of this, I would suggest registering a custom SLF4J Log Handler to log the request and response to the AEM SLF4J logs.</p>

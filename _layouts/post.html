@@ -2,12 +2,12 @@
 layout: default
 ---
 
-<section>
-	<div class="sixteen columns">
+<section class="row">
+	<div class="col-md-12 transparent-block-default">
 		<article class="post" typeof="Document">
 			<h3 property="title">{{ page.title }}</h3>
 			<em>
-				Posted on <time datetime='{{page.date | date: "%Y-%m-%d"}}'><span property="created">{{page.date | date: "%B %d, %Y"}}</span></time> by <span class="author" property="creator">{{ site.author }}</span>
+				<span class="glyphicon glyphicon-user" aria-hidden="true"></span> By <span class="author" property="creator">{{ site.author }}</span>&nbsp;on&nbsp;<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> <time datetime='{{page.date | date: "%Y-%m-%d"}}'><span property="created">{{page.date | date: "%B %d, %Y"}}</span></time>
 			</em>
 			{% if page.original %}<div class="original">Original URL: <a href="{{ page.original }}">{{ page.original }}</a></div>{% endif %}
 			<hr class="large" />
