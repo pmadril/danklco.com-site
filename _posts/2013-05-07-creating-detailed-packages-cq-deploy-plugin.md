@@ -4,6 +4,7 @@ title: "Creating Detailed Packages with the CQ Deploy Plugin"
 original: http://labs.sixdimensions.com/blog/dan-klco/2013-05-07/creating-detailed-packages-cq-deploy-plugin
 summary: "Learn how to create packages with complete metadata and deploy them with the CQ Deploy Plugin"
 tags: [Adobe CQ, Development, CQ Deploy, Apache Maven]
+thumbnail: /images/posts/shared/CQ5.png
 ---
 
 Sometimes you may want to create a package with more descriptive information than the [CQ Deploy Plugin](http://sixdimensions.github.io/cq-deploy-plugin/) provides out of the box. &nbsp;You may want to customize the group or add a description or even add dependencies. &nbsp; This article shows you how to include Package Metadata into your package and how to deploy the package with the CQ deploy plugin.

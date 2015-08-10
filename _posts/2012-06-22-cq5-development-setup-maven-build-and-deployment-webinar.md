@@ -1,9 +1,10 @@
 ---
 layout: post
 title: "CQ5 Development Setup, Maven Build and Deployment"
-original: http://labs.sixdimensions.com/content/webinars/cq5-development-setup-maven-build-and-deployment
+original: http://labs.sixdimensions.com/resources/webinars/cq5-development-setup-maven-build-and-deployment
 summary: "Download and watch a webinar I did on CQ5 Development Setup, Maven Build and Deployment"
 tags: [Adobe CQ, Apache Maven, Webinar]
+thumbnail: /images/posts/shared/maven.png
 ---
 
 **Download and watch "CQ5 Development Setup, Maven Build and Deployment" with Dan Klco!**
@@ -32,4 +33,4 @@ Thought Leader: Dan Klco (Senior CQ Staff Engineer)
 Fill out [this form][2] to receive a link to watch this webinar.
 
  [1]: http://labs.sixdimensions.com/sites/default/files/images/CQ-Logo.png  
- [2]: http://labs.sixdimensions.com/content/webinars/cq5-development-setup-maven-build-and-deployment  
+ [2]: http://labs.sixdimensions.com/resources/webinars/cq5-development-setup-maven-build-and-deployment  

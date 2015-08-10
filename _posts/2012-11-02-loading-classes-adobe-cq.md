@@ -4,6 +4,7 @@ title: "Loading Classes in Adobe CQ"
 original: http://labs.sixdimensions.com/blog/dan-klco/2012-11-02/loading-classes-adobe-cq
 summary: "Learn how to dynamically load classes in Adobe CQ"
 tags: [Adobe CQ, Apache Sling, ClassLoader]
+thumbnail: /images/posts/shared/sling.jpeg
 ---
 
 So you've got a problem. &nbsp;You need to load a resource from the Classpath or you need to dynamically load a class and you're using Adobe CQ. &nbsp;Since Adobe CQ uses an OSGi container, a regular [ClassLoader](http://docs.oracle.com/javase/6/docs/api/java/lang/ClassLoader.html) will not be able to retrieve the class information from the OSGi Bundles.

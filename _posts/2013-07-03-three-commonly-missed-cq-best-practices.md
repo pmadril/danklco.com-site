@@ -4,6 +4,7 @@ title: "Three Commonly Missed CQ Best Practices"
 original: http://labs.sixdimensions.com/blog/dan-klco/2013-07-03/three-commonly-missed-cq-best-practices
 summary: "My summary of three best practices many CQ projects miss"
 tags: [Adobe CQ, Development, Best Practices, CRXDE]
+thumbnail: /images/posts/shared/CQ5.png
 ---
 
 Recently, I saw [this thread on the Day Communique Google Group](https://groups.google.com/d/topic/day-communique/gIa_yyOmC7o/discussion). &nbsp;In the thread, a developer asks why he cannot use CRXDE in their production environment. &nbsp;As it turns out, his employer followed the [best practices for hardening CQ instances](http://dev.day.com/docs/en/cq/current/deploying/security_checklist.html#Disable%20WebDAV) as recommended by Adobe which disables the WebDav servlet CRXDE uses. &nbsp;

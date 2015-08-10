@@ -4,6 +4,7 @@ title: "Maven CQ5 Package Build: Updating Properties.xml"
 original: http://labs.sixdimensions.com/blog/dklco/2012-06-19/maven-cq5-package-build-updating-propertiesxml
 summary: Shows how to update the VLT Properties.xml in a Maven Build
 tags: [Adobe CQ, Apache Maven, How To]
+thumbnail: /images/posts/shared/maven.png
 ---
 
 This article describes the process of adding and automatically updating a CQ5 Package properties.xml as a part of a Maven build.

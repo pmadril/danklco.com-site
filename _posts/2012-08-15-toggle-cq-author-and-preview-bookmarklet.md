@@ -4,6 +4,7 @@ title: "Toggle CQ Author and Preview Bookmarklet"
 original: http://labs.sixdimensions.com/blog/dklco/2012-08-15/toggle-cq-author-and-preview-bookmarket
 summary: "Download and learn how to use a bookmarklet for switching between author and a better preview mode in Adobe CQ"
 tags: [Adobe CQ]
+thumbnail: /images/posts/shared/CQ5.png
 ---
 
 When using Adobe CQ5, you often want to be able to switch between author and preview mode.  Unfortunately, the preview included in the Sidekick does not provide a complete preview as it does not remove the Sidekick or the Content Finder.

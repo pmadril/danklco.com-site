@@ -4,6 +4,7 @@ title: "Creating Flexible CQ5 Pages"
 original: http://labs.sixdimensions.com/blog/dan-klco/2013-02-04/flexible-cq5-pages
 summary: "The advantages and strategy for creating flexible Adobe CQ5 Page Templates"
 tags: [Adobe CQ, Templates, Web Content Managment, Best Practices]
+thumbnail: /images/posts/shared/CQ5.png
 ---
 
 One of [Adobe's CQ5 Best Practices](http://dev.day.com/docs/en/cq/current/developing/developing_guidelines_bestpractices.html#Guidelines%20for%20Using%20Templates%20and%20Components) is to limit the number of Templates, I would suggest it is a best practice to limit the number of page components and create as many templates as necessary.

@@ -4,6 +4,7 @@ title: "Six Dimensions' Contribution to CQ 5.6"
 original: http://labs.sixdimensions.com/blog/dan-klco/2013-03-11/six-dimensions-contribution-cq-56
 summary: "Introducing Six Dimensions' contribution to CQ 5.6"
 tags: [Servlet, Apache Sling, Gotcha, Apache Maven]
+thumbnail: /images/posts/shared/sling.jpeg
 ---
 
 The new version of CQ5,&nbsp;[Adobe Experience Manager 5.6](http://www.adobe.com/solutions/web-experience-management.html "Adobe Experience Manager"), includes a contribution by Six Dimensions to the [Apache Sling](http://sling.apache.org/ "Apache Sling") project. &nbsp;This contribution adds a new method, [getChildren](http://dev.day.com/docs/en/cq/current/javadoc/org/apache/sling/api/resource/Resource.html#getChildren%28%29) to the Resource interface. &nbsp;

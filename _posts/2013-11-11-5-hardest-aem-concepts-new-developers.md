@@ -4,6 +4,7 @@ title: "The 5 Hardest AEM Concepts for New Developers"
 summary: "Learn about the most concepts most developers have problems understanding when starting to develop on the AEM platform"
 original: http://labs.sixdimensions.com/blog/dan-klco/2013-11-11/5-hardest-aem-concepts-new-developers
 tags: [Adobe CQ, Development, Best Practices, AEM]
+thumbnail: /images/posts/shared/aem.png
 ---
 
 Even experienced developers struggle when trying to transition to the Adobe Experience Manager (AEM) platform (formerly Day CQ5). Once you fully [grok](http://en.wikipedia.org/wiki/Grok)  AEM, it can be a joy to develop against; the APIs are generally straightforward and it makes presenting content easier than any other platform I have encountered.  So why do so many developers have trouble ramping up on AEM?

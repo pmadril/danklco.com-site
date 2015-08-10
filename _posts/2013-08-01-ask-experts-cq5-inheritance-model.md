@@ -4,6 +4,7 @@ title: "Ask the Experts: CQ5 Inheritance Model"
 original: http://labs.sixdimensions.com/blog/dan-klco/2013-08-01/ask-experts-cq5-inheritance-model
 summary: "Asking the experts to compare CQ's Inheritance Model to Java's Inheritance Model"
 tags: [Adobe CQ, Ask the Experts, Apache Sling]
+thumbnail: /images/posts/shared/CQ5.png
 ---
 
 In this series of blog posts we pose a question to experts in the Adobe CQ5 platform about Adobe CQ5, Enterprise Content Management and Web Development.

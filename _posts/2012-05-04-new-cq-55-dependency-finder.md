@@ -4,6 +4,7 @@ title: "New in CQ 5.5: Dependency Finder"
 original: http://labs.sixdimensions.com/blog/dklco/2012-05-04/new-cq-55-dependency-finder
 summary: Introduction to the new Dependency finder, available in Adobe CQ5.
 tags: [Adobe CQ, CQ 5.5, Apache Maven]
+thumbnail: /images/posts/2012-05-04-new-cq-55-dependency-finder/DependencyFinderResults.png
 ---
 
 Adobe just released CQ 5.5, the latest version of their flagship enterprise Web Experience Management product.  Along with a new UI, numerous speed and stability fixes and deeper integrations with Adobe's other products, CQ 5.5 comes with some new tools to make using and developing on CQ easier.

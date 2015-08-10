@@ -4,6 +4,7 @@ title: "SCR JavaDoc Tags Deprecated in CQ 5.5"
 original: http://labs.sixdimensions.com/blog/dklco/2012-05-16/scr-javadoc-tags-deprecated-cq-55
 summary: In CQ 5.5, by default you cannot compile code with CRXDE, learn about how to fix this.
 tags: [Adobe CQ, CQ 5.5, Apache Felix, CRXDE]
+thumbnail: /images/posts/2012-05-16-scr-javadoc-tags-deprecated-cq-55/crxde-error-message.png
 ---
 
 Teams migrating to Adobe CQ 5.5 have one more thing to check during the upgrade.&nbsp; In CQ 5.5, the [SCR JavaDoc tags](http://felix.apache.org/site/scr-javadoc-tags.html) are deprecated, because of this, you can no longer create bundles in CRXDE or CRXDE Lite when the code in the bundles contains SCR JavaDoc tags.&nbsp;&nbsp;

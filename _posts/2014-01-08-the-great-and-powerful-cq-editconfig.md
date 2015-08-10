@@ -5,6 +5,7 @@ original: http://labs.sixdimensions.com/blog/2014-01-08/the-great-and-powerful-c
 summary: "Promoting the cq:EditConfig an configuration node which allows developers to customize the authoring experience for a component"
 tags: [Adobe CQ, AEM, Components, Best Practices, Dialog]
 title: "The Great and Powerful cq:EditConfig"
+thumbnail: /images/posts/shared/CQ5.png
 ---
 
 One of the most under-appreciated features of AEM components, in my opinion, is the 

@@ -3,6 +3,7 @@ layout: post
 title: Finding Links in Day CQ
 summary: Learn how to find links to a path in Day CQ
 tags: [Adobe CQ]
+thumbnail: /images/posts/shared/CQ5.png
 ---
 
 Sometimes, when setting up development environments, it is not feasible to copy all of the content from the production environment, all you really need is a specific set of content being used by what you're working on.
@@ -131,4 +132,4 @@ In order to compile and run this application you'll need the following dependenc
 	</ivy-module>
 
 
- [1]: http://web.archive.org/web/20110812041655/http://www.crownpartners.com/content/dam/cp/resources/ContentFinder.java
+ [1]: /assets/ContentFinder.java

@@ -4,6 +4,7 @@ title: Creating a Column Control in Adobe CQ
 summary: Learn how to create a custom Column Control in Adobe CQ
 tags: [Adobe CQ, Development]
 original: http://www.sixdimensions.com/creating-a-column-control-in-adobe-cq/
+thumbnail: /images/posts/2012-02-07-creating-a-column-control-in-adobe-cq/adding-components-e1328584901873.png
 ---
 
 Column Controls in Adobe CQ allow authors to easily create and configure column-based layouts. &nbsp;This guide shows advanced users and developers how to create and configure a column control.

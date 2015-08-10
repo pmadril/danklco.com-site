@@ -4,6 +4,7 @@ title: "What is my CQ Mode?"
 original: http://labs.sixdimensions.com/blog/dan-klco/2013-04-02/what-my-cq-mode
 summary: "Figuring out what is the current authoring mode in components in Adobe CQ can sometimes be a tricky prospect.  Determining the current authoring mode is important for component development when you may want to display different HTML or controls to authors than will be displayed to the end users.  As a best practice, the same interface should display in Author and Design mode, as hiding or showing components may affect design."
 tags: [Adobe CQ, Dialog, Components, Best Practices, JavaScript]
+thumbnail: /images/posts/shared/CQ5.png
 ---
 
 Figuring out what is the current authoring mode in components in Adobe CQ can sometimes be a tricky prospect. &nbsp;Determining the current authoring mode is important for component development when you may want to display different HTML or controls to authors than will be displayed to the end users. &nbsp;As a best practice, the same interface should display in Author and Design mode, as hiding or showing components may affect design.

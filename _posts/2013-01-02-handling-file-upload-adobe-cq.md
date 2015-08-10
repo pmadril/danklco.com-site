@@ -4,6 +4,7 @@ title: "Handling File Upload in Adobe CQ"
 original: http://labs.sixdimensions.com/blog/dan-klco/2013-01-02/handling-file-upload-adobe-cq
 summary: "Learn how to handle file uploads in Adobe CQ"
 tags: [Adobe CQ, Apache Sling, Apache Sling Servlet]
+thumbnail: /images/posts/shared/CQ5.png
 ---
 
 You need to handle a file upload in Adobe CQ.&nbsp; So, you notice CQ already has [Apache Commons FileUpload](http://commons.apache.org/fileupload/) installed, so you decide to use it to handle the file upload.

@@ -3,7 +3,7 @@
  * General Page Layout Styles
  */
 body {
-	background: url(http://lorempixel.com/g/1920/1920/abstract/) center center fixed;
+	background: url(/images/bg.png) center center fixed;
 }
 
 .page-header {

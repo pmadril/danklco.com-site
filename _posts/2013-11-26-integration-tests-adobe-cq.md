@@ -4,6 +4,7 @@ title: "Integration Tests in Adobe CQ"
 summary: "Learn about how to execute automated integration tests in the Adobe CQ platform"
 original: http://labs.sixdimensions.com/blog/dan-klco/2013-11-26/integration-tests-adobe-cq
 tags: [Adobe CQ, Best Practices, Integration Testing, jUnit]
+thumbnail: /images/posts/shared/CQ5.png
 ---
 
 Awhile back I wrote a post on running [integration tests in Apache Sling](http://labs.sixdimensions.com/blog/dan-klco/2013-06-05/creating-integration-tests-apache-sling).  This technique is useful for developers working directly on Apache Sling, but doesn't support downstream platforms like Adobe CQ/AEM.

@@ -60,14 +60,14 @@ tags: []
 <h3 id="Project-Experience">Project Experience</h3>
 {% sorted_for engagement in site.pages reversed sort_by:url %} {% if engagement.layout == 'engagement' %}
 <article class="project" data-client="{{ engagement.client | replace: ' ', '-' }}" data-project="{{ engagement.project | replace: ' ', '-' }}">{% capture endDate %}{{ engagement.end-date | date: "%m / %Y" }}{% endcapture %} {% if endDate == '12 / 3000' %} {% assign endDate = 'Present' %} {% endif %}<header>
-<h5>{{ engagement.client }} &mdash; {{ engagement.start-date | date: "%m / %Y" }} - {{ endDate }} &mdash; {{ engagement.project }}</h5>
+<h4>{{ engagement.client }} &mdash; {{ engagement.start-date | date: "%m / %Y" }} - {{ endDate }} &mdash; {{ engagement.project }}</h4>
 </header>
 <p><em>{{ engagement.role }}</em></p>
 <ul class="tasks">{% for task in engagement.tasks %}
 <li>{{ task }}</li>
 {% endfor %}</ul>
 {% if engagement.tools %} Tools Used:
-<ul class="tools">{% for tool in engagement.tools %}
+<ul class="list-inline">{% for tool in engagement.tools %}
 <li>{{ tool }}{% unless forloop.last %},{% endunless %}</li>
 {% endfor %}</ul>
 {% endif %}</article>

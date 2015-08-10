@@ -4,6 +4,7 @@ title: "Ask the Experts: MVC in Adobe CQ5"
 original: http://labs.sixdimensions.com/blog/dan-klco/2013-05-20/ask-experts-mvc-adobe-cq5
 summary: "Answers from experts on how MVC is implemented in Adobe CQ5"
 tags: [Adobe CQ, Development, CQ Deploy, Apache Maven]
+thumbnail: /images/posts/shared/CQ5.png
 ---
 
 In this series of blog posts we pose a question to experts in the Adobe CQ5 platform about Adobe CQ5, Enterprise Content Management and Web Development.

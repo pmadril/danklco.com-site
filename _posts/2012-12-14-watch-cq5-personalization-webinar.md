@@ -4,6 +4,7 @@ title: "Watch CQ5 Personalization Webinar"
 original: http://labs.sixdimensions.com/content/watch-cq5-personalization-webinar
 summary: "Watch a webinar I did on Personalization in Adobe CQ5"
 tags: [Adobe CQ, Webinar, Personalization]
+thumbnail: /images/posts/shared/CQ5.png
 ---
 
 *Download and watch "CQ5 Personalization" with Dan Klco and Brian Warner*

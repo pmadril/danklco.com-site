@@ -4,6 +4,7 @@ title: "Dumping CQ Configuration"
 original: http://labs.sixdimensions.com/blog/dan-klco/2012-09-07/dumping-cq-configuration
 summary: "Learn how easy it is to get a complete copy of your Adobe CQ configuration"
 tags: [Adobe CQ, How To]
+thumbnail: /images/posts/shared/CQ5.png
 ---
 
 Often when providing remote support, you may want to send a complete snapshot of a CQ instance's configuration and state to others to help debugging.&nbsp; Generating a report of the complete status of the OSGi configuration, environment state and logs is as easy as invoking a single url.&nbsp;

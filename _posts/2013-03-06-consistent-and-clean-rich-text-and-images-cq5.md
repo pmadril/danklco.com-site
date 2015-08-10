@@ -4,6 +4,7 @@ title: "Consistent and Clean Rich Text and Images in CQ5"
 original: http://labs.sixdimensions.com/blog/dan-klco/2013-03-06/consistent-and-clean-rich-text-and-images-cq5
 summary: "Improve the TextImage component by making it cleaner and more consistent"
 tags: [Adobe CQ, Dialog, Best Practices]
+thumbnail: /images/posts/shared/CQ5.png
 ---
 
 How can you improve on the humble [TextImage](http://dev.day.com/docs/en/cq/current/wcm/default_components.html#Text%20Image "Adobe Text Image Component Documentation") component; the basis for most Adobe CQ5 website implementations? &nbsp;This component (as one would imagine from the name) allows authors to put both text and an image on the page. &nbsp;There are both [Text](http://dev.day.com/docs/en/cq/current/wcm/default_components.html#Text "Adobe CQ Text Component Documentation") and [Image](http://dev.day.com/docs/en/cq/current/wcm/default_components.html#Image "Adobe CQ Image Component Documentation") components which are suited for each separate task, however it has always seemed silly to me to have two components when one can do both jobs.

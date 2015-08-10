@@ -4,6 +4,7 @@ title: "Select from Pages in a CQ5 Dialog"
 original: http://labs.sixdimensions.com/blog/dklco/2012-08-05/select-pages-cq5-dialog
 summary: "Learn how to select from a dynamically retrieved list of pages in a CQ Dialog"
 tags: [Adobe CQ, Dialog]
+thumbnail: /images/posts/shared/CQ5.png
 ---
 
 When constructing a dialog, you may want to present users with a list of pages to select from. &nbsp;Browse and path fields work well for selecting from a tree, but often you may need to show just the pages from a single folder or from some discrete list.

@@ -4,6 +4,7 @@ title: "Permalink to CQ5 Upgrade Gotcha: Tag Localization"
 original: http://labs.sixdimensions.com/blog/dklco/2012-05-24/cq5-upgrade-gotcha-tag-localization
 summary: "Learn what can go wrong with Tags when upgrading CQ5 and how to fix it"
 tags: [Adobe CQ, CQ 5.5, Tag Manager]
+thumbnail: /images/posts/2012-05-24-cq5-upgrade-gotcha-tag-localization/Tag_Language_Error.png
 ---
 
 In CQ 5.4, Adobe added the ability to translate tags through the Tag Manager.&nbsp; Unfortunately, due to the way this was implemented, it can cause issues when upgrading from CQ 5.3 or older.

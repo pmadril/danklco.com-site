@@ -4,6 +4,7 @@ title: Using XMLBeans in Adobe CQ
 original: http://www.sixdimensions.com/creating-a-column-control-in-adobe-cq/
 summary: Learn how to integrate XMLBeans with Adobe CQ5.
 tags: [Adobe CQ, Development, XmlBeans]
+thumbnail: /images/posts/2012-02-15-using-xmlbeans-in-adobe-cq/project-logo.gif
 ---
 
 [Apache XMLBeans](http://xmlbeans.apache.org/) is a powerful tool for reading, writing and updating XML files.&nbsp; XMLBeans dynamically creates Java classes based on an XSD Schema.&nbsp; This makes it powerful and easy to use, however can make it more complicated to integrate into OSGi based applications, such as Adobe CQ, as the XML Element to Java Class mapping uses the Java Classloader.

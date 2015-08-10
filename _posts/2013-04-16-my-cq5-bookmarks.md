@@ -4,6 +4,7 @@ title: "My CQ5 Bookmarks"
 original: http://labs.sixdimensions.com/blog/dan-klco/2013-04-16/my-cq5-bookmarks
 summary: "A post about the bookmarks I use every day for developing on Adobe CQ"
 tags: [Adobe CQ, Development]
+thumbnail: /images/posts/shared/CQ5.png
 ---
 
 I'm pretty sparing with bookmarks, however there are a few pages I use just about every day for my job developing for Adobe CQ5. &nbsp;I have these daily use bookmarks in my bookmarks toolbar. &nbsp;They are:

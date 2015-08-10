@@ -4,6 +4,7 @@ title: "Changing a CQ Component's Design Path"
 original: http://labs.sixdimensions.com/blog/dan-klco/2013-06-17/changing-cq-components-design-path
 summary: "See how easy it is to change the design path on a CQ Component"
 tags: [Adobe CQ, Design, Components]
+thumbnail: /images/posts/shared/CQ5.png
 ---
 
 Usually, the default location used by the CQ Designs configuration works, however there are cases where you may want to set the designs to exist at a different location.  For example, you may want multiple components to share a configuration or have all of the instances of a component on a site share the same configuration.

@@ -4,6 +4,7 @@ title: "The Unofficial Guide to the Adobe CQ5 Translator"
 original: http://labs.sixdimensions.com/blog/dklco/2012-05-25/adobe-cq5-translator
 summary: A guide to the Adobe CQ5 Translator, a tool for managing translated content in Adobe CQ5.
 tags: [Adobe CQ, i18n]
+thumbnail: /images/posts/2012-05-25-adobe-cq5-translator/CQ5_Translator.png
 ---
 
 The Adobe CQ5 Translator is a powerful tool for managing and updating translations.&nbsp; Using this tool you can create, update and remove i18n values across multiple languages in multiple translation dictionaries or groups of i18n keys.
