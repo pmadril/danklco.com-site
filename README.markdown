@@ -3,8 +3,7 @@ DanKlco.com - Jekyll Site
 
 Simple site generation code for my static homepage, all credit to 
 [maciakl](https://github.com/maciakl) for the his simple sample Jekyll site and
-[the creators of Skeleton](http://www.getskeleton.com) for the
-awesome responsive layout.
+Twitter Bootstrap for the awesome responsive layout.
 
 Please feel free to use this as a starting point, though I would ask to not re-use the blog posts.
 
