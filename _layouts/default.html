@@ -18,17 +18,17 @@
 			<meta property="og:url" content="{{ site.url }}{{page.url | remove: 'index.html' | replace: '.html', '' | replace: ' ', '%20' }}"/>
 			<link rel="canonical" href="{{ site.url }}{{page.url | remove: 'index.html' | replace: '.html', '' | replace: ' ', '%20' }}" />
 		{% endif %}
-{% bundle %}[/css/base.css, /css/skeleton.css, /css/layout.css, /css/colorbox.css ]{% endbundle %}
+{% bundle %}[ /css/bootstrap.min.css, /css/bootstrap-theme.min.css, /css/custom.css ]{% endbundle %}
 		<link rel="shortcut icon" href="/favicon.ico" />
 		<link rel="alternate" type="application/rss+xml" href="/feed.xml" title="DanKlco.com RSS Feed" />
 		<link rel="author" href="https://plus.google.com/109214091683324297793"/>
 	</head>
 	<body vocab="http://schema.org/" itemscope itemtype="http://schema.org/WebPage">
 		<div class="container">
-			<header>
-				<div class="header-text" typeof="Person">
+			<header class="page-header row">
+				<div class="content" typeof="Person">
 					<a href="/" title="Home">
-						<img src="/images/me.jpg" alt="Me on Mt. Etna" width="120" height="120" property="photo" id="header-img" />
+						<img src="/images/me.jpg" alt="Me on Mt. Etna" width="120" height="120" property="photo" class="pull-left img-rounded img-responsive"  />
 					</a>
 					<h1 property="name">Daniel Klco</h1>
 					<p property="description">
@@ -40,22 +40,9 @@
 					</p>
 				</div>
 			</header>
-			<div class="clear"></div>
-			<nav>
-				<div class="sixteen columns content">
-					<ul>
-						<li><a href="/" {% if page.url == '/index.html' %}class="active"{% endif %}>Home</a></li>
-						<li><a href="/my-work" {% if page.url == '/my-work.html' %}class="active"{% endif %}>My Work</a></li>
-						<li><a href="/curriculum-vitae" {% if page.url == '/curriculum-vitae.html' %}class="active"{% endif %}>Curriculum Vitae</a></li>
-						<li><a href="/projects" {% if page.url == '/projects.html' %}class="active"{% endif %}>Projects</a></li>
-						<li><a href="/contact" {% if page.url == '/contact.html' %}class="active"{% endif %}>Contact</a></li>
-					</ul>
-				</div>
-			</nav>
-			<div class="clear"></div>
+			{% include nav.html %}
 			{{ content }}
-			<div class="clear"></div>
-			<footer>
+			<footer class="transparent-block-inverse row">
 				Copyright &copy; 2012 -  {{ site.author }} | <a href="/search" title="Search Site">Search</a>
 				<br/>
 				<hr/>
@@ -66,10 +53,7 @@
 				This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/us/deed.en_US">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 United States License</a>.
 			</footer>
 		</div>
-		<!--[if lt IE 9]>
-			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-		<![endif]-->
-{% bundle %}[//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js, /js/jquery.colorbox-min.js, /js/custom.js] {% endbundle %}
+{% bundle %}[//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js, /js/bootstrap.min.js, /js/custom.js] {% endbundle %}
 		<script>
 			var track = true;
 			try {

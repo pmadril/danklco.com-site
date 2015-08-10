@@ -3,27 +3,31 @@ layout: default
 title: My Work
 ---
 
-<section>
-	<div class="sixteen columns">
+<section class="row transparent-block-default">
+	<div class="col-md-12">
 		<h2>My Work</h2>
 		<p>
 			Below are some of the clients and companies with whom I have worked.  Select the client to find out more.
 		</p>
 	</div>
-	{% sorted_for engagement in site.pages reversed sort_by:url %}
-		{% if engagement.layout == 'engagement' and engagement.hide == true %}
-			{% capture index %}.{{index}}{% endcapture %}{% capture modulo %}{{ index | size | modulo: 3 }}{% endcapture %}
-			<div class="four columns card {% if modulo == '1' %}offset-by-two" style="clear:both{% endif %}">
-				<div class="client" id="{{engagement.client | replace: ' ', '-'}}" data-image="{{engagement.image}}" data-image-width="{{engagement.image-width}}">
-					<div class="client-name">
+</section>
+<div id="wrapper">
+	<div id="columns">
+		{% sorted_for engagement in site.pages reversed sort_by:url %}
+			{% if engagement.layout == 'engagement' and engagement.hide == true %}
+				{% assign id = engagement.client | replace: ' ', '-' %}
+				<div class="pin client" id="{{ id }}" data-image="{{engagement.image}}" data-image-width="{{engagement.image-width}}">
+					<img alt="{{engagement.client}} - {{engagement.project}}" src="{{engagement.image}}" />
+					<p>
 						{{engagement.client}} &mdash; {{engagement.project}}
-					</div>
-					<img width="200" height="200" alt="{{engagement.client}} - {{engagement.project}}" src="{{engagement.thumbnail}}" />
+					</p>
 				</div>
-			</div>
-		{% endif %}
-	{% endsorted_for %}
-	<div class="sixteen columns">
+			{% endif %}
+		{% endsorted_for %}
+	</div>
+</div>
+<section class="row transparent-block-default">
+	<div class="col-md-12">
 		<p>
 			<small>
 				Listing of a particular client does not necessarily constitute an endorsement of services rendered.  All designs and images are the copyright of the respected owners.
@@ -31,10 +35,18 @@ title: My Work
 		</p>
 	</div>
 </section>
-<div style="display:none" id="client-box">
-	<img src="/images/loading.gif" alt="client" />
-	<div class="content">
-		<br/>
-		<p></p>
+<div class="modal fade" id="client-box">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">Modal title</h4>
+			</div>
+			<div class="modal-body">
+				<img src="/images/loading.gif" class="img-responsive center-block" alt="client" />
+				<div class="client-content">
+				</div>
+			</div>
+		</div>
 	</div>
 </div>

@@ -1,0 +1,151 @@
+
+/*
+ * General Page Layout Styles
+ */
+body {
+	background: url(http://lorempixel.com/g/1920/1920/abstract/) center center fixed;
+}
+
+.page-header {
+    background-image: url(/images/catania-park.jpg);
+    background-size:cover;
+    height: 300px;
+    margin-bottom: 0;
+    border-bottom: none;
+}
+
+.page-header .content {
+    background-color: white;
+    opacity: .93;
+    border-radius: 10px;
+    top: 50px;
+    position: relative;
+    margin: 10px;
+    padding: 10px;
+    vertical-align: middle;
+}
+
+.page-header .content img {
+    padding: 10px;
+}
+
+.navbar-inverse {
+    border-radius: 0;
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+.transparent-block-default {
+	background-color: white;
+	opacity: 0.9;
+	padding:20px;
+    margin-top: 10px;
+}
+
+.transparent-block-inverse {
+	background-color: black;
+	opacity: 0.7;
+	padding:20px;
+    margin-top: 10px;
+    color:white;
+}
+
+
+img.certification {
+    width: 300px;
+}
+
+/* 
+ * Home Page Social Icons
+ */
+.icon {
+	background-image: url('/images/icon-sprites2.png');
+	width: 48px;
+	height: 48px;
+	display: inline-block;
+}
+
+#Facebook {
+	background-position: 0 0;
+}
+
+#Github {
+	background-position: -51px 0;
+}
+
+#Google-plus {
+	background-position: -101px -1px;
+}
+
+#Linkedin {
+	background-position: -150px 0;
+}
+
+#rss {
+	background-position: -251px 0;
+}
+
+#Twitter {
+	background-position: -200px 0;
+}
+
+/*
+ * Homepage pinterest style list
+ */
+ 
+#wrapper {
+	margin: 10px auto;
+}
+
+#columns {
+	-webkit-column-count: 2;
+	-webkit-column-gap: 10px;
+	-webkit-column-fill: auto;
+	-moz-column-count: 2;
+	-moz-column-gap: 10px;
+	-moz-column-fill: auto;
+	column-count: 2;
+	column-gap: 15px;
+	column-fill: auto;
+}
+
+.pin {
+	display: inline-block;
+	background: #FEFEFE;
+	border: 2px solid #FAFAFA;
+	box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
+	margin: 0 2px 15px;
+	-webkit-column-break-inside: avoid;
+	-moz-column-break-inside: avoid;
+	column-break-inside: avoid;
+	padding: 15px;
+	padding-bottom: 5px;
+	background: -webkit-linear-gradient(45deg, #FFF, #F9F9F9);
+	opacity: 1;
+	-webkit-transition: all .2s ease;
+	-moz-transition: all .2s ease;
+	-o-transition: all .2s ease;
+	transition: all .2s ease;
+}
+
+.pin img {
+	width: 100%;
+	border-bottom: 1px solid #ccc;
+	padding-bottom: 15px;
+	margin-bottom: 5px;
+}
+
+.pin p {
+	font: 12px/18px Arial, sans-serif;
+	color: #333;
+	margin: 0;
+}
+
+
+@media (min-width: 1100px) {
+	#columns {
+		-webkit-column-count: 3;
+		-moz-column-count: 3;
+		column-count: 3;
+	}
+}

@@ -8,34 +8,36 @@ jQuery(function($){
 		$('#contact-form').submit(function(){
 			_gaq.push(['_trackEvent', 'Contact Form', 'Submit']);
 		});
-		$('.client').each(function(index,elem){
-			$(elem).click(function(){
-				var id = $(elem).attr('id');
-				_gaq.push(['_trackEvent', 'Client','Open',id]);
-				$.colorbox.close();
-				$('#client-box img').attr('src',$(elem).attr('data-image'));
-				$('#client-box img').attr('width',$(elem).attr('data-image-width'));
-				$.colorbox.resize();
-				$('#client-box img').load(function(){
-					$.colorbox.resize();
-				});
-				var url = '/curriculum-vitae.html article[data-client='+id+']';
-				$('#client-box p').load(url, {}, function(){
-					$('#client-box').show();
-					$.colorbox({
-				        inline:true,
-				        href: '#client-box',
-				        title:$(elem).find('h5').text(),
-				        onClosed: function(){
-				        	_gaq.push(['_trackEvent', 'Client','Close',id]);
-				        	$('#client-box').hide();
-				        	$('#client-box img').attr('src','/images/loading.gif');
-				        }
-				    });
-					$.colorbox.resize();
-				});
-				return false;
+		$('.client').click(function(){
+			$client = $(this);
+			var id = $client.attr('id');
+			_gaq.push(['_trackEvent', 'Client','Open',id]);
+			
+			// close bootstrap modal
+			$('#client-box img').attr('src',$client.attr('data-image'));
+			$('#client-box img').attr('width',$client.attr('data-image-width'));
+			var url = '/curriculum-vitae.html article[data-client='+id+']';
+			$('#client-box h4').html($client.find('p').html());
+			$('#client-box .client-content').load(url, function(){
+				$('#client-box').show();
+				$('#client-box').modal('show');
 			});
+			return false;
+		});
+		var totalPages = $('#columns').attr('data-total-pages');
+		var currentPage = 1;
+		$('.next-page').click(function(){
+			$btn = $(this);
+			$btn.hide();
+			$("<div>").load($btn.attr('href')+" #columns > .pin", function() {
+				$("#columns").append($(this).html());
+			});
+			if(currentPage < totalPages){
+				currentPage++;
+				$btn.attr('href','/page'+(currentPage+1));
+				$btn.show();
+			}
+			return false;
 		});
 	});
 });

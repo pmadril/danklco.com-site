@@ -32,7 +32,7 @@ exclude: [.gitignore, update.sh, vagrant]
 exclude: [.htaccess]
 
 # Control the number of post per page
-paginate: 30
+paginate: 10
 
 # Configure the Asset Bundler
 asset_bundler:

@@ -2,11 +2,11 @@
 layout: default
 ---
 
-<section>
-	<div class="two columns">
+<section class="row transparent-block-default">
+	<div class="col-md-2">
 		<h4>Find Me</h4>
 	</div>
-	<div class="fourteen columns">
+	<div class="col-md-10">
 		<div id="social-networks">
 			<a href="https://www.facebook.com/klcodanr" title="Find me on Facebook!" class="icon" id="Facebook"></a>
 			<a href="http://www.linkedin.com/in/danielklco/" title="Find me on LinkedIn!" class="icon" id="Linkedin"></a>
@@ -16,28 +16,22 @@ layout: default
 			<a href="/feed.xml" title="Follow my RSS Feed" class="icon" id="rss"></a>
 		</div>
 	</div>
-	<div class="clear"></div>
 </section>
-<section>
-	<div class="sixteen columns">
+<section class="row transparent-block-default">
+	<div class="col-md-12">
 		<a href="http://training.adobe.com/certification/ace-finder.html#p=1&name=klco" target="_blank" alt="ACE AEM Architect Badge">
-			<img class="center certification" src="/images/certified-architect.png" alt="ACE AEM Architect Badge" />
+			<img class="center-block img-responsive certification" src="/images/certified-architect.png" alt="ACE AEM Architect Badge" />
 		</a>
 	</div>
-	<div class="clear"></div>
 </section>
-<section>
-	<div class="two columns">
-		<h4>Recent Activity</h4>
-	</div>
-	<div class="ten columns">
+<section class="row">
+	<div class="col-md-9">
 		{{ content }}
 	</div>
-	<aside class="four columns">
+	<aside class="col-md-3 transparent-block-default">
 		<h4>Twitter</h4>
 		<a class="twitter-timeline" data-dnt="true" href="https://twitter.com/KlcoDanR" data-theme="light" data-link-color="#333" data-widget-id="324965818536427521" data-tweet-limit="5" data-chrome="noheader nofooter noborders transparent noscrollbar">Tweets by @KlcoDanR</a>
 		<a href="https://twitter.com/klcodanr" class="twitter-follow-button" data-show-count="false">Follow Me</a>
 		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 	</aside>
-	<div class="clear"></div>
 </section>

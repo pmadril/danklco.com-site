@@ -4,33 +4,35 @@ title: Home
 summary: "Dan Klco's home page on the web. Technical and other thoughts largely around AEM and Apache Sling."
 ---
 
-{% if paginator.page != 1 %}
-	<div class="nine columns pagination top">
-		Page: {{paginator.page}} of {{paginator.total_pages}}
-	</div>
-{% endif %}
-<div id="recent-activity">
-	{% for post in paginator.posts %}
-		<div class="three columns">
-			<em>{{post.date | date: "%b %d %Y"}}</em>
+<div class="recent-activity">
+	<div id="wrapper">
+		<div id="columns" data-total-pages="{{paginator.total_pages}}">
+			{% for post in paginator.posts %}
+				<div class="pin">
+					{% if post.original %}
+						{% assign url = post.original %}
+					{% else %}
+						{% assign url = post.url %}
+					{% endif %}
+					<a href="{{url}}">
+						{% if post.thumbnail %}
+							<img src="{{ post.thumbnail }}" />
+						{% else %}
+							<img src="http://placehold.it/250x120?text={{post.title}}" />
+						{% endif %}
+						<p>
+							{{post.title}}
+							<br/>
+							<em>{{post.date | date: "%b %d %Y"}}</em>
+						</p>
+					</a>
+				</div>
+			{% endfor %}
 		</div>
-		<div class="six columns">
-			<a href="{% if post.original %}{{ post.original }}{% else %}{{ post.url }}{% endif %}" title="{{ post.title }}">{{ post.title }}</a>
-		</div>
-	{% endfor %}
-</div>
-{% if paginator.total_pages != 1 %}
-	<div class="nine columns pagination">
-		{% if paginator.previous_page %}
-			{% if paginator.previous_page == 1 %}
-				<a href="/" class="previous">Previous</a>
-			{% else %}
-				<a href="/page{{paginator.previous_page}}/" class="previous">Previous</a>
-			{% endif %}
-		{% endif %}
-		<span class="page_number ">Page: {{paginator.page}} of {{paginator.total_pages}}</span>
+	</div>	
+	{% if paginator.total_pages != 1 %}
 		{% if paginator.next_page %}
-			<a href="/page{{paginator.next_page}}/" class="next">Next</a>
+			<a href="/page{{paginator.next_page}}/" class="btn btn-default center-block next-page">More</a>
 		{% endif %}
-	</div>
-{% endif %}
+	{% endif %}
+</div>
