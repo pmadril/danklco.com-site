@@ -31,11 +31,11 @@ jQuery(function($){
 			$btn.hide();
 			$("<div>").load($btn.attr('href')+" #columns > .pin", function() {
 				$("#columns").append($(this).html());
+				$btn.show();
 			});
 			if(currentPage < totalPages){
 				currentPage++;
 				$btn.attr('href','/page'+(currentPage+1));
-				$btn.show();
 			}
 			return false;
 		});
