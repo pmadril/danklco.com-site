@@ -5,8 +5,15 @@ summary: "Dan Klco's home page on the web. Technical and other thoughts largely 
 ---
 
 <div class="recent-activity">
-	<div id="wrapper">
-		<div id="columns" data-total-pages="{{paginator.total_pages}}">
+	<div class="columns-wrapper" data-total-pages="{{paginator.total_pages}}">
+		{% if paginator.page != 1 %}
+			<div class="columns-header transparent-block-inverse text-center">
+				<strong>
+					Page {{ paginator.page }}
+				</strong>
+			</div>
+		{% endif %}
+		<div class="columns page-{{paginator.page}}">
 			{% for post in paginator.posts %}
 				<div class="pin">
 					{% if post.original %}
@@ -30,10 +37,10 @@ summary: "Dan Klco's home page on the web. Technical and other thoughts largely 
 				</div>
 			{% endfor %}
 		</div>
-	</div>	
-	{% if paginator.total_pages != 1 %}
-		{% if paginator.next_page %}
-			<a href="/page{{paginator.next_page}}/" class="btn btn-default center-block next-page">More</a>
-		{% endif %}
-	{% endif %}
+	</div>
 </div>
+{% if paginator.total_pages != 1 %}
+	{% if paginator.next_page %}
+		<a href="/page{{paginator.next_page}}/" class="btn btn-default center-block next-page">More</a>
+	{% endif %}
+{% endif %}

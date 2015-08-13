@@ -18,7 +18,7 @@
 			<meta property="og:url" content="{{ site.url }}{{page.url | remove: 'index.html' | replace: '.html', '' | replace: ' ', '%20' }}"/>
 			<link rel="canonical" href="{{ site.url }}{{page.url | remove: 'index.html' | replace: '.html', '' | replace: ' ', '%20' }}" />
 		{% endif %}
-{% bundle %}[ /css/bootstrap.min.css, /css/bootstrap-theme.min.css, /css/custom.css ]{% endbundle %}
+{% bundle %}[ /css/bootstrap.min.css, /css/bootstrap-theme.min.css, 'http://fonts.googleapis.com/css?family=Lato', /css/custom.css ]{% endbundle %}
 		<link rel="shortcut icon" href="/favicon.ico" />
 		<link rel="alternate" type="application/rss+xml" href="/feed.xml" title="DanKlco.com RSS Feed" />
 		<link rel="author" href="https://plus.google.com/109214091683324297793"/>

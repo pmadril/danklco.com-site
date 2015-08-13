@@ -24,18 +24,20 @@ jQuery(function($){
 			});
 			return false;
 		});
-		var totalPages = $('#columns').attr('data-total-pages');
+		var totalPages = $('.columns-wrapper').attr('data-total-pages');
 		var currentPage = 1;
 		$('.next-page').click(function(){
 			$btn = $(this);
 			$btn.hide();
-			$("<div>").load($btn.attr('href')+" #columns > .pin", function() {
-				$("#columns").append($(this).html());
+			$("<div>").load($btn.attr('href')+" .columns-wrapper", function() {
+				$(".recent-activity").append($(this).html());
 				$btn.show();
 			});
 			if(currentPage < totalPages){
 				currentPage++;
 				$btn.attr('href','/page'+(currentPage+1));
+			} else {
+				$btn.attr('disabled','disabled');
 			}
 			return false;
 		});
