@@ -11,8 +11,8 @@ title: My Work
 		</p>
 	</div>
 </section>
-<div id="wrapper">
-	<div id="columns">
+<div class="columns-wrapper">
+	<div class="columns">
 		{% sorted_for engagement in site.pages reversed sort_by:url %}
 			{% if engagement.layout == 'engagement' and engagement.hide == true %}
 				{% assign id = engagement.client | replace: ' ', '-' %}
