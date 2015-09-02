@@ -1,0 +1,52 @@
+---
+layout: post
+title: 'CQ 5.6 Tipping Point'
+author: 'Dan Klco'
+tags:
+  - 'AEM6'
+  - DevOps
+summary: 'Discusses the point at which CQ 5.6 becomes unreliable'
+thumbnail: /images/posts/2015-09-02-cq-56-tipping-point/Woodwards_building_Vancouver_demolition_1.jpg
+original: http://labs.6dglobal.com/blog/2015-09-02/cq-56-tipping-point/
+---
+
+<p class="text-center">
+	<img src="/images/posts/2015-09-02-cq-56-tipping-point/Woodwards_building_Vancouver_demolition_1.jpg" class="center-block img-responsive" /><br/>
+	<small>
+		Image Credit: "<a href="https://commons.wikimedia.org/wiki/File:Woodwards_building_Vancouver_demolition_1.jpg#/media/File:Woodwards_building_Vancouver_demolition_1.jpg">Woodwards building Vancouver demolition 1</a>" by <a href="//en.wikipedia.org/wiki/User:Tannoy" class="extiw" title="wikipedia:User:Tannoy">Tannoy</a> at <a href="//en.wikipedia.org/wiki/" class="extiw" title="wikipedia:">English Wikipedia</a>.<br/> Licensed under <a href="http://creativecommons.org/licenses/by-sa/3.0" title="Creative Commons Attribution-Share Alike 3.0">CC BY-SA 3.0</a> via <a href="//commons.wikimedia.org/wiki/">Wikimedia Commons</a>.
+	</small>
+</p>
+<p>
+	Recently, I spent a bit of time running performance tests against various versions of CQ5/AEM 
+	to understand the performance characteristics of the different versions.  One of the interesting 
+	outcomes of this testing is that CQ 5.6 and before have a very distinct point at which 
+	the instance becomes unstable.
+</p>
+<p>
+	To evaluate the performance characteristics of AEM, I used an AWS m4.xLarge EC2 instance
+	and Apache Benchmark to simulate traffic against a consistent baseline.  
+</p>
+<p>
+	AEM 6.0 and 6.1 were able to scale up to 1000 concurrent requests without significant errors 
+	as illustrated in the graph below:
+</p>
+<img src="/images/posts/2015-09-02-cq-56-tipping-point/aem6-keeps-standing.png" class="center-block img-responsive" /><br/>
+<p>
+	CQ5.6 however ran into serious problems at approximately 400 concurrent requests and 
+	experienced a high and increasing error rate as the concurrency continued to increase.
+</p>
+<img src="/images/posts/2015-09-02-cq-56-tipping-point/56-tipping-point.png" class="center-block img-responsive" /><br/>
+<p>
+	So why is this the case? In AEM 6.0, Adobe introduce the new 
+	<a href="http://docs.adobe.com/docs/en/aem/6-0/deploy/upgrade/introduction-to-oak.html" 
+	title="Intro to Jackrabbit OAK">CRX3 repository which is 
+	based on Jackrabbit OAK</a>.  This new repository implementation provides significant performance
+	improvements over CRX2.
+<p>
+<p>
+	I found out a number of other particularities when comparing the performance of CQ 5.6
+	and AEM 6.1, for a complete report, including analysis and recommendations:
+<p>
+<p>
+	<a href="http://www.6dglobal.com/resources/white-papers/boost-your-website-performance-aem-61" class="btn btn-primary btn-lg"><i class="fa fa-download"></i> Read my AEM Performance Comparison Whitepaper!</a>
+</p>
