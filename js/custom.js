@@ -28,6 +28,7 @@ jQuery(function($){
 		var currentPage = 1;
 		$('.next-page').click(function(){
 			$btn = $(this);
+			window.location.hash = '#!' + $btn.attr('href');
 			$btn.hide();
 			$("<div>").load($btn.attr('href')+" .columns-wrapper", function() {
 				$(".recent-activity").append($(this).html());
