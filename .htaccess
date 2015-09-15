@@ -37,7 +37,7 @@ Header set Cache-Control "max-age=2592000"
 </FilesMatch>
 
 # cache text, css, and javascript files for one week
-<FilesMatch ".(js|css|pdf|txt)$">
+<FilesMatch ".(js|css|pdf|txt|woff)$">
 Header set Cache-Control "max-age=604800"
 </FilesMatch>
 
