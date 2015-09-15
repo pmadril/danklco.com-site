@@ -13,30 +13,30 @@ summary: "Dan Klco's home page on the web. Technical and other thoughts largely 
 				</strong>
 			</div>
 		{% endif %}
-		<div class="columns page-{{paginator.page}}">
+		<section itemscope itemtype="http://schema.org/Blog" class="columns page-{{paginator.page}}">
 			{% for post in paginator.posts %}
-				<div class="pin">
+				<article itemprop="blogPosts" itemscope itemtype="http://schema.org/BlogPosting" class="pin"> 
 					{% if post.original %}
 						{% assign url = post.original %}
 					{% else %}
 						{% assign url = post.url %}
 					{% endif %}
-					<a href="{{url}}">
+					<a href="{{url}}" {% if post.original %}target="_blank"{% endif %} title="{{post.title}}" itemprop="url">
 						{% if post.thumbnail %}
-							<img src="{{ post.thumbnail }}" />
+							<img itemprop="image" src="{{ post.thumbnail }}" title="{{post.title}}" />
 						{% else %}
-							<img src="//placehold.it/250x120?text={{post.title}}" />
+							<img itemprop="image" src="//placehold.it/250x120?text={{post.title}}" title="{{post.title}}" />
 						{% endif %}
-						<h5>
+						<h5 itemprop="headline">
 							{{post.title}}
 						</h5>
 						<div>
-							<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> <em>{{post.date | date: "%b %d %Y"}}</em>
+							<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> <em itemprop="datePublished">{{post.date | date: "%b %d %Y"}}</em>
 						</div>
 					</a>
-				</div>
+				</article>
 			{% endfor %}
-		</div>
+		</section>
 	</div>
 </div>
 {% if paginator.total_pages != 1 %}
