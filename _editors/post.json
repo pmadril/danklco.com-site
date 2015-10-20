@@ -27,9 +27,15 @@
          "name":"disabled",
          "type":"checkbox",
          "label":"Disabled"
+      },
+      {
+         "filter":"^images/posts/.+",
+         "name":"thumbnail",
+         "type":"path",
+         "label":"Thumbnail"
       }
    ],
-"rte": {
-"document_base_url":"https://www.danklco.com"
-}
+   "rte": {
+      "document_base_url":"https://www.danklco.com"
+   }
 }
