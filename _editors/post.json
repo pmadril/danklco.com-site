@@ -28,5 +28,8 @@
          "type":"checkbox",
          "label":"Disabled"
       }
-   ]
+   ],
+"rte": {
+"document_base_url":"https://www.danklco.com"
+}
 }
