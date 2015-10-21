@@ -1,6 +1,5 @@
 {
-   "title":"Default Page",
-   "description":"The following fields will be used to update the page metadata",
+   "title":"Edit Post",
    "fields":[
       {
          "name":"title",
@@ -24,9 +23,10 @@
          "label":"Description"
       },
       {
-         "name":"disabled",
+         "label":"Published",
+         "name":"published",
          "type":"checkbox",
-         "label":"Disabled"
+         "value": true
       },
       {
          "filter":"^images/posts/.+",
