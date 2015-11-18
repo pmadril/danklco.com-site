@@ -1,0 +1,82 @@
+---
+layout: default
+title: Stats
+exclude_sitemap: true
+---
+
+<section class="row">
+	<div class="col-md-12 transparent-block-default">
+		<h3>Global Stats</h3>
+		<dl>
+			<dt>Total Posts</dt>
+			<dd id="total-posts"></dd>
+			<dt>Monthly Average</dt>
+			<dd id="monthly-average"></dd>
+		</dl>
+		<h3>Posts Per Month</h3>
+		<table class="table table-bordered table-striped" id="months">
+			<thead>
+				<tr>
+					<th>Month</th>
+					<th># Posts</th>
+				</tr>
+			</thead>
+			<tbody>
+			</tbody>
+		</table>
+		<h3>Posts Per Day of the Week</h3>
+		<table class="table table-bordered table-striped" id="days">
+			<thead>
+				<tr>
+					<th>Day</th>
+					<th># Posts</th>
+				</tr>
+			</thead>
+			<tbody>
+			</tbody>
+		</table>
+	</div>
+</section>
+<script>
+window.onload=function(){
+	$('head').append('<link rel="stylesheet" href="//cdn.datatables.net/1.10.5/css/jquery.dataTables.min.css" type="text/css" />');
+	$.getScript("//cdn.datatables.net/1.10.5/js/jquery.dataTables.min.js", function(){
+		$('table').dataTable();
+	});
+	$.getJSON('/stats.json',function(posts){
+		window.posts = posts;
+		var authors = {};
+		var months = {};
+		var days = {};
+		var total = 0;
+		var numMonths = 0;
+		$.each(posts, function(idx, post){
+			total++;
+			if (authors[post.author]) {
+				authors[post.author]++;
+			} else {
+				authors[post.author]=1;
+			}
+			if (months[post.year+' '+post.month]) {
+				months[post.year+' '+post.month]++;
+			} else {
+				months[post.year+' '+post.month]=1;
+				numMonths++;
+			}
+			if (days[post.day]) {
+				days[post.day]++;
+			} else {
+				days[post.day]=1;
+			}
+		});
+		$('#total-posts').html(total);
+		$('#monthly-average').html(total / numMonths);
+		$.each(months, function(month, count){
+			$('#months tbody').append('<tr><td>'+month+'</td><td>'+count+'</td></tr>');
+		});
+		$.each(days, function(day, count){
+			$('#days tbody').append('<tr><td>'+day+'</td><td>'+count+'</td></tr>');
+		});
+	});
+}
+</script>
