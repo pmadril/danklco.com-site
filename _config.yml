@@ -34,6 +34,9 @@ exclude: [.htaccess]
 # Control the number of post per page
 paginate: 10
 
+# Additional GEMs to install
+gems: [jekyll-paginate]
+
 # Configure the Asset Bundler
 asset_bundler:
   compress:
