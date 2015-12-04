@@ -5,5 +5,17 @@ tags:
   - AEM
   - Bash
 published: false
+thumbnail: /images/posts/2015-12-08-managing-multiple-aem-instances/juggling.jpg
 ---
 
+<p>One of the challenges I've had over the last few years is how to easily manage multiple AEM instances concurrently. Over the last few years, I've often had to have several instances running during the course of the day, whether it be different versions, client codebases or for just for standing up a quick test.</p>
+<p>To enable this and to allow me to easily start, stop and reset AEM instances I created a small script and&nbsp;created a structure to support easily managing multiple AEM instances on the same computer. First, from a structure perspective I create the following folders:</p>
+<pre>/[user-home]
+    /dev
+        /aem
+            /instance1
+            /instance2
+        ...
+</pre>
+<p>This structure is pretty simple, but it does help a lot to be consistant and makes it pretty quick to move around folders, cd <code>~/dev/aem/6.1</code> is pretty darn easy to type, easy to remember and is a pretty logical path. This also allows me to add other applications in parallel, such as MongoDB, Tomcat or anything else with which I may need to integrate.</p>
+<p>&nbsp;</p>
