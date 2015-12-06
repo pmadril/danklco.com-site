@@ -10,6 +10,7 @@ thumbnail: /images/posts/2015-12-08-managing-multiple-aem-instances/juggling.jpg
 
 <p>One of the challenges I've had over the last few years is how to easily manage multiple AEM instances concurrently. Over the last few years, I've often had to have several instances running during the course of the day, whether it be different versions, client codebases or for just for standing up a quick test.</p>
 <p class="text-center"><img class="img-responsive center-block" src="/images/posts/2015-12-08-managing-multiple-aem-instances/juggling.jpg" alt="Juggling AEM Instances" /><br />"<a class="external text" href="https://commons.wikimedia.org/wiki/File:Y%C3%BCcelzorlu_(3).JPG">Y&uuml;celzorlu</a>" by <a class="external text" href="https://commons.wikimedia.org/wiki/User:SepiNs" rel="nofollow">SepiNs</a>&nbsp;is licensed under&nbsp;<a href="https://creativecommons.org/licenses/by-sa/3.0/deed.en">CC SA 2.0</a></p>
+<h3>Folder Structure</h3>
 <p>To enable this and to allow me to easily start, stop and reset AEM instances I created a small script and&nbsp;created a structure to support easily managing multiple AEM instances on the same computer. First, from a structure perspective I create the following folders:</p>
 <pre>/[user-home]
     /dev
@@ -19,8 +20,10 @@ thumbnail: /images/posts/2015-12-08-managing-multiple-aem-instances/juggling.jpg
         ...
 </pre>
 <p>This structure is pretty simple, but it does help a lot to be consistant and makes it pretty quick to move around folders, cd <code>~/dev/aem/6.1</code> is pretty darn easy to type, easy to remember and makes sense from a taxonomy perspective. This also allows me to add other applications in parallel, such as MongoDB, Tomcat or anything else with which I may need to integrate.</p>
+<h3>AEM Manager Script</h3>
 <p>I then created a shell script to manage the individual AEM instances under this structure. The script allows you to start, stop and clear the repositories of instances. When starting, the script clears the AEM logs before starting, can start the instance in debug mode, start multiple publisher instances, can run without the GUI and allows you to configure the JVM settings for the AEM instances.</p>
 <p>This script also allows you to clear the repository, removing everything under the crx-quickstart folder to quickly restore the repository to the starting state. This can be especially useful if you are trying to save space or need to install two incompatible codebases.</p>
+<h3>Examples</h3>
 <p>The commands for the script are relatively straightforward:</p>
 <p><strong>Starting an AEM Instance</strong></p>
 <pre><code>aem-mgr start&nbsp;-i 6.1.0</code></pre>
@@ -31,3 +34,7 @@ thumbnail: /images/posts/2015-12-08-managing-multiple-aem-instances/juggling.jpg
 <p><strong>Clearing&nbsp;an AEM Instance</strong></p>
 <pre><code>aem-mgr clear&nbsp;-i 6.1.0</code></pre>
 <p>A quick note, if you want to run multiple instances in parallel, you will need to pass in the -nd flag to disable debugging on the non-primary instances. The script handles this automatically for publish instances by incrementing all of the port numbers.</p>
+<h3>Defaults</h3>
+<p>By default, the script will look for AEM instances under the ~/dev/aem folder we described above. Each instance is assumed to be in a folder with a JAR inside with a name matching&nbsp;<code>^.<span class="pl-k">*</span>aem.<span class="pl-k">*</span><span class="pl-cce">\.</span>jar$</code> or&nbsp;<code>^.<span class="pl-k">*cq</span>.<span class="pl-k">*</span><span class="pl-cce">\.</span>jar$</code>.</p>
+<p>Each instance with debug enabled will start by default with the Java&nbsp;debugport&nbsp;set to&nbsp;30303 and the JMX port to 9999. Additionally, by default the JVM is granted a maximum of 1GB heap and 256MB of Permanent&nbsp;Generation. &nbsp;These values can be configured in the "Default Settings" section of the script.</p>
+<p>&nbsp;</p>
