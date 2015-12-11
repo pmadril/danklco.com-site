@@ -29,7 +29,7 @@ destination: /var/www/html
 exclude: [.gitignore, update.sh, vagrant]
 
 # Include .htaccess
-exclude: [.htaccess]
+include: [.htaccess]
 
 # Control the number of post per page
 paginate: 10
