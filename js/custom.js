@@ -16,7 +16,7 @@ jQuery(function($){
 			// close bootstrap modal
 			$('#client-box img').attr('src',$client.attr('data-image'));
 			$('#client-box img').attr('width',$client.attr('data-image-width'));
-			var url = '/curriculum-vitae.html article[data-client='+id+']';
+			var url = '/curriculum-vitae/ article[data-client='+id+']';
 			$('#client-box h4').html($client.find('p').html());
 			$('#client-box .client-content').load(url, function(){
 				$('#client-box').show();
