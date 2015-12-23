@@ -66,6 +66,10 @@ img.certification {
 	display: inline-block;
 }
 
+.job, .project {
+    padding: 20px 0 0 10px;
+}
+
 #Facebook {
 	background-position: 0 0;
 }

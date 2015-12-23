@@ -48,3 +48,5 @@ asset_bundler:
 collections:
   engagements:
     output: true
+  jobs:
+    output: true

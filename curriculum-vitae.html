@@ -1,80 +1,63 @@
 ---
 layout: page
 title: 'Curriculum Vitae'
+summary: 'I am an experienced Adobe Experience Manager (AEM) Technical Lead, Solution Architect, Senior Web Content Management Consultant and developer and have been consistently recognized for going above and beyond the basic project parameters. Through my career, I have become viewed as a valued thought leader in the industry, with solid skills in leading teams to implement successful Web Content Management systems on the EMC WebPublisher and CQ5 / AEM platforms. Recently, I was elected to become a PMC Member of the Apache Sling project, which is the basis for Adobe''s Experience Manager product, this allows me unique insight into the AEM platform.'
 tags: []
 ---
 
-<h2>Curriculum Vitae</h2>
-<p>I am an experienced Adobe Experience Manager (AEM) Technical Lead, Solution Architect, Senior Web Content Management Consultant and developer and have been consistently recognized for going above and beyond the basic project parameters. Through my career, I have become viewed as a valued thought leader in the industry, with solid skills in leading teams to implement successful Web Content Management systems on the EMC WebPublisher and CQ5 / AEM platforms. Recently, I was elected to become a PMC Member&nbsp;of the Apache Sling project, which is the basis for Adobe's Experience Manager product, this allows me unique insight into the AEM platform.</p>
+<h2>{{page.title}}</h2>
+<p>{{ page.summary }}</p>
 <a href="http://training.adobe.com/certification/ace-finder.html#p=1&name=klco" target="_blank" alt="ACE AEM Architect Badge">
 	<img class="center-block img-responsive certification" src="/images/certified-architect.png" alt="ACE AEM Architect Badge" />
 </a>
 <section>
-<h3 id="Work-Experience">Work Experience</h3>
-<article id="Perficient-SSA" class="job"><header>
-<h4>2015-Present - Perficient - Cincinnati, OH</h4>
-</header>
-<p><em>Sr. Solution Architect</em></p>
-<ul>
-<li>Responsible for building out a practice around the Adobe Marketing Cloud.</li>
-<li>Building capabilities and expertise around Adobe Analytics, Adobe Campaign and Adobe Target.</li>
-<li>Providing technical, consulting and general guidance and leadership.</li>
-</ul>
-</article>
-<article id="Six-Dimensions-AD" class="job" data-client="6DLabs"><header>
-<h4>2013-2015 - Six Dimensions - Cincinnati, OH</h4>
-</header>
-<p><em>Associate Director</em></p>
-<ul>
-<li>Responsible for managing and mentoring a team of consultants.</li>
-<li>Providing technical, consulting and general guidance and leadership.</li>
-</ul>
-</article>
-<article id="Six-Dimensions-TL" data-client="6DLabs"><header>
-<h4>2011-2013 - Six Dimensions - Cincinnati, OH</h4>
-</header>
-<p><em>Technical Lead</em></p>
-<ul>
-<li>Recognized specialist in Adobe CQ CMS. Implemented multiple projects, presented webinars and produced blog posts.</li>
-<li>Lead teams in creating Adobe CQ WCMS solutions.</li>
-<li>Provided project and internal team leadership.</li>
-</ul>
-</article>
-<article id="Crown-Partners" class="job" data-client="Crown-Partners"><header>
-<h4>2007-2011 - Crown Partners LLC - Dayton, OH</h4>
-</header>
-<p><em>Senior Consultant</em></p>
-<ul>
-<li>Recognized specialist in Web Content Management, have implemented, managed and supported multiple Enterprise Web Content Management and Content Management Systems.</li>
-<li>Lead teams in creating custom Web Content Management solutions.</li>
-<li>Gained valuable Java, XSL/XML, SQL, Web Content Management, Day CQ and Documentum experience.</li>
-</ul>
-</article>
-<article id="Montgomery-Co-Auditor" class="job"><header>
-<h4>2005-2007 - Montgomery Co. Auditor - Dayton, OH</h4>
-</header>
-<p><em>Real Estate Clerk</em></p>
-<ul>
-<li>Began as an intern and due to exceptional merit was offered part-time year round position.</li>
-<li>Gained valuable experience in the operation and organization of local government.</li>
-</ul>
-</article>
+    <h3 id="Work-Experience">Work Experience</h3>
+    {% sorted_for job in site.jobs  reversed sort_by:url %}
+        <article class="job">
+            <header>
+                {% capture endDate %}{{ job.end-date | date: "%Y" }}{% endcapture %}
+                {% if endDate == '3000' %}
+                    {% assign endDate = 'Present' %}
+                {% endif %}
+                <h4>{{job.company}} &mdash; {{job.location}} <span class="pull-right">{{ job.start-date | date: "%Y" }} - {{ endDate }}</span></h4>
+            </header>
+            <p><em>{{job.title}}</em></p>
+            <ul>
+                {% for task in job.tasks %}
+                    <li>{{task}}</li>
+                {% endfor %}
+            </ul>
+        </article>
+    {% endsorted_for %}
 </section>
 <section>
-<h3 id="Project-Experience">Project Experience</h3>
-{% sorted_for engagement in site.engagements reversed sort_by:url %}
-<article class="project" data-client="{{ engagement.client | replace: ' ', '-' }}" data-project="{{ engagement.project | replace: ' ', '-' }}">{% capture endDate %}{{ engagement.end-date | date: "%m / %Y" }}{% endcapture %} {% if endDate == '12 / 3000' %} {% assign endDate = 'Present' %} {% endif %}<header>
-<h4>{{ engagement.client }} &mdash; {{ engagement.start-date | date: "%m / %Y" }} - {{ endDate }} &mdash; {{ engagement.project }}</h4>
-</header>
-<p><em>{{ engagement.role }}</em></p>
-<ul class="tasks">{% for task in engagement.tasks %}
-<li>{{ task }}</li>
-{% endfor %}</ul>
-{% if engagement.tools %} Tools Used:
-<ul class="list-inline">{% for tool in engagement.tools %}
-<li>{{ tool }}{% unless forloop.last %},{% endunless %}</li>
-{% endfor %}</ul>
-{% endif %}</article> {% endsorted_for %}</section>
+    <h3 id="Project-Experience">Project Experience</h3>
+    {% sorted_for engagement in site.engagements reversed sort_by:url %}
+        <article class="project" data-client="{{ engagement.client | replace: ' ', '-' }}" data-project="{{ engagement.project | replace: ' ', '-' }}">
+            {% capture endDate %}{{ engagement.end-date | date: "%m / %Y" }}{% endcapture %}
+            {% if endDate == '12 / 3000' %}
+                {% assign endDate = 'Present' %}
+            {% endif %}
+            <header>
+                <h4>{{ engagement.client }} &mdash; {{ engagement.project }} <span class="pull-right">{{ engagement.start-date | date: "%m / %Y" }} - {{ endDate }}</span></h4>
+            </header>
+            <p><em>{{ engagement.role }}</em></p>
+            <ul class="tasks">
+                {% for task in engagement.tasks %}
+                    <li>{{ task }}</li>
+                {% endfor %}
+            </ul>
+            {% if engagement.tools %} 
+                Tools Used:
+                <ul class="list-inline">
+                    {% for tool in engagement.tools %}
+                        <li>{{ tool }}{% unless forloop.last %},{% endunless %}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </article>
+    {% endsorted_for %}
+</section>
 <section>
 <h3 id="Skills-and-Capabilities">Skills and Capabilities</h3>
 <h4>Programming Languages / Libraries:</h4>
