@@ -13,16 +13,16 @@ title: My Work
 </section>
 <div class="columns-wrapper">
 	<div class="columns">
-		{% sorted_for engagement in site.pages reversed sort_by:url %}
-			{% if engagement.layout == 'engagement' and engagement.hide == true %}
-				{% assign id = engagement.client | replace: ' ', '-' %}
-				<div class="pin client" id="{{ id }}" data-image="{{engagement.image}}" data-image-width="{{engagement.image-width}}">
-					<img alt="{{engagement.client}} - {{engagement.project}}" src="{{engagement.image}}" />
-					<p>
-						{{engagement.client}} &mdash; {{engagement.project}}
-					</p>
-				</div>
-			{% endif %}
+		{% sorted_for engagement in site.engagements reversed sort_by:url %}
+            {% if engagement.show == true %}
+                {% assign id = engagement.client | replace: ' ', '-' %}
+                <div class="pin client" id="{{ id }}" data-image="{{engagement.image}}" data-image-width="{{engagement.image-width}}">
+                    <img alt="{{engagement.client}} - {{engagement.project}}" src="{{engagement.image}}" />
+                    <p>
+                        {{engagement.client}} &mdash; {{engagement.project}}
+                    </p>
+                </div>
+            {% endif %}
 		{% endsorted_for %}
 	</div>
 </div>

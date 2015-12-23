@@ -1337,7 +1337,7 @@ if (typeof jQuery === 'undefined') {
     if (options.delay && typeof options.delay == 'number') {
       options.delay = {
         show: options.delay,
-        hide: options.delay
+        show: options.delay
       }
     }
 

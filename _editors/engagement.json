@@ -42,7 +42,7 @@
          "label":"Tools"
       },
       {
-         "name":"hide",
+         "name":"show",
          "label":"Show In My Work",
          "type":"checkbox",
          "default": false

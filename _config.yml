@@ -44,3 +44,7 @@ asset_bundler:
     css: 'yui'
   markup_templates:
     js: "\t\t<script type=\"text/javascript\" src=\"{{url}}\"></script>\n"
+    
+collections:
+  engagements:
+    output: true
