@@ -3,9 +3,15 @@
  * General Page Layout Styles
  */
 body {
-	background: url(/images/bg.png) center center fixed;
+    background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) ), url(https://unsplash.it/1200/?random&gravity=center) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 	font-family: 'Lato', sans-serif;
 }
+
+
 
 .page-header {
     background-image: url(/images/catania-park.jpg);
