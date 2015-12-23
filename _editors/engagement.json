@@ -48,12 +48,6 @@
          "default": false
       },
       {
-         "name":"thumbnail",
-         "label":"Thumbnail",
-         "type":"path",
-         "required":true
-      },
-      {
          "name":"image",
          "label":"Image",
          "type":"path",
