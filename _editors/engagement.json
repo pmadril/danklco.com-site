@@ -50,20 +50,17 @@
       {
          "name":"image",
          "label":"Image",
-         "type":"path",
-         "required":true
+         "type":"path"
       },
       {
          "name":"image-height",
          "label":"Image Height",
-         "type":"number",
-         "required":true
+         "type":"number"
       },
       {
          "name":"image-width",
          "label":"Image Width",
-         "type":"number",
-         "required":true
+         "type":"number"
       }
    ]
 }
