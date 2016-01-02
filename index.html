@@ -23,7 +23,7 @@ summary: "Dan Klco's home page on the web. Technical and other thoughts largely 
 					{% endif %}
 					<a href="{{url}}" {% if post.original %}target="_blank"{% endif %} title="{{post.title}}" itemprop="url">
 						{% if post.thumbnail %}
-							<img itemprop="image" src="{{ post.thumbnail }}" title="{{post.title}}" />
+							<img itemprop="image" src="{{ post.thumbnail | replace: '/posts/', '/post-thumbs/' }}" title="{{post.title}}" />
 						{% else %}
 							<img itemprop="image" src="//placehold.it/250x120?text={{post.title}}" title="{{post.title}}" />
 						{% endif %}
