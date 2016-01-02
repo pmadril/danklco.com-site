@@ -2,62 +2,39 @@
 layout: page
 title: 'Curriculum Vitae'
 summary: 'I am an experienced Adobe Experience Manager (AEM) Technical Lead, Solution Architect, Senior Web Content Management Consultant and developer and have been consistently recognized for going above and beyond the basic project parameters. Through my career, I have become viewed as a valued thought leader in the industry, with solid skills in leading teams to implement successful Web Content Management systems on the EMC WebPublisher and CQ5 / AEM platforms. Recently, I was elected to become a PMC Member of the Apache Sling project, which is the basis for Adobe''s Experience Manager product, this allows me unique insight into the AEM platform.'
-tags: []
 ---
 
 <h2>{{page.title}}</h2>
 <p>{{ page.summary }}</p>
-<a href="http://training.adobe.com/certification/ace-finder.html#p=1&name=klco" target="_blank" alt="ACE AEM Architect Badge">
-	<img class="center-block img-responsive certification" src="/images/certified-architect.png" alt="ACE AEM Architect Badge" />
-</a>
+<p><a href="http://training.adobe.com/certification/ace-finder.html#p=1&amp;name=klco" target="_blank"> <img class="center-block img-responsive certification" src="/images/certified-architect.png" alt="ACE AEM Architect Badge" /> </a></p>
 <section>
-    <h3 id="Work-Experience">Work Experience</h3>
-    {% sorted_for job in site.jobs  reversed sort_by:url %}
-        <article class="job">
-            <header>
-                {% capture endDate %}{{ job.end-date | date: "%Y" }}{% endcapture %}
-                {% if endDate == '3000' %}
-                    {% assign endDate = 'Present' %}
-                {% endif %}
-                <h4>{{job.company}} &mdash; {{job.location}} <span class="pull-right">{{ job.start-date | date: "%Y" }} - {{ endDate }}</span></h4>
-            </header>
-            <p><em>{{job.title}}</em></p>
-            <ul>
-                {% for task in job.tasks %}
-                    <li>{{task}}</li>
-                {% endfor %}
-            </ul>
-        </article>
-    {% endsorted_for %}
-</section>
+<h3 id="Work-Experience">Work Experience</h3>
+{% sorted_for job in site.jobs reversed sort_by:url %}
+<article class="job"><header>{% capture endDate %}{{ job.end-date | date: "%Y" }}{% endcapture %} {% if endDate == '3000' %} {% assign endDate = 'Present' %} {% endif %}
+<h4>{{job.company}} &mdash; {{job.location}} <span class="pull-right">{{ job.start-date | date: "%Y" }} - {{ endDate }}</span></h4>
+</header>
+<p><em>{{job.title}}</em></p>
+<ul>{% for task in job.tasks %}
+<li>{{task}}</li>
+{% endfor %}</ul>
+</article>
+{% endsorted_for %}</section>
 <section>
-    <h3 id="Project-Experience">Project Experience</h3>
-    {% sorted_for engagement in site.engagements reversed sort_by:url %}
-        <article class="project" data-client="{{ engagement.client | replace: ' ', '-' }}" data-project="{{ engagement.project | replace: ' ', '-' }}">
-            {% capture endDate %}{{ engagement.end-date | date: "%m / %Y" }}{% endcapture %}
-            {% if endDate == '12 / 3000' %}
-                {% assign endDate = 'Present' %}
-            {% endif %}
-            <header>
-                <h4>{{ engagement.client }} &mdash; {{ engagement.project }} <span class="pull-right">{{ engagement.start-date | date: "%m / %Y" }} - {{ endDate }}</span></h4>
-            </header>
-            <p><em>{{ engagement.role }}</em></p>
-            <ul class="tasks">
-                {% for task in engagement.tasks %}
-                    <li>{{ task }}</li>
-                {% endfor %}
-            </ul>
-            {% if engagement.tools %} 
-                Tools Used:
-                <ul class="list-inline">
-                    {% for tool in engagement.tools %}
-                        <li>{{ tool }}{% unless forloop.last %},{% endunless %}</li>
-                    {% endfor %}
-                </ul>
-            {% endif %}
-        </article>
-    {% endsorted_for %}
-</section>
+<h3 id="Project-Experience">Project Experience</h3>
+{% sorted_for engagement in site.engagements reversed sort_by:url %}
+<article class="project" data-client="{{ engagement.client | replace: ' ', '-' }}" data-project="{{ engagement.project | replace: ' ', '-' }}">{% capture endDate %}{{ engagement.end-date | date: "%m / %Y" }}{% endcapture %} {% if endDate == '12 / 3000' %} {% assign endDate = 'Present' %} {% endif %}<header>
+<h4>{{ engagement.client }} &mdash; {{ engagement.project }} <span class="pull-right">{{ engagement.start-date | date: "%m / %Y" }} - {{ endDate }}</span></h4>
+</header>
+<p><em>{{ engagement.role }}</em></p>
+<ul class="tasks">{% for task in engagement.tasks %}
+<li>{{ task }}</li>
+{% endfor %}</ul>
+{% if engagement.tools %} Tools Used:
+<ul class="list-inline">{% for tool in engagement.tools %}
+<li>{{ tool }}{% unless forloop.last %},{% endunless %}</li>
+{% endfor %}</ul>
+{% endif %}</article>
+{% endsorted_for %}</section>
 <section>
 <h3 id="Skills-and-Capabilities">Skills and Capabilities</h3>
 <h4>Programming Languages / Libraries:</h4>
@@ -66,20 +43,28 @@ tags: []
 <li>GWT, AJAX, JavaScript, HTML, CSS</li>
 <li>XSLT / XML, Velocity, JSON, SOAP &amp; RESTful Web Services</li>
 <li>SQL, JCR-SQL2</li>
-<li>Swing, AWT, OSGi</li>
+<li>Swing, AWT, Spring, OSGi</li>
 </ul>
 <h4>Technology Platforms:</h4>
 <ul>
-<li>EMC Documentum, Day/Adobe CQ/AEM, SiteCatalyst/Adobe Analytics, Drupal, Apache Sling</li>
+<li>EMC Documentum, Day/Adobe CQ/AEM, Drupal, Apache Sling</li>
 <li>Eclipse, Visual Studio, Subversion, Git, Jenkins, Ivy, Maven</li>
 <li>Windows, Linux, Solaris</li>
 <li>SQL Server, Oracle, MySQL, MongoDB</li>
 <li>Apache, IIS, Tomcat, Weblogic, JBoss</li>
 </ul>
+<h4>Digital Marketing Platforms:</h4>
+<ul>
+<li>Adobe Analytics (SiteCatalyist)</li>
+<li>Adobe Campaign (Neolane)</li>
+<li>Adobe Digital Publishing Suite</li>
+<li>Adobe Target</li>
+<li>Google Analytics</li>
+</ul>
 </section>
 <section>
 <h3 id="Education">Education</h3>
-<h5 id="University-of-Dayton">2004-2007 - University of Dayton - Dayton, OH</h4>
+<h5>2004-2007 - University of Dayton - Dayton, OH</h5>
 <ul>
 <li>Graduated with Honors.</li>
 <li>Majored in Political Science with a minor in Computer Information Systems.</li>

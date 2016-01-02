@@ -97,7 +97,7 @@ if test -e /usr/bin/jekyll; then
 else
 	echo "Installing Jekyll..."
 	yum -y install ruby ruby-devel rubygems nodejs gcc execjs
-	gem install -V yui-compressor jekyll
+	gem install -V yui-compressor jekyll jekyll-paginate
 	echo "Jekyll installed"
 fi
 
