@@ -33,17 +33,17 @@ Redirect Permanent /2009/10/14/vault-port-80/ /posts/2009/10/14/vault-port-80/
 
 # cache images and flash content for one month
 <FilesMatch ".(flv|gif|jpg|jpeg|png|ico|swf)$">
-Header set Cache-Control "max-age=2592000"
+Header set Cache-Control "max-age=2592000, public"
 </FilesMatch>
 
 # cache text, css, and javascript files for one week
 <FilesMatch ".(js|css|pdf|txt|woff)$">
-Header set Cache-Control "max-age=604800"
+Header set Cache-Control "max-age=604800, public"
 </FilesMatch>
 
 # cache html and htm files for one day
 <FilesMatch ".(html|htm)$">
-Header set Cache-Control "max-age=43200"
+Header set Cache-Control "max-age=43200, public"
 </FilesMatch>
 
 # disable directory browsing
