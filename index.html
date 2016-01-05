@@ -27,6 +27,7 @@ summary: "Dan Klco's home page on the web. Technical and other thoughts largely 
 							<div itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
 								<img src="{{ post.thumbnail | replace: '/posts/', '/post-thumbs/' }}" title="{{post.title}}"/>
 								<meta itemprop="url" content="{{site.url}}{{ post.thumbnail | replace: '/posts/', '/post-thumbs/' }}">
+								<meta itemprop="width" content="300">
 							</div>
 							<img itemprop="image" src="" title="{{post.title}}" />
 						{% else %}
@@ -39,6 +40,9 @@ summary: "Dan Klco's home page on the web. Technical and other thoughts largely 
 							<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> <em itemprop="datePublished">{{post.date | date: "%b %d %Y"}}</em>
 						</div>
 					</a>
+					<div itemprop="author" itemscope itemtype="https://schema.org/Person">
+						<meta itemprop="name" content="Dan Klco">
+					</div>
 					<div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
 						<div itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
 							<meta itemprop="url" content="https://www.danklco.com/images/me.jpg" />
