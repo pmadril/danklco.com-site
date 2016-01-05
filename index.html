@@ -22,10 +22,15 @@ summary: "Dan Klco's home page on the web. Technical and other thoughts largely 
 						{% assign url = post.url %}
 					{% endif %}
 					<a href="{{url}}" {% if post.original %}target="_blank"{% endif %} title="{{post.title}}" itemprop="url">
+						
 						{% if post.thumbnail %}
-							<img itemprop="image" src="{{ post.thumbnail | replace: '/posts/', '/post-thumbs/' }}" title="{{post.title}}" />
+							<div itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
+								<img src="{{ post.thumbnail | replace: '/posts/', '/post-thumbs/' }}" title="{{post.title}}"/>
+								<meta itemprop="url" content="{{ post.thumbnail | replace: '/posts/', '/post-thumbs/' }}">
+							</div>
+							<img itemprop="image" src="" title="{{post.title}}" />
 						{% else %}
-							<img itemprop="image" src="//placehold.it/250x120?text={{post.title}}" title="{{post.title}}" />
+							<img  src="//placehold.it/250x120?text={{post.title}}" title="{{post.title}}" />
 						{% endif %}
 						<h5 itemprop="headline">
 							{{post.title}}
@@ -34,6 +39,8 @@ summary: "Dan Klco's home page on the web. Technical and other thoughts largely 
 							<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> <em itemprop="datePublished">{{post.date | date: "%b %d %Y"}}</em>
 						</div>
 					</a>
+					<meta itemprop="datePublished" content="{{ post.date | date_to_xmlschema }}"/>
+  					<meta itemprop="dateModified" content="{{ post.date | date_to_xmlschema }}"/>
 				</article>
 			{% endfor %}
 		</section>
