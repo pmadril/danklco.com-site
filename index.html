@@ -21,7 +21,7 @@ summary: "Dan Klco's home page on the web. Technical and other thoughts largely 
 					{% else %}
 						{% assign url = post.url %}
 					{% endif %}
-					<meta itemscope itemprop="mainEntityOfPage"  itemType="https://schema.org/WebPage" itemid="{{ url }}"/>
+					<meta itemscope itemprop="mainEntityOfPage"  itemType="https://schema.org/WebPage" itemid="{{ url }}" content="{{url}}" />
 					<a href="{{url}}" {% if post.original %}target="_blank"{% endif %} title="{{post.title}}" itemprop="url">
 						{% if post.thumbnail %}
 							<div itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
