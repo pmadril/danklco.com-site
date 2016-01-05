@@ -21,12 +21,12 @@ summary: "Dan Klco's home page on the web. Technical and other thoughts largely 
 					{% else %}
 						{% assign url = post.url %}
 					{% endif %}
+					<meta itemscope itemprop="mainEntityOfPage"  itemType="https://schema.org/WebPage" itemid="{{ url }}"/>
 					<a href="{{url}}" {% if post.original %}target="_blank"{% endif %} title="{{post.title}}" itemprop="url">
-						
 						{% if post.thumbnail %}
 							<div itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
 								<img src="{{ post.thumbnail | replace: '/posts/', '/post-thumbs/' }}" title="{{post.title}}"/>
-								<meta itemprop="url" content="{{ post.thumbnail | replace: '/posts/', '/post-thumbs/' }}">
+								<meta itemprop="url" content="{{site.url}}{{ post.thumbnail | replace: '/posts/', '/post-thumbs/' }}">
 							</div>
 							<img itemprop="image" src="" title="{{post.title}}" />
 						{% else %}
@@ -39,6 +39,14 @@ summary: "Dan Klco's home page on the web. Technical and other thoughts largely 
 							<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> <em itemprop="datePublished">{{post.date | date: "%b %d %Y"}}</em>
 						</div>
 					</a>
+					<div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
+						<div itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
+							<meta itemprop="url" content="https://www.danklco.com/images/me.jpg" />
+							<meta itemprop="width" content="249">
+							<meta itemprop="height" content="249">
+						</div>
+						<meta itemprop="name" content="Dan Klco">
+					</div>
 					<meta itemprop="datePublished" content="{{ post.date | date_to_xmlschema }}"/>
   					<meta itemprop="dateModified" content="{{ post.date | date_to_xmlschema }}"/>
 				</article>
