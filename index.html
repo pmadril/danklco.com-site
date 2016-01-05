@@ -25,13 +25,12 @@ summary: "Dan Klco's home page on the web. Technical and other thoughts largely 
 					<a href="{{url}}" {% if post.original %}target="_blank"{% endif %} title="{{post.title}}" itemprop="url">
 						{% if post.thumbnail %}
 							<div itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
-								<img src="{{ post.thumbnail | replace: '/posts/', '/post-thumbs/' }}" title="{{post.title}}"/>
+								<img src="{{ post.thumbnail | replace: '/posts/', '/post-thumbs/' }}" alt="{{post.title}}"/>
 								<meta itemprop="url" content="{{site.url}}{{ post.thumbnail | replace: '/posts/', '/post-thumbs/' }}">
 								<meta itemprop="width" content="300">
 							</div>
-							<img itemprop="image" src="" title="{{post.title}}" />
 						{% else %}
-							<img  src="//placehold.it/250x120?text={{post.title}}" title="{{post.title}}" />
+							<img  src="//placehold.it/250x120?text={{post.title}}" alt="{{post.title}}" />
 						{% endif %}
 						<h5 itemprop="headline">
 							{{post.title}}
