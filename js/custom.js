@@ -26,13 +26,17 @@ jQuery(function($){
 		});
 		var totalPages = $('.columns-wrapper').attr('data-total-pages');
 		var currentPage = 1;
+        $('.loader').hide();
 		$('.next-page').click(function(){
 			$btn = $(this);
+            $ldr = $btn.siblings('.loader');
 			window.location.hash = '#!' + $btn.attr('href');
 			$btn.hide();
+            $ldr.show();
 			$("<div>").load($btn.attr('href')+" .columns-wrapper", function() {
 				$(".recent-activity").append($(this).html());
 				$btn.show();
+                $ldr.hide();
 			});
 			if(currentPage < totalPages){
 				currentPage++;
