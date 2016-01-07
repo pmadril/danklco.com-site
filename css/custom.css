@@ -11,8 +11,6 @@ body {
 	font-family: 'Lato', sans-serif;
 }
 
-
-
 .page-header {
     background-image: url(/images/catania-park.jpg);
     background-size:cover;
@@ -151,6 +149,12 @@ img.certification {
 	margin-bottom: 5px;
 }
 
+.glyphicon-spin {
+  -webkit-animation: spin 2s infinite linear;
+  -moz-animation: spin 2s infinite linear;
+  -o-animation: spin 2s infinite linear;
+  animation: spin 2s infinite linear;
+}
 
 @media (min-width: 1100px) {
 	.columns {
