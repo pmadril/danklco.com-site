@@ -139,7 +139,7 @@ img.certification {
 	-moz-transition: all .2s ease;
 	-o-transition: all .2s ease;
 	transition: all .2s ease;
-    cursor:pointer;
+	cursor:pointer;
 }
 
 .pin img {
@@ -158,10 +158,6 @@ img.certification {
 }
 
 .glyphicon-spin {
-    margin: 20px;
-    width: 100px;
-    height: 100px;
-    background: #f00;
     -webkit-animation-name: spin;
     -webkit-animation-duration: 4000ms;
     -webkit-animation-iteration-count: infinite;
@@ -174,7 +170,6 @@ img.certification {
     -ms-animation-duration: 4000ms;
     -ms-animation-iteration-count: infinite;
     -ms-animation-timing-function: linear;
-    
     animation-name: spin;
     animation-duration: 4000ms;
     animation-iteration-count: infinite;
