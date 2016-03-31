@@ -8,9 +8,9 @@ layout: default
 			<header class="row">
 				<div class="col-md-2">
 					{% if page.thumbnail %}
-						<img property="image" class="img-responsive img-rounded" src="{{ site.url }}{{ page.thumbnail }}" title="{{page.title}}"/>
+						<img property="image" class="img-responsive img-rounded" src="{{ page.thumbnail }}" title="{{page.title}}"/>
 					{% else %}
-						<img property="image" class="img-responsive img-rounded" src="{{ site.url }}/images/me.jpg" title="{{page.title}}"/>
+						<img property="image" class="img-responsive img-rounded" src="/images/me.jpg" title="{{page.title}}"/>
 					{% endif %}
 				</div>
 				<div class="col-md-10">
