@@ -2,6 +2,7 @@
 layout: post
 title: 'Targeting Unleashed in AEM 6.2'
 published: true
+tags: []
 ---
 
 <p>Last month, Adobe <a href="https://docs.adobe.com/docs/en/aem/6-2/release-notes.html" target="_blank">released AEM 6.2</a>, the latest iteration of <a href="http://www.adobe.com/marketing-cloud/enterprise-content-management.html" target="_blank">Adobe Experience Manager</a>, Adobe's flagship Web Experience Management product. This new release comes with some <a href="https://blogs.adobe.com/digitalmarketing/digital-marketing/adobe-experience-manager-6-2-new-features/" target="_blank">exciting new features</a>&nbsp;including:</p>
@@ -13,16 +14,10 @@ published: true
 <li>Community Insights &amp; Scoring</li>
 </ul>
 <p>One of the most exciting features for me is the latest and greatest integration with Adobe Target for Personalization and Optimization. This new itegration provides a much deeper integration between the authoring and content management features of Adobe Experience Manager and the powerful personalization and optimization features of Adobe Target.</p>
+<p>This interation allows for marketers to manange and author content to be targeted through the familiar and user-friendly AEM interface reduces the number of tools the average user will need to use and be familiar with in order to do their job. Given the <a href="https://blogs.adobe.com/digitalmarketing/personalization/personalization-payoff-roi-getting-personal/" target="_blank">clear benefits of personalization and optimization</a>&nbsp;and the improvements Adobe has made in improving the user interface and friendlyness of the AEM / Target integration, I expect more implementations will start leveraging both tools, especially when implementing AEM 6.2.</p>
 <h3>Seeing the Integration</h3>
-<p>While at Adobe Summit, I attended the Lab <em>"Integrating Experience Manager with Adobe Analytics, Target and DTM"</em>, this lab showed the new integration between AEM and Target. In only one hour, we were able to set up all four products and integrate them together into a cohesive solution to personalize content.</p>
-
-<h4>1. Add Target in Dynamic Tag Manager</h4>
-<p>
-First, add Adobe Target into your Dynamic Tag Manager (DTM) configuration for your site. From here, you can map variables tracked in DTM from other sources, for example Adobe Analytics or AEM into MBox parameters for Target.
-<br/>
-<img src="/images/posts/2016-05-18-aem-62-target-integration/01-Adobe-Target-DTM.png" class="aligncenter center-block img-responsive" alt="Configuring Adobe Target in Dynamic Tag Manager" />
-<br/>
-Once you have configured DTM to include Adobe Target, it will be automatically pushed onto all of the pages on your site or the specific pages for which you have configured DTM to publish Target.
-</p>
-<p><a href="https://adobesummit.lanyonevents.com/2016/connect/sessionDetail.ww?SESSION_ID=1462">https://adobesummit.lanyonevents.com/2016/connect/sessionDetail.ww?SESSION_ID=1462</a></p>
-<p>&nbsp;</p>
+<p>While at Adobe Summit, I attended the Lab <em>"Integrating Experience Manager with Adobe Analytics, Target and DTM"</em>, this lab showed the new integration between AEM and Target. In only one hour, we were able to set up all four products and integrate them together into a cohesive solution to personalize content.&nbsp;</p>
+<p>In this post, I'll show the process for using the integration. For more information on setting up or configuring the AEM / Target integration, please see the <a href="https://adobesummit.lanyonevents.com/2016/connect/sessionDetail.ww?SESSION_ID=1462" target="_blank">Summit Session documents</a>.</p>
+<h4>1. Configure the Activity in AEM</h4>
+<p>The first step to using Adobe Target in AEM is to configure your Activity. An activity is an instance of targeting on a page. Each activity gets a name and you can configure which targeting engine, configuration and targeting type to use.</p>
+<p><img src="/images/posts/2016-05-18-aem-62-target-integration/02-Configure-Activity.png" alt="Configuring an Activity" />&nbsp;&nbsp;</p>
