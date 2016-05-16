@@ -1,33 +1,30 @@
 ---
 layout: post
-title: 'Targeting Unleashed in AEM 6.2'
+title: '5 Steps to Personalization with Adobe Target and AEM 6.2'
 published: true
-tags: []
 ---
 
-<p>Last month, Adobe <a href="https://docs.adobe.com/docs/en/aem/6-2/release-notes.html" target="_blank">released AEM 6.2</a>, the latest iteration of <a href="http://www.adobe.com/marketing-cloud/enterprise-content-management.html" target="_blank">Adobe Experience Manager</a>, Adobe's flagship Web Experience Management product. This new release comes with some <a href="https://blogs.adobe.com/digitalmarketing/digital-marketing/adobe-experience-manager-6-2-new-features/" target="_blank">exciting new features</a>&nbsp;including:</p>
-<ul>
-<li>Template Editor</li>
-<li>Smart Tags</li>
-<li>Asset Insights</li>
-<li>AEM Mobile</li>
-<li>Community Insights &amp; Scoring</li>
-</ul>
-<p>One of the most exciting features for me is the latest and greatest integration with Adobe Target for Personalization and Optimization. This new itegration provides a much deeper integration between the authoring and content management features of Adobe Experience Manager and the powerful personalization and optimization features of Adobe Target.</p>
-<p>This interation allows for marketers to manange and author content to be targeted through the familiar and user-friendly AEM interface reduces the number of tools the average user will need to use and be familiar with in order to do their job. Given the <a href="https://blogs.adobe.com/digitalmarketing/personalization/personalization-payoff-roi-getting-personal/" target="_blank">clear benefits of personalization and optimization</a>&nbsp;and the improvements Adobe has made in improving the user interface and friendlyness of the AEM / Target integration, I expect more implementations will start leveraging both tools, especially when implementing AEM 6.2.</p>
+<p>One of the major problems with most personalization and optimization tools, is the disconnect between the website authoring experiences and&nbsp;the authoring experience for targeted&nbsp;content. This disconnect causes undue confusion for authors and makes content maintaince a chore by requiring authors to log into multiple systems to maintain website content.</p>
+<p>Last month, Adobe <a href="https://docs.adobe.com/docs/en/aem/6-2/release-notes.html" target="_blank">released AEM 6.2</a>, the latest iteration of <a href="http://www.adobe.com/marketing-cloud/enterprise-content-management.html" target="_blank">Adobe Experience Manager</a>, Adobe's flagship Web Experience Management product. This new release comes with some <a href="https://blogs.adobe.com/digitalmarketing/digital-marketing/adobe-experience-manager-6-2-new-features/" target="_blank">exciting new features</a>&nbsp;including a new integration with <a href="http://www.adobe.com/marketing-cloud/testing-targeting.html" target="_blank">Adobe Target</a>.&nbsp;This new itegration provides a much deeper integration between&nbsp;AEM and Target and allows authors to maintain both standard and targeted website content within a single interface.</p>
+<p>Given the <a href="https://blogs.adobe.com/digitalmarketing/personalization/personalization-payoff-roi-getting-personal/" target="_blank">clear benefits of personalization and optimization</a>&nbsp;and the improvements Adobe has made in improving the user interface and friendlyness of the AEM / Target integration, I expect more implementations will start leveraging both tools, especially when implementing AEM 6.2.</p>
 <h3>Seeing the Integration</h3>
 <p>While at Adobe Summit, I attended the Lab <em>"Integrating Experience Manager with Adobe Analytics, Target and DTM"</em>, this lab showed the new integration between AEM and Target. In only one hour, we were able to set up all four products and integrate them together into a cohesive solution to personalize content.&nbsp;</p>
 <p>In this post, I'll show the process for using the integration. For more information on setting up or configuring the AEM / Target integration, please see the <a href="https://adobesummit.lanyonevents.com/2016/connect/sessionDetail.ww?SESSION_ID=1462" target="_blank">Summit Session documents</a>.</p>
-<h4>1. Configure the Activity in AEM</h4>
+<h4>1. Configure an&nbsp;Activity in AEM</h4>
 <p>The first step to using Adobe Target in AEM is to configure your Activity. An activity is an instance of targeting on a page. Each activity gets a name and you can configure which targeting engine, configuration and targeting type to use.</p>
-<p><img src="/images/posts/2016-05-18-aem-62-target-integration/02-Configure-Activity.png" alt="Configuring an Activity" />&nbsp;&nbsp;</p>
-<p>To create a new Activity, first select the Brand (which is a container of activities for a particular brand) then click the + button. If you wanted to modify an existing activity, you would select the name of&nbsp;activity from the dropdown.</p>
+<p><img class="img-responsive centeralign center-block" src="/images/posts/2016-05-18-aem-62-target-integration/02-Configure-Activity.png" alt="Configuring an Activity" />&nbsp;&nbsp;</p>
+<p>To create a new Activity, first select the Brand (which is a container of activities for a particular brand or site) then click the + button. If you wanted to modify an existing activity, you would select the name of&nbsp;activity from the dropdown.</p>
 <h4>2. Define Targets</h4>
 <p>Next, define the components to be targeted. You can define any number of components to be targeted on the page. To do so, simply select the Targeting icon on the component's edit bar.</p>
-<p><img src="/images/posts/2016-05-18-aem-62-target-integration/03-Manage-Audiences.png" alt="Managing Audiences" /></p>
+<p><img class="img-responsive centeralign center-block" src="/images/posts/2016-05-18-aem-62-target-integration/03-Manage-Audiences.png" alt="Managing Audiences" /></p>
 <h4>3. Create&nbsp;Experiences</h4>
 <p>Once you have your componets selected for the Activity, you need to create the experiences. Experiences are content variants shown to a particular audience or are groups of users based on criteria. By default only the DEFAULT experience&nbsp;will be displayed when the Activity is first created.</p>
 <p>To add an experience&nbsp;to target the experience, select "+ Add Experience Targeting". This will allow you to choose from among the pre-defined audiences or create a new audience to target.</p>
-<p><img src="/images/posts/2016-05-18-aem-62-target-integration/04-Choose-Audience.png" alt="Choosing Audiences" width="600" height="184" /></p>
+<p><img class="img-responsive centeralign center-block" src="/images/posts/2016-05-18-aem-62-target-integration/04-Choose-Audience.png" alt="Choosing Audiences" width="600" height="184" /></p>
 <p>You can create any number of audiences and order them in order in which they will be selected by Target.</p>
-<h4>4.&nbsp;</h4>
+<h4>4. Create the Experince Content</h4>
+<p>Once you've defined the experiences, select each one and update the content in the targeted components for the experience. You can change content, images or anything else you can edit within an AEM component.</p>
+<p><img class="img-responsive centeralign center-block" src="/images/posts/2016-05-18-aem-62-target-integration/07-Create-Experience-Content.png" alt="Create the Experience Content" width="600" height="374" /></p>
+<p>You can quckly switch between experiences in authoring mode by selecting the experience name on the right to see how the content appears in each experience.</p>
+<h4>5. Finish and Publish</h4>
+<p>Once you have created&nbsp;</p>
