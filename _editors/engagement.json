@@ -62,5 +62,8 @@
          "label":"Image Width",
          "type":"number"
       }
-   ]
+   ],
+   "rte": {
+      "document_base_url":"https://www.danklco.com/"
+   }
 }

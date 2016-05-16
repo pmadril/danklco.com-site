@@ -18,5 +18,8 @@
          "type":"textarea",
          "label":"Description"
       }
-   ]
+   ],
+   "rte": {
+      "document_base_url":"https://www.danklco.com/"
+   }
 }
