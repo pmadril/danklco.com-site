@@ -20,11 +20,11 @@
             </a>
         </div>
         <div class="col-sm-8">
-            <h2 itemprop="headline">
+            <h3 itemprop="headline">
                 <a href="{{url}}" {% if post.original %}target="_blank"{% endif %} title="{{post.title}}" itemprop="url">
                     {{post.title}}
                 </a>
-            </h2>
+            </h3>
             <p class="text-muted">
                 <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> <em itemprop="datePublished">{{post.date | date: "%B %d %Y"}}</em>
                 <br/>
