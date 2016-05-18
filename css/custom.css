@@ -11,6 +11,14 @@ body {
 	font-family: 'Lato', sans-serif;
 }
 
+h2 {
+    margin-top: 10px;
+}
+
+.next-page {
+    margin-top: 10px;
+}
+
 .page-header {
     background-image: url(/images/catania-park.jpg);
     background-size:cover;

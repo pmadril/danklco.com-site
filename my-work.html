@@ -18,9 +18,9 @@ title: My Work
                 {% assign id = engagement.client | replace: ' ', '-' %}
                 <div class="pin client" id="{{ id }}" data-image="{{engagement.image}}" data-image-width="{{engagement.image-width}}">
                     <img alt="{{engagement.client}} - {{engagement.project}}" src="{{engagement.image}}" />
-                    <p>
+                    <h3>
                         {{engagement.client}} &mdash; {{engagement.project}}
-                    </p>
+                    </h3>
                 </div>
             {% endif %}
 		{% endsorted_for %}

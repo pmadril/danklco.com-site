@@ -17,14 +17,14 @@ jQuery(function($){
 			$('#client-box img').attr('src',$client.attr('data-image'));
 			$('#client-box img').attr('width',$client.attr('data-image-width'));
 			var url = '/curriculum-vitae/ article[data-client='+id+']';
-			$('#client-box h4').html($client.find('p').html());
+			$('.modal-title').html($client.find('h3').html());
 			$('#client-box .client-content').load(url, function(){
 				$('#client-box').show();
 				$('#client-box').modal('show');
 			});
 			return false;
 		});
-		var totalPages = $('.columns-wrapper').attr('data-total-pages');
+		var totalPages = $('.articles-wrapper').attr('data-total-pages');
 		var currentPage = 1;
         $('.loader').hide();
 		$('.next-page').click(function(){
@@ -33,7 +33,7 @@ jQuery(function($){
 			window.location.hash = '#!' + $btn.attr('href');
 			$btn.hide();
             $ldr.show();
-			$("<div>").load($btn.attr('href')+" .columns-wrapper", function() {
+			$("<div>").load($btn.attr('href')+" .articles-wrapper", function() {
 				$(".recent-activity").append($(this).html());
 				$btn.show();
                 $ldr.hide();

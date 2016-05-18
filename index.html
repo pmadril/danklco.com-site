@@ -1,11 +1,16 @@
 ---
 layout: home
 title: Home
-summary: "Dan Klco's home page on the web. Technical and other thoughts largely around AEM and Apache Sling."
+tags: 
+  - 'Apache Sling'
+  - 'Adobe Experience Manager'
+  - 'Digital Marketer'
+  - 'Adobe Certified Expert Architect'
+summary: "Home on the internet for Dan Klco, Adobe Certified Expert Architect, Apache Sling PMC Member and Digital Marketing Consultant"
 ---
 
 <div class="recent-activity">
-	<div class="columns-wrapper" data-total-pages="{{paginator.total_pages}}">
+	<div class="articles-wrapper" data-total-pages="{{paginator.total_pages}}">
 		{% if paginator.page != 1 %}
 			<div class="columns-header transparent-block-inverse text-center">
 				<strong>
@@ -13,53 +18,16 @@ summary: "Dan Klco's home page on the web. Technical and other thoughts largely 
 				</strong>
 			</div>
 		{% endif %}
-		<section itemscope itemtype="http://schema.org/Blog" class="columns page-{{paginator.page}}">
+		<section itemscope itemtype="http://schema.org/Blog" class="articles-wrapper page-{{paginator.page}}">
 			{% for post in paginator.posts %}
-				<article itemprop="blogPosts" itemscope itemtype="http://schema.org/BlogPosting" class="pin"> 
-					{% if post.original %}
-						{% assign url = post.original %}
-					{% else %}
-						{% assign url = post.url %}
-					{% endif %}
-					<meta itemscope itemprop="mainEntityOfPage"  itemType="https://schema.org/WebPage" itemid="{{ url }}" content="{{url}}" />
-					<a href="{{url}}" {% if post.original %}target="_blank"{% endif %} title="{{post.title}}" itemprop="url">
-						{% if post.thumbnail %}
-							<div itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
-								<img src="{{ post.thumbnail | replace: '/posts/', '/post-thumbs/' }}" alt="{{post.title}}"/>
-								<meta itemprop="url" content="{{site.url}}{{ post.thumbnail | replace: '/posts/', '/post-thumbs/' }}">
-								<meta itemprop="width" content="300">
-							</div>
-						{% else %}
-							<img  src="//placehold.it/250x120?text={{post.title}}" alt="{{post.title}}" />
-						{% endif %}
-						<h5 itemprop="headline">
-							{{post.title}}
-						</h5>
-						<div>
-							<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> <em itemprop="datePublished">{{post.date | date: "%b %d %Y"}}</em>
-						</div>
-					</a>
-					<div itemprop="author" itemscope itemtype="https://schema.org/Person">
-						<meta itemprop="name" content="Dan Klco">
-					</div>
-					<div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
-						<div itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
-							<meta itemprop="url" content="https://www.danklco.com/images/me.jpg" />
-							<meta itemprop="width" content="249">
-							<meta itemprop="height" content="249">
-						</div>
-						<meta itemprop="name" content="Dan Klco">
-					</div>
-					<meta itemprop="datePublished" content="{{ post.date | date_to_xmlschema }}"/>
-  					<meta itemprop="dateModified" content="{{ post.date | date_to_xmlschema }}"/>
-				</article>
+				{% include post.html %}
 			{% endfor %}
 		</section>
 	</div>
 </div>
 {% if paginator.total_pages != 1 %}
 	{% if paginator.next_page %}
-		<a href="/page{{paginator.next_page}}/" class="btn btn-default center-block next-page">More</a>
+        <a href="/page{{paginator.next_page}}/" class="btn btn-default center-block next-page">More</a>
 	{% endif %}
     <div class="loader text-center transparent-block-inverse row">
         <span class="glyphicon glyphicon-refresh glyphicon-spin"></span> Loading...

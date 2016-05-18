@@ -1,17 +1,22 @@
 ---
-layout: page
+layout: default
 ---
-<h2 class="post_title">{{page.title}}</h2>
-<ul>
-  {% for post in site.posts %}
-  	{% for tag in post.tags %}
-  		{% if tag == page.tag %}
-  		  <li class="archive_list" typeof="Document" resource="{% if post.original %}{{ post.original }}{% else %}{{ post.url }}{% endif %}">
-			<strong><a href="{% if post.original %}{{ post.original }}{% else %}{{ post.url }}{% endif %}" property="title">{{post.title}}</a></strong><br/>
-    	    <time datetime='{{post.date | date: "%Y-%m-%d"}}'><em property="created">{{post.date | date: "%B %d, %Y"}}</em></time>
-    		<p class="summary" property="description">{{ post.content | truncatewords: 50 | strip_html }}</p>
-  		  </li>
-  		{% endif %}
-  	{% endfor %}
-  {% endfor %}
-</ul>
+<div class="row">
+
+    <div class="col-sm-8">
+        <section class=" transparent-block-default">
+            <h2>{{page.title}}</h2>
+        </section>
+
+        {% for post in site.posts %}
+        {% for tag in post.tags %}
+            {% if tag == page.tag %}
+              {% include post.html %}
+            {% endif %}
+        {% endfor %}
+        {% endfor %}
+    </div>
+    <aside class="transparent-block-default col-sm-4">
+        {% include twitter.html %}
+    </aside>
+</div>
