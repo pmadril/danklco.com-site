@@ -3,16 +3,20 @@
  * General Page Layout Styles
  */
 body {
-    background: linear-gradient( rgba(84, 84, 84, 0.7), rgba(84, 84, 84, 0.7) ), url(https://unsplash.it/800/?random&gravity=center) no-repeat center center fixed; 
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
+    background: linear-gradient(rgba(0,0,0, 0.6),rgba(0,0,0, 0.6)); 
     background-size: cover;
 	font-family: 'Lato', sans-serif;
 }
 
 h2 {
     margin-top: 10px;
+}
+
+
+.navbar-inverse {
+    border-radius: 0;
+    margin-left: -15px;
+    margin-right: -15px;
 }
 
 .next-page {
@@ -42,15 +46,13 @@ h2 {
     padding: 10px;
 }
 
-.navbar-inverse {
-    border-radius: 0;
-    margin-left: -15px;
-    margin-right: -15px;
+.row-align-left {
+    margin-left: -30px;
 }
 
 .transparent-block-default {
 	background-color: white;
-	opacity: 0.9;
+	opacity: 0.93;
 	padding:20px;
     margin-top: 10px;
 }
@@ -109,13 +111,14 @@ img.certification {
 /*
  * Homepage pinterest style list
  */
- 
 .columns-header {
 	margin-bottom: 3em;
 }
  
 .columns-wrapper {
 	margin: 10px auto;
+    margin-left: -15px;
+    margin-right: -15px;
 }
 
 .columns {
@@ -135,7 +138,7 @@ img.certification {
 	background: #FEFEFE;
 	border: 2px solid #FAFAFA;
 	box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
-	margin: 0 2px 15px;
+	margin-bottom: 15px;
 	-webkit-column-break-inside: avoid;
 	-moz-column-break-inside: avoid;
 	column-break-inside: avoid;

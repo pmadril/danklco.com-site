@@ -1,10 +1,17 @@
+---
+---
+
 jQuery(function($){
+    var bg_images = [];
+    {% for file in site.static_files %}{% if file.path contains "images/backgrounds" %}bg_images.push("{{file.path}}");{% endif %}{% endfor %}
 	$(document).ready(function(){
 		$('a').click(function(){
 			if ($(this).attr('href').indexOf('http') != -1) {
 				_gaq.push(['_trackEvent', 'Outbound Link', 'Click', $(this).attr('href')]);
 			}
 		});
+        $('body').css('background','linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,.1)),url('+bg_images[Math.floor(Math.random() * (bg_images.length))]+') no-repeat center center fixed');
+        $('body').css('background-size','cover');
 		$('#contact-form').submit(function(){
 			_gaq.push(['_trackEvent', 'Contact Form', 'Submit']);
 		});
