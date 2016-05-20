@@ -12,7 +12,6 @@ h2 {
     margin-top: 10px;
 }
 
-
 .navbar-inverse {
     border-radius: 0;
     margin-left: -15px;
@@ -48,6 +47,11 @@ h2 {
 
 .row-align-left {
     margin-left: -30px;
+}
+@media (max-width: 991px) {
+    .row-align-left {
+        margin-right: -30px;
+    }
 }
 
 .transparent-block-default {
