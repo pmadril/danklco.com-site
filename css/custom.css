@@ -8,6 +8,10 @@ body {
 	font-family: 'Lato', sans-serif;
 }
 
+.gsc-control-cse * {
+    box-sizing: content-box;
+}
+
 h2 {
     margin-top: 10px;
 }
