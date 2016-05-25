@@ -47,7 +47,15 @@
 			{% include nav.html %}
 			{{ content }}
 			<footer class="transparent-block-inverse row">
-				Copyright &copy; 2012 -  {{ site.author }} | <a href="/search" title="Search Site">Search</a>
+				Copyright &copy; 2012 -  {{ site.author }}
+                <form class="form-inline footer-search" action="/search" method="get">
+                    <div class="input-group">
+                        <input class="form-control" name="q" type="text" placeholder="Search..."/>
+                        <span class="input-group-btn">
+                            <button class="btn btn-inverse" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+                        </span>
+                    </div>
+                </form>
 				<br/>
 				<hr/>
 				<br/>
