@@ -5,6 +5,18 @@ jQuery(function($){
     var bg_images = [];
     {% for file in site.static_files %}{% if file.path contains "images/backgrounds" %}bg_images.push("{{file.path}}");{% endif %}{% endfor %}
 	$(document).ready(function(){
+        // suppress "invalid" events on URL inputs
+        $('input,textarea').bind('invalid', function(evt) {
+            $(evt.target).parent().addClass('has-error');
+            $(evt.target).parent().find('.help-block').show().removeClass('hidden');
+            return false;
+        });
+        $('input,textarea').blur(function(event) {
+            if(event.target.checkValidity()){
+                $(event.target).parent().removeClass('has-error');
+                $(event.target).parent().find('.help-block').hide();
+            }
+        });
 		$('a').click(function(){
 			if ($(this).attr('href').indexOf('http') != -1) {
 				_gaq.push(['_trackEvent', 'Outbound Link', 'Click', $(this).attr('href')]);

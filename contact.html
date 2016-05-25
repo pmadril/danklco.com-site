@@ -14,28 +14,40 @@ tags:
 </p>
 <hr/>
 <div id="social-networks" class="text-center">
-    <a href="http://www.linkedin.com/in/danielklco/" title="InMail me on LinkedIn!" class="icon" id="Linkedin"></a>
-    <a href="https://twitter.com/KlcoDanR" title="DM me on Twitter!" class="icon" id="Twitter"></a>
-    <a href="https://plus.google.com/109214091683324297793?rel=author" title="Contact me on Google Plus!" class="icon" id="Google-plus"></a>
+    <a target="_blank" href="http://www.linkedin.com/in/danielklco/" title="InMail me on LinkedIn!" class="icon" id="Linkedin"></a>
+    <a target="_blank" href="https://twitter.com/KlcoDanR" title="DM me on Twitter!" class="icon" id="Twitter"></a>
+    <a target="_blank" href="https://plus.google.com/109214091683324297793?rel=author" title="Contact me on Google Plus!" class="icon" id="Google-plus"></a>
 </div>
 <hr/>
 <h3>Send your message directly to me!</h3>
 <form accept-charset="UTF-8" enctype="multipart/form-data" method="post" action="https://klcodanr.wufoo.com/forms/z1rc9u880sad0z5/#public" id="contact-form">
 	<div class="form-group">
-		<label for="Field9">Your Name <span class="req">*</span></label>
-		<input id="Field9" name="Field9" class="form-control" type="text" maxlength="255" required="required" />
+		<label class="control-label" for="Field9">Your Name <span class="text-danger">*</span></label>
+		<input name="Field9" class="form-control" type="text" maxlength="255" required="required" />
+        <span class="help-block hidden">
+            Please provide your name so I know to whom I'm talking. First name, last name, nickname, doesn't matter.
+        </span>
 	</div>
 	<div class="form-group">
-		<label for="Field4">Your Email Address <span class="req">*</span></label>
-		<input id="Field4" name="Field4" class="form-control" type="email" maxlength="255" required="required" />
+		<label class="control-label" for="Field4">Your Email Address <span class="text-danger">*</span></label>
+		<input name="Field4" class="form-control" type="email" maxlength="255" required="required" />
+        <span class="help-block hidden">
+            I need some way to get a hold of you, email please!
+        </span>
 	</div>
 	<div class="form-group">
-		<label for="Field2">Subject <span class="req">*</span></label>
-		<input id="Field2" name="Field2" class="form-control" type="text" maxlength="255" required="required" />
+		<label class="control-label" for="Field2">Subject <span class="text-danger">*</span></label>
+		<input name="Field2" class="form-control" type="text" maxlength="255" required="required" />
+        <span class="help-block hidden">
+            What do you want to talk about? Please provide a subject.
+        </span>
 	</div>
 	<div class="form-group">
-		<label for="Field3">Message <span class="req">*</span></label>
-		<textarea id="Field3" name="Field3" class="form-control" spellcheck="true" rows="10" cols="50" required="required"></textarea>
+		<label class="control-label" for="Field3">Message <span class="text-danger">*</span></label>
+		<textarea name="Field3" class="form-control" spellcheck="true" rows="10" cols="50" required="required"></textarea>
+        <span class="help-block hidden">
+            What do you want to say? Please provide a message.
+        </span>
 	</div>
 	<div class="form-group">
         <button name="saveForm" class="btn btn-success btn-lg" type="submit"><span class="glyphicon glyphicon-send"></span>&nbsp;&nbsp;Contact Me!</button>
