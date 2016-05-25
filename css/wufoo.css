@@ -23,7 +23,7 @@
 
 /* Backgrounds */
 html{
-	background: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,.1)),url('https://www.danklco.com/images/backgrounds/taormina.jpg') no-repeat center center fixed !important;
+	background: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,.4)),url('https://www.danklco.com/images/backgrounds/taormina.jpg') no-repeat center center fixed !important;
 	background-size:cover !important;
 	font-family: Lato, sans-serif !important;
 }
