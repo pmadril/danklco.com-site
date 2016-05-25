@@ -1,0 +1,70 @@
+/* - - - - - - - - - - - - - - - - - - - - -
+
+ Title : Example Custom CSS : DinoMaster!
+ URL : http://wufoo.com
+
+ Last Updated : April 1, 2011
+
+- - - - - - - - - - - - - - - - - - - - - 
+
+INSTRUCTIONS
+1. Copy / Paste all or portions of these
+CSS rules into "custom.css".
+
+2. Experiment and play.
+
+- - - - - - - - - - - - - - - - - - - - - */
+
+/* - - - Default - - - */
+
+/* Logo */
+#logo {
+    background-image: url(https://www.danklco.com/images/catania-park.jpg);
+    background-size:cover;
+    height: 200px;
+    margin-bottom: 0;
+    border-bottom: none;
+}
+
+#logo::after{
+	content: "Contact Dan Klco!";
+	text-indent: 0;
+	color: black;
+	font-size: 35px;
+	background: rgba(255,255,255,0.85);
+	margin:10px;
+	padding:10px;
+	height:100px;
+	display:block;
+	border-radius: 10px;
+}
+
+/* Backgrounds */
+html{
+	background: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,.1)),url('https://www.danklco.com/images/backgrounds/taormina.jpg') no-repeat center center fixed;
+	background-size:cover;
+	font-family: Lato, sans-serif;
+}
+
+#container{
+    background: rgba(255,255,255,0.85);
+}
+.wufoo input.text, .wufoo textarea.textarea{background:#FFFFFF url(/images/fieldbg.gif) repeat-x top}
+.wufoo .focused{background:#FFF7C0}
+.wufoo .instruct{background-color:#F5F5F5}
+
+/* Borders */
+.wufoo .info{border-bottom:1px dotted #CCCCCC}
+.wufoo .instruct{border:1px solid #e6e6e6}
+
+/* Typography */
+.wufoo .info h2{font-size:160%;font-family:inherit;color:#000000}
+.wufoo .info div{font-size:95%;font-family:inherit;color:#444444}
+.wufoo .section h3{font-size:110%;font-family:inherit;background:#FFFFFF;color:#000000}
+.wufoo .section div{font-size:85%;font-family:inherit;color:#444444}
+.wufoo label.desc, .wufoo legend.desc{font-size:95%;font-family:inherit;color:#444444}
+.wufoo li div, .wufoo li div label, .wufoo li span label{font-family:inherit;color:#444444}
+.wufoo input.text, .wufoo textarea.textarea, .wufoo select.select, .wufoo label.choice{font-size:100%;font-family:inherit;color:#333333}
+.wufoo label.choice{color:#444444}
+.wufoo .instruct{font-size:80%;font-family:inherit;color:#444444
+}
