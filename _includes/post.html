@@ -10,7 +10,7 @@
             <a href="{{url}}" {% if post.original %}target="_blank"{% endif %} title="{{post.title}}" itemprop="url">
                 {% if post.thumbnail %}
                     <div itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
-                        <img src="{{ post.thumbnail | replace: '/posts/', '/post-thumbs/' }}" class="img-responsive block-center" alt="{{post.title}}"/>
+                        <img src="{{ post.thumbnail | replace: '/posts/', '/post-thumbs/' }}" class="img-responsive center-block" alt="{{post.title}}"/>
                         <meta itemprop="url" content="{{site.url}}{{ post.thumbnail | replace: '/posts/', '/post-thumbs/' }}">
                         <meta itemprop="width" content="300">
                     </div>
