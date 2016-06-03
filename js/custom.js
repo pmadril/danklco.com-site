@@ -65,10 +65,10 @@ jQuery(function($){
 			$btn.hide();
             $ldr.show();
 			$("<div>").load($btn.attr('href')+" .articles-wrapper", function() {
-				$(".recent-activity").append($(this).html());
+				$(".recent-activity").append($(this).html()).find('.pin').click(pinClick);
 				$btn.show();
                 $ldr.hide();
-			}).find('.pin').click(pinClick);
+			});
 			if(currentPage < totalPages){
 				currentPage++;
 				$btn.attr('href','/page'+(currentPage+1));
