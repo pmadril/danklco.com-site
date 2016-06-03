@@ -5,12 +5,14 @@ jQuery(function($){
     var bg_images = [];
     {% for file in site.static_files %}{% if file.path contains "images/backgrounds" %}bg_images.push("{{file.path}}");{% endif %}{% endfor %}
 	$(document).ready(function(){
-        $('.pin').click(function(){
+        var pinClick = function(){
             $pin = $(this);
             if($pin.attr('data-url')){
+				_gaq.push(['_trackEvent', 'Pin', 'Click', $(this).attr('href')]);
                 window.location = $pin.attr('data-url');
             }
-        });
+        };
+        $('.pin').click(pinClick);
         // suppress "invalid" events on URL inputs
         $('input,textarea').bind('invalid', function(evt) {
             $(evt.target).parent().addClass('has-error');
@@ -60,7 +62,7 @@ jQuery(function($){
 				$(".recent-activity").append($(this).html());
 				$btn.show();
                 $ldr.hide();
-			});
+			}).find('.pin').click(pinClick);
 			if(currentPage < totalPages){
 				currentPage++;
 				$btn.attr('href','/page'+(currentPage+1));

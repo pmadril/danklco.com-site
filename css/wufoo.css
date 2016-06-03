@@ -32,13 +32,12 @@ a:focus, a:hover {
 
 /* Backgrounds */
 html{
-	background: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,.4)),url('https://www.danklco.com/images/backgrounds/taormina.jpg') no-repeat center center fixed !important;
-	background-size:cover !important;
+	background-color: #f4f4f4 !important;
 	font-family: Lato, sans-serif !important;
 }
 
 #container{
-    background: rgba(255,255,255,0.85);
+    background: rgba(255,255,255,1);
 }
 .wufoo input.text, .wufoo textarea.textarea{background:#FFFFFF url(/images/fieldbg.gif) repeat-x top}
 .wufoo .focused{background:#FFF7C0}
