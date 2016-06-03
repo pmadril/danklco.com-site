@@ -30,6 +30,9 @@ jQuery(function($){
 				_gaq.push(['_trackEvent', 'Outbound Link', 'Click', $(this).attr('href')]);
 			}
 		});
+        $('.footer-search,.gsc-search-box').submit(function(){
+			_gaq.push(['_trackEvent', 'Search', 'Search', $(this).find('input[name=q]').val()]);
+        });
 		$('.social-networks a').click(function(){
 			_gaq.push(['_trackEvent', 'Social Link', 'Click', $(this).attr('id')]);
 		});
