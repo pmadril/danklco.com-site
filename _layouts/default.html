@@ -46,7 +46,7 @@
 			{% include nav.html %}
 			{{ content }}
 			<footer class="transparent-block-inverse row">
-				Copyright &copy; 2012 -  {{ site.author }}
+				Copyright &copy; 2012 - {{site.time | date: '%Y' }} &mdash; {{ site.author }}
                 <form class="form-inline footer-search" action="/search" method="get">
                     <div class="input-group">
                         <input class="form-control" name="q" type="text" placeholder="Search..."/>

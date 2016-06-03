@@ -1,6 +1,10 @@
 <article itemprop="blogPosts" itemscope itemtype="http://schema.org/BlogPosting" class="col-sm-6"> 
      {% if post.original %}
-        {% assign url = post.original %}
+        {% unless post.original contains 'labs.6dglobal.com' || post.original contains 'labs.sixdimensions.com' %}
+            {% assign url = post.original %}
+        {% else %}
+            {% assign url = post.url %}
+        {% endunless %}
     {% else %}
         {% assign url = post.url %}
     {% endif %}

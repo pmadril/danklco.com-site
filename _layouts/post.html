@@ -18,7 +18,16 @@ layout: default
 					<em>
 						<span class="glyphicon glyphicon-user" aria-hidden="true"></span> By <span class="author" property="author" typeOf="Person">{{ site.author }}</span>&nbsp;on&nbsp;<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> <time datetime='{{page.date | date: "%Y-%m-%d"}}'><span property="datePublished">{{page.date | date: "%B %d, %Y"}}</span></time>
 					</em>
-					{% if page.original %}<div class="original">Original URL: <a href="{{ page.original }}">{{ page.original }}</a></div>{% endif %}
+					{% if page.original %}
+                        {% unless page.original contains 'labs.6dglobal.com' || page.original contains 'labs.sixdimensions.com' %}
+                            <div class="original">Also posted on: <a href="{{ page.original }}" target="_blank">{{ page.original }}</a></div>
+                        {% else %}
+                            <div class="original">
+                                This was also posted on: <a href="{{ page.original }}" target="_blank">{{ page.original }}</a>, however 6D Global Technologies decided to remove my 
+                                authoring credit, which although legal, seems unethical.
+                            </div>
+                        {% endunless %}
+                    {% endif %}
 				</div>
 			</header>
 			<hr class="large" />
