@@ -2,32 +2,23 @@
 layout: default
 ---
 
-<section class="row transparent-block-default">
-	<div class="col-sm-2">
-		<h2>Find Me</h2>
-	</div>
-	<div class="col-sm-10">
-		<div id="social-networks">
-			<a href="https://www.facebook.com/klcodanr" title="Find me on Facebook!" class="icon" id="Facebook"></a>
-			<a href="http://www.linkedin.com/in/danielklco/" title="Find me on LinkedIn!" class="icon" id="Linkedin"></a>
-			<a href="https://twitter.com/KlcoDanR" title="Find me on Twitter!" class="icon" id="Twitter"></a>
-			<a href="https://plus.google.com/109214091683324297793?rel=author" title="Find me on Google Plus!" class="icon" id="Google-plus"></a>
-			<a href="https://github.com/klcodanr" title="Find me on GitHub!" class="icon" id="Github"></a>
-			<a href="/feed.xml" title="Follow my RSS Feed" class="icon" id="rss"></a>
-		</div>
-	</div>
-</section>
-<section class="row transparent-block-default">
-	<div class="col-md-12">
-		{% include ace.html %}
-	</div>
-</section>
-<section class="row row-align-left">
+<section class="row">
 	<div class="col-md-9">
-        <h2 class="transparent-block-default">Recent Posts</h2>
+        <h2>Recent Posts</h2>
 		{{ content }}
 	</div>
-	<aside class="col-md-3 transparent-block-default">
+	<aside class="col-md-3">
 		{% include twitter.html %}
 	</aside>
+</section>
+<br/><hr/><br/>
+<section class="row">
+    <div class="col-md-12 social-networks text-center">
+        <a href="https://www.facebook.com/klcodanr" title="Find me on Facebook!" class="icon" id="Facebook"></a>
+        <a href="http://www.linkedin.com/in/danielklco/" title="Find me on LinkedIn!" class="icon" id="Linkedin"></a>
+        <a href="https://twitter.com/KlcoDanR" title="Find me on Twitter!" class="icon" id="Twitter"></a>
+        <a href="https://plus.google.com/109214091683324297793?rel=author" title="Find me on Google Plus!" class="icon" id="Google-plus"></a>
+        <a href="https://github.com/klcodanr" title="Find me on GitHub!" class="icon" id="Github"></a>
+        <a href="/feed.xml" title="Follow my RSS Feed" class="icon" id="rss"></a>
+    </div>
 </section>

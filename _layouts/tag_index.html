@@ -7,14 +7,16 @@ layout: default
         <section class=" transparent-block-default">
             <h2>{{page.title}}</h2>
         </section>
-
-        {% for post in site.posts %}
-        {% for tag in post.tags %}
-            {% if tag == page.tag %}
-              {% include post.html %}
-            {% endif %}
-        {% endfor %}
-        {% endfor %}
+        <div class="row">
+            {% for post in site.posts %}
+            {% for tag in post.tags %}
+                {% if tag == page.tag %}
+                    {% include post.html %}
+                    {% cycle '', '</div><div class="row">' %}
+                {% endif %}
+            {% endfor %}
+            {% endfor %}
+        </div>
     </div>
     <aside class="transparent-block-default col-sm-4">
         {% include twitter.html %}

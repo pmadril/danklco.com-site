@@ -1,47 +1,47 @@
-<article itemprop="blogPosts" itemscope itemtype="http://schema.org/BlogPosting" class="transparent-block-default"> 
-    <div class="row">
-        {% if post.original %}
-            {% assign url = post.original %}
-        {% else %}
-            {% assign url = post.url %}
-        {% endif %}
+<article itemprop="blogPosts" itemscope itemtype="http://schema.org/BlogPosting" class="col-sm-6"> 
+     {% if post.original %}
+        {% assign url = post.original %}
+    {% else %}
+        {% assign url = post.url %}
+    {% endif %}
+    <div class="pin" data-url="{{url}}">
         <meta itemscope itemprop="mainEntityOfPage"  itemType="https://schema.org/WebPage" itemid="{{ url }}" content="{{url}}" />
-        <div class="col-sm-4">
-            <a href="{{url}}" {% if post.original %}target="_blank"{% endif %} title="{{post.title}}" itemprop="url">
-                {% if post.thumbnail %}
-                    <div itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
-                        <img src="{{ post.thumbnail | replace: '/posts/', '/post-thumbs/' }}" class="img-responsive center-block" alt="{{post.title}}"/>
-                        <meta itemprop="url" content="{{site.url}}{{ post.thumbnail | replace: '/posts/', '/post-thumbs/' }}">
-                        <meta itemprop="width" content="300">
-                    </div>
-                {% else %}
-                    <img  src="//placehold.it/250x120?text={{post.title}}" class="img-responsive" alt="{{post.title}}" />
-                {% endif %}
-            </a>
-        </div>
-        <div class="col-sm-8">
-            <h3 itemprop="headline">
-                <a href="{{url}}" {% if post.original %}target="_blank"{% endif %} title="{{post.title}}" itemprop="url">
-                    {{post.title}}
-                </a>
-            </h3>
-            <p class="text-muted">
-                <small>
-                    <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> <em itemprop="datePublished">{{post.date | date: "%B %d %Y"}}</em>
-                    <br/>
-                    <span><i class="glyphicon glyphicon-tag"></i>
-                        {% for postTag in post.tags limit:4 %}
-                            <a href="/tag/{{postTag | UrlEncode | replace: ' ', '%20'}}/">{{postTag}}</a>{% if forloop.last == false %},{% endif %}&nbsp;
-                        {% endfor %}
-                    </span>
-                </small>
-            </p>
-            <div class="content" property="description">
-                {{ post.content | strip_html | truncatewords:25}}&nbsp;<a href="{{url}}" {% if post.original %}target="_blank"{% endif %} title="{{post.title}}" itemprop="url">
-                    Read&nbsp;More&nbsp;&raquo;
-                </a>
+        {% if post.thumb %}
+            {% assign thumb = '//placehold.it/300x300?text={{post.title}}' %}
+        {% else %}
+            {% assign thumb = post.thumbnail %}
+        {% endif %}
+        <div itemprop="image" itemscope itemtype="https://schema.org/ImageObject" {% if post.original %}target="_blank"{% endif %} class="img" style="background-image:url('{{thumb}}')">
+            <meta itemprop="url" content="{{site.url}}{{ post.thumbnail }}">
+            <meta itemprop="width" content="300">
+            <div class="hover-show">
+                <h3 itemprop="headline">
+                    <a href="{{url}}" {% if post.original %}target="_blank"{% endif %} title="{{post.title}}" itemprop="url">
+                        {{post.title}}
+                    </a>
+                </h3>
+                <div class="content" property="description">
+                    {% if post.summary %}
+                        {{ post.summary }}
+                    {% else %}
+                        {{ post.content | strip_html | truncatewords:25}}
+                    {% endif %}&nbsp;<a href="{{url}}" {% if post.original %}target="_blank"{% endif %} title="{{post.title}}" itemprop="url">
+                        Read&nbsp;More&nbsp;&raquo;
+                    </a>
+                </div>
             </div>
         </div>
+        <p class="text-muted">
+            <small>
+                <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> <em itemprop="datePublished">{{post.date | date: "%B %d %Y"}}</em>
+                <br/>
+                <span><i class="glyphicon glyphicon-tag"></i>
+                    {% for postTag in post.tags limit:4 %}
+                        <a href="/tag/{{postTag | UrlEncode | replace: ' ', '%20'}}/">{{postTag}}</a>{% if forloop.last == false %},{% endif %}&nbsp;
+                    {% endfor %}
+                </span>
+            </small>
+        </p>
         <div itemprop="author" itemscope itemtype="https://schema.org/Person">
             <meta itemprop="name" content="Dan Klco">
         </div>

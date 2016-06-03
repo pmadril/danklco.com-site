@@ -21,10 +21,11 @@ tags:
             {% if engagement.show == true %}
                 {% assign id = engagement.client | replace: ' ', '-' %}
                 <div class="pin client" id="{{ id }}" data-image="{{engagement.image}}" data-image-width="{{engagement.image-width}}">
-                    <img alt="{{engagement.client}} - {{engagement.project}}" src="{{engagement.image}}" />
-                    <h3>
-                        {{engagement.client}} &mdash; {{engagement.project}}
-                    </h3>
+                    <div class="img" style="background-image:url('{{engagement.image}}')">
+                        <h3 class="hover-show">
+                            {{engagement.client}} &mdash; {{engagement.project}}
+                        </h3>
+                    </div>
                 </div>
             {% endif %}
 		{% endsorted_for %}
