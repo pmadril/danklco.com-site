@@ -32,7 +32,7 @@ a:focus, a:hover {
 
 /* Backgrounds */
 html{
-	background-color: #f4f4f4 !important;
+	background: #f4f4f4 !important;
 	font-family: Lato, sans-serif !important;
 }
 
