@@ -219,6 +219,7 @@ img.certification {
     padding:5px;
     color:white;
     margin-top: 0;
+    background:rgba(0,0,0,.9);
 }
 
 .pin .hover-show a {
@@ -231,7 +232,6 @@ img.certification {
 
 .pin:hover .hover-show {
     opacity:1;
-    background:rgba(0,0,0,.9);
 }
 
 .pin .img {
