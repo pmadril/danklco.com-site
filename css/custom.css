@@ -202,6 +202,7 @@ img.certification {
 	-o-transition: all .2s ease;
 	transition: all .2s ease;
 	cursor:pointer;
+	width:100%;
 }
 
 .pin:hover {
