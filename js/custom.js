@@ -8,8 +8,13 @@ jQuery(function($){
         var pinClick = function(){
             $pin = $(this);
             if($pin.attr('data-url')){
-				_gaq.push(['_trackEvent', 'Pin', 'Click', $(this).attr('href')]);
-                window.location = $pin.attr('data-url');
+		_gaq.push(['_trackEvent', 'Pin', 'Click', $(this).attr('href')]);
+		if($pin.attr('data-url').indexOf('http') != -1){
+			window.open($pin.attr('data-url'), '_blank');
+		} else {
+        		window.location = $pin.attr('data-url');
+		}
+            	return false;
             }
         };
         $('.pin').click(pinClick);
