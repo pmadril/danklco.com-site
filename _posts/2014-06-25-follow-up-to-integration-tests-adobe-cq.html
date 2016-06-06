@@ -13,7 +13,7 @@ original: http://labs.sixdimensions.com/blog/2014-06-25/follow-up-to-integration
 thumbnail: /images/posts/shared/CQ5.png
 ---
 
-<p>In my <a href="/blog/2013-11-26/integration-tests-adobe-cq/">previous post</a>, I had introduced the idea of integrating testing AEM (CQ5) projects using Apache Sling Testing Framework. &nbsp;After using the integration testing framework for a while and learning more about the framework, I have come up with some improvements to my original post.</p>
+<p>In my <a href="/posts/2013/11/26/integration-tests-adobe-cq/">previous post</a>, I had introduced the idea of integrating testing AEM (CQ5) projects using Apache Sling Testing Framework. &nbsp;After using the integration testing framework for a while and learning more about the framework, I have come up with some improvements to my original post.</p>
 <h3>1. Support Testing Existing AEM/CQ5 Instance</h3>
 <p>This makes your tests a lot quicker and easier, instead of starting up a new CQ instance just to run your integration tests, you can hook into the CQ instance you are already using for development. &nbsp;To do this, update your <code>systemPropertyVariables</code> parameter to have the following variables:</p>
 <pre><code>&lt;http.port&gt;${crx.port}&lt;/http.port&gt;
