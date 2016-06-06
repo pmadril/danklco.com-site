@@ -18,7 +18,7 @@ summary: "Home on the internet for Dan Klco, Adobe Certified Expert Architect, A
 				</strong>
 			</div>
 		{% endif %}
-		<section itemscope itemtype="http://schema.org/Blog" class="articles-wrapper page-{{paginator.page}}">
+		<section itemscope itemtype="http://schema.org/Blog" class="articles-wrapper" id="page-{{paginator.page}}">
             <div class="row">
                 {% for post in paginator.posts %}
                     {% include post.html %} 
