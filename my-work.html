@@ -15,21 +15,21 @@ tags:
 		</p>
 	</div>
 </section>
-<div class="columns-wrapper">
-	<div class="columns">
-		{% sorted_for engagement in site.engagements reversed sort_by:url %}
-            {% if engagement.show == true %}
-                {% assign id = engagement.client | replace: ' ', '-' %}
-                <div class="pin client" id="{{ id }}" data-image="{{engagement.image}}" data-image-width="{{engagement.image-width}}">
-                    <div class="img" style="background-image:url('{{engagement.image}}')">
-                        <h3 class="hover-show">
-                            {{engagement.client}} &mdash; {{engagement.project}}
-                        </h3>
-                    </div>
+<div class="row">
+{% for engagement in site.engagements reversed %}
+    {% if engagement.show == true %}
+        {% assign id = engagement.client | replace: ' ', '-' %}
+        <div class="col-md-4 col-sm-6">
+            <div class="pin client" id="{{ id }}" data-image="{{engagement.image}}" data-image-width="{{engagement.image-width}}">
+                <div class="img" style="background-image:url('{{engagement.image}}')">
+                    <h3 class="hover-show">
+                        {{engagement.client}} &mdash; {{engagement.project}}
+                    </h3>
                 </div>
-            {% endif %}
-		{% endsorted_for %}
-	</div>
+            </div>
+        </div>
+    {% endif %}
+{% endfor %}
 </div>
 <section class="row transparent-block-default">
 	<div class="col-md-12">
