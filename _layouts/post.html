@@ -4,12 +4,32 @@ layout: default
 
 <section class="row">
 	<div class="col-md-12 transparent-block-default">
-		<article class="post" typeof="Document">
-			<h3 property="title">{{ page.title }}</h3>
-			<em>
-				<span class="glyphicon glyphicon-user" aria-hidden="true"></span> By <span class="author" property="creator">{{ site.author }}</span>&nbsp;on&nbsp;<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> <time datetime='{{page.date | date: "%Y-%m-%d"}}'><span property="created">{{page.date | date: "%B %d, %Y"}}</span></time>
-			</em>
-			{% if page.original %}<div class="original">Original URL: <a href="{{ page.original }}">{{ page.original }}</a></div>{% endif %}
+		<article class="post" typeof="BlogPosting">
+			<header class="row">
+				<div class="col-md-2">
+					{% if page.thumbnail %}
+						<img property="image" class="img-responsive img-rounded" src="{{ page.thumbnail }}" title="{{page.title}}"/>
+					{% else %}
+						<img property="image" class="img-responsive img-rounded" src="/images/me.jpg" title="{{page.title}}"/>
+					{% endif %}
+				</div>
+				<div class="col-md-10">
+					<h3 property="headline">{{ page.title }}</h3>
+					<em>
+						<span class="glyphicon glyphicon-user" aria-hidden="true"></span> By <span class="author" property="author" typeOf="Person">{{ site.author }}</span>&nbsp;on&nbsp;<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> <time datetime='{{page.date | date: "%Y-%m-%d"}}'><span property="datePublished">{{page.date | date: "%B %d, %Y"}}</span></time>
+					</em>
+					{% if page.original %}
+                        {% unless page.original contains 'labs.6dglobal.com' or page.original contains 'labs.sixdimensions.com' %}
+                            <div class="original">Also posted on: <a href="{{ page.original }}" target="_blank">{{ page.original }}</a></div>
+                        {% else %}
+                            <div class="original">
+                                This was also posted on: <a href="{{ page.original }}" rel="nofollow" target="_blank">{{ page.original }}</a>, however 6D Global Technologies decided to remove my 
+                                authoring credit which seems unethical.
+                            </div>
+                        {% endunless %}
+                    {% endif %}
+				</div>
+			</header>
 			<hr class="large" />
 			<div class="content">
 				{{ content }}

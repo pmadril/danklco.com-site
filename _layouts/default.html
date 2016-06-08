@@ -4,13 +4,17 @@
 		<meta charset="utf-8" />
 		<title>{% if page.title %} {{ page.title }} | {% endif %} DanKlco.com</title>
 		{% if page.tags %}<meta content="{{page.tags | join: ', '}}" name="keywords" />{% endif %}
-		{% if page.summary %}<meta content="{{ page.summary }}" name="description" />{% endif %}
+		{% if page.summary %}<meta content="{{ page.summary | truncatewords: 50 | strip_html }}" name="description" />{% endif %}
 		<meta content="{{ site.author }}" name="author" />
 		<meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport" />
 		<meta property="og:site_name" content="DanKlco.com"/>
 		<meta property="og:type" content="blog"/>
 		<meta property="og:title" content="{% if page.title %} {{ page.title }} | {% endif %} DanKlco.com"/>
-		<meta property="og:image" content="{{ site.url }}/images/me.jpg"/>
+		{% if page.thumbnail %}
+			<meta property="og:image" content="{{ site.url }}{{ page.thumbnail }}"/>
+		{% else %}
+			<meta property="og:image" content="{{ site.url }}/images/me.jpg"/>
+		{% endif %}
 		{% if page.original %}
 			<meta property="og:url" content="{{page.original}}"/>
 			<link rel="canonical" href="{{ page.original }}" />
@@ -18,7 +22,7 @@
 			<meta property="og:url" content="{{ site.url }}{{page.url | remove: 'index.html' | replace: '.html', '' | replace: ' ', '%20' }}"/>
 			<link rel="canonical" href="{{ site.url }}{{page.url | remove: 'index.html' | replace: '.html', '' | replace: ' ', '%20' }}" />
 		{% endif %}
-{% bundle %}[ /css/bootstrap.min.css, /css/bootstrap-theme.min.css, /css/custom.css ]{% endbundle %}
+{% bundle %}[ /css/bootstrap.min.css, /css/bootstrap-theme.min.css, 'http://fonts.googleapis.com/css?family=Lato', /css/custom.css ]{% endbundle %}
 		<link rel="shortcut icon" href="/favicon.ico" />
 		<link rel="alternate" type="application/rss+xml" href="/feed.xml" title="DanKlco.com RSS Feed" />
 		<link rel="author" href="https://plus.google.com/109214091683324297793"/>
@@ -28,22 +32,29 @@
 			<header class="page-header row">
 				<div class="content" typeof="Person">
 					<a href="/" title="Home">
-						<img src="/images/me.jpg" alt="Me on Mt. Etna" width="120" height="120" property="photo" class="pull-left img-rounded img-responsive"  />
+						<img src="/images/me.jpg" property="image" alt="Me on Mt. Etna" width="120" height="120" class="pull-left img-rounded img-responsive"  />
 					</a>
-					<h1 property="name">Daniel Klco</h1>
-					<p property="description">
-						Hello. I am a programmer and Web Content Management specialist based out of Cincinnati, Ohio. 
-						Currently working as an Associate Director at <a href="http://www.sixdimensions.com" title="My Employer">Six Dimensions</a> and specializing in the Adobe Experience Manager and Adobe Marketing Cloud platforms.
-						<a href="//plus.google.com/109214091683324297793?rel=author" rel="publisher" target="_top" style="text-decoration:none;">
-							<img src="//ssl.gstatic.com/images/icons/gplus-16.png" alt="Google+" width="16" height="16" />
-						</a>
-					</p>
+					<h1 property="name">
+                        Daniel Klco
+                    </h1>
+                    <p style="font-size: 18px;" property="description">
+                        <span class="glyphicon glyphicon-globe"><span class="text-hide">I'm based out of</span></span>&nbsp;&nbsp;<span property="homeLocation">Cincinnati, OH</span><br/>
+                        <span class="glyphicon glyphicon-briefcase"><span class="text-hide">I work as the</span></span>&nbsp;&nbsp;<span property="jobTitle">Adobe Digital Marketing Solution Lead</span> at <a href="http://www.perficient.com" property="worksFor" title="My Employer" typeof="Organization">Perficient</a>
+                    </p>
 				</div>
 			</header>
 			{% include nav.html %}
 			{{ content }}
 			<footer class="transparent-block-inverse row">
-				Copyright &copy; 2012 -  {{ site.author }} | <a href="/search" title="Search Site">Search</a>
+				Copyright &copy; 2012 - {{site.time | date: '%Y' }} &mdash; {{ site.author }}
+                <form class="form-inline footer-search" action="/search" method="get">
+                    <div class="input-group">
+                        <input class="form-control" name="q" type="text" placeholder="Search..."/>
+                        <span class="input-group-btn">
+                            <button class="btn btn-inverse" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+                        </span>
+                    </div>
+                </form>
 				<br/>
 				<hr/>
 				<br/>

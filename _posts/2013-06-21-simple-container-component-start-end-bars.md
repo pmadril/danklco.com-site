@@ -4,6 +4,7 @@ title: "Simple Container Component Start &amp; End Bars"
 original: http://labs.sixdimensions.com/blog/dan-klco/2013-06-21/simple-container-component-start-end-bars
 summary: "See how easy it is to change the design path on a CQ Component"
 tags: [Adobe CQ, Components, Best Practices]
+thumbnail: /images/posts/2013-06-21-simple-container-component-start-end-bars/no-start-end-bars.png
 ---
 
 When creating a container component for Adobe CQ, you often run into an issue where the resulting page is difficult to author as there are too many [parsys](http://wem.help.adobe.com/enterprise/en_US/10-0/wem/wcm/default_components.html#Paragraph%20System%20(parsys)) adjacent to each other. &nbsp;As bad as this situation is for the component developer, imagine how confusing it must be to authors who don't have a detailed understanding of how the component works. &nbsp;As you can see from the illustration below of a tab component, when you have multiple parsys in a single component it can get very confusing as to what each parsys does. &nbsp;

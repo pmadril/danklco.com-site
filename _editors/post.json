@@ -1,6 +1,5 @@
 {
-   "title":"Default Page",
-   "description":"The following fields will be used to update the page metadata",
+   "title":"Edit Post",
    "fields":[
       {
          "name":"title",
@@ -22,6 +21,21 @@
          "name":"summary",
          "type":"textarea",
          "label":"Description"
+      },
+      {
+         "label":"Published",
+         "name":"published",
+         "type":"checkbox",
+         "value": true
+      },
+      {
+         "filter":"^images/posts/.+",
+         "name":"thumbnail",
+         "type":"path",
+         "label":"Thumbnail"
       }
-   ]
+   ],
+   "rte": {
+      "document_base_url":"https://www.danklco.com/"
+   }
 }

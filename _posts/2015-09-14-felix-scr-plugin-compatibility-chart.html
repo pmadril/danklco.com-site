@@ -1,0 +1,522 @@
+---
+layout: post
+title: 'Apache Felix SCR Plugin Compatibility Chart'
+author: 'Dan Klco'
+tags:
+  - 'Apache Felix'
+  - SCR
+  - 'Apache Maven'
+summary: 'Chart of which versions of the Apache Felix SCR Annotations and Apache Felix Maven SCR Plugin are compatible'
+thumbnail: /images/posts/2015-09-14-felix-scr-plugin-compatibility-chart/scr-versions.png
+original: http://labs.6dglobal.com/blog/2015-09-14/felix-scr-plugin-compatibility-chart/
+---
+
+<p>
+	One of the issues I've run into during the past when setting up AEM / CQ5 projects is incompatibility between the various versions of the
+	<a href="http://felix.apache.org/documentation/subprojects/apache-felix-maven-scr-plugin/scr-annotations.html">Apache Felix SCR Annotations</a>
+	and the <a href="http://felix.apache.org/documentation/subprojects/apache-felix-maven-scr-plugin.html">Apache Felix Maven SCR Plugin</a>.
+</p>
+<p>
+	Usually, when this occurs, you will see an error like this when building the project:
+</p>
+<pre><code>[ERROR] Failed to execute goal org.apache.felix:maven-scr-plugin:1.20.0:scr (generate-scr-descriptor) on project felix-annotation-test-bundle: Please use org.apache.felix:org.apache.felix.scr.annotations version 1.9.0 or newer. -> [Help 1]
+org.apache.maven.lifecycle.LifecycleExecutionException: Failed to execute goal org.apache.felix:maven-scr-plugin:1.20.0:scr (generate-scr-descriptor) on project felix-annotation-test-bundle: Please use org.apache.felix:org.apache.felix.scr.annotations version 1.9.0 or newer.
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:212)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:153)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:145)
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:116)
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:80)
+	at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build(SingleThreadedBuilder.java:51)
+	at org.apache.maven.lifecycle.internal.LifecycleStarter.execute(LifecycleStarter.java:120)
+	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:355)
+	at org.apache.maven.DefaultMaven.execute(DefaultMaven.java:155)
+	at org.apache.maven.cli.MavenCli.execute(MavenCli.java:584)
+	at org.apache.maven.cli.MavenCli.doMain(MavenCli.java:216)
+	at org.apache.maven.cli.MavenCli.main(MavenCli.java:160)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced(Launcher.java:289)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launch(Launcher.java:229)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode(Launcher.java:415)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.main(Launcher.java:356)
+Caused by: org.apache.maven.plugin.MojoFailureException: Please use org.apache.felix:org.apache.felix.scr.annotations version 1.9.0 or newer.
+	at org.apache.felix.scrplugin.mojo.SCRDescriptorMojo.assertMinScrAnnotationArtifactVersion(SCRDescriptorMojo.java:388)
+	at org.apache.felix.scrplugin.mojo.SCRDescriptorMojo.getClassPath(SCRDescriptorMojo.java:348)
+	at org.apache.felix.scrplugin.mojo.SCRDescriptorMojo.execute(SCRDescriptorMojo.java:206)
+	at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo(DefaultBuildPluginManager.java:132)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:208)
+	... 19 more
+[ERROR] 
+</code></pre>
+<p>
+	or
+</p>
+<pre><code>[ERROR] Failed to execute goal org.apache.felix:maven-scr-plugin:1.4.0:scr (generate-scr-descriptor) on project felix-annotation-test-bundle: Execution generate-scr-descriptor of goal org.apache.felix:maven-scr-plugin:1.4.0:scr failed: 0 -> [Help 1]
+org.apache.maven.lifecycle.LifecycleExecutionException: Failed to execute goal org.apache.felix:maven-scr-plugin:1.4.0:scr (generate-scr-descriptor) on project felix-annotation-test-bundle: Execution generate-scr-descriptor of goal org.apache.felix:maven-scr-plugin:1.4.0:scr failed: 0
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:224)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:153)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:145)
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:116)
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:80)
+	at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build(SingleThreadedBuilder.java:51)
+	at org.apache.maven.lifecycle.internal.LifecycleStarter.execute(LifecycleStarter.java:120)
+	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:355)
+	at org.apache.maven.DefaultMaven.execute(DefaultMaven.java:155)
+	at org.apache.maven.cli.MavenCli.execute(MavenCli.java:584)
+	at org.apache.maven.cli.MavenCli.doMain(MavenCli.java:216)
+	at org.apache.maven.cli.MavenCli.main(MavenCli.java:160)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced(Launcher.java:289)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launch(Launcher.java:229)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode(Launcher.java:415)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.main(Launcher.java:356)
+Caused by: org.apache.maven.plugin.PluginExecutionException: Execution generate-scr-descriptor of goal org.apache.felix:maven-scr-plugin:1.4.0:scr failed: 0
+	at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo(DefaultBuildPluginManager.java:143)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:208)
+	... 19 more
+Caused by: java.lang.ArrayIndexOutOfBoundsException: 0
+	at org.apache.felix.scrplugin.tags.JavaClassDescriptorManager.getSourceDescriptions(JavaClassDescriptorManager.java:393)
+	at org.apache.felix.scrplugin.SCRDescriptorMojo.execute(SCRDescriptorMojo.java:167)
+	at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo(DefaultBuildPluginManager.java:132)
+	... 20 more
+[ERROR] 
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/PluginExecutionException
+</code></pre>
+<p>
+	After several frustrating instances of manually changing the Apache Felix SCR Annotations
+	and Apache Felix Maven SCR Plugin versions until I got them to work, I decided to 
+	systematically test which versions of the two libraries are compatible.
+</p>
+<p>
+	To do this, I created a project with a simple OSGi Service and Sling Servlet created with
+	placeholders for the versions of Apache Felix SCR Annotations and Apache Felix Maven SCR Plugin.
+	I then iterated through the versions and tested to ensure that the project built, 
+	was deployed to Apache Felix and that the servlet responded correctly.
+</p>
+<p>
+	If you'd like to check out the method or project, please feel free to 
+	<a href="https://github.com/SixDimensions/felix-annotation-test">check it out from GitHub</a>.
+</p>
+<h4>Compatibility</h4>
+<p>
+	Below you can find a table of the compatible versions of the Apache Felix SCR Annotations 
+	and Apache Felix Maven SCR Plugin:
+</p>
+<div class="table-responsive show-scrollbar">
+	<table class="table table-condensed table-bordered table-hover text-center">
+		<thead>
+			<tr class="active">
+				<th>
+				</th>
+				<th colspan="21">
+					maven-scr-plugin Versions
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<th rowspan="17" class="active">
+					<span class="vertical-col">
+						org.apache.felix.scr.annotations Versions
+					</span>
+				</th>
+				<th></th>
+				<th>1.21.0</th>
+				<th>1.20.0</th>
+				<th>1.19.0</th>
+				<th>1.17.0</th>
+				<th>1.16.0</th>
+				<th>1.15.0</th>
+				<th>1.14.0</th>
+				<th>1.13.0</th>
+				<th>1.12.0</th>
+				<th>1.11.0</th>
+				<th>1.10.0</th>
+				<th>1.9.0</th>
+				<th>1.8.0</th>
+				<th>1.7.4</th>
+				<th>1.7.2</th>
+				<th>1.7.0</th>
+				<th>1.6.0</th>
+				<th>1.4.4</th>
+				<th>1.4.2</th>
+				<th>1.4.0</th>
+			</tr>
+			<tr>
+				<th>1.9.12</th>
+				<td class="success">T</td>
+				<td class="success">T</td>
+				<td class="success">T</td>
+				<td class="success">T</td>
+				<td class="success">T</td>
+				<td class="success">T</td>
+				<td class="success">T</td>
+				<td class="success">T</td>
+				<td class="success">T</td>
+				<td class="success">T</td>
+				<td class="danger">F</td>
+				<td class="success">T</td>
+				<td class="success">T</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="success">T</td>
+				<td class="success">T</td>
+				<td class="danger">F</td>
+			</tr>
+			<tr>
+				<th>1.9.10</th>
+				<td class="success">T</td>
+				<td class="success">T</td>
+				<td class="success">T</td>
+				<td class="success">T</td>
+				<td class="success">T</td>
+				<td class="success">T</td>
+				<td class="success">T</td>
+				<td class="success">T</td>
+				<td class="success">T</td>
+				<td class="success">T</td>
+				<td class="danger">F</td>
+				<td class="success">T</td>
+				<td class="success">T</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="success">T</td>
+				<td class="success">T</td>
+				<td class="danger">F</td>
+			</tr>
+			<tr>
+				<th>1.9.8</th>
+				<td class="success">T</td>
+				<td class="success">T</td>
+				<td class="success">T</td>
+				<td class="success">T</td>
+				<td class="success">T</td>
+				<td class="success">T</td>
+				<td class="danger">F</td>
+				<td class="success">T</td>
+				<td class="success">T</td>
+				<td class="success">T</td>
+				<td class="danger">F</td>
+				<td class="success">T</td>
+				<td class="success">T</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="success">T</td>
+				<td class="success">T</td>
+				<td class="danger">F</td>
+			</tr>
+			<tr>
+				<th>1.9.6</th>
+				<td class="success">T</td>
+				<td class="success">T</td>
+				<td class="success">T</td>
+				<td class="success">T</td>
+				<td class="success">T</td>
+				<td class="success">T</td>
+				<td class="success">T</td>
+				<td class="success">T</td>
+				<td class="success">T</td>
+				<td class="success">T</td>
+				<td class="danger">F</td>
+				<td class="success">T</td>
+				<td class="success">T</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="success">T</td>
+				<td class="success">T</td>
+				<td class="danger">F</td>
+			</tr>
+			<tr>
+				<th>1.9.4</th>
+				<td class="success">T</td>
+				<td class="success">T</td>
+				<td class="success">T</td>
+				<td class="success">T</td>
+				<td class="success">T</td>
+				<td class="success">T</td>
+				<td class="success">T</td>
+				<td class="success">T</td>
+				<td class="success">T</td>
+				<td class="success">T</td>
+				<td class="danger">F</td>
+				<td class="success">T</td>
+				<td class="success">T</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="success">T</td>
+				<td class="success">T</td>
+				<td class="danger">F</td>
+			</tr>
+			<tr>
+				<th>1.9.2</th>
+				<td class="success">T</td>
+				<td class="success">T</td>
+				<td class="success">T</td>
+				<td class="success">T</td>
+				<td class="success">T</td>
+				<td class="success">T</td>
+				<td class="success">T</td>
+				<td class="success">T</td>
+				<td class="success">T</td>
+				<td class="success">T</td>
+				<td class="danger">F</td>
+				<td class="success">T</td>
+				<td class="success">T</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="success">T</td>
+				<td class="success">T</td>
+				<td class="danger">F</td>
+			</tr>
+			<tr>
+				<th>1.9.0</th>
+				<td class="success">T</td>
+				<td class="danger">F</td>
+				<td class="success">T</td>
+				<td class="success">T</td>
+				<td class="success">T</td>
+				<td class="success">T</td>
+				<td class="success">T</td>
+				<td class="success">T</td>
+				<td class="success">T</td>
+				<td class="success">T</td>
+				<td class="danger">F</td>
+				<td class="success">T</td>
+				<td class="success">T</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="success">T</td>
+				<td class="success">T</td>
+				<td class="danger">F</td>
+			</tr>
+			<tr>
+				<th>1.8.0</th>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="success">T</td>
+				<td class="success">T</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="success">T</td>
+				<td class="success">T</td>
+				<td class="danger">F</td>
+			</tr>
+			<tr>
+				<th>1.7.0</th>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="success">T</td>
+				<td class="success">T</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="success">T</td>
+				<td class="success">T</td>
+				<td class="danger">F</td>
+			</tr>
+			<tr>
+				<th>1.6.0</th>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="success">T</td>
+				<td class="success">T</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="success">T</td>
+				<td class="success">T</td>
+				<td class="danger">F</td>
+			</tr>
+			<tr>
+				<th>1.5.0</th>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="success">T</td>
+				<td class="success">T</td>
+				<td class="danger">F</td>
+			</tr>
+			<tr>
+				<th>1.4.0</th>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="success">T</td>
+				<td class="success">T</td>
+				<td class="success">T</td>
+				<td class="success">T</td>
+				<td class="danger">F</td>
+			</tr>
+			<tr>
+				<th>1.3.0</th>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="success">T</td>
+				<td class="success">T</td>
+				<td class="danger">F</td>
+			</tr>
+			<tr>
+				<th>1.2.0</th>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="success">T</td>
+				<td class="success">T</td>
+				<td class="danger">F</td>
+			</tr>
+			<tr>
+				<th>1.0.0</th>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="success">T</td>
+				<td class="success">T</td>
+				<td class="danger">F</td>
+			</tr>
+			<tr>
+				<th>0.9.0</th>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="danger">F</td>
+				<td class="success">T</td>
+				<td class="success">T</td>
+				<td class="danger">F</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

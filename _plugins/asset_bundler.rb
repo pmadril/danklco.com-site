@@ -149,6 +149,18 @@ END
         load_content()
       end
     end
+    
+    def to_liquid
+      {
+        "extname"       => "."+type,
+        "modified_time" => Time.now,
+        "path"          => base+filename
+      }
+    end
+    
+    def type
+      @type ||= nil
+    end
 
     def self.config(context)
       if @@current_config.nil?
@@ -377,9 +389,9 @@ END
       require 'yui/compressor'
       case @type
         when 'js'
-          @content = YUI::JavaScriptCompressor.new.compress(@content)
+          @content = YUI::JavaScriptCompressor.new(:java_opts => '-Xss8m').compress(@content)
         when 'css'
-          @content = YUI::CssCompressor.new.compress(@content)
+          @content = YUI::CssCompressor.new(:java_opts => '-Xss8m').compress(@content)
       end
     end
 
@@ -441,3 +453,4 @@ end
 Liquid::Template.register_tag('bundle'     , Jekyll::BundleTag    )
 Liquid::Template.register_tag('bundle_glob', Jekyll::BundleGlobTag)
 Liquid::Template.register_tag('dev_assets' , Jekyll::DevAssetsTag )
+

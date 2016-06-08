@@ -41,7 +41,7 @@ else
 	echo "Installing newrelic..."
 	rpm -Uvh http://download.newrelic.com/pub/newrelic/el5/i386/newrelic-repo-5-3.noarch.rpm
 	yum -y install newrelic-sysmond
-	cp /tmp/conf/newrelic/nrsysmond.cfg /etc/newrelic/nrsysmond.cfg
+	cp -f /tmp/conf/newrelic/nrsysmond.cfg /etc/newrelic/nrsysmond.cfg
 	chkconfig newrelic-sysmond on
 	systemctl start newrelic-sysmond
 	echo "newrelic installed"
@@ -52,15 +52,14 @@ if test -e /home/klcodanr; then
 	userdel klcodanr
 fi
 echo "Adding klcodanr..."
-useradd klcodanr
-chpasswd < /tmp/conf/ssh/password
 useradd -G wheel klcodanr
+chpasswd < /tmp/conf/ssh/password
 mkdir -p /home/klcodanr/.ssh
 cp /tmp/conf/ssh/authorized_keys /home/klcodanr/.ssh/
 chmod 700 /home/klcodanr/.ssh
 chmod 600 /home/klcodanr/.ssh/authorized_keys
 chown -R klcodanr:klcodanr /home/klcodanr/.ssh
-cp /tmp/conf/ssh/sudoers /etc
+cp -f /tmp/conf/ssh/sudoers /etc
 chmod 440 /etc/sudoers
 echo "User added"
 
@@ -97,7 +96,8 @@ if test -e /usr/bin/jekyll; then
 else
 	echo "Installing Jekyll..."
 	yum -y install ruby ruby-devel rubygems nodejs gcc execjs
-	gem install -V yui-compressor jekyll
+	gem update
+	gem install yui-compressor jekyll jekyll-paginate
 	echo "Jekyll installed"
 fi
 
@@ -142,7 +142,7 @@ if test -e /etc/httpd/conf.d/ssl.conf; then
 else
 	echo "Installing SSL Support..."
 	yum -y install mod_ssl
-	cp /tmp/conf/httpd/ssl.conf /etc/httpd/conf.d
+	cp -f /tmp/conf/httpd/ssl.conf /etc/httpd/conf.d
 	cp /tmp/conf/ssl/*.* /etc/httpd/conf
 	systemctl restart httpd.service
 	echo "SSL support installed"
@@ -153,8 +153,8 @@ if test -e /etc/httpd/conf.d/default.conf; then
 else
 	echo "Installing default configuration..."
 	cp /tmp/conf/httpd/default.conf /etc/httpd/conf.d
-	cp /tmp/conf/httpd/welcome.conf /etc/httpd/conf.d
-	cp /tmp/conf/httpd/httpd.conf /etc/httpd/conf
+	cp -f /tmp/conf/httpd/welcome.conf /etc/httpd/conf.d
+	cp -f /tmp/conf/httpd/httpd.conf /etc/httpd/conf
 	mkdir -p /opt/dev
 	chmod a+wx /opt/dev
 	git clone https://github.com/klcodanr/danklco.com-site.git /opt/dev/danklco.com-site

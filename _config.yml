@@ -29,10 +29,13 @@ destination: /var/www/html
 exclude: [.gitignore, update.sh, vagrant]
 
 # Include .htaccess
-exclude: [.htaccess]
+include: [.htaccess]
 
 # Control the number of post per page
 paginate: 10
+
+# Additional GEMs to install
+gems: [jekyll-paginate]
 
 # Configure the Asset Bundler
 asset_bundler:
@@ -41,3 +44,9 @@ asset_bundler:
     css: 'yui'
   markup_templates:
     js: "\t\t<script type=\"text/javascript\" src=\"{{url}}\"></script>\n"
+    
+collections:
+  engagements:
+    output: true
+  jobs:
+    output: true

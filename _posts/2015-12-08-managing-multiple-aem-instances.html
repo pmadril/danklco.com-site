@@ -1,0 +1,47 @@
+---
+layout: post
+title: 'Managing Multiple AEM Instances'
+tags:
+  - AEM
+  - Bash
+  - 'Best Practices'
+published: true
+thumbnail: /images/posts/2015-12-08-managing-multiple-aem-instances/juggling.jpg
+summary: 'How I manage multiple AEM instances on my development computer.'
+original: 'https://blogs.perficient.com/digitaltech/2015/12/08/managing-multiple-aem-instances/'
+---
+
+<p>One of the challenges I've had over the last few years is how to easily manage multiple AEM instances concurrently. Over the last few years, I've often had to have several different AEM instances running during the course of the day, whether it be different versions, client codebases or for just for standing up a quick test.</p>
+<p>To make starting, stopping and resetting AEM instances on my computer quick and easy, I created a small script and a structure to support easily managing multiple AEM instances on the same computer.&nbsp;</p>
+<p class="text-center"><img class="img-responsive center-block" src="/images/posts/2015-12-08-managing-multiple-aem-instances/juggling.jpg" alt="Juggling AEM Instances" /><br />"<a class="external text" href="https://commons.wikimedia.org/wiki/File:Y%C3%BCcelzorlu_(3).JPG">Y&uuml;celzorlu</a>" by <a class="external text" href="https://commons.wikimedia.org/wiki/User:SepiNs" rel="nofollow">SepiNs</a>&nbsp;is licensed under&nbsp;<a href="https://creativecommons.org/licenses/by-sa/3.0/deed.en">CC SA 2.0</a></p>
+<h3>Folder Structure</h3>
+<p>First, from a structure perspective, create the following folders:</p>
+<pre>/[user-home]
+    /dev
+        /aem
+            /instance1
+            /instance2
+        ...
+</pre>
+<p>This structure is pretty simple, but it does help a lot to be consistant and makes it pretty quick to navigate&nbsp;folders via terminal or finder; cd <code>~/dev/aem/6.1</code> is pretty darn easy to type, easy to remember and makes sense from a taxonomy perspective. This structure also allows me to add other applications in parallel, such as MongoDB, Tomcat or anything else with which I may need to integrate as sibling folders to the aem&nbsp;folder.</p>
+<h3>AEM Manager Script</h3>
+<p>Next, I <a href="https://github.com/PerficientDigital/AEM-Manager/blob/master/aem-mgr.sh" target="_blank">created a shell script</a>&nbsp;to manage the individual AEM instances under this structure. The script allows you to start, stop and clear the repositories of instances. When starting, the script clears the AEM logs before starting, can start the instance in debug mode, start multiple publisher instances, can run without the GUI and allows you to configure the JVM settings for the AEM instances.</p>
+<p>This script also allows you to clear the repository, removing everything under the crx-quickstart folder to quickly restore the repository to the starting state. This can be especially useful if you are trying to save space or need to install two incompatible codebases.</p>
+<h3>Examples</h3>
+<p>The commands for the script are relatively straightforward:</p>
+<p><strong>Starting an AEM Instance</strong></p>
+<pre><code>aem-mgr start&nbsp;-i 6.1.0</code></pre>
+<p><strong>Starting an AEM Author&nbsp;and Publishers</strong></p>
+<pre><code>aem-mgr start&nbsp;-i 6.1.0 -p</code></pre>
+<p>It's probably worth mentioning that what this will do is start the author instance found in the folder ~/dev/aem/6.1.0 and all of the instances in folders which look like ~/dev/aem/6.1.0-publish-[N].</p>
+<p><strong>Stopping&nbsp;an AEM Instance</strong></p>
+<pre><code>aem-mgr stop&nbsp;-i 6.1.0</code></pre>
+<p><strong>Clearing&nbsp;an AEM Instance</strong></p>
+<pre><code>aem-mgr clear&nbsp;-i 6.1.0</code></pre>
+<p>A quick note, if you want to run multiple instances in parallel, you will need to pass in the -nd flag to disable debugging on the non-primary instances. The script handles this automatically for publish instances by incrementing all of the port numbers.</p>
+<h3>Defaults</h3>
+<p>By default, the script will look for AEM instances under the ~/dev/aem folder I&nbsp;described above. Each instance is assumed to be in a sub-folder with a JAR inside with a name matching&nbsp;<code>^.<span class="pl-k">*</span>aem.<span class="pl-k">*</span><span class="pl-cce">\.</span>jar$</code> or&nbsp;<code>^.<span class="pl-k">*cq</span>.<span class="pl-k">*</span><span class="pl-cce">\.</span>jar$</code>.</p>
+<p>Each instance with debug enabled will start by default with the Java&nbsp;debug port&nbsp;set to&nbsp;30303 and the JMX port to 9999. Additionally, by default the JVM is granted a maximum of 1GB heap and 256MB of Permanent&nbsp;Generation. These values can be configured in the "Default Settings" section of the script.</p>
+<h3>Installation</h3>
+<p>To install the script either <a href="https://raw.githubusercontent.com/PerficientDigital/AEM-Manager/master/aem-mgr.sh" target="_blank">download it directly from GitHub</a>&nbsp;or clone the git repository and add it into your computer's PATH variable. It has been tested in Linux and Mac and I would suspect it would work on windows with GNUTools or Cygwin installed.</p>
+<p>Hopefully you find the script and structure useful!</p>

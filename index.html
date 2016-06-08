@@ -1,39 +1,38 @@
 ---
 layout: home
 title: Home
-summary: "Dan Klco's home page on the web. Technical and other thoughts largely around AEM and Apache Sling."
+tags: 
+  - 'Adobe Experience Manager'
+  - 'Digital Marketer'
+  - 'Adobe Certified Expert'
+  - 'AEM Architect'
+summary: "Home on the internet for Dan Klco, Adobe Certified Expert Architect, Apache Sling PMC Member and Digital Marketing Consultant"
 ---
 
 <div class="recent-activity">
-	<div id="wrapper">
-		<div id="columns" data-total-pages="{{paginator.total_pages}}">
-			{% for post in paginator.posts %}
-				<div class="pin">
-					{% if post.original %}
-						{% assign url = post.original %}
-					{% else %}
-						{% assign url = post.url %}
-					{% endif %}
-					<a href="{{url}}">
-						{% if post.thumbnail %}
-							<img src="{{ post.thumbnail }}" />
-						{% else %}
-							<img src="http://placehold.it/250x120?text={{post.title}}" />
-						{% endif %}
-						<h5>
-							{{post.title}}
-						</h5>
-						<div>
-							<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> <em>{{post.date | date: "%b %d %Y"}}</em>
-						</div>
-					</a>
-				</div>
-			{% endfor %}
-		</div>
-	</div>	
-	{% if paginator.total_pages != 1 %}
-		{% if paginator.next_page %}
-			<a href="/page{{paginator.next_page}}/" class="btn btn-default center-block next-page">More</a>
+	<div class="articles-wrapper" data-total-pages="{{paginator.total_pages}}">
+		{% if paginator.page != 1 %}
+			<div class="columns-header transparent-block-inverse text-center">
+				<strong>
+					Page {{ paginator.page }}
+				</strong>
+			</div>
 		{% endif %}
-	{% endif %}
+		<section itemscope itemtype="http://schema.org/Blog" class="articles-wrapper" id="page-{{paginator.page}}">
+            <div class="row">
+                {% for post in paginator.posts %}
+                    {% include post.html %} 
+                    {% cycle '', '</div><div class="row">' %}
+                {% endfor %}
+            </div>
+		</section>
+	</div>
 </div>
+{% if paginator.total_pages != 1 %}
+	{% if paginator.next_page %}
+        <a href="/page{{paginator.next_page}}/" class="btn btn-inverse center-block next-page">More</a>
+	{% endif %}
+    <div class="loader text-center transparent-block-inverse row">
+        <span class="glyphicon glyphicon-refresh glyphicon-spin"></span> Loading...
+    </div>
+{% endif %}

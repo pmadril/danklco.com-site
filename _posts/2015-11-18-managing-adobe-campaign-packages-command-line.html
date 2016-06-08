@@ -1,0 +1,43 @@
+---
+layout: post
+title: 'Managing Adobe Campaign Packages via the Command Line'
+published: true
+tags:
+  - 'Adobe Campaign'
+  - 'Command Line Interface'
+  - Deployment
+summary: 'Learn how to manage content and configuration packages via the command line interface of Adobe Campaign.'
+thumbnail: /images/posts/2015-11-18-managing-adobe-campaign-packages-command-line/adobe-campaign-package.png
+original: 'http://blogs.perficient.com/digitaltech/2015/11/18/managing-adobe-campaign-packages-via-the-command-line/'
+---
+
+<p><a href="http://www.adobe.com/marketing-cloud/campaign-management.html" target="_blank">Adobe Campaign</a>&nbsp;includes a <a href="https://docs.campaign.adobe.com/doc/AC6.1/en/INS_Appendices_Command_lines.html" target="_blank">command line interface</a>&nbsp;by which administrators and developers can interact with the system via a command line interface, instead of the graphical user interface. Included in this command line interface is a tool for importing and exporting packages directly through the command line. This allows teams and users to more easily share and deploy configurations and content between Adobe Campaign instances.</p>
+<p>To manage packages using the Adobe Campaign command line interface, perform the following:</p>
+<h3>Step 1: Create Package</h3>
+<p>To manage packages in Adobe Campaign through the command line interface, first you will need to create the package from within Adobe Campaign.</p>
+<p>&nbsp;<img src="/images/posts/2015-11-18-managing-adobe-campaign-packages-command-line/adobe-campaign-package.png" alt="Creating a Package in Adobe Campaign" /></p>
+<p>Once you have created the package and defined its contents, copy the package name. We'll use this in the next step.</p>
+<h3>Step 2: Export Package</h3>
+<p>Next, login to the Adobe Campaign Server and execute one of the following command:</p>
+<pre><code>nlserver package -instance:[instance_name] -export:[target_file] -spec:[package_name] -verbose</code></pre>
+<p>The parameters are:</p>
+<ul>
+<li><em>instance_name</em>: the name of the instance, as defined in the config-[instance_name].xml in Adobe Campaign's conf directory</li>
+<li><em>target_file:&nbsp;</em>the file to write the package contents to, does not have to exist</li>
+<li><em>package_name:</em> the name of the package you defined in step 1</li>
+</ul>
+<p>I've also added the verbose flag to get more verbose output in the case of errors or warnings.</p>
+<p>An example of this command and its output is below:</p>
+<pre><code>C:\Adobe\Adobe Campaign Server v6\bin&gt;nlserver package -instance:dev -export:C:\Users\bootcamp\Desktop\package.xml -spec:drk:devPackage -verbose<br clear="none" />23:39:56 &gt; Application server for Adobe Campaign Version 6.1.1 (build 8667) of 08/04/2015<br clear="none" />23:39:56 &gt; Loading configuration for instance 'dev'<br clear="none" />23:39:56 &gt; Starting 1 connection(s) on pool 'default dev' (PostgreSQL, server='localhost', login='dev:dev')<br clear="none" />23:39:56 &gt; Library 'libpq.dll' loaded from 'C:\Adobe\Adobe Campaign Server v6\bin\libpq.dll'<br clear="none" />23:39:56 &gt; Exporting package 'drk:devPackage'...<br />
+C:\Adobe\Adobe Campaign Server v6\bin&gt;</code></pre>
+<h3>Step 3: Import Package</h3>
+<p>Once the package is exported it can be shared modified or distributed as needed. To re-import the package into the same or a different instance, execute the command:</p>
+<pre><code>nlserver package -instance:[instance_name] -import:[target_file] -verbose</code></pre>
+<p>The parameters are:</p>
+<ul>
+<li><em>instance_name</em>:&nbsp;same as export, this is the name of the&nbsp;instance, as defined in the config-[instance_name].xml in Adobe Campaign's conf directory</li>
+<li><em>target_file:&nbsp;</em>the file to write&nbsp;read the package content from, must exist and be a valid package file</li>
+</ul>
+<p>An example of this command and its output is below:</p>
+<pre><code>C:\Adobe\Adobe Campaign Server v6\conf&gt;nlserver package -instance:dev -import:C:\Users\bootcamp\desktop\package.xml -verbose<br clear="none" />00:04:49 &gt; Application server for Adobe Campaign Version 6.1.1 (build 8667) of 08/04/2015<br clear="none" />00:04:49 &gt; Loading configuration for instance 'dev'<br clear="none" />00:04:49 &gt; Starting 1 connection(s) on pool 'default dev' (PostgreSQL, server='localhost', login='dev:dev')<br clear="none" />00:04:49 &gt; Library 'libpq.dll' loaded from 'C:\Adobe\Adobe Campaign Server v6\bin\libpq.dll'<br clear="none" />00:04:49 &gt; Importing package 'C:\Users\bootcamp\desktop\package.xml'...<br clear="none" />00:04:50 &gt; Enumerating the file entities...<br clear="none" />00:04:50 &gt; Writing entities in the database...<br clear="none" />00:04:50 &gt; Saving data related to packages...<br clear="none" />00:04:50 &gt; Package 'Dan Dev Package': Saving entities of type 'nms:recipient'...<br clear="none" />00:04:50 &gt; Package 'Dan Dev Package': Saving entities of type 'xtk:specFile'...<br clear="none" />00:04:50 &gt; Installation of packages successful.</code></pre>
+<p>Hopefully this helps anyone wanting to know more about using Adobe Campaign's powerful command line interface and to improve their process by more easily sharing and distributing content and configurations&nbsp;for Adobe Campaign.</p>

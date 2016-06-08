@@ -10,6 +10,12 @@
     	<changefreq>never</changefreq>
     </url>
     {% endunless %}
+    {% if post.original contains 'labs.sixdimensions.com' or post.original contains 'labs.6dglobal.com' %}
+    <url>
+        <loc>{{ site.url }}{{ post.url | remove: 'index.html' }}</loc>
+    	<changefreq>never</changefreq>
+    </url>
+    {% endif %}
     {% endfor %}
     {% for page in site.pages %}
     {% if page.layout != nil and page.layout != 'none' and page.layout != 'engagement' and page.exclude_sitemap != true %}

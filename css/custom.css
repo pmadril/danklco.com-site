@@ -3,7 +3,84 @@
  * General Page Layout Styles
  */
 body {
-	background: url(/images/bg.png) center center fixed;
+    background-color:rgb(244, 244, 244);
+	font-family: 'Lato', sans-serif;
+}
+
+.container {
+    background-color:white;
+}
+
+.btn-inverse {
+  color: #ffffff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  background-color: #363636;
+  *background-color: #222222;
+  background-image: -moz-linear-gradient(top, #444444, #222222);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#444444), to(#222222));
+  background-image: -webkit-linear-gradient(top, #444444, #222222);
+  background-image: -o-linear-gradient(top, #444444, #222222);
+  background-image: linear-gradient(to bottom, #444444, #222222);
+  background-repeat: repeat-x;
+  border-color: #222222 #222222 #000000;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff444444', endColorstr='#ff222222', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, .2);
+  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, .15), 0 1px 1px rgba(0, 0, 0, .075);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .15), 0 1px 1px rgba(0, 0, 0, .075);
+}
+
+.btn-inverse:hover,
+.btn-inverse:focus,
+.btn-inverse:active,
+.btn-inverse.active,
+.btn-inverse.disabled,
+.btn-inverse[disabled] {
+  color: #ffffff;
+  background-color: #222222;
+  *background-color: #151515;
+  -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
+             box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
+}
+
+.btn-inverse:active,
+.btn-inverse.active {
+  background-color: #080808 \9;
+}
+
+.btn-inverse.active {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+@media (min-width: 767px) {
+	.footer-search {
+        display:inline;
+        float:right;
+        margin-top: -10px;
+    }
+}
+
+.footer-search .input-group {
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+}
+
+.gsc-control-cse * {
+    box-sizing: content-box;
+}
+
+h2 {
+    margin-top: 10px;
+}
+
+.navbar-inverse {
+    border-radius: 0;
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+.next-page {
+    margin-top: 10px;
 }
 
 .page-header {
@@ -11,13 +88,13 @@ body {
     background-size:cover;
     height: 300px;
     margin-bottom: 0;
+    margin-top: 0;
     border-bottom: none;
 }
 
 .page-header .content {
-    background-color: white;
-    opacity: .93;
-    border-radius: 10px;
+    background-color:rgba(255,255,255,0.93);
+    border-radius: 2px;
     top: 50px;
     position: relative;
     margin: 10px;
@@ -29,27 +106,27 @@ body {
     padding: 10px;
 }
 
-.navbar-inverse {
-    border-radius: 0;
-    margin-left: -15px;
-    margin-right: -15px;
+.recent-activity{
+	padding: 10px 0;
+}
+
+@media (max-width: 991px) {
+    .row-align-left {
+        margin-right: -30px;
+    }
 }
 
 .transparent-block-default {
-	background-color: white;
-	opacity: 0.9;
 	padding:20px;
     margin-top: 10px;
 }
 
 .transparent-block-inverse {
-	background-color: black;
-	opacity: 0.7;
+    background:rgba(0,0,0,0.85);
 	padding:20px;
     margin-top: 10px;
     color:white;
 }
-
 
 img.certification {
     width: 300px;
@@ -63,6 +140,10 @@ img.certification {
 	width: 48px;
 	height: 48px;
 	display: inline-block;
+}
+
+.job, .project {
+    padding: 20px 0 0 10px;
 }
 
 #Facebook {
@@ -92,12 +173,15 @@ img.certification {
 /*
  * Homepage pinterest style list
  */
+.columns-header {
+	margin-bottom: 3em;
+}
  
-#wrapper {
+.columns-wrapper {
 	margin: 10px auto;
 }
 
-#columns {
+.columns {
 	-webkit-column-count: 2;
 	-webkit-column-gap: 10px;
 	-webkit-column-fill: balance;
@@ -111,41 +195,107 @@ img.certification {
 
 .pin {
 	display: inline-block;
-	background: #FEFEFE;
-	border: 2px solid #FAFAFA;
 	box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
-	margin: 0 2px 15px;
+	margin-bottom: 15px;
 	-webkit-column-break-inside: avoid;
 	-moz-column-break-inside: avoid;
 	column-break-inside: avoid;
-	padding: 15px;
-	padding-bottom: 5px;
-	background: -webkit-linear-gradient(45deg, #FFF, #F9F9F9);
 	opacity: 1;
 	-webkit-transition: all .2s ease;
 	-moz-transition: all .2s ease;
 	-o-transition: all .2s ease;
 	transition: all .2s ease;
+	cursor:pointer;
+	width:100%;
 }
 
-.pin img {
+.pin:hover {
+	box-shadow: 0px 1px 5px black;
+}
+
+
+@media (min-width: 992px) {
+	.pin .hover-show {
+    		opacity:0;
+	}
+}
+
+.pin .hover-show {
+    padding:5px;
+    color:white;
+    margin-top: 0;
+    background:rgba(0,0,0,.9);
+}
+
+.pin .hover-show a {
+    color:white;
+}
+
+.pin .hover-show a:hover {
+    text-decoration:none;
+}
+
+.pin:hover .hover-show {
+    opacity:1;
+}
+
+.pin .img {
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position:center;
+    padding: 50px 10px 0 10px;
 	width: 100%;
-	border-bottom: 1px solid #ccc;
-	padding-bottom: 15px;
-	margin-bottom: 5px;
+    height: 250px;
 }
 
-.pin p {
-	font: 12px/18px Arial, sans-serif;
-	color: #333;
-	margin: 0;
+.pin .text-muted {
+    border-top: 1px solid rgba(102,102,102,0.8);
+    padding: 10px 10px 0 10px;
 }
-
 
 @media (min-width: 1100px) {
-	#columns {
+	.columns {
 		-webkit-column-count: 3;
 		-moz-column-count: 3;
 		column-count: 3;
 	}
+}
+
+.glyphicon-spin {
+    -webkit-animation-name: spin;
+    -webkit-animation-duration: 4000ms;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    -moz-animation-name: spin;
+    -moz-animation-duration: 4000ms;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-timing-function: linear;
+    -ms-animation-name: spin;
+    -ms-animation-duration: 4000ms;
+    -ms-animation-iteration-count: infinite;
+    -ms-animation-timing-function: linear;
+    animation-name: spin;
+    animation-duration: 4000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+@-ms-keyframes spin {
+    from { -ms-transform: rotate(0deg); }
+    to { -ms-transform: rotate(360deg); }
+}
+@-moz-keyframes spin {
+    from { -moz-transform: rotate(0deg); }
+    to { -moz-transform: rotate(360deg); }
+}
+@-webkit-keyframes spin {
+    from { -webkit-transform: rotate(0deg); }
+    to { -webkit-transform: rotate(360deg); }
+}
+@keyframes spin {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
 }

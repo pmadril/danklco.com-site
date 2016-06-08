@@ -8,15 +8,35 @@
 				<span class="icon-bar"></span>
 			</button>
 			<a class="navbar-brand hidden-lg hidden-md" href="#">{{site.name}}</a>
-    	</div>
-    	<div class="collapse navbar-collapse" id="main-nav">
-    		<ul class="nav navbar-nav">
-    			<li><a href="/">Home</a></li>
-    			<li><a href="/my-work.html">My Work</a></li>
-    			<li><a href="/curriculum-vitae.html">Curriculum Vitae</a></li>
-    			<li><a href="/projects.html">Projects</a></li>
-    			<li><a href="/contact.html">Contact</a></li>
-    		</ul>
-    	</div>
-    </div>
+		</div>
+		<div class="collapse navbar-collapse" id="main-nav">
+			<ul class="nav navbar-nav">
+				{% if page.url == '/' %}
+					<li class="active"><a href="/">Home</a></li>
+				{% else %}
+					<li><a href="/">Home</a></li>
+				{% endif %}
+				{% if page.url == '/my-work/' %}
+					<li class="active"><a href="/my-work/">My Work</a></li>
+				{% else %}
+					<li><a href="/my-work/">My Work</a></li>
+				{% endif %}
+				{% if page.url == '/curriculum-vitae/' %}
+					<li class="active"><a href="/curriculum-vitae/">Curriculum Vitae</a></li>
+				{% else %}
+					<li><a href="/curriculum-vitae/">Curriculum Vitae</a></li>
+				{% endif %}
+				{% if page.url == '/projects/' %}
+					<li class="active"><a href="/projects/">Projects</a></li>
+				{% else %}
+					<li><a href="/projects/">Projects</a></li>
+				{% endif %}
+				{% if page.url == '/contact/' %}
+					<li class="active"><a href="/contact/">Contact</a></li>
+				{% else %}
+					<li><a href="/contact/">Contact</a></li>
+				{% endif %}
+			</ul>
+		</div>
+	</div>
 </nav>

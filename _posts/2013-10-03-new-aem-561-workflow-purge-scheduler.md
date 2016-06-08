@@ -49,7 +49,7 @@ and put in the following contents, replacing with the values for your configurat
 Once you deploy this file as part of your content package, you should see the configuration show up under the&nbsp;Workflow Purge Scheduler in the OSGi Configuration console.
  
    [2]: /posts/2013/08/27/service-boss-level-service-factories
-   [3]: /images/posts/2013-10-03-new-aem-561-workflow-purge-scheduler/Workflow-Purge-Scheduler.png (Workflow Purge Scheduler)
+   [3]: /images/posts/2013-10-03-new-aem-561-workflow-purge-scheduler/Workflow-Purge-Scheduler.png
    [4]: http://quartz-scheduler.org/documentation/quartz-1.x/tutorials/crontrigger
    [5]: http://dev.day.com/docs/en/cq/current/deploying/configuring_osgi.html#OSGi%20Configuration%20in%20the%20Repository
   

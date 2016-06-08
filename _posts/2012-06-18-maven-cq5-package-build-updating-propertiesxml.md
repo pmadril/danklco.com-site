@@ -1,17 +1,22 @@
 ---
 layout: post
-title: "Maven CQ5 Package Build: Updating Properties.xml"
-original: http://labs.sixdimensions.com/blog/dklco/2012-06-19/maven-cq5-package-build-updating-propertiesxml
-summary: Shows how to update the VLT Properties.xml in a Maven Build
-tags: [Adobe CQ, Apache Maven, How To]
+title: 'Maven CQ5 Package Build: Updating Properties.xml'
+original: 'http://labs.6dglobal.com/blog/2012-06-18/maven-cq5-package-build-updating-propertiesxml/'
+summary: 'Shows how to update the VLT Properties.xml in a Maven Build'
+tags:
+  - 'Adobe CQ'
+  - 'Apache Maven'
+  - 'How To'
 thumbnail: /images/posts/shared/maven.png
+published: true
 ---
+
 
 This article describes the process of adding and automatically updating a CQ5 Package properties.xml as a part of a Maven build.
 
 ## Why do I need a Properties.xml?
 
-Certain CQ5.4 Hotfixes are known to cause issues where packages without a properties.xml will not install properly.&nbsp; If you attempt to install a package into a CQ instance with the affected Hotfix, you will see this error:
+Certain CQ5.4 Hotfixes are known to cause issues where packages without a properties.xml will not install properly.  If you attempt to install a package into a CQ instance with the affected Hotfix, you will see this error:
 
     java.lang.NullPointerException
     at com.day.jcr.vault.packaging.impl.InstallHookProcessor.registerHooks(InstallHookProcessor.java:80)
@@ -23,15 +28,15 @@ Certain CQ5.4 Hotfixes are known to cause issues where packages without a proper
     at com.day.crx.packaging.impl.PackageManagerServlet.doPost(PackageManagerServlet.java:73)
     at com.day.crx.j2ee.CRXHttpServlet.doPost(CRXHttpServlet.java:127)
 
-Adobe recommends you contact support regarding this issue.&nbsp; You can read more about which hotfixes may be affected in the [Knowledge Base][1].
+Adobe recommends you contact support regarding this issue.  You can read more about which hotfixes may be affected in the [Knowledge Base][1].
 
-If you cannot otherwise resolve the issue, the easiest course is to add the properties.xml into the package as part of your build.&nbsp;
+If you cannot otherwise resolve the issue, the easiest course is to add the properties.xml into the package as part of your build. 
 
 ## Adding the Properties.xml
 
-The first step to adding the properties.xml is to create the file in your META-INF/vault directory.&nbsp; This will be the same directory containing the filter.xml.
+The first step to adding the properties.xml is to create the file in your META-INF/vault directory.  This will be the same directory containing the filter.xml.
 
-By default, the properties.xml contains state information we don't want persisted into source control, such as what user last installed the package and how many times it has been built.&nbsp; The stripped down properties.xml contains the information needed to install the package, but nothing more:
+By default, the properties.xml contains state information we don't want persisted into source control, such as what user last installed the package and how many times it has been built.  The stripped down properties.xml contains the information needed to install the package, but nothing more:
 
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
@@ -44,13 +49,13 @@ By default, the properties.xml contains state information we don't want persiste
         <entry key="group">{PROJECT_GROUP}</entry>
     </properties>
 
-Next, replace the {PROJECT\_NAME} and {PROJECT\_GROUP} placeholders with the appropriate values for your package.&nbsp; Leave the PROJECT_VERSION placeholder as is.
+Next, replace the {PROJECT\_NAME} and {PROJECT\_GROUP} placeholders with the appropriate values for your package.  Leave the PROJECT_VERSION placeholder as is.
 
 ## Updating the Package Version
 
-Since we're using Maven to build the package automatically, we will need to update the package version automatically. Otherwise, we'd will have to manually keep it in sync with the version in the POM, which leaves plenty of room for errors.&nbsp;
+Since we're using Maven to build the package automatically, we will need to update the package version automatically. Otherwise, we'd will have to manually keep it in sync with the version in the POM, which leaves plenty of room for errors. 
 
-Luckily, there is a Maven plugin called [Maven Replacer Plugin][2] for just this purpose.&nbsp; Add the plugin configuration below to have Maven automatically update the package version with every build.&nbsp;
+Luckily, there is a Maven plugin called [Maven Replacer Plugin][2] for just this purpose.  Add the plugin configuration below to have Maven automatically update the package version with every build. 
 
     <plugin>
         <groupId>com.google.code.maven-replacer-plugin</groupId>
@@ -78,4 +83,4 @@ Luckily, there is a Maven plugin called [Maven Replacer Plugin][2] for just this
 Once you have all of these steps complete you should be able to install your Maven built plugin into systems affected by the Hotfix issues.
 
  [1]: http://dev.day.com/content/kb/home/Crx/Hotfixes/crx-2-2/hotfixpack.html "Adobe CQ Knowledge Base"
- [2]: http://code.google.com/p/maven-replacer-plugin/ "Maven Replacer Plugin"  
+ [2]: http://code.google.com/p/maven-replacer-plugin/ "Maven Replacer Plugin" 

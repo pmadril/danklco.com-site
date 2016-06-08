@@ -42,34 +42,28 @@
          "label":"Tools"
       },
       {
-         "name":"hide",
+         "name":"show",
          "label":"Show In My Work",
          "type":"checkbox",
          "default": false
       },
       {
-         "name":"thumbnail",
-         "label":"Thumbnail",
-         "type":"path",
-         "required":true
-      },
-      {
          "name":"image",
          "label":"Image",
-         "type":"path",
-         "required":true
+         "type":"path"
       },
       {
          "name":"image-height",
          "label":"Image Height",
-         "type":"number",
-         "required":true
+         "type":"number"
       },
       {
          "name":"image-width",
          "label":"Image Width",
-         "type":"number",
-         "required":true
+         "type":"number"
       }
-   ]
+   ],
+   "rte": {
+      "document_base_url":"https://www.danklco.com/"
+   }
 }
