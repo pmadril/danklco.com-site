@@ -213,10 +213,14 @@ img.certification {
 	box-shadow: 0px 1px 5px black;
 }
 
+.pin:hover .content {
+    display:block
+}
+
 
 @media (min-width: 992px) {
-	.pin .hover-show {
-    		opacity:0;
+	.pin .content {
+    		display:none;
 	}
 }
 
@@ -233,10 +237,6 @@ img.certification {
 
 .pin .hover-show a:hover {
     text-decoration:none;
-}
-
-.pin:hover .hover-show {
-    opacity:1;
 }
 
 .pin .img {
