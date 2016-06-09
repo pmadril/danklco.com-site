@@ -10,10 +10,10 @@
     {% endif %}
     <div class="pin" data-url="{{url}}">
         <meta itemscope itemprop="mainEntityOfPage"  itemType="https://schema.org/WebPage" itemid="{{ url }}" content="{{url}}" />
-        {% if post.thumb %}
-            {% assign thumb = '//placehold.it/300x300?text={{post.title}}' %}
-        {% else %}
+        {% if post.thumbnail %}
             {% assign thumb = post.thumbnail %}
+        {% else %}
+            {% assign thumb = '//placehold.it/300x300?text={{post.title}}' %}
         {% endif %}
         <div itemprop="image" itemscope itemtype="https://schema.org/ImageObject" class="img" style="background-image:url('{{thumb}}')">
             <meta itemprop="url" content="{{site.url}}{{ post.thumbnail }}">
