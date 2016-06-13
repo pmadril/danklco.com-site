@@ -2,9 +2,9 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<title>{% if page.title %} {{ page.title }} | {% endif %} DanKlco.com</title>
+		<title>{% if page.title %} {{ page.title | strip_html }} | {% endif %} DanKlco.com</title>
 		{% if page.tags %}<meta content="{{page.tags | join: ', '}}" name="keywords" />{% endif %}
-		{% if page.summary %}<meta content="{{ page.summary | truncatewords: 50 | strip_html }}" name="description" />{% endif %}
+		{% if page.summary %}<meta content="{{ page.summary | strip_html | truncatewords: 50 }}" name="description" />{% endif %}
 		<meta content="{{ site.author }}" name="author" />
 		<meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport" />
 		<meta property="og:site_name" content="DanKlco.com"/>
