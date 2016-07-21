@@ -1,10 +1,14 @@
 ---
 layout: post
-tags: []
-published: true
+tags:
+  - 'Adobe Experience Manager'
+  - Bash
+  - CLI
+published: false
+title: 'Managing AEM Packages from the CLI'
 ---
 
-<p>After the umpteenth time of having to check&nbsp;<a href="https://gist.github.com/2916697">this excellent reference</a>&nbsp;of the cURL commands for AEM to upload a package, I finally thought "this is silly" and created a small script to make it easier.</p>
+<p>After the umpteenth time of having to check&nbsp;<a href="https://gist.github.com/2916697">this excellent reference</a>&nbsp;of the cURL commands for AEM to upload a package, I finally thought "this is silly" and created a small script to make it easier to manage packages.</p>
 <p>The&nbsp;<a href="https://github.com/PerficientDigital/AEM-Package-Manager">AEM Package Manager</a>&nbsp;is just that, a small script to help you manage scripts from the command line. This can be useful when you are exchanging content packages, need to install a dependency package outside the build or you just want something quicker and easier than using the AEM web UI to upload a package.</p>
 <p>Using the script is as simple as:</p>
 <ul>
@@ -13,8 +17,15 @@ published: true
 <li>Putting it in your system path</li>
 </ul>
 <p>Once you have the script installed, you can use it as shown in the following examples:</p>
-<p>aem-pkmgr list -g my_packages</p>
-<p>List all of the packages in the <em>my_packages</em> group.</p>
+<h3>List Packages</h3>
+<pre><code>danklco@EDS-Klco-MAC ~&gt; aem-pkmgr list -g my_packages</code><br /><code>AVAILABLE PACKAGES</code><br /><br /><code>ForLocalContent_062216</code><br /><code> Description: </code><br /><code> Version: </code><br /><code> Group: my_packages</code><br /><code> Path: /etc/packages/my_packages/ForLocalContent_062216.zip</code><br /><br /><code>TagsForLocal_071416</code><br /><code> Description: </code><br /><code> Version: </code><br /><code> Group: my_packages</code><br /><code> Path: /etc/packages/my_packages/TagsForLocal_071416.zip</code><br /><br /><code>tes</code><br /><code> Description: </code><br /><code> Version: tes</code><br /><code> Group: my_packages</code><br /><code> Path: /etc/packages/my_packages/tes-tes.zip</code></pre>
+<p>Lists all of the packages in the <em>my_packages</em> group.</p>
+<h3>Download Package</h3>
+<pre><code>danklco@EDS-Klco-MAC ~&gt; aem-pkmgr download -pk /etc/packages/my_packages/TagsForLocal_071416.zip</code><br /><code>DOWNLOADING PACKAGE /etc/packages/my_packages/TagsForLocal_071416.zip...</code><br /><code> % Total % Received % Xferd Average Speed Time Time Time Current</code><br /><code> Dload Upload Total Spent Left Speed</code><br /><code>100 41.3M 100 41.3M 0 0 140M 0 --:--:-- --:--:-- --:--:-- 140M</code></pre>
+<p>Downloads the package /etc/packages/my_packages/TagsForLocal_071416.zip.</p>
+<h3>Upload / Install Package</h3>
+<pre>danklco@EDS-Klco-MAC ~&gt; aem-pkmgr upload-install -pk TagsForLocal_071416.zip <br />UPLOADING PACKAGE TagsForLocal_071416.zip...<br />&lt;crx version="1.2.2" user="admin" workspace="crx.default"&gt;<br /> &lt;request&gt;<br /> &lt;param name="file" value="TagsForLocal_071416.zip"/&gt;<br /> &lt;param name="force" value="true"/&gt;<br /> &lt;param name="install" value="true"/&gt;<br /> &lt;/request&gt;<br /> &lt;response&gt;<br /> &lt;data&gt;<br /> &lt;package&gt;<br /> &lt;group&gt;my_packages&lt;/group&gt;<br /> &lt;name&gt;TagsForLocal_071416&lt;/name&gt;<br /> &lt;version&gt;&lt;/version&gt;<br /> &lt;downloadName&gt;TagsForLocal_071416.zip&lt;/downloadName&gt;<br /> &lt;size&gt;43330621&lt;/size&gt;<br /> &lt;created&gt;Wed, 20 Jul 2016 12:41:05 -0500&lt;/created&gt;<br /> &lt;createdBy&gt;admin&lt;/createdBy&gt;<br /> &lt;lastModified&gt;Wed, 20 Jul 2016 12:40:26 -0500&lt;/lastModified&gt;<br /> &lt;lastModifiedBy&gt;admin&lt;/lastModifiedBy&gt;<br /> &lt;lastUnpacked&gt;Wed, 20 Jul 2016 15:33:04 -0500&lt;/lastUnpacked&gt;<br /> &lt;lastUnpackedBy&gt;admin&lt;/lastUnpackedBy&gt;<br /> &lt;/package&gt;<br /> &lt;log&gt;<br />Installing content...<br />Collecting import information... <br />Installing node types... <br />- rep -&amp;gt; internal<br />- mix -&amp;gt; http://www.jcp.org/jcr/mix/1.0<br />- nt -&amp;gt; http://www.jcp.org/jcr/nt/1.0<br />- sling -&amp;gt; http://sling.apache.org/jcr/sling/1.0<br />- cq -&amp;gt; http://www.day.com/jcr/cq/1.0<br />- sling:Folder<br />- sling:Redirect<br />- sling:Resource<br />- cq:ReplicationStatus<br />- cq:Tag<br />- rep:RepoAccessControllable<br />Installing privileges... <br />Importing content... <br />- /<br />- /etc<br />- /etc/tags<br />[... trim ...]<br />saving approx 0 nodes... <br />Package imported. <br />Package installed in 55497ms.<br /> &lt;/log&gt;<br /> &lt;/data&gt;<br /> &lt;status code="200"&gt;ok&lt;/status&gt;<br /> &lt;/response&gt;<br />&lt;/crx&gt;</pre>
+<p>Uploads and installs the package&nbsp;TagsForLocal_071416.zip.</p>
 <p>&nbsp;</p>
 <p>https://github.com/PerficientDigital/AEM-Package-Manager</p>
 <p>&nbsp;</p>
