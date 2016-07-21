@@ -19,7 +19,7 @@ To avoid this, you can simply purge old workflows.
 
 It does not come pre-configured, however so to enable CQ to automatically purge your workflows you will need to create a Workflow Purge Scheduler instance. &nbsp;The&nbsp;Workflow Purge Scheduler is a [Sling Service Factory][2], so creating an instance is as easy as logging into the Apache Felix Configuration Console and selecting the %2B button next to&nbsp;Workflow Purge Scheduler:
 
-![Workflow Purge Scheduler][3]
+<img src="/images/posts/2013-10-03-new-aem-561-workflow-purge-scheduler/Workflow-Purge-Scheduler.png" alt="Workflow Purge Scheduler" class="img-responsive" />
 
 Most of the fields in the scheduler are pretty self-explanitory. &nbsp;When you click Save, the scheduler will be scheduled on the [cron schedule][4] you specify and will purge workflows older than the specified number of days using the configuration you specify.
 
@@ -49,7 +49,7 @@ and put in the following contents, replacing with the values for your configurat
 Once you deploy this file as part of your content package, you should see the configuration show up under the&nbsp;Workflow Purge Scheduler in the OSGi Configuration console.
  
    [2]: /posts/2013/08/27/service-boss-level-service-factories
-   [3]: /images/posts/2013-10-03-new-aem-561-workflow-purge-scheduler/Workflow-Purge-Scheduler.png
+
    [4]: http://quartz-scheduler.org/documentation/quartz-1.x/tutorials/crontrigger
    [5]: http://dev.day.com/docs/en/cq/current/deploying/configuring_osgi.html#OSGi%20Configuration%20in%20the%20Repository
   

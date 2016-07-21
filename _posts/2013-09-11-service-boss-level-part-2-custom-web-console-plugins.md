@@ -33,7 +33,7 @@ When you go to to write the HTML to the page, retrieve the PrintWriter from the 
 
 Once your Web Console Plugin is complete, you should be able to access it from the Apache Felix Web Console. &nbsp;If you are using CQ 5.6, it will be in the Main dropdown.
 
-![Web Console Plugin Screen][6]
+<img src="/images/posts/2013-09-11-service-boss-level-part-2-custom-web-console-plugins/web-console-plugin.png" alt="Web Console Plugin Screen" class="img-responsive" />
 
 As you can see Custom Web Console Plugins are easy to create and can allow administrators valuable views into the functioning of OSGi Services and the health of your application.
 
@@ -41,5 +41,4 @@ As you can see Custom Web Console Plugins are easy to create and can allow admin
    [3]: http://felix.apache.org/apidocs/webconsole/3.0.0/org/apache/felix/webconsole/AbstractWebConsolePlugin.html#getLabel() (JavaDocs for the getLabel method)
    [4]: http://felix.apache.org/apidocs/webconsole/3.0.0/org/apache/felix/webconsole/AbstractWebConsolePlugin.html#getTitle() (JavaDocs for the getTitle method)
    [5]: http://felix.apache.org/apidocs/webconsole/3.0.0/org/apache/felix/webconsole/AbstractWebConsolePlugin.html#renderContent(javax.servlet.http.HttpServletRequest,%20javax.servlet.http.HttpServletResponse) (JavaDocs for the renderContent Method)
-   [6]: /images/posts/2013-09-11-service-boss-level-part-2-custom-web-console-plugins/web-console-plugin.png
   

@@ -17,11 +17,11 @@ Neither CRXDE nor CRXDE Lite tell you that the SCR JavaDoc tags are causing the 
 
 In CRXDE Lite you will see a message "SCR Descriptor parsing had failures (see log)".&nbsp; It does tell you which classes had the deprecated javadoc tags however, which will be useful.
 
-![CRXDE Lite Deprecated Message](/images/posts/2012-05-16-scr-javadoc-tags-deprecated-cq-55/crxdelite-deprecated-message.png)
+<img src="/images/posts/2012-05-16-scr-javadoc-tags-deprecated-cq-55/crxdelite-deprecated-message.png" alt="CRXDE Lite Deprecated Message" class="img-responsive" />
 
 CRXDE will report that the build failed and tell you to check the Remote Build view for details on the errors.&nbsp; Unfortunately, it will not actually have any error information availabe in the Remote Build view.
 
-![CRXDE Build Failure Popup](/images/posts/2012-05-16-scr-javadoc-tags-deprecated-cq-55/crxde-error-message.png)
+<img src="/images/posts/2012-05-16-scr-javadoc-tags-deprecated-cq-55/crxde-error-message.png" alt="CRXDE Build Failure Popup" class="img-responsive" />
 
 Finally, if you look in the logs you will see messages like the below:
 

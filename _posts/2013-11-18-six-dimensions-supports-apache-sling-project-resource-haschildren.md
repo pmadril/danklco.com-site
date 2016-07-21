@@ -1,5 +1,5 @@
 ---
-lawyout: post
+layout: post
 title: "Six Dimensions Supports the Apache Sling Project: Resource.hasChildren"
 summary: "Learn about Six Dimensions' recent contribution to the Sling API of a new hasChildren method"
 original: http://labs.sixdimensions.com/blog/dan-klco/2013-11-18/six-dimensions-supports-apache-sling-project-resourcehaschildren
