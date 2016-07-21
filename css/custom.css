@@ -253,6 +253,16 @@ img.certification {
     padding: 10px 10px 0 10px;
 }
 
+.simple-post-list {
+    padding: 10px;
+}
+
+.tab-content {
+    border: 1px solid #ddd;
+    border-top:none;
+    border-radius:0 0 4px 4px;
+}
+
 @media (min-width: 1100px) {
 	.columns {
 		-webkit-column-count: 3;

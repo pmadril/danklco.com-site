@@ -2,8 +2,8 @@
 layout: default
 ---
 
-<section class="row">
-	<div class="col-md-12 transparent-block-default">
+<div class="row">
+	<section class="col-md-9 transparent-block-default">
 		<article class="post" typeof="BlogPosting">
 			<header class="row">
 				<div class="col-md-2">
@@ -35,12 +35,12 @@ layout: default
 				{{ content }}
 			</div>
 			<hr class="large"/>
-				<h4>Tags</h4>
-				<div class="tags" property="keywords">
-		  			{% for tag in page.tags %}
-		  				<a href="/tag/{{ tag | UrlEncode }}">{{ tag }}</a>&nbsp;&nbsp;
-		  			{% endfor %}
-	  			</div>
+            <h4>Tags</h4>
+            <div class="tags" property="keywords">
+                {% for tag in page.tags %}
+                    <a href="/tag/{{ tag | UrlEncode }}">{{ tag }}</a>&nbsp;&nbsp;
+                {% endfor %}
+            </div>
 			<hr class="large"/>
 			<div class="comments">
 				<div id="disqus_thread"></div>
@@ -58,6 +58,90 @@ layout: default
 				<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 				<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 			</div>
+            <hr class="large"/>
+            <div class="row">
+                <div class="col-md-6">
+                    {% if page.previous.url %}
+                        {% capture url %}{{ page.previous.url }}{% endcapture %}
+                        {% capture target %}{% endcapture %}
+                        {% if page.previous.original %}
+                            {% unless page.previous.original contains 'labs.6dglobal.com' or page.previous.original contains 'labs.sixdimensions.com' %}
+                                {% capture url %}{{ page.previous.original }}{% endcapture %}
+                                {% capture target %}target="_blank"{% endcapture %}
+                            {% else %}
+                                {% capture url %}{{ page.previous.url }}{% endcapture %}
+                            {% endunless %}
+                        {% endif %}
+                        <a class="btn btn-inverse" href="{{url}}" {{target}} title="{{page.previous.title}}">&laquo; Previous Post</a>
+                    {% endif %}
+                </div>
+                <div class="col-md-6">
+                    {% if page.next.url %}
+                        {% capture url %}{{ page.next.url }}{% endcapture %}
+                        {% capture target %}{% endcapture %}
+                        {% if page.next.original %}
+                            {% unless page.next.original contains 'labs.6dglobal.com' or page.next.original contains 'labs.sixdimensions.com' %}
+                                {% capture url %}{{ page.next.original }}{% endcapture %}
+                                {% capture target %}target="_blank"{% endcapture %}
+                            {% else %}
+                                {% capture url %}{{ page.next.url }}{% endcapture %}
+                            {% endunless %}
+                        {% endif %}
+                        <a class="btn btn-inverse pull-right" href="{{url}}" {{target}} title="{{page.next.title}}">Next Post &raquo;</a>
+                    {% endif %}
+                </div>
+            </div>
 		</article>
-	</div>
-</section>
+	</section>
+    <aside class="col-md-3">
+        <a class="btn btn-inverse btn-lg" href="/blog.xml">Follow My Blog Posts</a>
+        <hr/>
+        <h3>More Posts</h3>
+        <div class="tabs">
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#recentPosts" data-toggle="tab"><span class="glyphicon glyphicon-star"></span>Recent</a></li>
+                {% if page.path contains '_posts' %}
+                    <li><a href="#relatedPosts" data-toggle="tab">Related</a></li>
+                {% endif %}
+            </ul>
+            <div class="tab-content">
+                {% if page.path contains '_posts' %}
+                    <div class="tab-pane" id="relatedPosts">
+                        <ul class="simple-post-list list-unstyled">
+                            {%strip%}{% assign written = '' %}
+                            {% for post in site.posts %}
+                                {% if post.url != page.url and written.size < 5 %}
+                                    {% capture tags %}{{page.tags | join: ','}}{% endcapture %}
+                                    {% assign matches = '' %}
+                                    {% for tag in post.tags %}
+                                        {% if tags contains tag %}
+                                            {% capture matches %}{{ matches }}.{% endcapture %}
+                                        {% endif %}
+                                    {% endfor %}
+                                    {% if matches.size > 0 %}
+                                        {% capture written %}{{ written }}.{% endcapture %}
+                                        <li>
+                                            {% include post-small.html %}
+                                        </li>
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}{%endstrip%}
+                        </ul>
+                    </div>
+                {% endif %}
+                <div class="tab-pane active" id="recentPosts">
+                    <ul class="simple-post-list list-unstyled">
+                        {% for post in site.posts limit:5 %}
+                            <li>
+                                {% include post-small.html %}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <hr />
+        {% include twitter.html %}
+    </aside>
+</div>
+
