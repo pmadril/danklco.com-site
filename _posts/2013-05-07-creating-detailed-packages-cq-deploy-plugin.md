@@ -13,7 +13,7 @@ Sometimes you may want to create a package with more descriptive information tha
 
 In order to do this, first install the package into CQ and update it as you desire.
 
-![Updating a Package in CQ 5.4][2]  
+<img src="/images/posts/2013-05-07-creating-detailed-packages-cq-deploy-plugin/update-package.png" alt="Updating a Package in CQ 5.4" class="img-responsive" />
 *Updating a package in CQ 5.4*
 
 Once you have completed your updates, select Rewrap to update the package configuration and then download the package.
@@ -78,5 +78,3 @@ Finally, add the path variable into your cq-deploy-plugin configuration and conf
 In the example above I used variables from the project configuration, since they just so happened to work, but this will depend on where you want the package to be. &nbsp;Remember that the path must correspond to the configuration values for the name and group within the properties.xml and .content.xml. &nbsp;The path for the package will be: {PACKAGE\_GROUP}/{PACKAGE\_NAME}-{PACKAGE_VERSION}.zip
 
 Once you have updated the path in your configuration, you will be able to install your package automatically using the CQ Deploy Plugin and see the updated metadata.
-
- [2]: /images/posts/2013-05-07-creating-detailed-packages-cq-deploy-plugin/update-package.png "Updating a Package in CQ 5.4"  

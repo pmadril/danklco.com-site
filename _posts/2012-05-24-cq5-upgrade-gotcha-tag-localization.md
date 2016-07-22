@@ -11,8 +11,8 @@ In CQ 5.4, Adobe added the ability to translate tags through the Tag Manager.&nb
 
 After performing the upgrade and importing the existing tags, you may find there are no languages available to translate the tags.&nbsp; The Localization section will be visible, however no languages are available.
 
-![Tag Language Error Screenshot][1]
+<img src="/images/posts/2012-05-24-cq5-upgrade-gotcha-tag-localization/Tag_Language_Error.png" alt="Tag Language Error Screenshot" class="img-responsive" />
 
 Fortunately, the fix for this issue is easy.&nbsp; Update the node at /etc/tags to have a repeating String attribute called languages with the languages in which you wish to localize the tags.&nbsp; More information can be found on Adobe's documentation website:
 
- [1]: /images/posts/2012-05-24-cq5-upgrade-gotcha-tag-localization/Tag_Language_Error.png "Tag Language Error Screenshot"  
+ [1]: 

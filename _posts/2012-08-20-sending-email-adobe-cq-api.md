@@ -15,7 +15,7 @@ First, though, what are the benefits of the Adobe CQ Email API?&nbsp; The Adobe 
 
 The first step to sending emails through Adobe CQ is to configure the Day CQ Mail Service.&nbsp; To do this, log into to the OSGi Console at {server}:{port}/system/console/configMgr and look for a service called Day CQ Mail Service.&nbsp;Select the service and you should see a screen like the below:
 
-![Configuring the Day CQ Mail Service][1]
+<img src="/images/posts/2012-08-20-sending-email-adobe-cq-api/configure-day-cq-mail-service.png" alt="Configuring the Day CQ Mail Service" class="img-responsive" />
 
 Enter [all of the relevant information][2] for your current SMTP provider.&nbsp; If you don't have or can't easily get SMTP set up within your organization, a Gmail account works for testing.
 
@@ -54,7 +54,7 @@ This component will render out a simple form for the user to submit their contac
 
 In the dialog for the component, create two fields,&nbsp; the first being a pathfield for the author to select the email template to use for the contact form and the second being a multifield of email address for the recipients of the email.
 
-![Email Component Dialog][4]
+<img src="/images/posts/2012-08-20-sending-email-adobe-cq-api/email-sample-dialog.png" alt="Email Component Dialog" class="img-responsive" />
 
 ### Creating the Email Template
 
@@ -142,10 +142,8 @@ Once you create the servlet, you should be able to send emails from your Contact
 
 Hopefully, you can now appreciate how easy and powerful the Adobe CQ Email API is and how it can be useful on your next project.
 
- [1]: /images/posts/2012-08-20-sending-email-adobe-cq-api/configure-day-cq-mail-service.png "Configuring the Day CQ Mail Service"
  [2]: http://wem.help.adobe.com/enterprise/en_US/10-0/wem/administering/notification.html#Configuring%20the%20Mail%20Service "Configuring the Day CQ Mail Service"
  [3]: http://dev.day.com/docs/en/cq/current/developing/components.html "Developing Components Intro"
- [4]: /images/posts/2012-08-20-sending-email-adobe-cq-api/email-sample-dialog.png "Email Component Dialog"
  [5]: http://dev.day.com/docs/en/cq/current/javadoc/com/day/cq/mailer/MessageGatewayService.html "Adobe CQ Message Gateway Service JavaDoc"
  [6]: http://dev.day.com/docs/en/cq/current/javadoc/com/day/cq/commons/mail/MailTemplate.html "Adobe CQ Mail Template JavaDoc"
  [7]: http://commons.apache.org/lang/api-2.4/org/apache/commons/lang/text/StrLookup.html "Apache Commons StrLookup JavaDoc"

@@ -22,12 +22,12 @@ Include a Paragraph System into the page's component JSP.  You can use any node 
 
 To add a Column Control to the Paragraph System, you will first need to update the design.  Select design mode on the sidekick.
 
-![Selecting Design Mode][1]  
+<img src="/images/posts/2012-02-07-creating-a-column-control-in-adobe-cq/selecting-design.png" alt="Selecting Design Mode" class="img-responsive"/>
 *Selecting Design Mode*
 
 Design mode allows you to configure the Paragraph System for all pages with the same template.  Once the page has reloaded, select Edit next to 'Design of {NODE}'
 
-![Selecting Column Control Component][2]  
+<img src="/images/posts/2012-02-07-creating-a-column-control-in-adobe-cq/selecting-column-control.png" alt="Selecting Column Control Component" class="img-responsive" />
 *Selecting Column Control Component*
 
 Look down through the list of available components and expand Columns.  Select Column Control and then press OK to save your design changes.
@@ -36,7 +36,7 @@ Look down through the list of available components and expand Columns.  Select C
 
 Switch back to edit mode by expanding the sidekick.  In your new Paragraph System and select New' then select Column Control from the available components.
 
-![Insert a Column Control][3]  
+<img src="/images/posts/2012-02-07-creating-a-column-control-in-adobe-cq/insert-column-control.png" alt="Insert a Column Control" class="img-responsive" />
 *Inserting a Column Control*
 
 Once the page reloads, you should see your new Column Control on the page.  Select the edit design button on the sidekick to configure the column.  Now you should see two entries in design mode.  Select edit next to 'Design of colctrl' to edit the design of the column control.
@@ -51,7 +51,7 @@ The format for each fields are as follows:
 
 \[Number of Columns\]  %2B ';' %2B \[Column Class\] %2B 't' %2B \[Format Label\]
 
-![Editing the Column Control Design][4]  
+<img src="/images/posts/2012-02-07-creating-a-column-control-in-adobe-cq/edting-column-control.png" alt="Editing the Column Control Design" class="img-responsive" />
 *Editing the Column Control Design*
 
 Enter the formats you want to have for your Column Control, remembering that each CSS class should be unique.  Select OK to save your changed and expand the sidekick to switch back to edit mode.
@@ -60,7 +60,7 @@ Enter the formats you want to have for your Column Control, remembering that eac
 
 One you have configured the column control, you can edit it.  First, select Edit next to 'Start of 1 Columns'.  This will bring up a dialog for you to select the Column Layout to use.  Once you click OK, the appropriate number of drag and drop fields will appear in the Column Control.
 
-![Adding Components into the Column Control][5]  
+<img src="/images/posts/2012-02-07-creating-a-column-control-in-adobe-cq/adding-components-e1328584901873.png" alt="Adding Components into the Column Control" class="img-responsive" />
 *Adding Components into the Column Control*
 
 Right click inside each column's drag and drop field and select 'New''  to add components into the column.
@@ -76,10 +76,5 @@ For more information about using CSS to style columns read the following guides:
 * [http://matthewjamestaylor.com/blog/equal-height-columns-cross-browser-css-no-hacks][6]
 * [http://www.search-this.com/2007/02/26/how-to-make-equal-columns-in-css/][7]
 
- [1]: /images/posts/2012-02-07-creating-a-column-control-in-adobe-cq/selecting-design.png
- [2]: /images/posts/2012-02-07-creating-a-column-control-in-adobe-cq/selecting-column-control.png
- [3]: /images/posts/2012-02-07-creating-a-column-control-in-adobe-cq/insert-column-control.png
- [4]: /images/posts/2012-02-07-creating-a-column-control-in-adobe-cq/edting-column-control.png
- [5]: /images/posts/2012-02-07-creating-a-column-control-in-adobe-cq/adding-components-e1328584901873.png
  [6]: http://matthewjamestaylor.com/blog/equal-height-columns-cross-browser-css-no-hacks
  [7]: http://www.search-this.com/2007/02/26/how-to-make-equal-columns-in-css/

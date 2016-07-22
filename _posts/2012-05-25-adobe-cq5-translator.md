@@ -13,8 +13,8 @@ The Adobe CQ5 Translator is a powerful tool for managing and updating translatio
 
 To use the CQ5 Translator access the URL http://{SERVER}:{PORT}/libs/cq/i18n/translator.html, replacing the server and port with the correct values for your environment.&nbsp; This will pull up the CQ5 Translator as shown below.
 
-![CQ5 Translator][1]  
-*The CQ5 Translator *
+<img src="/images/posts/2012-05-25-adobe-cq5-translator/CQ5_Translator.png" alt="CQ5 Translator" class="img-responsive" />
+*The CQ5 Translator*
 
 The CQ5 translator allows you to manage multiple dictionaries, or sets of localized keys.&nbsp; This allows you to separate out site or application level keys from system keys and keep the keys organized by function or use.&nbsp; To change your dictionary, select the dictionary from the Dictionaries list on the top of the CQ5 Translator.&nbsp; It is recommended to avoid updating the dictionaries found under /libs as doing so will complicate your upgrade process.
 
@@ -62,6 +62,5 @@ The CQ5 Translator will not automatically create language pages when you add a l
 
 Once you have completed these steps you should be able to add translations for the relevant language into the dictionary.
 
- [1]: /images/posts/2012-05-25-adobe-cq5-translator/CQ5_Translator.png "CQ5 Translator"
  [2]: #creating-a-language-page
  [3]: http://en.wikipedia.org/wiki/XLIFF "XLIFF Format Documentation"  
