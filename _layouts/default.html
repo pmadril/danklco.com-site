@@ -22,7 +22,7 @@
 			<meta property="og:url" content="{{ site.url }}{{page.url | remove: 'index.html' | replace: '.html', '' | replace: ' ', '%20' }}"/>
 			<link rel="canonical" href="{{ site.url }}{{page.url | remove: 'index.html' | replace: '.html', '' | replace: ' ', '%20' }}" />
 		{% endif %}
-{% bundle %}[ /css/bootstrap.min.css, /css/bootstrap-theme.min.css, 'http://fonts.googleapis.com/css?family=Lato', /css/custom.css ]{% endbundle %}
+{% bundle %}[ /css/bootstrap.min.css, /css/bootstrap-theme.min.css, 'http://fonts.googleapis.com/css?family=Lato', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css', /css/custom.css ]{% endbundle %}
 		<link rel="shortcut icon" href="/favicon.ico" />
 		<link rel="alternate" type="application/rss+xml" href="/feed.xml" title="DanKlco.com RSS Feed" />
 		<link rel="author" href="https://plus.google.com/109214091683324297793"/>
@@ -58,10 +58,26 @@
 				<br/>
 				<hr/>
 				<br/>
-				<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/us/deed.en_US">
+				<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/us/deed.en_US" target="_blank" >
 					<img alt="Creative Commons License" width="88" height="31" src="/images/cc-license.png" />
-				</a><br />
-				This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/us/deed.en_US">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 United States License</a>.
+				</a>
+                <span class="pull-right">
+                    <a href="http://www.linkedin.com/in/danielklco/" target="_blank" title="Find me on LinkedIn!" class="btn btn-default" id="Linkedin">
+                        <i class="fa fa-linkedin" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://twitter.com/KlcoDanR" title="Find me on Twitter!" target="_blank" class="btn btn-default" id="Twitter">
+                        <i class="fa fa-twitter" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://plus.google.com/109214091683324297793?rel=author" target="_blank" title="Find me on Google Plus!" class="btn btn-default" id="Google-plus">
+                        <i class="fa fa-google-plus" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://github.com/klcodanr" title="Find me on GitHub!" target="_blank" class="btn btn-default" id="Github">
+                        <i class="fa fa-github" aria-hidden="true"></i>
+                    </a>
+                    <a href="/feed.xml" title="Follow my RSS Feed" target="_blank" class="btn btn-default" id="rss">
+                        <i class="fa fa-rss" aria-hidden="true"></i>
+                    </a>
+                </span>
 			</footer>
 		</div>
 {% bundle %}[//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js, /js/bootstrap.min.js, /js/custom.js] {% endbundle %}
