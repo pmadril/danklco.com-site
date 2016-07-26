@@ -225,7 +225,7 @@ img.certification {
 }
 
 .pin .hover-show {
-    padding: 100px 10px;
+    padding: 50px 10px;
     color: white;
     margin-top: 0;
     background: rgba(0,0,0,.7);
@@ -233,7 +233,6 @@ img.certification {
 }
 
 .pin .hover-show:hover {
-    padding: 100px 10px;
     color:white;
     margin-top: 0;
     background:rgba(0,0,0,.9);
