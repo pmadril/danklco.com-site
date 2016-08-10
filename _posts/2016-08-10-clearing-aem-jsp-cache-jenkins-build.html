@@ -7,19 +7,21 @@ tags:
   - 'Apache Felix'
   - Jenkins
   - 'Continuous Integration'
-published: false
+original: http://blogs.perficient.com/adobe/2016/08/10/clearing-aems-jsp-cache-in-your-jenkins-build/
 summary: 'How to clear AEM''s Compiled JSP cache in your Continuous Integration build'
 thumbnail: /images/posts/2016-08-10-clearing-aem-jsp-cache-jenkins-build/Build-Config-Cache.png
 ---
 
-<p>AEM really likes caching you compiled JSPs. This can be a problem as you are developing code as, especially when working on dependency. Every so often you may forget to include a dependency in a bundle or include the wrong version. Because of AEM's JSP caching however, even after fixing your dependency you may see something like this:</p>
-<p>&nbsp;<img class="img-responsive center-block" src="/images/posts/2016-08-10-clearing-aem-jsp-cache-jenkins-build/Resolves-Package.png" alt="AEM Failing to Resolve Packages" /><small>Image Credit: <a href="http://stackoverflow.com/users/654203/anthony" target="_blank" rel="nofollow">anthony</a> from <a href="http://stackoverflow.com/questions/31395974/how-to-import-a-class-from-third-party-jar-file-in-an-osgi-component" target="_blank" rel="nofollow">How to import a class from third party jar file in an OSGi component</a></small></p>
-<p>&nbsp;As a developer, this is annoying, but if this same problem occurs on an integration or other environment, it causes significantly more extra work as the team will need to determine what is the problem and what caused it while having to potentially review many commits by different developers.</p>
+<p>AEM really likes caching you compiled JSPs. This can be a problem as you are developing code, especially when working on dependencies. Every so often you may forget to include a dependency in a bundle or include the wrong version. Because of AEM's JSP caching, even after fixing your dependency, you may see something like this:</p>
+<p class="text-center"><img class="img-responsive center-block" src="/images/posts/2016-08-10-clearing-aem-jsp-cache-jenkins-build/Resolves-Package.png" alt="AEM Failing to Resolve Packages" /><small>Image Credit: <a href="http://stackoverflow.com/users/654203/anthony" target="_blank" rel="nofollow">anthony</a> from <a href="http://stackoverflow.com/questions/31395974/how-to-import-a-class-from-third-party-jar-file-in-an-osgi-component" target="_blank" rel="nofollow">How to import a class from third party jar file in an OSGi component</a></small></p>
+<p>As a developer, this is annoying, but if this same problem occurs on an integration or other environment, it causes significantly more extra work as the team will need to determine what is the problem and what caused it while having to potentially review many commits by different developers.</p>
+<h3>How to Clear AEM's JSP Cache</h3>
 <p>To keep this from happening, you can automatically clear the JSP cache in AEM as part of your build. Apache Sling offers a simple console to do this at&nbsp;<a href="http://localhost:4502/system/console/slingjsp">http://localhost:4502/system/console/slingjsp</a>&nbsp;and you can easily invoke it with the following cURL command:</p>
 <pre><code>curl -u admin:admin 'http://localhost:4502/system/console/slingjsp' -X POST -v</code></pre>
-<p>To make this happen, add this as an additional build step in your build system. Given, this Jenkins build example:</p>
+<h3>Integration JSP Cache Clearing to the Build</h3>
+<p>To make this happen, add this as an additional <em>Execute Shell</em> build step in your build configuration. Given, this Jenkins build example:</p>
 <p><img class="img-responsive center-block" src="/images/posts/2016-08-10-clearing-aem-jsp-cache-jenkins-build/Build-Config.png" alt="Jenkins Build Config" /></p>
-<p>Your updated configuration would look like:</p>
+<p>Your updated configuration should look like:</p>
 <p><img class="img-responsive center-block" src="/images/posts/2016-08-10-clearing-aem-jsp-cache-jenkins-build/Build-Config-Cache.png" alt="Build Configuration with JSP Cache Clear" /></p>
 <p>After adding this to your build you should see something like this:</p>
 <pre><code>[INFO] ------------------------------------------------------------------------
@@ -57,4 +59,4 @@ thumbnail: /images/posts/2016-08-10-clearing-aem-jsp-cache-jenkins-build/Build-C
 
 * Closing connection #0
 Finished: SUCCESS</code></pre>
-<p>Hopefully,&nbsp;this helps anyone else running into problems with JSP caching in AEM. If you have any questions, leave a comment below!</p>
+<p>Hopefully, this helps anyone else running into problems with JSP caching in AEM. If you have any questions, leave a comment below!</p>
