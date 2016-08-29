@@ -16,7 +16,7 @@ layout: default
 				<div class="col-md-10">
 					<h3 property="headline">{{ page.title }}</h3>
 					<em>
-						<span class="glyphicon glyphicon-user" aria-hidden="true"></span> By <span class="author" property="author" typeOf="Person">{{ site.author }}</span>&nbsp;on&nbsp;<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> <time datetime='{{page.date | date: "%Y-%m-%d"}}'><span property="datePublished">{{page.date | date: "%B %d, %Y"}}</span></time>
+                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span> By <span class="hide" property="publisher" typeOf="Organization"><span property="name">{{ site.author }}</span><img property="logo" src="http://www.danklco.com/images/me.png" /></span> <span class="author" property="author" typeOf="Person"><span property="name">{{ site.author }}</span></span>&nbsp;on&nbsp;<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> <time datetime='{{page.date | date: "%Y-%m-%d"}}'><span class="hide" property="dateModified">{{page.date | date_to_xmlschema }}</span><span property="datePublished">{{page.date | date: "%B %d, %Y"}}</span></time>
 					</em>
 					{% if page.original %}
                         {% unless page.original contains 'labs.6dglobal.com' or page.original contains 'labs.sixdimensions.com' %}

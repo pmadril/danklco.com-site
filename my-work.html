@@ -22,9 +22,19 @@ tags:
         <div class="col-md-4 col-sm-6">
             <div class="pin client" id="{{ id }}" data-image="{{engagement.image}}" data-image-width="{{engagement.image-width}}">
                 <div class="img" style="background-image:url('{{engagement.image}}')">
-                    <h3 class="hover-show">
-                        {{engagement.client}} &mdash; {{engagement.project}}
-                    </h3>
+                    <div class="hover-show">
+                        <h3>
+                            {{engagement.client}} &mdash; {{engagement.project}}
+                        </h3>
+                        <div class="content">
+                            {% capture endDate %}{{ engagement.end-date | date: "%m / %Y" }}{% endcapture %}
+                            {% if endDate == '12 / 3000' %}{% assign endDate = 'Present' %}{% endif %}
+                            <p>
+                                {{ engagement.start-date | date: "%m / %Y" }} - {{ endDate }}
+                            </p>
+                            <p><em>{{ engagement.role }}</em></p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

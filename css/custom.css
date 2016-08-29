@@ -228,14 +228,23 @@ img.certification {
     padding: 50px 10px;
     color: white;
     margin-top: 0;
-    background: rgba(0,0,0,.7);
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.4));
     height: 250px;
 }
 
-.pin .hover-show:hover {
+.pin .hover-show small {
+    color: white;
+}
+
+.pin .hover-show * {
+    text-shadow: 1px 1px 1px #1a1a1a;
+    color:white;
+}
+
+.pin:hover .hover-show {
     color:white;
     margin-top: 0;
-    background:rgba(0,0,0,.9);
+    background:rgba(0,0,0,.7);
     height: default;
 }
 
