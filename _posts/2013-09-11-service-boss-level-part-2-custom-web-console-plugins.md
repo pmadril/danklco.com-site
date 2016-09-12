@@ -7,7 +7,7 @@ tags: [Adobe CQ, Apache Felix, Apache Sling, OSGi]
 thumbnail: /images/posts/2013-09-11-service-boss-level-part-2-custom-web-console-plugins/web-console-plugin.png
 ---
 
-You've got your awesome service. &nbsp;It performs all sorts of complex tasks and maybe even uses a [Sling Service Factory](/blog/dan-klco/2013-08-27/service-boss-level-service-factories) to provide multiple configurations. &nbsp;But how do you know what it's doing? &nbsp;Well, of course you need to have appropriate logging, but another tool you can leverage is the Apache Felix Web Console, by creating a custom Web Console Plugin. &nbsp;Your plugin can be accessed through Adobe CQ and Apache Sling's&nbsp;Web Console and can display any information you can render in HTML.
+You've got your awesome service. &nbsp;It performs all sorts of complex tasks and maybe even uses a [Sling Service Factory](/posts/2013/08/27/service-boss-level-service-factories/) to provide multiple configurations. &nbsp;But how do you know what it's doing? &nbsp;Well, of course you need to have appropriate logging, but another tool you can leverage is the Apache Felix Web Console, by creating a custom Web Console Plugin. &nbsp;Your plugin can be accessed through Adobe CQ and Apache Sling's&nbsp;Web Console and can display any information you can render in HTML.
 
 Apache Felix provides a really simple class you can extend for creating custom Web Console screens, the [AbstractWebConsolePlugin][2]. &nbsp;This class will automatically leverage the look and feel of the Apache Felix console and makes it easy for you to create your own console screen. &nbsp;There are three main methods to override:
 
