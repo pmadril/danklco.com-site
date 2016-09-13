@@ -13,7 +13,7 @@
         {% if post.thumbnail %}
             {% assign thumb = post.thumbnail %}
         {% else %}
-            {% assign thumb = '//placehold.it/300x300?text={{post.title}}' %}
+            {% capture thumb %}//placehold.it/300x300?text={{post.title}}{% endcapture %}
         {% endif %}
         <div itemprop="image" itemscope itemtype="https://schema.org/ImageObject" class="img" style="background-image:url('{{thumb}}')">
             <meta itemprop="url" content="{{site.url}}{{ post.thumbnail }}">
