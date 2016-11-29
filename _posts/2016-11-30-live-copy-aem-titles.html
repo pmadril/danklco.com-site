@@ -1,7 +1,14 @@
 ---
 layout: post
 title: 'Updating Page Titles with AEM Live Copy'
-tags: []
 published: false
 ---
 
+<p>In my <a href="http://blogs.perficient.com/adobe/2016/02/23/web-maintenance-a-chore-aem-live-copy-to-the-rescue/" target="_blank">previous post</a>&nbsp;about <a href="https://docs.adobe.com/docs/en/aem/6-2/administer/sites/msm.html" target="_blank">AEM LiveCopy</a>, I showed how this powerful tool could be used to effectively manage multiple variant-based sites such as dealer or branch sites. Recently, I found another trick which can help make LiveCopy even more powerful and easy to use.&nbsp;</p>
+<h3>Excluding Properties in AEM LiveCopy</h3>
+<p>By default, AEM excludes certain properties from the live copy update and initial rollout. Which properties are to be excluded and other configurations are stored in OSGi configurations, allowing you to easily update them on your AEM instance. During a recent implementation, I&nbsp;encountered an issue where the client wanted to be able to manage Page Titles (jcr<code>:title</code>) and roll out page title updates from one master language copy to the regional websites. This posed an issue, by default, AEM excludes all jcr<code>:</code>&nbsp;properties, including jcr<code>:title</code> from LiveCopy updates.</p>
+<h3>LiveCopy Titles</h3>
+<p>The solution to this problem was to create an OSGi configuration with the name&nbsp;com.day.cq.wcm.msm.impl.actions.ContentUpdateActionFactory.config in our <a href="https://docs.adobe.com/docs/en/cq/5-6-1/deploying/configuring_osgi.html#OSGi Configuration in the Repository" target="_blank">application's configuration folder</a>. This configuration is based on the default configuration, but instructs AEM to NOT ignore the jcr<code>:title</code> and cq<code>:tags</code> properties by added them into a regular expression used by AEM to determine which properties should be excluded in the <code>cq.wcm.msm.action.</code>excludedprops property:</p>
+<pre><code># Custom configuration to enable the live copying of jcr:title and cq:tags<br />cq.wcm.msm.action.excludednodetypes=["cq:LiveSyncConfig","cq:BlueprintSyncConfig","cq:LiveSyncAction","cq:CatalogSyncConfig","cq:CatalogSyncAction","cq:meta"]<br />cq.wcm.msm.action.excludedparagraphitems=["cq:propertyInheritanceCancelled"]<br />cq.wcm.msm.action.ignoredMixin=[".*"]<br />cq.wcm.msm.action.excludedprops=["jcr:(<em>?!(title)$</em>).*","sling:(?!(resourceType|resourceSuperType)$).*","cq:(?!(designPath|template|lastTranslationUpdate|targetEngine|<em>tags</em>)$).*","publishCampaignId"]</code></pre>
+<p>The&nbsp;<code>cq.wcm.msm.action.</code>excludedprops property is a list of regular expressions, with each being checked against the property name to determine whether or not the property should be updated.</p>
+<p>&nbsp;</p>
