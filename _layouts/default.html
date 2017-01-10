@@ -22,7 +22,12 @@
 			<meta property="og:url" content="{{ site.url }}{{page.url | remove: 'index.html' | replace: '.html', '' | replace: ' ', '%20' }}"/>
 			<link rel="canonical" href="{{ site.url }}{{page.url | remove: 'index.html' | replace: '.html', '' | replace: ' ', '%20' }}" />
 		{% endif %}
-[ /css/bootstrap.min.css, /css/bootstrap-theme.min.css, 'http://fonts.googleapis.com/css?family=Lato', /css/font-awesome.min.css, /css/custom.css ]
+
+                <link rel="stylesheet" type="text/css" media="all" defer="defer" href="/css/bootstrap.min.css"></link>
+                <link rel="stylesheet" type="text/css" media="all" defer="defer" href="/css/bootstrap-theme.min.css"></link>
+                <link rel="stylesheet" type="text/css" media="all" defer="defer" href="http://fonts.googleapis.com/css?family=Lato"></link>
+                <link rel="stylesheet" type="text/css" media="all" defer="defer" href="/css/font-awesome.min.css"></link>
+                <link rel="stylesheet" type="text/css" media="all" defer="defer" href="/css/custom.css"></link>
 		<link rel="shortcut icon" href="/favicon.ico" />
 		<link rel="alternate" type="application/rss+xml" href="/feed.xml" title="DanKlco.com RSS Feed" />
 		<link rel="author" href="https://plus.google.com/109214091683324297793"/>
@@ -80,7 +85,10 @@
                 </span>
 			</footer>
 		</div>
-[//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js, /js/bootstrap.min.js, /js/custom.js] 
+
+<script type="text/javascript;version=1.8"  src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"/>
+<script type="text/javascript;version=1.8"  src="/js/bootstrap.min.js"/>
+<script type="text/javascript;version=1.8"  src="/js/custom.js"/>
 		<script>
 			var track = true;
 			try {
