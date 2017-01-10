@@ -26,7 +26,7 @@ tags:
 </section>
 <section>
 <h3 id="Project-Experience">Project Experience</h3>
-{% sorted_for engagement in site.engagements reversed sort_by:url %}
+<br />
 <article class="project" data-client="{{ engagement.client | replace: ' ', '-' }}" data-project="{{ engagement.project | replace: ' ', '-' }}">{% capture endDate %}{{ engagement.end-date | date: "%m / %Y" }}{% endcapture %} {% if endDate == '12 / 3000' %} {% assign endDate = 'Present' %} {% endif %}<header>
 <h4>{{ engagement.client }} &mdash; {{ engagement.project }} <span class="pull-right">{{ engagement.start-date | date: "%m / %Y" }} - {{ endDate }}</span></h4>
 </header>
@@ -39,7 +39,7 @@ tags:
 <li>{{ tool }}{% unless forloop.last %},{% endunless %}</li>
 {% endfor %}</ul>
 {% endif %}</article>
-{% endsorted_for %}</section>
+</section>
 <section>
 <h3 id="Skills-and-Capabilities">Skills and Capabilities</h3>
 <h4>Programming Languages / Libraries:</h4>
