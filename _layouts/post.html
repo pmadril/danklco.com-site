@@ -1,8 +1,8 @@
 ---
 layout: default
 title: default
-tags: []
 ---
+
 
 
 <div class="row">
@@ -111,7 +111,7 @@ tags: []
                 {% if page.path contains '_posts' %}
                     <div class="tab-pane" id="relatedPosts">
                         <ul class="simple-post-list list-unstyled">
-                            {% assign written = '' %}
+                            {% capture cache %}{% assign written = '' %}
                             {% for post in site.posts %}
                                 {% if post.url != page.url and written.size < 5 %}
                                     {% capture tags %}{{page.tags | join: ','}}{% endcapture %}
@@ -128,7 +128,7 @@ tags: []
                                         </li>
                                     {% endif %}
                                 {% endif %}
-                            {% endfor %}
+                            {% endfor %}{% endcapture %}{% assign cache = nil %}
                         </ul>
                     </div>
                 {% endif %}
