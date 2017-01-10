@@ -2,7 +2,7 @@
 layout: page
 title: 'Curriculum Vitae'
 summary: "I am an experienced Adobe Digital Marketing Technical Lead, Solution Architect, Consultant and Advisor.\n<br/><br/>\nThrough my career, I have become viewed as a valued thought leader in the industry, with solid skills in leading teams to implement successful digital marketing programs in the Adobe ecosystem.\n<br/><br/>\nI am also a PMC Member of the Apache Sling project, which is the basis for Adobe's Experience Manager product, this allows me unique insight into the AEM platform."
-tags: 
+tags:
   - 'Adobe Experience Manager'
   - 'Adobe Certified Expert'
   - 'AEM Architect'
@@ -11,10 +11,10 @@ tags:
 
 <h2>{{page.title}}</h2>
 <p>{{ page.summary }}</p>
-{% include ace.html %}
+<p>{% include ace.html %}</p>
 <section>
 <h3 id="Work-Experience">Work Experience</h3>
-{% sorted_for job in site.jobs reversed sort_by:url %}
+<br />
 <article class="job"><header>{% capture endDate %}{{ job.end-date | date: "%Y" }}{% endcapture %} {% if endDate == '3000' %} {% assign endDate = 'Present' %} {% endif %}
 <h4>{{job.company}} &mdash; {{job.location}} <span class="pull-right">{{ job.start-date | date: "%Y" }} - {{ endDate }}</span></h4>
 </header>
